@@ -240,7 +240,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 1 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 1 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -258,7 +260,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 2 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 2 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -276,7 +280,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 3 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 3 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -294,7 +300,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 4 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 4 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -312,7 +320,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 5 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 5 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -339,7 +349,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 6 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 6 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -357,7 +369,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 7 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 7 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -375,7 +389,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 8 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 8 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -393,7 +409,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 9 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 9 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -411,7 +429,9 @@
           <tr>
             <td>
               <div class="shortcut-wrapper">
-                <span class="shortcut-content"> Control + 10 </span>
+                <span class="shortcut-content"> ${capitalizeFirstLetter(
+                  mainKeyText
+                )} + 10 </span>
               </div>
             </td>
             <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
@@ -429,9 +449,9 @@
         </table>
 
         <div class="footer" class="center">
-          <button id="dialog2-ok" class="primary">儲存設定 ( control + s )</button>
-          <button id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
-          <button id="dialog2-reset" class="success">恢復預設值 ( control + e )</button>
+          <button id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
+          <button id="dialog2-cancel" class="secondary">取消 ( ${mainKeyText} ) </button>
+          <button id="dialog2-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
         </div>
 
       </div>
