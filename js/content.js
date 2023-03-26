@@ -146,7 +146,7 @@
       .dark .dialog{
           background-color: rgba(68,70,84,1);
       }
-      .dark .dialog h3{
+      .dark .dialog #questionPreviewArea{
           color: #d1d5db !important;
       }
       .dark .dialog textarea {
