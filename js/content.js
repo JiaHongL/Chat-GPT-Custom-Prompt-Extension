@@ -816,14 +816,14 @@
     },
     {
       text: "整理重點",
-      prefix: "請幫我整理底下的文章重點",
-      suffix: "\n使用條列方式，列出10點，最後給出一個總結，使用繁體中文回答。",
+      prefix: "請幫我整理底下的文章重點，使用條列方式，列出10點，最後給出一個總結\n\n",
+      suffix: "\n\n，使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
     },
     {
       text: "研究報告",
-      prefix: "寫出一篇有關\n",
+      prefix: "寫出一篇有關",
       suffix:
         "的300字研究報告，報告中需引述最新的研究，並引用專家觀點，使用繁體中文回答。",
         buttonElement: null,
@@ -832,14 +832,14 @@
     {
       text: "蒐集資料",
       prefix: "給我10篇，有關",
-      suffix: "的文章，需列出撰寫日期，使用繁體中文回答。",
+      suffix: "的文章，需列出撰寫日期、網址、推薦原因，使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
     },
     {
       text: "問題建議",
       prefix: "我遇到了以下敘述的問題\n",
-      suffix: "\n，請幫我想出解決方式，或是替代方案。",
+      suffix: "\n，請幫我想出解決方式，或是替代方案，使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
     },
