@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT 提問輔助工具",
+  "description": "此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本以及方便的快捷鍵功能。",
+  "author": "Joe",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["js/content.js"]
+    }
+  ]
+}
