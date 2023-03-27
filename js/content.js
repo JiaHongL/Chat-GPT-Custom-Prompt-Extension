@@ -1289,6 +1289,7 @@
     // enter : send
     if (
       !isComposing &&
+      !event.shiftKey &&
       questionDialogTextarea.value !== "" &&
       document.activeElement === questionDialogTextarea &&
       event.key === "Enter"
