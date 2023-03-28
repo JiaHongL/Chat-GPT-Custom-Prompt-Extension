@@ -19,20 +19,27 @@
 
 
 ### 10 組客製化模板（可根據使用習慣調整）
-![](https://i.imgur.com/AIIc9EA.png)
+![](https://i.imgur.com/uZEbfKC.png)
 
-![](https://i.imgur.com/VPkD9lz.png)
+![](https://i.imgur.com/OkvR47H.png)
 
 
 ### 多國語系翻譯示範
-![](https://i.imgur.com/yjcKSPh.png)
+![](https://i.imgur.com/K91ySRt.png)
 
-![](https://i.imgur.com/cVJ83Dz.png)
+![](https://i.imgur.com/ITDQSS7.png)
+
 
 ### 程式開發建議示範
 ![](https://i.imgur.com/QfD6WnJ.png)
 
 ![](https://i.imgur.com/0dq3vKb.png)
+
+
+## 重點整理示範
+![](https://i.imgur.com/LXEtdv5.png)
+
+![](https://i.imgur.com/jwrMvPS.png)
 
 
 ### 資料搜集示範
