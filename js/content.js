@@ -455,7 +455,7 @@
 
         <div class="footer" class="center">
           <button id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
-          <button id="dialog2-cancel" class="secondary">取消 ( ${mainKeyText} ) </button>
+          <button id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
           <button id="dialog2-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
         </div>
 
