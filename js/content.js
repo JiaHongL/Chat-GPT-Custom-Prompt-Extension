@@ -39,6 +39,7 @@
       .dialog #questionPreviewArea {
         max-height:280px;
         overflow:auto;
+        font-size: 18px;
       }
 
       .question-textarea {
@@ -1142,7 +1143,9 @@
       event.key.toLocaleLowerCase() === "n"
     ) {
       event.preventDefault();
-      const newChatBtn = document.querySelector("nav").children[0];
+      
+      let newChatBtn = document.querySelector("nav").children[0];
+
       newChatBtn.click();
       findModeBtn();
       return;
@@ -1258,9 +1261,7 @@
     });
 
     const chatInput = document.querySelector("form").querySelector("textarea");
-    const sendButton = document.querySelector(
-      ".absolute.p-1.rounded-md.text-gray-500.right-1"
-    );
+    const sendButton = document.querySelector("form").querySelector(".absolute.p-1.rounded-md.text-gray-500.right-1");
 
     if (!chatInput) {
       alert("找不到 chatGPT 的 輸入框！");
