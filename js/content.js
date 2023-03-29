@@ -1144,7 +1144,7 @@
     ) {
       event.preventDefault();
       
-      let newChatBtn = document.querySelector("nav").children[0];
+      const newChatBtn = document.querySelector("nav").children[0];
 
       newChatBtn.click();
       findModeBtn();
