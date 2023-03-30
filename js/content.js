@@ -1247,11 +1247,6 @@
     modeBtn = null;
     let isGenerating = false;
 
-    // 過濾空訊息
-    if (!message) {
-      return;
-    }
-
     // 看看是不是正在對話，若有則先停止
     document.querySelectorAll("button").forEach((button) => {
       if (button.textContent === "Stop generating") {
@@ -1297,15 +1292,26 @@
   }
 
   questionDialogTextarea.addEventListener("keydown", function (event) {
+
+    // prevent submitting blank on enter
+    if(
+      event.key === "Enter" &&
+      !event.shiftKey &&
+      questionDialogTextarea.value.trim() === ''
+    ){
+      event.preventDefault();
+      return;
+    }
+
     // enter : send
     if (
       !isComposing &&
       !event.shiftKey &&
-      questionDialogTextarea.value !== "" &&
       document.activeElement === questionDialogTextarea &&
       event.key === "Enter"
     ) {
       sendQuestionForm();
+      return;
     }
 
     // esc : close
@@ -1315,7 +1321,9 @@
       event.key === "Escape"
     ) {
       questionDialog.style.display = "none";
+      return;
     }
+
   });
 
   questionDialogOkBtn.addEventListener("click", () => {
