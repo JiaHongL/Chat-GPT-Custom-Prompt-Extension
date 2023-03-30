@@ -1143,7 +1143,7 @@
       event.key.toLocaleLowerCase() === "n"
     ) {
       event.preventDefault();
-      
+
       const newChatBtn = document.querySelector("nav").children[0];
 
       newChatBtn.click();
@@ -1261,7 +1261,9 @@
     });
 
     const chatInput = document.querySelector("form").querySelector("textarea");
-    const sendButton = document.querySelector("form").querySelector(".absolute.p-1.rounded-md.text-gray-500.right-1");
+    const sendButton = document
+      .querySelector("form")
+      .querySelector(".absolute.p-1.rounded-md.text-gray-500.right-1");
 
     if (!chatInput) {
       alert("找不到 chatGPT 的 輸入框！");
@@ -1271,6 +1273,10 @@
     if (!sendButton) {
       alert("找不到 chatGPT 的 送出按鈕！");
       return;
+    }
+
+    if (sendButton.disabled) {
+      sendButton.disabled = false;
     }
 
     if (isGenerating) {
