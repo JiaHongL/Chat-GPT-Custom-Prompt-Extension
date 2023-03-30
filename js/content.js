@@ -857,7 +857,7 @@
         "，麻煩使用繁體中文回答，回答需包括以下內容：\n1. 登山難度及時間\n2. 交通資訊\n3. 景點氣候特性\n4. 提供 5 篇有關此地的分享文章，包括網址及撰寫日期",
       buttonElement: null,
       handleClickFn: null,
-    }
+    },
   ];
 
   // 初始化
@@ -1020,6 +1020,7 @@
 
     // mainKey + s : send message
     if (
+      questionDialogTextarea.value.trim() &&
       questionDialog.style.display === "flex" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "s"
@@ -1292,13 +1293,12 @@
   }
 
   questionDialogTextarea.addEventListener("keydown", function (event) {
-
     // prevent submitting blank on enter
-    if(
+    if (
       event.key === "Enter" &&
       !event.shiftKey &&
-      questionDialogTextarea.value.trim() === ''
-    ){
+      questionDialogTextarea.value.trim() === ""
+    ) {
       event.preventDefault();
       return;
     }
@@ -1323,10 +1323,12 @@
       questionDialog.style.display = "none";
       return;
     }
-
   });
 
   questionDialogOkBtn.addEventListener("click", () => {
+    if (questionDialogTextarea.value.trim() === "") {
+      return;
+    }
     questionDialog.style.display = "none";
     sendQuestionForm();
   });
