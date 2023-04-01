@@ -2,7 +2,6 @@
   "use strict";
 
   // 系統判別 && 主按鍵 && 按鍵文字
-
   const userAgent = navigator.userAgent;
 
   const isMac = userAgent.indexOf("Mac") !== -1;
@@ -64,14 +63,12 @@
           cursor: pointer;
           margin-right: 10px;
       }
-
       .footer {
           position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
       }
-
       .footer #dialog2-reset {
           position: absolute;
           right: 10px;
@@ -84,7 +81,6 @@
           background-color: #c3bda9;
           color: #fff;
       }
-
       button.success {
           background-color: #7f9a87;
           color: #fff;
@@ -196,7 +192,6 @@
       .dark .ellipsis {
           color: #d1d5db !important;
       }
-
       #dialog2 .my-table textarea{
           width: 100%;
           height: 85px;
@@ -206,30 +201,27 @@
           line-height: 1.5;
           color:black;
       }
-
       `;
 
   // 插入 style
-
   const styleEl = document.createElement("style");
   styleEl.innerHTML = styles;
   document.head.appendChild(styleEl);
-  // <h3><span id="prefix"></span> { $input } <span id="suffix"></span></h3>
+
   // 提問視窗 HTML
   const dialogHTML = `
-          <div id="dialog" class="dialog-wrapper" style="display;none">
-              <div class="dialog" style="max-width: 850px;">
-                  <div id="questionPreviewArea"></div>
-                  <textarea id="dialog-textarea" class="question-textarea" placeholder="請輸入問題 (輸入完成後，按下 Enter，即可送出)"></textarea>
-                  <div class="center">
-                      <button id="dialog-ok" class="primary">送出 ( ${mainKeyText} + s )</button>
-                      <button id="dialog-cancel" class="secondary">取消 ( esc )</button>
-                  </div>
+      <div id="dialog" class="dialog-wrapper" style="display;none">
+          <div class="dialog" style="max-width: 850px;">
+              <div id="questionPreviewArea"></div>
+              <textarea id="dialog-textarea" class="question-textarea" placeholder="請輸入問題 (輸入完成後，按下 Enter，即可送出)"></textarea>
+              <div class="center">
+                  <button id="dialog-ok" class="primary">送出 ( ${mainKeyText} + s )</button>
+                  <button id="dialog-cancel" class="secondary">取消 ( esc )</button>
               </div>
           </div>
-      `;
+      </div>
+  `;
 
-  // <h3>設定模版</h3>
   // 設定模版的表單視窗 HTML
   const formDialogHTML = `
     <div id="dialog2" class="dialog-wrapper" style="display:none">
@@ -739,7 +731,6 @@
   `;
 
   // 插入 HTML 元素
-
   const dialogEl = document.createElement("div");
   dialogEl.innerHTML = dialogHTML;
   document.body.appendChild(dialogEl);
@@ -972,7 +963,7 @@
       return;
     }
 
-    // esc : 關閉 questionDialog
+    // esc : close questionDialog
     if (
       !isComposing &&
       questionDialog.style.display === "flex" &&
