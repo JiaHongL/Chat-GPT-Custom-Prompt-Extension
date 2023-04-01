@@ -784,14 +784,14 @@
     },
     {
       text: "英文解釋",
-      prefix: "解釋英文單字 [",
+      prefix: "你現在是一個英文教育專家，請解釋英文單字 [",
       suffix: "]，拼音、詞性，並給出 5 個中英文的範例。",
       buttonElement: null,
       handleClickFn: null,
     },
     {
       text: "多國語系翻譯",
-      prefix: "請幫我翻譯 [",
+      prefix: "你現在是一個翻譯專家，請幫我翻譯 [",
       suffix:
         "] 的繁體中文、簡體中文、英文、日文，\n並請使用表格顯示，表頭分別為 zh-tw、zh-cn、en、ja，\n不需要其他解釋或說明。",
       buttonElement: null,
@@ -799,7 +799,7 @@
     },
     {
       text: "程式問題",
-      prefix: "你現在是一個 Angular、Typescript、Javascript 專家，\n",
+      prefix: "你現在是一個 Angular、RxJs、Typescript、Javascript 專家，\n",
       suffix: "\n，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
@@ -814,7 +814,7 @@
     {
       text: "整理重點",
       prefix:
-        "請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
+        "你現在是個閱讀專家，請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
       suffix: "\n\n，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
@@ -828,9 +828,9 @@
       handleClickFn: null,
     },
     {
-      text: "蒐集資料",
-      prefix: "請提供 10 篇有關",
-      suffix: "的文章，需列出撰寫日期、網址、推薦原因，請使用繁體中文回答。",
+      text: "文字修飾",
+      prefix: "請幫我修飾以下敘述，\n",
+      suffix: "",
       buttonElement: null,
       handleClickFn: null,
     },
@@ -843,9 +843,9 @@
     },
     {
       text: "登山建議",
-      prefix: "請問您是登山專家嗎？我近期打算去爬",
+      prefix: "你現在是一個登山專家，我近期打算去爬",
       suffix:
-        "，麻煩使用繁體中文回答，回答需包括以下內容：\n1. 登山難度及時間\n2. 交通資訊\n3. 景點氣候特性\n4. 提供 5 篇有關此地的分享文章，包括網址及撰寫日期",
+        "，請使用繁體中文回答，回答需包括以下內容：\n1. 登山難度及時間\n2. 交通資訊\n3. 景點氣候特性\n4. 其他補充",
       buttonElement: null,
       handleClickFn: null,
     },
