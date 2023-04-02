@@ -1827,8 +1827,8 @@
       templateButtonTextList[7].textContent = dataList[8].text;
       templateButtonTextList[8].textContent = dataList[4].text;
       templateButtonTextList[9].textContent = dataList[9].text;
-      templateButtonTextList[10].textContent =quickReplyMessageList[0].quickReplyMessage;
-      templateButtonTextList[11].textContent = quickReplyMessageList[1].quickReplyMessage;
+      templateButtonTextList[10].textContent =quickReplyMessageList[0].text;
+      templateButtonTextList[11].textContent = quickReplyMessageList[1].text;
     }
   });
 
