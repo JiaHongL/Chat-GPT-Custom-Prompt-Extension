@@ -213,10 +213,10 @@
       <div id="dialog" class="dialog-wrapper" style="display;none">
           <div class="dialog" style="max-width: 850px;">
               <div id="questionPreviewArea"></div>
-              <textarea id="dialog-textarea" class="question-textarea" placeholder="請輸入問題 (輸入完成後，按下 Enter，即可送出)"></textarea>
+              <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="請輸入問題 (輸入完成後，按下 Enter，即可送出)"></textarea>
               <div class="center">
-                  <button id="dialog-ok" class="primary">送出 ( ${mainKeyText} + s )</button>
-                  <button id="dialog-cancel" class="secondary">取消 ( esc )</button>
+                  <button id="dialog-ok" class="primary" tabindex="2">送出 ( ${mainKeyText} + s )</button>
+                  <button id="dialog-cancel" class="secondary" tabindex="3">取消 ( esc )</button>
               </div>
           </div>
       </div>
@@ -235,6 +235,7 @@
             <th>前段文字</th>
             <th>後段文字</th>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -243,18 +244,19 @@
                 )} + 1 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="2" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="3" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -263,18 +265,19 @@
                 )} + 2 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="5" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="6" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -283,18 +286,19 @@
                 )} + 3 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="8" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="9" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -303,18 +307,19 @@
                 )} + 4 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="11" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="12" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -323,18 +328,19 @@
                 )} + 5 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="14" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="15" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
         </table>
 
         <table id="table-form2" class="my-table" style="width:100%">
@@ -344,6 +350,7 @@
             <th>前段文字</th>
             <th>後段文字</th>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -352,18 +359,19 @@
                 )} + 6 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="2" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="3" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -372,18 +380,19 @@
                 )} + 7 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="5" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="6" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -392,18 +401,19 @@
                 )} + 8 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="8" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="9" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
@@ -412,44 +422,46 @@
                 )} + 9 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="11" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="12" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+
           <tr>
             <td>
               <div class="shortcut-wrapper">
                 <span class="shortcut-content"> ${capitalizeFirstLetter(
                   mainKeyText
-                )} + 10 </span>
+                )} + 0 </span>
               </div>
             </td>
-            <td><input class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="輸入框"></td>
             <td>
               <div class="center">
-                <textarea class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="14" class="prefixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="15" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
           </tr>
+          
         </table>
 
         <div class="footer" class="center">
-          <button id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
-          <button id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
-          <button id="dialog2-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
+          <button tabindex="16" id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
+          <button tabindex="17" id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
+          <button tabindex="18" id="dialog2-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
         </div>
 
       </div>
@@ -546,7 +558,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">開啟設定視窗1</div>
+          <div class="ellipsis">開啟設定視窗</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -717,7 +729,7 @@
           <div class="shortcut-wrapper">
             <span class="shortcut-content"> ${capitalizeFirstLetter(
               mainKeyText
-            )} + 10 </span>
+            )} + 0 </span>
           </div>
         </td>
         <td>
@@ -758,6 +770,8 @@
   const settingsDialogOkBtn = document.querySelector("#dialog2-ok");
   const settingsDialogCancelBtn = document.querySelector("#dialog2-cancel");
   const settingsDialogResetBtn = document.querySelector("#dialog2-reset");
+  const settingsTableForm = settingsDialog.querySelector("#table-form");
+  const settingsTableForm2 = settingsDialog.querySelector("#table-form2");
 
   // Shortcut Key Hint
   const shortcutKeyHintDialog = document.getElementById("dialog3");
@@ -829,7 +843,7 @@
     },
     {
       text: "文字修飾",
-      prefix: "請幫我修飾以下敘述，\n",
+      prefix: "請幫我修飾以下敘述，符合台灣用語，且輕鬆活潑。\n\n",
       suffix: "",
       buttonElement: null,
       handleClickFn: null,
@@ -902,45 +916,6 @@
     }, 200);
   }
 
-  function showSettingsDialog(formType) {
-    currentSettingFormType = formType;
-
-    settingsDialog.style.display = "flex";
-
-    document.getElementById("table-form").style.display = "none";
-    document.getElementById("table-form2").style.display = "none";
-
-    if (currentSettingFormType === 1) {
-      document.getElementById("table-form").style.display = "table";
-      document.getElementById("table-form").style.width = "100%";
-    } else {
-      document.getElementById("table-form2").style.display = "table";
-      document.getElementById("table-form2").style.width = "100%";
-    }
-
-    const btnTextInputElements = document.querySelectorAll(".btnTextInput");
-    const prefixInputElements = document.querySelectorAll(".prefixInput");
-    const suffixInputElements = document.querySelectorAll(".suffixInput");
-
-    let startIndex = 0;
-    let endIndex = 5;
-
-    if (formType == 2) {
-      startIndex = 5;
-      endIndex = 10;
-    }
-
-    for (let index = startIndex; index < endIndex; index++) {
-      btnTextInputElements[index].value = dataList[index].text;
-      prefixInputElements[index].value = dataList[index].prefix;
-      suffixInputElements[index].value = dataList[index].suffix;
-    }
-
-    currentSettingFormType === 1
-      ? btnTextInputElements[0].focus()
-      : btnTextInputElements[5].focus();
-  }
-
   function darkModeToggle() {
     document.querySelectorAll("nav").forEach((nav) => {
       nav.querySelectorAll("a").forEach((a) => {
@@ -951,7 +926,7 @@
     });
   }
 
-  //  keydown event handle
+  // ------------ shortcutKey event handle ------------
   document.addEventListener("keydown", function (event) {
     // z 或 mainKey : 關閉 快捷鍵視窗
     if (
@@ -1234,7 +1209,7 @@
     }
   });
 
-  // 建立提問視窗 相關程式碼
+  // ------------ 提問視窗 相關程式碼 ------------ 
   function sendMessage(message) {
     modeBtn = null;
     let isGenerating = false;
@@ -1328,7 +1303,46 @@
     questionDialog.style.display = "none";
   });
 
-  // 設定視窗相關 程式碼
+  // ------------ 設定視窗相關 程式碼 ------------ 
+  function showSettingsDialog(formType) {
+    currentSettingFormType = formType;
+
+    settingsDialog.style.display = "flex";
+
+    settingsTableForm.style.display = "none";
+    settingsTableForm2.style.display = "none";
+
+    if (currentSettingFormType === 1) {
+      settingsTableForm.style.display = "table";
+      settingsTableForm.style.width = "100%";
+    } else {
+      settingsTableForm2.style.display = "table";
+      settingsTableForm2.style.width = "100%";
+    }
+
+    const btnTextInputElements = document.querySelectorAll(".btnTextInput");
+    const prefixInputElements = document.querySelectorAll(".prefixInput");
+    const suffixInputElements = document.querySelectorAll(".suffixInput");
+
+    let startIndex = 0;
+    let endIndex = 5;
+
+    if (formType == 2) {
+      startIndex = 5;
+      endIndex = 10;
+    }
+
+    for (let index = startIndex; index < endIndex; index++) {
+      btnTextInputElements[index].value = dataList[index].text;
+      prefixInputElements[index].value = dataList[index].prefix;
+      suffixInputElements[index].value = dataList[index].suffix;
+    }
+
+    currentSettingFormType === 1
+      ? btnTextInputElements[0].focus()
+      : btnTextInputElements[5].focus();
+  }
+
   function saveSittings() {
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
     const prefixInputElements = document.querySelectorAll(".prefixInput");
@@ -1396,7 +1410,7 @@
     resetFormValue();
   });
 
-  // 建立右側按鈕 相關程式碼
+  // ------------ 建立右側按鈕 相關程式碼 ------------ 
   function createButton(textContent, top) {
     const button = document.createElement("button");
     button.classList.add("primary", "custom-template-buttons");
@@ -1457,7 +1471,7 @@
 
   generateButtons();
 
-  // 提示窗相關
+  // ------------ 提示窗相關 ------------
   document.addEventListener("keydown", (event) => {
     if (
       questionDialog.style.display === "none" &&
@@ -1492,7 +1506,7 @@
     }
   });
 
-  // 監聽各式 composition 事件
+  // ------------ 監聽各式 composition 事件 ------------
   document.querySelectorAll(".btnTextInput").forEach((input) => {
     input.addEventListener("compositionstart", () => {
       isComposing = true;
@@ -1527,4 +1541,96 @@
   questionDialogTextarea.addEventListener("compositionend", () => {
     isComposing = false;
   });
+
+  // ------------ 控制視窗的焦點切換 ------------
+  function controlQuestionDialogTabindex() {
+    const questionDialogAllTabindexElements =
+      questionDialog.querySelectorAll("textarea, button");
+    const firstTabindexElement = questionDialogAllTabindexElements[0];
+    const lastTabindexElement =
+    questionDialogAllTabindexElements[questionDialogAllTabindexElements.length - 1];
+
+    questionDialog.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" && !e.shiftKey) {
+        if (document.activeElement === lastTabindexElement) {
+          e.preventDefault();
+          firstTabindexElement.focus();
+        }
+      } else if (e.key === "Tab" && e.shiftKey) {
+        if (document.activeElement === firstTabindexElement) {
+          e.preventDefault();
+          lastTabindexElement.focus();
+        }
+      }
+    });
+  }
+  controlQuestionDialogTabindex();
+
+  function controlSettingsDialogTabindex() {
+
+    // tableForm tabindexElements
+    let tableFormTabindexElements = settingsTableForm.querySelectorAll(
+      "input, textarea, button"
+    );
+
+    tableFormTabindexElements = [
+      ...tableFormTabindexElements,
+      settingsDialogOkBtn,
+      settingsDialogCancelBtn,
+      settingsDialogResetBtn
+    ];
+
+    const tableFormFirstTabindexElement = tableFormTabindexElements[0];
+    const tableFormLastTabindexElement =
+      tableFormTabindexElements[tableFormTabindexElements.length - 1];
+
+    // tableForm2 tabindexElements
+    let tableForm2TabindexElements = settingsTableForm2.querySelectorAll(
+      "input, textarea, button"
+    );
+
+    tableForm2TabindexElements = [
+      ...tableForm2TabindexElements,
+      settingsDialogOkBtn,
+      settingsDialogCancelBtn,
+      settingsDialogResetBtn
+    ];
+
+    const tableForm2FirstTabindexElement = tableForm2TabindexElements[0];
+    const tableForm2LastTabindexElement =
+      tableForm2TabindexElements[tableForm2TabindexElements.length - 1];
+
+    // settingsDialog keydown event
+    settingsDialog.addEventListener("keydown", function (e) {
+      if (settingsTableForm.style.display === "table") {
+        if (e.key === "Tab" && !e.shiftKey) {
+          if (document.activeElement === tableFormLastTabindexElement) {
+            e.preventDefault();
+            tableFormFirstTabindexElement.focus();
+          }
+        } else if (e.key === "Tab" && e.shiftKey) {
+          if (document.activeElement === tableFormFirstTabindexElement) {
+            e.preventDefault();
+            tableFormLastTabindexElement.focus();
+          }
+        }
+      }
+
+      if (settingsTableForm2.style.display === "table") {
+        if (e.key === "Tab" && !e.shiftKey) {
+          if (document.activeElement === tableForm2LastTabindexElement) {
+            e.preventDefault();
+            tableForm2FirstTabindexElement.focus();
+          }
+        } else if (e.key === "Tab" && e.shiftKey) {
+          if (document.activeElement === tableForm2FirstTabindexElement) {
+            e.preventDefault();
+            tableForm2LastTabindexElement.focus();
+          }
+        }
+      }
+    });
+  }
+  controlSettingsDialogTabindex();
+
 })();
