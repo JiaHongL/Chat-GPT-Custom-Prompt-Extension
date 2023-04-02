@@ -737,9 +737,101 @@
         </td>
       </tr>
 
+      <tr>
+        <td>
+          <div class="shortcut-wrapper">
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + G </span>
+          </div>
+        </td>
+        <td>
+          <div class="ellipsis"> 開啟快速回覆設定視窗 </div>
+        </td>
+        <td>
+          <div class="shortcut-wrapper">
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + V </span>
+          </div>
+        </td>
+        <td>
+          <div class="templateButtonText ellipsis"></div>
+        </td>
+        <td>
+          <div class="shortcut-wrapper">
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + B </span>
+          </div>
+        </td>
+        <td>
+          <div class="templateButtonText ellipsis"></div>
+        </td>
+      </tr>
+
     </table>
   </div>
 </div>
+  `;
+
+  // 快速回覆 HTML
+  const quickReplyHTML = `
+  <div id="dialog4" class="dialog-wrapper" style="display:none">
+
+    <div class="dialog" style="max-width: 60%;">
+
+      <table class="my-table" style="width:100%">
+
+        <tr>
+          <th style="width:118px">組合鍵</th>
+          <th style="width:200px">按鈕名稱</th>
+          <th>快速回覆的文字</th>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> ${capitalizeFirstLetter(
+                mainKeyText
+              )} + V </span>
+            </div>
+          </td>
+          <td><input tabindex="1" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="2" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> ${capitalizeFirstLetter(
+                mainKeyText
+              )} + B </span>
+            </div>
+          </td>
+          <td><input tabindex="3" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="4" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+        </tr>
+      
+    </table>
+
+    <div class="footer" class="center">
+      <button tabindex="5" id="dialog4-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
+      <button tabindex="6" id="dialog4-cancel" class="secondary">取消 ( esc ) </button>
+      <button tabindex="7" id="dialog4-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
+    </div>
+
+  </div>
+
+</div>  
   `;
 
   // 插入 HTML 元素
@@ -754,6 +846,10 @@
   const keyboardShortDialogEl = document.createElement("div");
   keyboardShortDialogEl.innerHTML = keyboardShortcutHTML;
   document.body.appendChild(keyboardShortDialogEl);
+
+  const quickReplySettingsDialogEl = document.createElement("div");
+  quickReplySettingsDialogEl.innerHTML = quickReplyHTML;
+  document.body.appendChild(quickReplySettingsDialogEl);
 
   // Question
   const questionDialog = document.getElementById("dialog");
@@ -776,6 +872,14 @@
   // Shortcut Key Hint
   const shortcutKeyHintDialog = document.getElementById("dialog3");
 
+  // quickReply
+  const quickReplySettingsDialog = document.getElementById("dialog4");
+  const quickReplySettingsDialogOkBtn = document.querySelector("#dialog4-ok");
+  const quickReplySettingsDialogCancelBtn =
+    document.querySelector("#dialog4-cancel");
+  const quickReplySettingsDialogResetBtn =
+    document.querySelector("#dialog4-reset");
+
   // other
   let intervalID = null;
   let modeBtn = null;
@@ -785,7 +889,7 @@
   /** 1:form or 2:form2 */
   let currentSettingFormType;
 
-  // dataList and default
+  // dataList / quickReply
   let dataList = [];
 
   const defaultDataList = [
@@ -865,6 +969,23 @@
     },
   ];
 
+  let defaultQuickReplyMessageList = [
+    {
+      text: "提供其它範例",
+      quickReplyMessage: "請提供其它範例",
+      buttonElement: null,
+      handleClickFn: null,
+    },
+    {
+      text: "更細節的說明",
+      quickReplyMessage: "請提供更細節的說明",
+      buttonElement: null,
+      handleClickFn: null,
+    },
+  ];
+
+  let quickReplyMessageList = [];
+
   // 初始化
   function init() {
     questionDialog.style.display = "none";
@@ -878,19 +999,29 @@
       );
     }
 
+    if (!localStorage.getItem("Custom.Template.QuickReply")) {
+      localStorage.setItem(
+        "Custom.Template.QuickReply",
+        JSON.stringify(defaultQuickReplyMessageList)
+      );
+    }
+
     if (!localStorage.getItem("Custom.Template.Buttons.Show")) {
       localStorage.setItem("Custom.Template.Buttons.Show", JSON.stringify("Y"));
     }
 
-    localStorage.getItem("Custom.Template.Button.Show") === "Y"
+    localStorage.getItem("Custom.Template.Buttons.Show") === "Y"
       ? document.body.classList.add("show-template-buttons")
       : document.body.classList.remove("show-template-buttons");
 
-    let templateSettings = JSON.parse(
+    dataList = JSON.parse(
       localStorage.getItem("Custom.Template.Settings")
     );
 
-    dataList = templateSettings;
+    quickReplyMessageList = JSON.parse(
+      localStorage.getItem("Custom.Template.QuickReply")
+    );
+
   }
   init();
 
@@ -960,10 +1091,22 @@
       return;
     }
 
+    // esc : close quickReplySettingsDialog
+    if (
+      !isComposing &&
+      quickReplySettingsDialog.style.display === "flex" &&
+      event.key === "Escape"
+    ) {
+      event.preventDefault();
+      quickReplySettingsDialog.style.display = "none";
+      return;
+    }
+
     // mainKey + w : open settingsDialog
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "w"
     ) {
@@ -976,11 +1119,25 @@
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "s"
     ) {
       event.preventDefault();
       showSettingsDialog(2);
+      return;
+    }
+
+    // mainKey + g : open quickReplySettingsDialog
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "g"
+    ) {
+      event.preventDefault();
+      showQuickReplySettingsDialog();
       return;
     }
 
@@ -1008,6 +1165,17 @@
       return;
     }
 
+    // mainKey + s : save quickReplySettingsDialog
+    if (
+      quickReplySettingsDialog.style.display === "flex" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "s"
+    ) {
+      event.preventDefault();
+      saveQuickReplySettings();
+      return;
+    }
+
     // mainKey + e : reset form value
     if (
       settingsDialog.style.display === "flex" &&
@@ -1019,10 +1187,22 @@
       return;
     }
 
+    // mainKey + e : reset quickRelySettings form value
+    if (
+      quickReplySettingsDialog.style.display === "flex" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "e"
+    ) {
+      event.preventDefault();
+      resetQuickReplyFormValue();
+      return;
+    }
+
     // mainKey + r : regenerate response
     if (
       settingsDialog.style.display === "none" &&
       questionDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "r"
     ) {
@@ -1035,22 +1215,11 @@
       return;
     }
 
-    // mainKey + c : continue
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "c"
-    ) {
-      event.preventDefault();
-      sendMessage("繼續");
-      return;
-    }
-
     // mainKey + x : stop
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "x"
     ) {
@@ -1060,6 +1229,49 @@
           button.click();
         }
       });
+      return;
+    }
+
+    // mainKey + c : continue
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "c"
+    ) {
+      event.preventDefault();
+      sendMessage("繼續");
+      return;
+    }
+
+    // mainKey + v : custom quick reply
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "v"
+    ) {
+      event.preventDefault();
+      if (quickReplyMessageList[0].quickReplyMessage) {
+        sendMessage(quickReplyMessageList[0].quickReplyMessage);
+      }
+      return;
+    }
+
+    // mainKey + b : custom quick reply 2
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "b"
+    ) {
+      event.preventDefault();
+      if (quickReplyMessageList[1].quickReplyMessage) {
+        sendMessage(quickReplyMessageList[1].quickReplyMessage);
+      }
       return;
     }
 
@@ -1074,11 +1286,11 @@
     if (event[mainKey] && event.key.toLocaleLowerCase() === "a") {
       event.preventDefault();
 
-      if (localStorage.getItem("Custom.Template.Button.Show") === "Y") {
-        localStorage.setItem("Custom.Template.Button.Show", "N");
+      if (localStorage.getItem("Custom.Template.Buttons.Show") === "Y") {
+        localStorage.setItem("Custom.Template.Buttons.Show", "N");
         document.body.classList.remove("show-template-buttons");
       } else {
-        localStorage.setItem("Custom.Template.Button.Show", "Y");
+        localStorage.setItem("Custom.Template.Buttons.Show", "Y");
         document.body.classList.add("show-template-buttons");
       }
 
@@ -1106,6 +1318,7 @@
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "n"
     ) {
@@ -1122,6 +1335,7 @@
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "m"
     ) {
@@ -1151,7 +1365,11 @@
     }
 
     // mainKey + 1 ~ 0 number keyboard : open question dialog
-    if (settingsDialog.style.display === "none" && event[mainKey]) {
+    if (
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey]
+    ) {
       switch (event.key) {
         case "1":
           event.preventDefault();
@@ -1209,7 +1427,7 @@
     }
   });
 
-  // ------------ 提問視窗 相關程式碼 ------------ 
+  // ------------ 提問視窗 相關程式碼 ------------
   function sendMessage(message) {
     modeBtn = null;
     let isGenerating = false;
@@ -1303,7 +1521,7 @@
     questionDialog.style.display = "none";
   });
 
-  // ------------ 設定視窗相關 程式碼 ------------ 
+  // ------------ 設定視窗相關 程式碼 ------------
   function showSettingsDialog(formType) {
     currentSettingFormType = formType;
 
@@ -1410,7 +1628,81 @@
     resetFormValue();
   });
 
-  // ------------ 建立右側按鈕 相關程式碼 ------------ 
+  // ------------ 快速回覆設定視窗 ------------
+  function showQuickReplySettingsDialog() {
+    quickReplySettingsDialog.style.display = "flex";
+
+    const quickReplyButtonTextElements = document.querySelectorAll(
+      ".quickReplyButtonText"
+    );
+    const quickReplyMessageElements =
+      document.querySelectorAll(".quickReplyMessage");
+
+    quickReplyMessageList.forEach((settings, index) => {
+      quickReplyButtonTextElements[index].value = settings.text;
+      quickReplyMessageElements[index].value = settings.quickReplyMessage;
+    });
+
+    quickReplyButtonTextElements[0].focus();
+  }
+
+  function saveQuickReplySettings() {
+    const quickReplyButtonTextElements = document.querySelectorAll(
+      ".quickReplyButtonText"
+    );
+    const quickReplyMessageElements =
+      document.querySelectorAll(".quickReplyMessage");
+
+    quickReplyMessageList.forEach((settings, index) => {
+      settings.text = quickReplyButtonTextElements[index].value;
+      settings.quickReplyMessage = quickReplyMessageElements[index].value;
+
+      settings.buttonElement.removeEventListener(
+        "click",
+        settings.handleClickFn
+      );
+      settings.buttonElement.remove();
+
+      delete settings.buttonElement;
+      delete settings.handleClickFn;
+    });
+
+    localStorage.setItem(
+      "Custom.Template.QuickReply",
+      JSON.stringify(quickReplyMessageList)
+    );
+
+    generateButtons();
+
+    quickReplySettingsDialog.style.display = "none";
+  }
+
+  quickReplySettingsDialogOkBtn.addEventListener("click", () => {
+    saveQuickReplySettings();
+  });
+
+  quickReplySettingsDialogCancelBtn.addEventListener("click", () => {
+    quickReplySettingsDialog.style.display = "none";
+  });
+
+  function resetQuickReplyFormValue() {
+    const quickReplyButtonTextElements = document.querySelectorAll(
+      ".quickReplyButtonText"
+    );
+    const quickReplyMessageElements =
+      document.querySelectorAll(".quickReplyMessage");
+
+    defaultQuickReplyMessageList.forEach((settings, index) => {
+      quickReplyButtonTextElements[index].value = settings.text;
+      quickReplyMessageElements[index].value = settings.quickReplyMessage;
+    });
+  }
+
+  quickReplySettingsDialogResetBtn.addEventListener("click", () => {
+    resetQuickReplyFormValue();
+  });
+
+  // ------------ 建立右側按鈕 相關程式碼 ------------
   function createButton(textContent, top) {
     const button = document.createElement("button");
     button.classList.add("primary", "custom-template-buttons");
@@ -1448,22 +1740,64 @@
   }
 
   function generateButtons() {
-    dataList.forEach((data, index) => {
+    // 模版
+    dataList.forEach((settings, index) => {
       const button = createButton(
-        `${index + 1}. ${data.text}`,
+        `${index + 1}. ${settings.text}`,
         10 + (index + 1) * 45
       );
 
       const handleClick = () => {
-        prefix = data.prefix;
-        suffix = data.suffix;
+        prefix = settings.prefix;
+        suffix = settings.suffix;
         showQuestionDialog();
       };
 
       button.addEventListener("click", handleClick);
 
-      dataList[index].buttonElement = button;
-      dataList[index].handleClickFn = handleClick;
+      settings.buttonElement = button;
+      settings.handleClickFn = handleClick;
+
+      document.body.appendChild(button);
+    });
+
+    // 繼續 按鈕
+
+    const filteredContinueButton = Array.from(
+      document.querySelectorAll(".custom-template-buttons")
+    ).filter((element) => {
+      return element.textContent === "C. 繼續";
+    });
+
+    if (filteredContinueButton.length) {
+      filteredContinueButton[0].remove();
+    }
+
+    const continueButton = createButton(`C. 繼續`, 10 + 11 * 45);
+
+    continueButton.addEventListener("click", () => {
+      sendMessage("繼續");
+    });
+
+    document.body.appendChild(continueButton);
+
+    // 快速回覆按鈕
+    quickReplyMessageList.forEach((settings, index) => {
+      const button = createButton(
+        `${index === 0 ? "V" : "B"}. ${settings.text}`,
+        10 + (11 + index + 1) * 45
+      );
+
+      const handleClick = () => {
+        if (settings.quickReplyMessage.trim()) {
+          sendMessage(settings.quickReplyMessage);
+        }
+      };
+
+      button.addEventListener("click", handleClick);
+
+      settings.buttonElement = button;
+      settings.handleClickFn = handleClick;
 
       document.body.appendChild(button);
     });
@@ -1493,6 +1827,8 @@
       templateButtonTextList[7].textContent = dataList[8].text;
       templateButtonTextList[8].textContent = dataList[4].text;
       templateButtonTextList[9].textContent = dataList[9].text;
+      templateButtonTextList[10].textContent =quickReplyMessageList[0].quickReplyMessage;
+      templateButtonTextList[11].textContent = quickReplyMessageList[1].quickReplyMessage;
     }
   });
 
@@ -1542,13 +1878,33 @@
     isComposing = false;
   });
 
+  document.querySelectorAll(".quickReplyButtonText").forEach((input) => {
+    input.addEventListener("compositionstart", () => {
+      isComposing = true;
+    });
+    input.addEventListener("compositionend", () => {
+      isComposing = false;
+    });
+  });
+
+  document.querySelectorAll(".quickReplyMessage").forEach((input) => {
+    input.addEventListener("compositionstart", () => {
+      isComposing = true;
+    });
+    input.addEventListener("compositionend", () => {
+      isComposing = false;
+    });
+  });
+
   // ------------ 控制視窗的焦點切換 ------------
   function controlQuestionDialogTabindex() {
     const questionDialogAllTabindexElements =
       questionDialog.querySelectorAll("textarea, button");
     const firstTabindexElement = questionDialogAllTabindexElements[0];
     const lastTabindexElement =
-    questionDialogAllTabindexElements[questionDialogAllTabindexElements.length - 1];
+      questionDialogAllTabindexElements[
+        questionDialogAllTabindexElements.length - 1
+      ];
 
     questionDialog.addEventListener("keydown", function (e) {
       if (e.key === "Tab" && !e.shiftKey) {
@@ -1567,7 +1923,6 @@
   controlQuestionDialogTabindex();
 
   function controlSettingsDialogTabindex() {
-
     // tableForm tabindexElements
     let tableFormTabindexElements = settingsTableForm.querySelectorAll(
       "input, textarea, button"
@@ -1577,7 +1932,7 @@
       ...tableFormTabindexElements,
       settingsDialogOkBtn,
       settingsDialogCancelBtn,
-      settingsDialogResetBtn
+      settingsDialogResetBtn,
     ];
 
     const tableFormFirstTabindexElement = tableFormTabindexElements[0];
@@ -1593,7 +1948,7 @@
       ...tableForm2TabindexElements,
       settingsDialogOkBtn,
       settingsDialogCancelBtn,
-      settingsDialogResetBtn
+      settingsDialogResetBtn,
     ];
 
     const tableForm2FirstTabindexElement = tableForm2TabindexElements[0];
@@ -1633,4 +1988,28 @@
   }
   controlSettingsDialogTabindex();
 
+  function controlQuickReplySettingsDialogTabindex() {
+    const quickReplySettingsDialogAllTabindexElements =
+      quickReplySettingsDialog.querySelectorAll("input,textarea, button");
+    const firstTabindexElement = quickReplySettingsDialogAllTabindexElements[0];
+    const lastTabindexElement =
+      quickReplySettingsDialogAllTabindexElements[
+        quickReplySettingsDialogAllTabindexElements.length - 1
+      ];
+
+      quickReplySettingsDialog.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" && !e.shiftKey) {
+        if (document.activeElement === lastTabindexElement) {
+          e.preventDefault();
+          firstTabindexElement.focus();
+        }
+      } else if (e.key === "Tab" && e.shiftKey) {
+        if (document.activeElement === firstTabindexElement) {
+          e.preventDefault();
+          lastTabindexElement.focus();
+        }
+      }
+    });
+  }
+  controlQuickReplySettingsDialogTabindex();
 })();
