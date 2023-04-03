@@ -201,6 +201,17 @@
           line-height: 1.5;
           color:black;
       }
+      .custom-menu {
+        position: fixed;
+        top:50px;
+        right:2px;
+        padding-right:4px;
+        z-index: 1000;
+        height:90vh;
+        width:175px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
       `;
 
   // 插入 style
@@ -752,7 +763,7 @@
           <div class="shortcut-wrapper">
             <span class="shortcut-content"> ${capitalizeFirstLetter(
               mainKeyText
-            )} + V </span>
+            )} + Y </span>
           </div>
         </td>
         <td>
@@ -762,7 +773,40 @@
           <div class="shortcut-wrapper">
             <span class="shortcut-content"> ${capitalizeFirstLetter(
               mainKeyText
-            )} + B </span>
+            )} + U </span>
+          </div>
+        </td>
+        <td>
+          <div class="templateButtonText ellipsis"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="shortcut-wrapper">
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + I </span>
+          </div>
+        </td>
+        <td>
+          <div class="templateButtonText ellipsis"></div>
+        </td>
+        <td>
+          <div class="shortcut-wrapper">
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + O </span>
+          </div>
+        </td>
+        <td>
+          <div class="templateButtonText ellipsis"></div>
+        </td>
+        <td>
+          <div class="shortcut-wrapper">
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + P </span>
           </div>
         </td>
         <td>
@@ -794,7 +838,7 @@
             <div class="shortcut-wrapper">
               <span class="shortcut-content"> ${capitalizeFirstLetter(
                 mainKeyText
-              )} + V </span>
+              )} + Y </span>
             </div>
           </td>
           <td><input tabindex="1" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
@@ -810,7 +854,7 @@
             <div class="shortcut-wrapper">
               <span class="shortcut-content"> ${capitalizeFirstLetter(
                 mainKeyText
-              )} + B </span>
+              )} + U </span>
             </div>
           </td>
           <td><input tabindex="3" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
@@ -820,15 +864,62 @@
             </div>
           </td>
         </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> ${capitalizeFirstLetter(
+                mainKeyText
+              )} + I </span>
+            </div>
+          </td>
+          <td><input tabindex="5" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="6" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> ${capitalizeFirstLetter(
+                mainKeyText
+              )} + O </span>
+            </div>
+          </td>
+          <td><input tabindex="7" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="8" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> ${capitalizeFirstLetter(
+                mainKeyText
+              )} + P </span>
+            </div>
+          </td>
+          <td><input tabindex="9" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="10" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+        </tr>
       
-    </table>
+      </table>
 
-    <div class="footer" class="center">
-      <button tabindex="5" id="dialog4-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
-      <button tabindex="6" id="dialog4-cancel" class="secondary">取消 ( esc ) </button>
-      <button tabindex="7" id="dialog4-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
-    </div>
-
+      <div class="footer" class="center">
+        <button tabindex="11" id="dialog4-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
+        <button tabindex="12" id="dialog4-cancel" class="secondary">取消 ( esc ) </button>
+        <button tabindex="13" id="dialog4-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
+      </div>
   </div>
 
 </div>  
@@ -977,8 +1068,26 @@
       handleClickFn: null,
     },
     {
-      text: "更細節的說明",
+      text: "更詳細的說明",
       quickReplyMessage: "請提供更細節的說明",
+      buttonElement: null,
+      handleClickFn: null,
+    },
+    {
+      text: "提供程式範例",
+      quickReplyMessage: "請提供程式範例",
+      buttonElement: null,
+      handleClickFn: null,
+    },
+    {
+      text: "翻譯成繁體中文",
+      quickReplyMessage: "請翻譯成繁體中文",
+      buttonElement: null,
+      handleClickFn: null,
+    },
+    {
+      text: "翻譯成英文",
+      quickReplyMessage: "請翻譯成英文",
       buttonElement: null,
       handleClickFn: null,
     },
@@ -1014,14 +1123,11 @@
       ? document.body.classList.add("show-template-buttons")
       : document.body.classList.remove("show-template-buttons");
 
-    dataList = JSON.parse(
-      localStorage.getItem("Custom.Template.Settings")
-    );
+    dataList = JSON.parse(localStorage.getItem("Custom.Template.Settings"));
 
     quickReplyMessageList = JSON.parse(
       localStorage.getItem("Custom.Template.QuickReply")
     );
-
   }
   init();
 
@@ -1245,13 +1351,13 @@
       return;
     }
 
-    // mainKey + v : custom quick reply
+    // mainKey + y : custom quick reply
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
-      event.key.toLocaleLowerCase() === "v"
+      event.key.toLocaleLowerCase() === "y"
     ) {
       event.preventDefault();
       if (quickReplyMessageList[0].quickReplyMessage) {
@@ -1260,17 +1366,62 @@
       return;
     }
 
-    // mainKey + b : custom quick reply 2
+    // mainKey + u : custom quick reply 2
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
-      event.key.toLocaleLowerCase() === "b"
+      event.key.toLocaleLowerCase() === "u"
     ) {
       event.preventDefault();
       if (quickReplyMessageList[1].quickReplyMessage) {
         sendMessage(quickReplyMessageList[1].quickReplyMessage);
+      }
+      return;
+    }
+
+    // mainKey + i : custom quick reply 3
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "i"
+    ) {
+      event.preventDefault();
+      if (quickReplyMessageList[2].quickReplyMessage) {
+        sendMessage(quickReplyMessageList[2].quickReplyMessage);
+      }
+      return;
+    }
+
+    // mainKey + o : custom quick reply 4
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "o"
+    ) {
+      event.preventDefault();
+      if (quickReplyMessageList[3].quickReplyMessage) {
+        sendMessage(quickReplyMessageList[3].quickReplyMessage);
+      }
+      return;
+    }
+
+    // mainKey + p : custom quick  5
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "p"
+    ) {
+      event.preventDefault();
+      if (quickReplyMessageList[4].quickReplyMessage) {
+        sendMessage(quickReplyMessageList[4].quickReplyMessage);
       }
       return;
     }
@@ -1707,11 +1858,8 @@
     const button = document.createElement("button");
     button.classList.add("primary", "custom-template-buttons");
     button.textContent = textContent;
-    button.style.position = "fixed";
-    button.style.top = top + "px";
-    button.style.right = "12px";
     button.style.width = "165px";
-    button.style.zIndex = "1000";
+    button.style.margin = "0 0 5px 0";
     button.style.color = "white";
     button.style.border = "none";
     button.style.padding = "8px 10px";
@@ -1740,12 +1888,19 @@
   }
 
   function generateButtons() {
+
+    const findCustomMenu = document.querySelector('.custom-menu');
+
+    if(findCustomMenu){
+      findCustomMenu.remove();
+    }
+
+    const menuDiv = document.createElement("div");
+    menuDiv.classList.add("custom-menu");
+
     // 模版
     dataList.forEach((settings, index) => {
-      const button = createButton(
-        `${index + 1}. ${settings.text}`,
-        10 + (index + 1) * 45
-      );
+      const button = createButton(`${index + 1}. ${settings.text}`);
 
       const handleClick = () => {
         prefix = settings.prefix;
@@ -1758,7 +1913,7 @@
       settings.buttonElement = button;
       settings.handleClickFn = handleClick;
 
-      document.body.appendChild(button);
+      menuDiv.appendChild(button);
     });
 
     // 繼續 按鈕
@@ -1773,20 +1928,18 @@
       filteredContinueButton[0].remove();
     }
 
-    const continueButton = createButton(`C. 繼續`, 10 + 11 * 45);
+    const continueButton = createButton(`C. 繼續`);
 
     continueButton.addEventListener("click", () => {
       sendMessage("繼續");
     });
 
-    document.body.appendChild(continueButton);
+    menuDiv.appendChild(continueButton);
 
     // 快速回覆按鈕
+    const keys = ["Y", "U", "I", "O", "P"];
     quickReplyMessageList.forEach((settings, index) => {
-      const button = createButton(
-        `${index === 0 ? "V" : "B"}. ${settings.text}`,
-        10 + (11 + index + 1) * 45
-      );
+      const button = createButton(`${keys[index]}. ${settings.text}`);
 
       const handleClick = () => {
         if (settings.quickReplyMessage.trim()) {
@@ -1799,8 +1952,10 @@
       settings.buttonElement = button;
       settings.handleClickFn = handleClick;
 
-      document.body.appendChild(button);
+      menuDiv.appendChild(button);
     });
+
+    document.body.appendChild(menuDiv);
   }
 
   generateButtons();
@@ -1827,8 +1982,11 @@
       templateButtonTextList[7].textContent = dataList[8].text;
       templateButtonTextList[8].textContent = dataList[4].text;
       templateButtonTextList[9].textContent = dataList[9].text;
-      templateButtonTextList[10].textContent =quickReplyMessageList[0].text;
+      templateButtonTextList[10].textContent = quickReplyMessageList[0].text;
       templateButtonTextList[11].textContent = quickReplyMessageList[1].text;
+      templateButtonTextList[12].textContent = quickReplyMessageList[2].text;
+      templateButtonTextList[13].textContent = quickReplyMessageList[3].text;
+      templateButtonTextList[14].textContent = quickReplyMessageList[4].text;
     }
   });
 
@@ -1997,7 +2155,7 @@
         quickReplySettingsDialogAllTabindexElements.length - 1
       ];
 
-      quickReplySettingsDialog.addEventListener("keydown", function (e) {
+    quickReplySettingsDialog.addEventListener("keydown", function (e) {
       if (e.key === "Tab" && !e.shiftKey) {
         if (document.activeElement === lastTabindexElement) {
           e.preventDefault();
