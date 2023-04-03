@@ -36,13 +36,13 @@
       }
 
       .dialog #questionPreviewArea {
-        max-height:280px;
+        max-height:200px;
         overflow:auto;
         font-size: 18px;
       }
       .question-textarea {
           width: 100%;
-          height: 250px;
+          height: 350px;
           border: 1px solid #ccc;
           border-radius: 3px;
           padding: 5px;
