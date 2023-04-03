@@ -40,7 +40,6 @@
         overflow:auto;
         font-size: 18px;
       }
-
       .question-textarea {
           width: 100%;
           height: 250px;
@@ -207,8 +206,9 @@
         right:2px;
         padding-right:4px;
         z-index: 1000;
-        height:90vh;
-        width:175px;
+        height:80vh;
+        max-height:720px;
+        width:160px;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -242,7 +242,7 @@
         <table id="table-form" class="my-table">
           <tr>
             <th style="width:118px">組合鍵</th>
-            <th style="width:200px">按鈕名稱</th>
+            <th style="width:160px">按鈕名稱</th>
             <th>前段文字</th>
             <th>後段文字</th>
           </tr>
@@ -357,7 +357,7 @@
         <table id="table-form2" class="my-table" style="width:100%">
           <tr>
             <th style="width:118px">組合鍵</th>
-            <th style="width:200px">按鈕名稱</th>
+            <th style="width:160px">按鈕名稱</th>
             <th>前段文字</th>
             <th>後段文字</th>
           </tr>
@@ -829,7 +829,7 @@
 
         <tr>
           <th style="width:118px">組合鍵</th>
-          <th style="width:200px">按鈕名稱</th>
+          <th style="width:160px">按鈕名稱</th>
           <th>快速回覆的文字</th>
         </tr>
 
@@ -1858,7 +1858,7 @@
     const button = document.createElement("button");
     button.classList.add("primary", "custom-template-buttons");
     button.textContent = textContent;
-    button.style.width = "165px";
+    button.style.width = "155px";
     button.style.margin = "0 0 5px 0";
     button.style.color = "white";
     button.style.border = "none";
