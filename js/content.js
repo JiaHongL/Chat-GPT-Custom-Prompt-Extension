@@ -180,7 +180,7 @@
       .dark .shortcut-content {
           color: #d1d5db !important;
       }
-      .show-template-buttons .custom-template-buttons{
+      .hidden-template-buttons .custom-template-buttons{
           display: none;
       }
       .ellipsis {
@@ -1115,13 +1115,13 @@
       );
     }
 
-    if (!localStorage.getItem("Custom.Template.Buttons.Show")) {
-      localStorage.setItem("Custom.Template.Buttons.Show", JSON.stringify("Y"));
+    if (localStorage.getItem("Custom.Template.Buttons.Hidden") === null ) {
+      localStorage.setItem("Custom.Template.Buttons.Hidden", "N");
     }
 
-    localStorage.getItem("Custom.Template.Buttons.Show") === "Y"
-      ? document.body.classList.add("show-template-buttons")
-      : document.body.classList.remove("show-template-buttons");
+    localStorage.getItem("Custom.Template.Buttons.Hidden") === "Y"
+      ? document.body.classList.add("hidden-template-buttons")
+      : document.body.classList.remove("hidden-template-buttons");
 
     dataList = JSON.parse(localStorage.getItem("Custom.Template.Settings"));
 
@@ -1437,12 +1437,12 @@
     if (event[mainKey] && event.key.toLocaleLowerCase() === "a") {
       event.preventDefault();
 
-      if (localStorage.getItem("Custom.Template.Buttons.Show") === "Y") {
-        localStorage.setItem("Custom.Template.Buttons.Show", "N");
-        document.body.classList.remove("show-template-buttons");
+      if (localStorage.getItem("Custom.Template.Buttons.Hidden") === "Y") {
+        localStorage.setItem("Custom.Template.Buttons.Hidden", "N");
+        document.body.classList.remove("hidden-template-buttons");
       } else {
-        localStorage.setItem("Custom.Template.Buttons.Show", "Y");
-        document.body.classList.add("show-template-buttons");
+        localStorage.setItem("Custom.Template.Buttons.Hidden", "Y");
+        document.body.classList.add("hidden-template-buttons");
       }
 
       return;
