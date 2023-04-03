@@ -1965,6 +1965,7 @@
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "z"
     ) {
