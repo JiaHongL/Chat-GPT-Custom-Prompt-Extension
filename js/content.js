@@ -68,10 +68,6 @@
           justify-content: center;
           align-items: center;
       }
-      .footer #dialog2-reset {
-          position: absolute;
-          right: 10px;
-      }
       button.primary {
           background-color: #9a8e81;
           color: #fff;
@@ -206,12 +202,61 @@
         right:2px;
         padding-right:4px;
         z-index: 1000;
-        height:80vh;
+        height:90vh;
         max-height:720px;
         width:160px;
         overflow-y: auto;
         overflow-x: hidden;
       }
+      .slide-checkbox {
+        width: 80px;
+        height: 26px;
+        background: #333;
+        margin: 20px auto;
+        position: relative;
+        border-radius: 50px;
+        box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+      }
+      .slide-checkbox:after {
+        content: 'OFF';
+        color: #000;
+        position: absolute;
+        right: 10px;
+        z-index: 0;
+        font: 12px/26px Arial, sans-serif;
+        font-weight: bold;
+        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+      }
+      .slide-checkbox:before {
+        content: 'ON';
+        color: #27ae60;
+        position: absolute;
+        left: 10px;
+        z-index: 0;
+        font: 12px/26px Arial, sans-serif;
+        font-weight: bold;
+      }
+      .slide-checkbox label {
+        display: block;
+        width: 34px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        z-index: 1;
+        background: #fcfff4;
+        background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+        border-radius: 50px;
+        transition: all 0.4s ease;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+      }
+      .slide-checkbox input[type=checkbox] {
+        visibility: hidden !important;
+      }
+      .slide-checkbox input[type=checkbox]:checked + label {
+        left: 43px !important;
+      }      
       `;
 
   // 插入 style
@@ -245,6 +290,7 @@
             <th style="width:160px">按鈕名稱</th>
             <th>前段文字</th>
             <th>後段文字</th>
+            <th style="width:118px">是否顯示</th>
           </tr>
 
           <tr>
@@ -264,6 +310,12 @@
             <td>
               <div class="center">
                 <textarea tabindex="3" class="suffixInput" placeholder="輸入框"></textarea>
+              </div>
+            </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox" name="check"  />
+                <label for="slideCheckbox"></label>
               </div>
             </td>
           </tr>
@@ -287,6 +339,12 @@
                 <textarea tabindex="6" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox2" name="check"  />
+                <label for="slideCheckbox2"></label>
+              </div>
+            </td>
           </tr>
 
           <tr>
@@ -306,6 +364,12 @@
             <td>
               <div class="center">
                 <textarea tabindex="9" class="suffixInput" placeholder="輸入框"></textarea>
+              </div>
+            </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox3" name="check"  />
+                <label for="slideCheckbox3"></label>
               </div>
             </td>
           </tr>
@@ -329,6 +393,12 @@
                 <textarea tabindex="12" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox4" name="check"  />
+                <label for="slideCheckbox4"></label>
+              </div>
+            </td>
           </tr>
 
           <tr>
@@ -350,6 +420,12 @@
                 <textarea tabindex="15" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox5" name="check"  />
+                <label for="slideCheckbox5"></label>
+              </div>
+            </td>
           </tr>
 
         </table>
@@ -360,6 +436,7 @@
             <th style="width:160px">按鈕名稱</th>
             <th>前段文字</th>
             <th>後段文字</th>
+            <th style="width:118px">是否顯示</th>
           </tr>
 
           <tr>
@@ -379,6 +456,12 @@
             <td>
               <div class="center">
                 <textarea tabindex="3" class="suffixInput" placeholder="輸入框"></textarea>
+              </div>
+            </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox6" name="check"  />
+                <label for="slideCheckbox6"></label>
               </div>
             </td>
           </tr>
@@ -402,6 +485,12 @@
                 <textarea tabindex="6" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox7" name="check"  />
+                <label for="slideCheckbox7"></label>
+              </div>
+            </td>
           </tr>
 
           <tr>
@@ -421,6 +510,12 @@
             <td>
               <div class="center">
                 <textarea tabindex="9" class="suffixInput" placeholder="輸入框"></textarea>
+              </div>
+            </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox8" name="check"  />
+                <label for="slideCheckbox8"></label>
               </div>
             </td>
           </tr>
@@ -444,6 +539,12 @@
                 <textarea tabindex="12" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox9" name="check"/>
+                <label for="slideCheckbox9"></label>
+              </div>
+            </td>
           </tr>
 
           <tr>
@@ -465,6 +566,12 @@
                 <textarea tabindex="15" class="suffixInput" placeholder="輸入框"></textarea>
               </div>
             </td>
+            <td>
+              <div class="slide-checkbox">  
+                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox10" name="check"/>
+                <label for="slideCheckbox10"></label>
+              </div>
+            </td>
           </tr>
           
         </table>
@@ -472,7 +579,6 @@
         <div class="footer" class="center">
           <button tabindex="16" id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
           <button tabindex="17" id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
-          <button tabindex="18" id="dialog2-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
         </div>
 
       </div>
@@ -542,11 +648,11 @@
           <div class="shortcut-wrapper">
             <span class="shortcut-content"> ${capitalizeFirstLetter(
               mainKeyText
-            )} + E </span>
+            )} + G </span>
           </div>
         </td>
         <td>
-          <div class="ellipsis">恢復預設值</div>
+          <div class="ellipsis">匯入 / 匯出 設定</div>
         </td>
       </tr>
 
@@ -753,7 +859,7 @@
           <div class="shortcut-wrapper">
             <span class="shortcut-content"> ${capitalizeFirstLetter(
               mainKeyText
-            )} + G </span>
+            )} + E </span>
           </div>
         </td>
         <td>
@@ -831,6 +937,7 @@
           <th style="width:118px">組合鍵</th>
           <th style="width:160px">按鈕名稱</th>
           <th>快速回覆的文字</th>
+          <th style="width:118px">是否顯示</th>
         </tr>
 
         <tr>
@@ -845,6 +952,12 @@
           <td>
             <div class="center">
               <textarea style="width:100%" tabindex="2" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox11" name="check"/>
+              <label for="slideCheckbox11"></label>
             </div>
           </td>
         </tr>
@@ -863,6 +976,12 @@
               <textarea style="width:100%" tabindex="4" class="quickReplyMessage" placeholder="輸入框"></textarea>
             </div>
           </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox12" name="check"/>
+              <label for="slideCheckbox12"></label>
+            </div>
+          </td>
         </tr>
 
         <tr>
@@ -877,6 +996,12 @@
           <td>
             <div class="center">
               <textarea style="width:100%" tabindex="6" class="quickReplyMessage" placeholder="輸入框"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox13" name="check"/>
+              <label for="slideCheckbox13"></label>
             </div>
           </td>
         </tr>
@@ -895,6 +1020,12 @@
               <textarea style="width:100%" tabindex="8" class="quickReplyMessage" placeholder="輸入框"></textarea>
             </div>
           </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox14" name="check"/>
+              <label for="slideCheckbox14"></label>
+            </div>
+          </td>
         </tr>
 
         <tr>
@@ -911,6 +1042,12 @@
               <textarea style="width:100%" tabindex="10" class="quickReplyMessage" placeholder="輸入框"></textarea>
             </div>
           </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox15" name="check"/>
+              <label for="slideCheckbox15"></label>
+            </div>
+          </td>
         </tr>
       
       </table>
@@ -918,11 +1055,47 @@
       <div class="footer" class="center">
         <button tabindex="11" id="dialog4-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
         <button tabindex="12" id="dialog4-cancel" class="secondary">取消 ( esc ) </button>
-        <button tabindex="13" id="dialog4-reset" class="success">恢復預設值 ( ${mainKeyText} + e )</button>
       </div>
   </div>
 
 </div>  
+  `;
+
+  // 匯出匯入視窗 HTML
+  const exportAndImportHTML = `
+    <div id="dialog5" class="dialog-wrapper" style="display:none">
+
+      <div class="dialog" style="max-width: 650px;">
+
+        <table class="my-table" style="width:100%">
+          <tr>
+            <th colspan="2">匯出 與 匯入 設定檔</th>
+          </tr>
+          <tr>
+            <td style="width:100px">
+              <div class="center">
+                <button id="export" style="margin-right:0px;margin-left:10px;flex:0 0 65px;" class="success">匯出</button>
+              </div>
+            </td>
+            <td> 
+              <div class="center" style="justify-content: space-evenly;">
+                <button id="importAll" class="primary">匯入全部</button>
+                <button id="importPrompt" class="primary">只匯入問題樣板</button>
+                <button id="importQuickReply" style="margin-right:0px"  class="primary">只匯入快速回覆</button>
+              </div>
+            </td>
+          </tr>
+        
+        </table>
+
+        <input style="display:none" type="file" id="importFileInput" name="file" accept="application/json">
+
+        <div class="footer" class="center">
+          <button id="dialog5-cancel" class="secondary">關閉 ( esc ) </button>
+        </div>
+    </div>
+
+  </div>    
   `;
 
   // 插入 HTML 元素
@@ -942,6 +1115,10 @@
   quickReplySettingsDialogEl.innerHTML = quickReplyHTML;
   document.body.appendChild(quickReplySettingsDialogEl);
 
+  const exportAndImportDialogEl = document.createElement("div");
+  exportAndImportDialogEl.innerHTML = exportAndImportHTML;
+  document.body.appendChild(exportAndImportDialogEl);
+
   // Question
   const questionDialog = document.getElementById("dialog");
   const questionPreviewAreaDiv = document.getElementById("questionPreviewArea");
@@ -956,7 +1133,6 @@
   const settingsDialog = document.getElementById("dialog2");
   const settingsDialogOkBtn = document.querySelector("#dialog2-ok");
   const settingsDialogCancelBtn = document.querySelector("#dialog2-cancel");
-  const settingsDialogResetBtn = document.querySelector("#dialog2-reset");
   const settingsTableForm = settingsDialog.querySelector("#table-form");
   const settingsTableForm2 = settingsDialog.querySelector("#table-form2");
 
@@ -968,8 +1144,16 @@
   const quickReplySettingsDialogOkBtn = document.querySelector("#dialog4-ok");
   const quickReplySettingsDialogCancelBtn =
     document.querySelector("#dialog4-cancel");
-  const quickReplySettingsDialogResetBtn =
-    document.querySelector("#dialog4-reset");
+
+  // exportAndImport
+  const exportAndImportDialog = document.getElementById("dialog5");
+  const exportSettingsBtn = document.getElementById("export");
+  const importAllBtn = document.getElementById("importAll");
+  const importOnlyPromptBtn = document.getElementById("importPrompt");
+  const importOnlyQuickReplyBtn = document.getElementById("importQuickReply");
+  const exportAndImportDialogCancelBtn = document.getElementById("dialog5-cancel");
+
+  const importFileInput = document.getElementById("importFileInput");
 
   // other
   let intervalID = null;
@@ -980,116 +1164,149 @@
   /** 1:form or 2:form2 */
   let currentSettingFormType;
 
-  // dataList / quickReply
-  let dataList = [];
+  /** 0:all or 1:prompt or 2:quickReply */
+  let importType;
 
-  const defaultDataList = [
+  // promptList / quickReply
+  const defaultPromptList = [
     {
+      key: "1",
       text: "自由提問",
       prefix: "",
       suffix: "，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "2",
       text: "英文解釋",
       prefix: "你現在是一個英文教育專家，請解釋英文單字 [",
       suffix: "]，拼音、詞性，並給出 5 個中英文的範例。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "3",
       text: "多國語系翻譯",
       prefix: "你現在是一個翻譯專家，請幫我翻譯 [",
       suffix:
         "] 的繁體中文、簡體中文、英文、日文，\n並請使用表格顯示，表頭分別為 zh-tw、zh-cn、en、ja，\n不需要其他解釋或說明。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "4",
       text: "程式問題",
       prefix: "你現在是一個 Angular、RxJs、Typescript、Javascript 專家，\n",
       suffix: "\n，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "5",
       text: "CSS 範例",
       prefix: "你現在是一個 CSS 專家，請幫我做出以下敘述的樣式：\n",
       suffix: "\n，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "6",
       text: "整理重點",
       prefix:
         "你現在是個閱讀專家，請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
       suffix: "\n\n，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "7",
       text: "研究報告",
       prefix: "寫一篇有關",
       suffix:
         "的 300 字研究報告，報告中需引述最新的研究，並引用專家觀點，請使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "8",
       text: "文字修飾",
       prefix: "請幫我修飾以下敘述，符合台灣用語，且輕鬆活潑。\n\n",
       suffix: "",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "9",
       text: "問題建議",
       prefix: "我遇到以下問題：\n",
       suffix: "\n請幫我想出解決方式或替代方案，並使用繁體中文回答。",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "10",
       text: "登山建議",
       prefix: "你現在是一個登山專家，我近期打算去爬",
       suffix:
         "，請使用繁體中文回答，回答需包括以下內容：\n1. 登山難度及時間\n2. 交通資訊\n3. 景點氣候特性\n4. 其他補充",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
   ];
 
-  let defaultQuickReplyMessageList = [
+  let promptList = [];
+
+  const defaultQuickReplyMessageList = [
     {
+      key: "Y",
       text: "提供其它範例",
       quickReplyMessage: "請提供其它範例",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "U",
       text: "更詳細的說明",
       quickReplyMessage: "請提供更細節的說明",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "I",
       text: "提供程式範例",
       quickReplyMessage: "請提供程式範例",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "O",
       text: "翻譯成繁體中文",
       quickReplyMessage: "請翻譯成繁體中文",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
     {
+      key: "P",
       text: "翻譯成英文",
       quickReplyMessage: "請翻譯成英文",
       buttonElement: null,
       handleClickFn: null,
+      isVisible: true,
     },
   ];
 
@@ -1100,33 +1317,36 @@
     questionDialog.style.display = "none";
     settingsDialog.style.display = "none";
     shortcutKeyHintDialog.style.display = "none";
+    exportAndImportDialog.style.display = "none";
 
-    if (!localStorage.getItem("Custom.Template.Settings")) {
+    if (!localStorage.getItem("Custom.Settings.PromptPrompt")) {
       localStorage.setItem(
-        "Custom.Template.Settings",
-        JSON.stringify(defaultDataList)
+        "Custom.Settings.PromptPrompt",
+        JSON.stringify(defaultPromptList)
       );
     }
 
-    if (!localStorage.getItem("Custom.Template.QuickReply")) {
+    if (!localStorage.getItem("Custom.Settings.PromptQuickReply")) {
       localStorage.setItem(
-        "Custom.Template.QuickReply",
+        "Custom.Settings.PromptQuickReply",
         JSON.stringify(defaultQuickReplyMessageList)
       );
     }
 
-    if (localStorage.getItem("Custom.Template.Buttons.Hidden") === null ) {
-      localStorage.setItem("Custom.Template.Buttons.Hidden", "N");
+    if (localStorage.getItem("Custom.Settings.Menu.Hidden") === null) {
+      localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
     }
 
-    localStorage.getItem("Custom.Template.Buttons.Hidden") === "Y"
+    localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
       ? document.body.classList.add("hidden-template-buttons")
       : document.body.classList.remove("hidden-template-buttons");
 
-    dataList = JSON.parse(localStorage.getItem("Custom.Template.Settings"));
+    promptList = JSON.parse(
+      localStorage.getItem("Custom.Settings.PromptPrompt")
+    );
 
     quickReplyMessageList = JSON.parse(
-      localStorage.getItem("Custom.Template.QuickReply")
+      localStorage.getItem("Custom.Settings.PromptQuickReply")
     );
   }
   init();
@@ -1208,11 +1428,23 @@
       return;
     }
 
+    // esc : close exportAndImportDialog
+    if (
+      !isComposing &&
+      exportAndImportDialog.style.display === "flex" &&
+      event.key === "Escape"
+    ) {
+      event.preventDefault();
+      exportAndImportDialog.style.display = "none";
+      return;
+    }
+
     // mainKey + w : open settingsDialog
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "w"
     ) {
@@ -1226,6 +1458,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "s"
     ) {
@@ -1234,16 +1467,31 @@
       return;
     }
 
-    // mainKey + g : open quickReplySettingsDialog
+    // mainKey + e : open quickReplySettingsDialog
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "e"
+    ) {
+      event.preventDefault();
+      showQuickReplySettingsDialog();
+      return;
+    }
+
+    // mainKey + g : open exportAndImportDialog
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "g"
     ) {
       event.preventDefault();
-      showQuickReplySettingsDialog();
+      openExportAndImportDialog();
       return;
     }
 
@@ -1282,33 +1530,12 @@
       return;
     }
 
-    // mainKey + e : reset form value
-    if (
-      settingsDialog.style.display === "flex" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "e"
-    ) {
-      event.preventDefault();
-      resetFormValue();
-      return;
-    }
-
-    // mainKey + e : reset quickRelySettings form value
-    if (
-      quickReplySettingsDialog.style.display === "flex" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "e"
-    ) {
-      event.preventDefault();
-      resetQuickReplyFormValue();
-      return;
-    }
-
     // mainKey + r : regenerate response
     if (
       settingsDialog.style.display === "none" &&
       questionDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "r"
     ) {
@@ -1326,6 +1553,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "x"
     ) {
@@ -1343,6 +1571,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "c"
     ) {
@@ -1356,6 +1585,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "y"
     ) {
@@ -1371,6 +1601,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "u"
     ) {
@@ -1386,6 +1617,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "i"
     ) {
@@ -1401,6 +1633,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "o"
     ) {
@@ -1416,6 +1649,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "p"
     ) {
@@ -1437,11 +1671,11 @@
     if (event[mainKey] && event.key.toLocaleLowerCase() === "a") {
       event.preventDefault();
 
-      if (localStorage.getItem("Custom.Template.Buttons.Hidden") === "Y") {
-        localStorage.setItem("Custom.Template.Buttons.Hidden", "N");
+      if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y") {
+        localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
         document.body.classList.remove("hidden-template-buttons");
       } else {
-        localStorage.setItem("Custom.Template.Buttons.Hidden", "Y");
+        localStorage.setItem("Custom.Settings.Menu.Hidden", "Y");
         document.body.classList.add("hidden-template-buttons");
       }
 
@@ -1470,6 +1704,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "n"
     ) {
@@ -1487,6 +1722,7 @@
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "m"
     ) {
@@ -1519,57 +1755,58 @@
     if (
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
       event[mainKey]
     ) {
       switch (event.key) {
         case "1":
           event.preventDefault();
-          dataList[0].buttonElement.click();
+          promptList[0].buttonElement.click();
           break;
 
         case "2":
           event.preventDefault();
-          dataList[1].buttonElement.click();
+          promptList[1].buttonElement.click();
           break;
 
         case "3":
           event.preventDefault();
-          dataList[2].buttonElement.click();
+          promptList[2].buttonElement.click();
           break;
 
         case "4":
           event.preventDefault();
-          dataList[3].buttonElement.click();
+          promptList[3].buttonElement.click();
           break;
 
         case "5":
           event.preventDefault();
-          dataList[4].buttonElement.click();
+          promptList[4].buttonElement.click();
           break;
 
         case "6":
           event.preventDefault();
-          dataList[5].buttonElement.click();
+          promptList[5].buttonElement.click();
           break;
 
         case "7":
           event.preventDefault();
-          dataList[6].buttonElement.click();
+          promptList[6].buttonElement.click();
           break;
 
         case "8":
           event.preventDefault();
-          dataList[7].buttonElement.click();
+          promptList[7].buttonElement.click();
           break;
 
         case "9":
           event.preventDefault();
-          dataList[8].buttonElement.click();
+          promptList[8].buttonElement.click();
           break;
 
         case "0":
           event.preventDefault();
-          dataList[9].buttonElement.click();
+          promptList[9].buttonElement.click();
           break;
 
         default:
@@ -1692,6 +1929,7 @@
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
     const prefixInputElements = document.querySelectorAll(".prefixInput");
     const suffixInputElements = document.querySelectorAll(".suffixInput");
+    const promptSlideElements = document.querySelectorAll(".promptSlide");
 
     let startIndex = 0;
     let endIndex = 5;
@@ -1702,9 +1940,10 @@
     }
 
     for (let index = startIndex; index < endIndex; index++) {
-      btnTextInputElements[index].value = dataList[index].text;
-      prefixInputElements[index].value = dataList[index].prefix;
-      suffixInputElements[index].value = dataList[index].suffix;
+      btnTextInputElements[index].value = promptList[index].text;
+      prefixInputElements[index].value = promptList[index].prefix;
+      suffixInputElements[index].value = promptList[index].suffix;
+      promptSlideElements[index].checked = promptList[index].isVisible;
     }
 
     currentSettingFormType === 1
@@ -1716,6 +1955,7 @@
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
     const prefixInputElements = document.querySelectorAll(".prefixInput");
     const suffixInputElements = document.querySelectorAll(".suffixInput");
+    const promptSlideElements = document.querySelectorAll(".promptSlide");
 
     let startIndex = 0;
     let endIndex = 5;
@@ -1725,22 +1965,30 @@
       endIndex = 10;
     }
 
+    const previousPromptList = JSON.parse(JSON.stringify(promptList));
+
     for (let index = startIndex; index < endIndex; index++) {
-      dataList[index].text = btnTextInputElements[index].value;
-      dataList[index].prefix = prefixInputElements[index].value;
-      dataList[index].suffix = suffixInputElements[index].value;
+      promptList[index].text = btnTextInputElements[index].value;
+      promptList[index].prefix = prefixInputElements[index].value;
+      promptList[index].suffix = suffixInputElements[index].value;
+      promptList[index].isVisible = promptSlideElements[index].checked;
 
-      dataList[index].buttonElement.removeEventListener(
-        "click",
-        dataList[index].handleClickFn
-      );
-      dataList[index].buttonElement.remove();
+      if (previousPromptList.isVisible) {
+        promptList[index].buttonElement.removeEventListener(
+          "click",
+          promptList[index].handleClickFn
+        );
+        promptList[index].buttonElement.remove();
 
-      delete dataList[index].buttonElement;
-      delete dataList[index].handleClickFn;
+        delete promptList[index].buttonElement;
+        delete promptList[index].handleClickFn;
+      }
     }
 
-    localStorage.setItem("Custom.Template.Settings", JSON.stringify(dataList));
+    localStorage.setItem(
+      "Custom.Settings.PromptPrompt",
+      JSON.stringify(promptList)
+    );
 
     generateButtons();
 
@@ -1755,30 +2003,6 @@
     settingsDialog.style.display = "none";
   });
 
-  function resetFormValue() {
-    const btnTextInputElements = document.querySelectorAll(".btnTextInput");
-    const prefixInputElements = document.querySelectorAll(".prefixInput");
-    const suffixInputElements = document.querySelectorAll(".suffixInput");
-
-    let startIndex = 0;
-    let endIndex = 5;
-
-    if (currentSettingFormType == 2) {
-      startIndex = 5;
-      endIndex = 10;
-    }
-
-    for (let index = startIndex; index < endIndex; index++) {
-      btnTextInputElements[index].value = defaultDataList[index].text;
-      prefixInputElements[index].value = defaultDataList[index].prefix;
-      suffixInputElements[index].value = defaultDataList[index].suffix;
-    }
-  }
-
-  settingsDialogResetBtn.addEventListener("click", () => {
-    resetFormValue();
-  });
-
   // ------------ 快速回覆設定視窗 ------------
   function showQuickReplySettingsDialog() {
     quickReplySettingsDialog.style.display = "flex";
@@ -1789,9 +2013,13 @@
     const quickReplyMessageElements =
       document.querySelectorAll(".quickReplyMessage");
 
+    const quickReplySlideElements =
+      document.querySelectorAll(".quickReplySlide");
+
     quickReplyMessageList.forEach((settings, index) => {
       quickReplyButtonTextElements[index].value = settings.text;
       quickReplyMessageElements[index].value = settings.quickReplyMessage;
+      quickReplySlideElements[index].checked = settings.isVisible;
     });
 
     quickReplyButtonTextElements[0].focus();
@@ -1804,22 +2032,32 @@
     const quickReplyMessageElements =
       document.querySelectorAll(".quickReplyMessage");
 
+    const quickReplySlideElements =
+      document.querySelectorAll(".quickReplySlide");
+
+    const previousQuickReplyMessageList = JSON.parse(
+      JSON.stringify(quickReplyMessageList)
+    );
+
     quickReplyMessageList.forEach((settings, index) => {
       settings.text = quickReplyButtonTextElements[index].value;
       settings.quickReplyMessage = quickReplyMessageElements[index].value;
+      settings.isVisible = quickReplySlideElements[index].checked;
 
-      settings.buttonElement.removeEventListener(
-        "click",
-        settings.handleClickFn
-      );
-      settings.buttonElement.remove();
+      if (previousQuickReplyMessageList.isVisible) {
+        settings.buttonElement.removeEventListener(
+          "click",
+          settings.handleClickFn
+        );
+        settings.buttonElement.remove();
 
-      delete settings.buttonElement;
-      delete settings.handleClickFn;
+        delete settings.buttonElement;
+        delete settings.handleClickFn;
+      }
     });
 
     localStorage.setItem(
-      "Custom.Template.QuickReply",
+      "Custom.Settings.PromptQuickReply",
       JSON.stringify(quickReplyMessageList)
     );
 
@@ -1836,21 +2074,323 @@
     quickReplySettingsDialog.style.display = "none";
   });
 
-  function resetQuickReplyFormValue() {
-    const quickReplyButtonTextElements = document.querySelectorAll(
-      ".quickReplyButtonText"
-    );
-    const quickReplyMessageElements =
-      document.querySelectorAll(".quickReplyMessage");
+  // ------------ 提示窗相關 ------------
+  document.addEventListener("keydown", (event) => {
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "z"
+    ) {
+      shortcutKeyHintDialog.style.display = "flex";
+      const templateButtonTextList = document.querySelectorAll(
+        ".templateButtonText"
+      );
+      templateButtonTextList[0].textContent = promptList[0].text;
+      templateButtonTextList[1].textContent = promptList[5].text;
+      templateButtonTextList[2].textContent = promptList[1].text;
+      templateButtonTextList[3].textContent = promptList[6].text;
+      templateButtonTextList[4].textContent = promptList[2].text;
+      templateButtonTextList[5].textContent = promptList[7].text;
+      templateButtonTextList[6].textContent = promptList[3].text;
+      templateButtonTextList[7].textContent = promptList[8].text;
+      templateButtonTextList[8].textContent = promptList[4].text;
+      templateButtonTextList[9].textContent = promptList[9].text;
+      templateButtonTextList[10].textContent = quickReplyMessageList[0].text;
+      templateButtonTextList[11].textContent = quickReplyMessageList[1].text;
+      templateButtonTextList[12].textContent = quickReplyMessageList[2].text;
+      templateButtonTextList[13].textContent = quickReplyMessageList[3].text;
+      templateButtonTextList[14].textContent = quickReplyMessageList[4].text;
+    }
+  });
 
-    defaultQuickReplyMessageList.forEach((settings, index) => {
-      quickReplyButtonTextElements[index].value = settings.text;
-      quickReplyMessageElements[index].value = settings.quickReplyMessage;
-    });
+  document.addEventListener("keyup", (event) => {
+    if (
+      (shortcutKeyHintDialog.style.display === "flex" &&
+        event.key.toLocaleLowerCase() === "z") ||
+      (shortcutKeyHintDialog.style.display === "flex" && event[mainKey])
+    ) {
+      shortcutKeyHintDialog.style.display = "none";
+    }
+  });
+
+  // ------------ 匯出/匯入視窗相關 ------------
+  function openExportAndImportDialog() {
+    exportAndImportDialog.style.display = "flex";
   }
 
-  quickReplySettingsDialogResetBtn.addEventListener("click", () => {
-    resetQuickReplyFormValue();
+  exportAndImportDialogCancelBtn.addEventListener("click",()=>{
+    exportAndImportDialog.style.display = "none";
+  });
+
+  function downloadFile(data, filename, mimeType) {
+    const blob = new Blob([data], { type: mimeType });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.setAttribute("download", filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  exportSettingsBtn.addEventListener("click", () => {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = (now.getMonth() + 1).toString().padStart(2, "0");
+    let date = now.getDate().toString().padStart(2, "0");
+    let hour = now.getHours().toString().padStart(2, "0");
+    let minute = now.getMinutes().toString().padStart(2, "0");
+    let seconds = now.getSeconds().toString().padStart(2, "0");
+
+    const fileName = `chatGPT提問助手_設定檔_${year}年${month}月${date}日${hour}點${minute}分${seconds}秒`;
+
+    const currentPromptSetting = JSON.parse(JSON.stringify(promptList));
+    const currentQuickReplyMessageList = JSON.parse(
+      JSON.stringify(quickReplyMessageList)
+    );
+
+    currentPromptSetting.forEach((setting) => {
+      delete setting.buttonElement;
+      delete setting.handleClickFn;
+    });
+
+    currentQuickReplyMessageList.forEach((setting) => {
+      delete setting.buttonElement;
+      delete setting.handleClickFn;
+    });
+
+    const jsonData = JSON.stringify(
+      {
+        settings: {
+          prompt: currentPromptSetting,
+          quickReply: currentQuickReplyMessageList,
+          isHiddenMenu: localStorage.getItem("Custom.Settings.Menu.Hidden"),
+        },
+      },
+      null,
+      2
+    );
+
+    downloadFile(
+      jsonData,
+      `${fileName}.json`,
+      "application/json;charset=utf-8;"
+    );
+  });
+
+  importAllBtn.addEventListener("click", () => {
+    importType = 0;
+    importFileInput.click();
+  });
+
+  importOnlyPromptBtn.addEventListener("click", () => {
+    importType = 1;
+    importFileInput.click();
+  });
+
+  importOnlyQuickReplyBtn.addEventListener("click", () => {
+    importType = 2;
+    importFileInput.click();
+  });
+
+  function checkFileContent(obj) {
+    let isValidated = true;
+
+    try {
+      if (!obj.hasOwnProperty("settings")) {
+        isValidated = false;
+      }
+
+      if (!obj.settings.hasOwnProperty("isHiddenMenu")) {
+        isValidated = false;
+      }
+
+      if (!obj.settings.hasOwnProperty("prompt")) {
+        isValidated = false;
+      } else {
+        obj.settings.prompt.forEach((setting) => {
+          if (
+            !setting.hasOwnProperty("isVisible") ||
+            typeof setting.isVisible !== "boolean"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("key") ||
+            typeof setting.key !== "string"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("text") ||
+            typeof setting.text !== "string"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("prefix") ||
+            typeof setting.prefix !== "string"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("suffix") ||
+            typeof setting.suffix !== "string"
+          ) {
+            isValidated = false;
+          }
+        });
+      }
+
+      if (!obj.settings.hasOwnProperty("quickReply")) {
+        isValidated = false;
+      } else {
+        obj.settings.quickReply.forEach((setting) => {
+          if (
+            !setting.hasOwnProperty("isVisible") ||
+            typeof setting.isVisible !== "boolean"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("key") ||
+            typeof setting.key !== "string"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("text") ||
+            typeof setting.text !== "string"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("quickReplyMessage") ||
+            typeof setting.quickReplyMessage !== "string"
+          ) {
+            isValidated = false;
+          }
+        });
+      }
+    } catch (error) {
+      isValidated = false;
+      console.log("error", error);
+    }
+
+    return isValidated;
+  }
+
+  function handleFileLoad(event) {
+    const json = JSON.parse(event.target.result);
+
+    if (!checkFileContent(json)) {
+      importFileInput.value = "";
+      alert("檔案內容有誤，請從重選擇");
+      return;
+    }
+
+    let confirmMessage = '';
+
+    switch (importType) {
+      case 1:
+        confirmMessage = `確定只匯入『${importFileInput.files[0].name}』的 問題樣板 ?`;
+        break;
+
+      case 2:
+        confirmMessage = `確定只匯入『${importFileInput.files[0].name}』的 快速回覆 ?`;
+        break;
+    
+      default:
+        confirmMessage = `確定匯入『${importFileInput.files[0].name}』?`;
+        break;
+    }
+
+    const result = confirm(confirmMessage);
+
+    if (result) {
+      // 暫時不覆蓋 isHiddenMenu ，避免使用者誤會選單消失。
+      // json.settings.isHiddenMenu === "Y"
+      //   ? document.body.classList.add("hidden-template-buttons")
+      //   : document.body.classList.remove("hidden-template-buttons");
+
+      // 覆蓋問題樣板
+      if (importType === 0 || importType === 1) {
+        const previousPromptList = JSON.parse(JSON.stringify(promptList));
+
+        promptList.forEach((setting, index) => {
+          setting.text = json.settings.prompt[index].text;
+          setting.prefix = json.settings.prompt[index].prefix;
+          setting.suffix = json.settings.prompt[index].suffix;
+          setting.isVisible =json.settings.prompt[index].isVisible;
+
+          if (previousPromptList.isVisible) {
+            setting.buttonElement.removeEventListener(
+              "click",
+              setting.handleClickFn
+            );
+            setting.buttonElement.remove();
+
+            delete setting.buttonElement;
+            delete setting.handleClickFn;
+          }
+
+          localStorage.setItem(
+            "Custom.Settings.PromptPrompt",
+            JSON.stringify(promptList)
+          );
+        });
+      }
+
+      // 覆蓋快速回覆
+      if (importType === 0 || importType === 2) {
+
+        const previousQuickReplyMessageList = JSON.parse(
+          JSON.stringify(quickReplyMessageList)
+        );
+
+        quickReplyMessageList.forEach((settings, index) => {
+          settings.text = json.settings.quickReply[index].text;
+          settings.quickReplyMessage = json.settings.quickReply[index].quickReplyMessage;
+          settings.isVisible = json.settings.quickReply[index].isVisible;
+    
+          if (previousQuickReplyMessageList.isVisible) {
+            settings.buttonElement.removeEventListener(
+              "click",
+              settings.handleClickFn
+            );
+            settings.buttonElement.remove();
+    
+            delete settings.buttonElement;
+            delete settings.handleClickFn;
+          }
+        });
+    
+        localStorage.setItem(
+          "Custom.Settings.PromptQuickReply",
+          JSON.stringify(quickReplyMessageList)
+        );
+
+      }
+
+      generateButtons();
+
+      alert('匯入成功!');
+
+      importFileInput.value = "";
+
+    } else {
+      importFileInput.value = "";
+    }
+  }
+
+  importFileInput.addEventListener("change", () => {
+    const file = importFileInput.files[0];
+    const reader = new FileReader();
+    reader.onload = handleFileLoad;
+    reader.readAsText(file);
   });
 
   // ------------ 建立右側按鈕 相關程式碼 ------------
@@ -1888,10 +2428,9 @@
   }
 
   function generateButtons() {
+    const findCustomMenu = document.querySelector(".custom-menu");
 
-    const findCustomMenu = document.querySelector('.custom-menu');
-
-    if(findCustomMenu){
+    if (findCustomMenu) {
       findCustomMenu.remove();
     }
 
@@ -1899,8 +2438,12 @@
     menuDiv.classList.add("custom-menu");
 
     // 模版
-    dataList.forEach((settings, index) => {
-      const button = createButton(`${index + 1}. ${settings.text}`);
+    promptList.forEach((settings) => {
+      if (!settings.isVisible) {
+        return;
+      }
+
+      const button = createButton(`${settings.key}. ${settings.text}`);
 
       const handleClick = () => {
         prefix = settings.prefix;
@@ -1937,9 +2480,12 @@
     menuDiv.appendChild(continueButton);
 
     // 快速回覆按鈕
-    const keys = ["Y", "U", "I", "O", "P"];
-    quickReplyMessageList.forEach((settings, index) => {
-      const button = createButton(`${keys[index]}. ${settings.text}`);
+    quickReplyMessageList.forEach((settings) => {
+      if (!settings.isVisible) {
+        return;
+      }
+
+      const button = createButton(`${settings.key}. ${settings.text}`);
 
       const handleClick = () => {
         if (settings.quickReplyMessage.trim()) {
@@ -1955,51 +2501,20 @@
       menuDiv.appendChild(button);
     });
 
+    // 匯出匯入設定擋
+    const exportAndImportConfigButton = createButton(`G. 匯入 / 匯出 設定`);
+    exportAndImportConfigButton.addEventListener("click", () => {
+      openExportAndImportDialog();
+    });
+    menuDiv.appendChild(exportAndImportConfigButton);
+
+    // 重新設定高度
+    menuDiv.style.maxHeight = `${menuDiv.children.length * 45}px`;
+
     document.body.appendChild(menuDiv);
   }
 
   generateButtons();
-
-  // ------------ 提示窗相關 ------------
-  document.addEventListener("keydown", (event) => {
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "z"
-    ) {
-      shortcutKeyHintDialog.style.display = "flex";
-      const templateButtonTextList = document.querySelectorAll(
-        ".templateButtonText"
-      );
-      templateButtonTextList[0].textContent = dataList[0].text;
-      templateButtonTextList[1].textContent = dataList[5].text;
-      templateButtonTextList[2].textContent = dataList[1].text;
-      templateButtonTextList[3].textContent = dataList[6].text;
-      templateButtonTextList[4].textContent = dataList[2].text;
-      templateButtonTextList[5].textContent = dataList[7].text;
-      templateButtonTextList[6].textContent = dataList[3].text;
-      templateButtonTextList[7].textContent = dataList[8].text;
-      templateButtonTextList[8].textContent = dataList[4].text;
-      templateButtonTextList[9].textContent = dataList[9].text;
-      templateButtonTextList[10].textContent = quickReplyMessageList[0].text;
-      templateButtonTextList[11].textContent = quickReplyMessageList[1].text;
-      templateButtonTextList[12].textContent = quickReplyMessageList[2].text;
-      templateButtonTextList[13].textContent = quickReplyMessageList[3].text;
-      templateButtonTextList[14].textContent = quickReplyMessageList[4].text;
-    }
-  });
-
-  document.addEventListener("keyup", (event) => {
-    if (
-      (shortcutKeyHintDialog.style.display === "flex" &&
-        event.key.toLocaleLowerCase() === "z") ||
-      (shortcutKeyHintDialog.style.display === "flex" && event[mainKey])
-    ) {
-      shortcutKeyHintDialog.style.display = "none";
-    }
-  });
 
   // ------------ 監聽各式 composition 事件 ------------
   document.querySelectorAll(".btnTextInput").forEach((input) => {
@@ -2091,7 +2606,6 @@
       ...tableFormTabindexElements,
       settingsDialogOkBtn,
       settingsDialogCancelBtn,
-      settingsDialogResetBtn,
     ];
 
     const tableFormFirstTabindexElement = tableFormTabindexElements[0];
@@ -2107,7 +2621,6 @@
       ...tableForm2TabindexElements,
       settingsDialogOkBtn,
       settingsDialogCancelBtn,
-      settingsDialogResetBtn,
     ];
 
     const tableForm2FirstTabindexElement = tableForm2TabindexElements[0];
