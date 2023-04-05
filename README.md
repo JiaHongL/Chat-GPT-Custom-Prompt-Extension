@@ -98,7 +98,8 @@
 
 ### 隱藏用不到的問題樣板或快速回覆
 
-![](https://i.imgur.com/Ik6zTzp.gif)
+![](https://i.imgur.com/zCfzKZu.gif)
+
 
 > 這邊的隱藏是不會出現在右邊的選單，但還是能用快捷鍵執行。
 

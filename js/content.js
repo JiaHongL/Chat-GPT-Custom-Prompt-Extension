@@ -1319,16 +1319,16 @@
     shortcutKeyHintDialog.style.display = "none";
     exportAndImportDialog.style.display = "none";
 
-    if (!localStorage.getItem("Custom.Settings.PromptPrompt")) {
+    if (!localStorage.getItem("Custom.Settings.Prompt")) {
       localStorage.setItem(
-        "Custom.Settings.PromptPrompt",
+        "Custom.Settings.Prompt",
         JSON.stringify(defaultPromptList)
       );
     }
 
-    if (!localStorage.getItem("Custom.Settings.PromptQuickReply")) {
+    if (!localStorage.getItem("Custom.Settings.QuickReply")) {
       localStorage.setItem(
-        "Custom.Settings.PromptQuickReply",
+        "Custom.Settings.QuickReply",
         JSON.stringify(defaultQuickReplyMessageList)
       );
     }
@@ -1342,11 +1342,11 @@
       : document.body.classList.remove("hidden-template-buttons");
 
     promptList = JSON.parse(
-      localStorage.getItem("Custom.Settings.PromptPrompt")
+      localStorage.getItem("Custom.Settings.Prompt")
     );
 
     quickReplyMessageList = JSON.parse(
-      localStorage.getItem("Custom.Settings.PromptQuickReply")
+      localStorage.getItem("Custom.Settings.QuickReply")
     );
   }
   init();
@@ -1986,7 +1986,7 @@
     }
 
     localStorage.setItem(
-      "Custom.Settings.PromptPrompt",
+      "Custom.Settings.Prompt",
       JSON.stringify(promptList)
     );
 
@@ -2057,7 +2057,7 @@
     });
 
     localStorage.setItem(
-      "Custom.Settings.PromptQuickReply",
+      "Custom.Settings.QuickReply",
       JSON.stringify(quickReplyMessageList)
     );
 
@@ -2338,7 +2338,7 @@
           }
 
           localStorage.setItem(
-            "Custom.Settings.PromptPrompt",
+            "Custom.Settings.Prompt",
             JSON.stringify(promptList)
           );
         });
@@ -2369,7 +2369,7 @@
         });
     
         localStorage.setItem(
-          "Custom.Settings.PromptQuickReply",
+          "Custom.Settings.QuickReply",
           JSON.stringify(quickReplyMessageList)
         );
 
