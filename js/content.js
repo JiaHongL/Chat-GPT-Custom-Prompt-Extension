@@ -256,7 +256,19 @@
       }
       .slide-checkbox input[type=checkbox]:checked + label {
         left: 43px !important;
-      }      
+      } 
+      .buy-me-a-coffee{
+        display: inline-block;
+      }     
+      .buy-me-a-coffee-dark {
+        display: none;
+      }
+      .dark .buy-me-a-coffee {
+        display: none;
+      }     
+      .dark .buy-me-a-coffee-dark {
+        display: inline-block;
+      }
       `;
 
   // 插入 style
@@ -1065,16 +1077,16 @@
   const exportAndImportHTML = `
     <div id="dialog5" class="dialog-wrapper" style="display:none">
 
-      <div class="dialog" style="max-width: 650px;">
+      <div class="dialog" style="max-width: 850px;">
 
         <table class="my-table" style="width:100%">
           <tr>
-            <th colspan="2">匯出 與 匯入 設定檔</th>
+            <th colspan="3">匯出 與 匯入 設定檔</th>
           </tr>
           <tr>
             <td style="width:100px">
               <div class="center">
-                <button id="export" style="margin-right:0px;margin-left:10px;flex:0 0 65px;" class="success">匯出</button>
+                <button id="export" style="margin-right:0px;flex:0 0 65px;" class="success">匯出</button>
               </div>
             </td>
             <td> 
@@ -1084,8 +1096,15 @@
                 <button id="importQuickReply" style="margin-right:0px"  class="primary">只匯入快速回覆</button>
               </div>
             </td>
-          </tr>
-        
+            <td>
+              <div class="center">
+                <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+                  <img class="buy-me-a-coffee" style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=9a8e81&font_colour=fff&font_family=Comic&outline_colour=ffffff&coffee_colour=FFDD00" />
+                  <img class="buy-me-a-coffee-dark" style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=5a5646&font_colour=d1d5db&font_family=Comic&outline_colour=ffffff&coffee_colour=FFDD00" />
+                </a>
+              </div>
+            </td>
+          </tr>        
         </table>
 
         <input style="display:none" type="file" id="importFileInput" name="file" accept="application/json">
