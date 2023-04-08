@@ -2,7 +2,7 @@
 
 此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本、快速回覆文字，以及方便的快捷鍵功能。
 
-[ChatGPT 提問助手 - Chrome 線上應用程式 即將上架](https://)
+[Chrome 線上應用程式 - ChatGPT 提問助手](https://chrome.google.com/webstore/detail/chatgpt-%E6%8F%90%E5%95%8F%E5%8A%A9%E6%89%8B/biohjdkjclhempinkjfnjenpldjnkcfn?hl=zh-TW)
 
 ![](https://i.imgur.com/Gvc9HYH.png)
 
@@ -111,7 +111,7 @@
 
 ![](https://i.imgur.com/NrDUG89.gif)
 
-> 若只想單獨匯入問題樣板或快速回覆，可以選其他兩個匯入的選項。
+> 若只想單獨 匯入問題樣板 或 快速回覆，可以選其他兩種匯入的選項。
 
 ## 使用範例分享
 
