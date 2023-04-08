@@ -203,7 +203,7 @@
         padding-right:4px;
         z-index: 1000;
         height:90vh;
-        max-height:720px;
+        max-height:679px;
         width:160px;
         overflow-y: auto;
         overflow-x: hidden;
@@ -2421,7 +2421,7 @@
     button.style.margin = "0 0 5px 0";
     button.style.color = "white";
     button.style.border = "none";
-    button.style.padding = "8px 10px";
+    button.style.padding = "6px 10px";
     button.style.fontSize = "1rem";
     button.style.cursor = "pointer";
     button.style.borderRadius = "5px";
@@ -2528,7 +2528,7 @@
     menuDiv.appendChild(exportAndImportConfigButton);
 
     // 重新設定高度
-    menuDiv.style.maxHeight = `${menuDiv.children.length * 45}px`;
+    menuDiv.style.maxHeight = `${menuDiv.children.length * 41}px`;
 
     document.body.appendChild(menuDiv);
   }
