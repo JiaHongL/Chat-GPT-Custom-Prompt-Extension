@@ -1170,7 +1170,8 @@
   const importAllBtn = document.getElementById("importAll");
   const importOnlyPromptBtn = document.getElementById("importPrompt");
   const importOnlyQuickReplyBtn = document.getElementById("importQuickReply");
-  const exportAndImportDialogCancelBtn = document.getElementById("dialog5-cancel");
+  const exportAndImportDialogCancelBtn =
+    document.getElementById("dialog5-cancel");
 
   const importFileInput = document.getElementById("importFileInput");
 
@@ -1360,9 +1361,7 @@
       ? document.body.classList.add("hidden-template-buttons")
       : document.body.classList.remove("hidden-template-buttons");
 
-    promptList = JSON.parse(
-      localStorage.getItem("Custom.Settings.Prompt")
-    );
+    promptList = JSON.parse(localStorage.getItem("Custom.Settings.Prompt"));
 
     quickReplyMessageList = JSON.parse(
       localStorage.getItem("Custom.Settings.QuickReply")
@@ -1381,15 +1380,17 @@
 
   findModeBtn();
 
-  function findModeOptionAndClick(index) {
+  function findModeOptionAndClick(textContent) {
     clearInterval(intervalID);
     intervalID = setInterval(function () {
-      if (document.querySelectorAll('[role="option"]')) {
-        const option = document.querySelectorAll('[role="option"]')[index];
+      const option = Array.from(
+        document.querySelectorAll('[role="option"]')
+      ).find((element) => element.textContent.includes(textContent));
+      if (option) {
         option?.click();
         clearInterval(intervalID);
       }
-    }, 200);
+    }, 250);
   }
 
   function darkModeToggle() {
@@ -1762,9 +1763,9 @@
       modeBtn.click();
 
       if (model === "text-davinci-002-render-sha") {
-        findModeOptionAndClick(2);
+        findModeOptionAndClick("GPT-4");
       } else {
-        findModeOptionAndClick(0);
+        findModeOptionAndClick("Default (GPT-3.5)");
       }
 
       return;
@@ -1862,19 +1863,20 @@
       return;
     }
 
-    if (sendButton.disabled) {
-      sendButton.disabled = false;
-    }
+    chatInput.value = message;
+    chatInput.dispatchEvent(new Event("input", { bubbles: true }));
+    chatInput.focus();
 
     if (isGenerating) {
       setTimeout(() => {
-        chatInput.value = message;
         sendButton.click();
       }, 500);
     } else {
-      chatInput.value = message;
-      sendButton.click();
+      setTimeout(() => {
+        sendButton.click();
+      }, 100);
     }
+
   }
 
   function sendQuestionForm() {
@@ -2004,10 +2006,7 @@
       }
     }
 
-    localStorage.setItem(
-      "Custom.Settings.Prompt",
-      JSON.stringify(promptList)
-    );
+    localStorage.setItem("Custom.Settings.Prompt", JSON.stringify(promptList));
 
     generateButtons();
 
@@ -2140,7 +2139,7 @@
     exportAndImportDialog.style.display = "flex";
   }
 
-  exportAndImportDialogCancelBtn.addEventListener("click",()=>{
+  exportAndImportDialogCancelBtn.addEventListener("click", () => {
     exportAndImportDialog.style.display = "none";
   });
 
@@ -2311,7 +2310,7 @@
       return;
     }
 
-    let confirmMessage = '';
+    let confirmMessage = "";
 
     switch (importType) {
       case 1:
@@ -2321,7 +2320,7 @@
       case 2:
         confirmMessage = `確定只匯入『${importFileInput.files[0].name}』的 快速回覆 ?`;
         break;
-    
+
       default:
         confirmMessage = `確定匯入『${importFileInput.files[0].name}』?`;
         break;
@@ -2343,7 +2342,7 @@
           setting.text = json.settings.prompt[index].text;
           setting.prefix = json.settings.prompt[index].prefix;
           setting.suffix = json.settings.prompt[index].suffix;
-          setting.isVisible =json.settings.prompt[index].isVisible;
+          setting.isVisible = json.settings.prompt[index].isVisible;
 
           if (previousPromptList.isVisible) {
             setting.buttonElement.removeEventListener(
@@ -2365,41 +2364,39 @@
 
       // 覆蓋快速回覆
       if (importType === 0 || importType === 2) {
-
         const previousQuickReplyMessageList = JSON.parse(
           JSON.stringify(quickReplyMessageList)
         );
 
         quickReplyMessageList.forEach((settings, index) => {
           settings.text = json.settings.quickReply[index].text;
-          settings.quickReplyMessage = json.settings.quickReply[index].quickReplyMessage;
+          settings.quickReplyMessage =
+            json.settings.quickReply[index].quickReplyMessage;
           settings.isVisible = json.settings.quickReply[index].isVisible;
-    
+
           if (previousQuickReplyMessageList.isVisible) {
             settings.buttonElement.removeEventListener(
               "click",
               settings.handleClickFn
             );
             settings.buttonElement.remove();
-    
+
             delete settings.buttonElement;
             delete settings.handleClickFn;
           }
         });
-    
+
         localStorage.setItem(
           "Custom.Settings.QuickReply",
           JSON.stringify(quickReplyMessageList)
         );
-
       }
 
       generateButtons();
 
-      alert('匯入成功!');
+      alert("匯入成功!");
 
       importFileInput.value = "";
-
     } else {
       importFileInput.value = "";
     }
