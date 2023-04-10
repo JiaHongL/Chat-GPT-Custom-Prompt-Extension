@@ -203,7 +203,7 @@
         padding-right:4px;
         z-index: 1000;
         height:90vh;
-        max-height:679px;
+        max-height:700px;
         width:160px;
         overflow-y: auto;
         overflow-x: hidden;
@@ -281,7 +281,7 @@
       <div id="dialog" class="dialog-wrapper" style="display;none">
           <div class="dialog" style="max-width: 850px;">
               <div id="questionPreviewArea"></div>
-              <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="請輸入問題 (輸入完成後，按下 Enter，即可送出)"></textarea>
+              <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="請輸入問題，Shift+Enter 為換行，輸入完成後，按下 Enter 即可送出。"></textarea>
               <div class="center">
                   <button id="dialog-ok" class="primary" tabindex="2">送出 ( ${mainKeyText} + s )</button>
                   <button id="dialog-cancel" class="secondary" tabindex="3">取消 ( esc )</button>
@@ -2418,7 +2418,7 @@
     button.style.margin = "0 0 5px 0";
     button.style.color = "white";
     button.style.border = "none";
-    button.style.padding = "6px 10px";
+    button.style.padding = "3px 10px";
     button.style.fontSize = "1rem";
     button.style.cursor = "pointer";
     button.style.borderRadius = "5px";
@@ -2517,6 +2517,27 @@
       menuDiv.appendChild(button);
     });
 
+    // prompt settings
+    const promptSettingsButton = createButton(`W. 提問樣板 設定`);
+    promptSettingsButton.addEventListener("click", () => {
+      showSettingsDialog(1);
+    });
+    menuDiv.appendChild(promptSettingsButton);
+
+    // prompt settings2
+    const promptSettingsButton2 = createButton(`S. 提問樣板2 設定`);
+    promptSettingsButton2.addEventListener("click", () => {
+      showSettingsDialog(2);
+    });
+    menuDiv.appendChild(promptSettingsButton2);
+    
+    // quickReply Settings
+    const quickReplySettingsButton2 = createButton(`E. 快速回覆 設定`);
+    quickReplySettingsButton2.addEventListener("click", () => {
+      showQuickReplySettingsDialog();
+    });
+    menuDiv.appendChild(quickReplySettingsButton2);
+
     // 匯出匯入設定擋
     const exportAndImportConfigButton = createButton(`G. 匯入 / 匯出 設定`);
     exportAndImportConfigButton.addEventListener("click", () => {
@@ -2525,7 +2546,7 @@
     menuDiv.appendChild(exportAndImportConfigButton);
 
     // 重新設定高度
-    menuDiv.style.maxHeight = `${menuDiv.children.length * 41}px`;
+    menuDiv.style.maxHeight = `${menuDiv.children.length * 35}px`;
 
     document.body.appendChild(menuDiv);
   }
