@@ -80,6 +80,26 @@
           background-color: #7f9a87;
           color: #fff;
       }
+      button.info {
+          background-color: #5A7DAB;
+          color: #fff;
+      }
+      .dark button.primary {
+        background-color: #5a5646;
+        color: #d1d5db !important;
+      }
+      .dark button.secondary {
+          background-color: #7a7363;
+          color: #d1d5db !important;
+      }
+      .dark button.success {
+          background-color: #4f6654;
+          color: #d1d5db !important;
+      }
+      .dark button.info {
+          background-color: #3A5276;
+          color: #d1d5db !important;
+      }
       .center {
           display: flex;
           justify-content: center;
@@ -158,18 +178,6 @@
       }
       .dark .my-table input[type="text"] {
           background-color: rgba(32,33,35,1);
-          color: #d1d5db !important;
-      }
-      .dark button.primary {
-          background-color: #5a5646;
-          color: #d1d5db !important;
-      }
-      .dark button.secondary {
-          background-color: #7a7363;
-          color: #d1d5db !important;
-      }
-      .dark button.success {
-          background-color: #4f6654;
           color: #d1d5db !important;
       }
       .dark .shortcut-content {
@@ -1077,11 +1085,11 @@
   const exportAndImportHTML = `
     <div id="dialog5" class="dialog-wrapper" style="display:none">
 
-      <div class="dialog" style="max-width: 850px;">
+      <div class="dialog" style="max-width: 1100px;">
 
         <table class="my-table" style="width:100%">
           <tr>
-            <th colspan="3">匯出 與 匯入 設定檔</th>
+            <th colspan="4">匯出 與 匯入 設定檔</th>
           </tr>
           <tr>
             <td style="width:100px">
@@ -1093,7 +1101,12 @@
               <div class="center" style="justify-content: space-evenly;">
                 <button id="importAll" class="primary">匯入全部</button>
                 <button id="importPrompt" class="primary">只匯入問題樣板</button>
-                <button id="importQuickReply" style="margin-right:0px"  class="primary">只匯入快速回覆</button>
+                <button id="importQuickReply" class="primary" style="margin-right:0px">只匯入快速回覆</button>
+              </div>
+            </td>
+            <td> 
+              <div class="center">
+                <button id="resetSetting" class="info">恢復系統預設值</button>
               </div>
             </td>
             <td>
@@ -1170,6 +1183,7 @@
   const importAllBtn = document.getElementById("importAll");
   const importOnlyPromptBtn = document.getElementById("importPrompt");
   const importOnlyQuickReplyBtn = document.getElementById("importQuickReply");
+  const resetSettingBtn = document.getElementById("resetSetting");
   const exportAndImportDialogCancelBtn =
     document.getElementById("dialog5-cancel");
 
@@ -1394,13 +1408,17 @@
   }
 
   function darkModeToggle() {
-    document.querySelectorAll("nav").forEach((nav) => {
-      nav.querySelectorAll("a").forEach((a) => {
-        if (a.text === "Light mode" || a.text === "Dark mode") {
-          a.click();
-        }
-      });
-    });
+    if (localStorage.getItem("theme") === "dark") {
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+      document.documentElement.style.colorScheme = 'light';
+    } else {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
+    }
   }
 
   // ------------ shortcutKey event handle ------------
@@ -1876,7 +1894,6 @@
         sendButton.click();
       }, 100);
     }
-
   }
 
   function sendQuestionForm() {
@@ -1929,6 +1946,21 @@
   questionDialogCancelBtn.addEventListener("click", () => {
     questionDialog.style.display = "none";
   });
+
+  // prompt 視窗
+  function showQuestionDialog() {
+    const innerHTML =
+      prefix.replace(/\n/g, "<br>") +
+      " { $input } " +
+      suffix.replace(/\n/g, "<br>");
+
+    questionPreviewAreaDiv.innerHTML = innerHTML;
+
+    questionDialog.style.display = "flex";
+    questionDialogTextarea.value = "";
+
+    questionDialogTextarea.focus();
+  }
 
   // ------------ 設定視窗相關 程式碼 ------------
   function showSettingsDialog(formType) {
@@ -2214,6 +2246,32 @@
     importFileInput.click();
   });
 
+  resetSettingBtn.addEventListener("click", () => {
+
+    const result = confirm('確定要還原到系統最初的 預設樣板 與 快速回覆 ?');
+
+    if(result){
+
+      localStorage.setItem(
+        "Custom.Settings.Prompt",
+        JSON.stringify(defaultPromptList)
+      );
+
+      localStorage.setItem(
+        "Custom.Settings.QuickReply",
+        JSON.stringify(defaultQuickReplyMessageList)
+      );
+
+      promptList = defaultPromptList;
+      quickReplyMessageList = defaultQuickReplyMessageList;
+
+      generateButtons();
+
+      alert("已還原成功!");
+    }
+
+  });
+
   function checkFileContent(obj) {
     let isValidated = true;
 
@@ -2410,9 +2468,9 @@
   });
 
   // ------------ 建立右側按鈕 相關程式碼 ------------
-  function createButton(textContent, top) {
+  function createButton(textContent, btnColorClass = 'success') {
     const button = document.createElement("button");
-    button.classList.add("primary", "custom-template-buttons");
+    button.classList.add(btnColorClass, "custom-template-buttons");
     button.textContent = textContent;
     button.style.width = "155px";
     button.style.margin = "0 0 5px 0";
@@ -2429,21 +2487,8 @@
     return button;
   }
 
-  function showQuestionDialog() {
-    const innerHTML =
-      prefix.replace(/\n/g, "<br>") +
-      " { $input } " +
-      suffix.replace(/\n/g, "<br>");
-
-    questionPreviewAreaDiv.innerHTML = innerHTML;
-
-    questionDialog.style.display = "flex";
-    questionDialogTextarea.value = "";
-
-    questionDialogTextarea.focus();
-  }
-
   function generateButtons() {
+
     const findCustomMenu = document.querySelector(".custom-menu");
 
     if (findCustomMenu) {
@@ -2487,7 +2532,7 @@
       filteredContinueButton[0].remove();
     }
 
-    const continueButton = createButton(`C. 繼續`);
+    const continueButton = createButton(`C. 繼續`, 'info');
 
     continueButton.addEventListener("click", () => {
       sendMessage("繼續");
@@ -2501,7 +2546,7 @@
         return;
       }
 
-      const button = createButton(`${settings.key}. ${settings.text}`);
+      const button = createButton(`${settings.key}. ${settings.text}`,'info');
 
       const handleClick = () => {
         if (settings.quickReplyMessage.trim()) {
@@ -2518,28 +2563,28 @@
     });
 
     // prompt settings
-    const promptSettingsButton = createButton(`W. 提問樣板 設定`);
+    const promptSettingsButton = createButton(`W. 提問樣板 設定`, 'primary');
     promptSettingsButton.addEventListener("click", () => {
       showSettingsDialog(1);
     });
     menuDiv.appendChild(promptSettingsButton);
 
     // prompt settings2
-    const promptSettingsButton2 = createButton(`S. 提問樣板2 設定`);
+    const promptSettingsButton2 = createButton(`S. 提問樣板2 設定`, 'primary');
     promptSettingsButton2.addEventListener("click", () => {
       showSettingsDialog(2);
     });
     menuDiv.appendChild(promptSettingsButton2);
-    
+
     // quickReply Settings
-    const quickReplySettingsButton2 = createButton(`E. 快速回覆 設定`);
+    const quickReplySettingsButton2 = createButton(`E. 快速回覆 設定`, 'primary');
     quickReplySettingsButton2.addEventListener("click", () => {
       showQuickReplySettingsDialog();
     });
     menuDiv.appendChild(quickReplySettingsButton2);
 
     // 匯出匯入設定擋
-    const exportAndImportConfigButton = createButton(`G. 匯入 / 匯出 設定`);
+    const exportAndImportConfigButton = createButton(`G. 匯入 / 匯出 設定`, 'primary');
     exportAndImportConfigButton.addEventListener("click", () => {
       openExportAndImportDialog();
     });
