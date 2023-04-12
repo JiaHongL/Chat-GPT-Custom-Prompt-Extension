@@ -1112,8 +1112,7 @@
             <td>
               <div class="center">
                 <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                  <img class="buy-me-a-coffee" style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=9a8e81&font_colour=fff&font_family=Comic&outline_colour=ffffff&coffee_colour=FFDD00" />
-                  <img class="buy-me-a-coffee-dark" style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=5a5646&font_colour=d1d5db&font_family=Comic&outline_colour=ffffff&coffee_colour=FFDD00" />
+                  <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
                 </a>
               </div>
             </td>
@@ -1346,6 +1345,89 @@
 
   let quickReplyMessageList = [];
 
+  // 開關選單的選項加在右側
+
+  let mutationTimer = null;
+
+  function addCustomLeftMenuItem() {
+    try {
+      const customATagEl = document.createElement("a");
+      customATagEl.classList.add(
+        "flex",
+        "py-3",
+        "px-3",
+        "items-center",
+        "gap-3",
+        "rounded-md",
+        "hover:bg-gray-500/10",
+        "transition-colors",
+        "duration-200",
+        "text-white",
+        "cursor-pointer",
+        "text-sm"
+      );
+
+      const switchMenuDiv = document.createElement("div");
+      switchMenuDiv.innerHTML = `    
+        <div class="flex items-center justify-between">
+        <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>
+          <div>提問助手選單</div>
+          <div class="slide-checkbox" style="margin: 0 0 0 20px;">  
+            <input type="checkbox" value="true" id="switchMenu" name="check"/>
+            <label for="switchMenu"></label>
+          </div>
+        </div>
+      `;
+
+      customATagEl.appendChild(switchMenuDiv);
+      const nav = document.querySelector("nav.flex");
+      nav.insertBefore(customATagEl, nav.children[2]);
+
+      document.getElementById("switchMenu").checked =
+        localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
+          ? false
+          : true;
+
+      document
+        .getElementById("switchMenu")
+        .addEventListener("change", function () {
+          if (this.checked) {
+            localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
+            document.body.classList.remove("hidden-template-buttons");
+          } else {
+            localStorage.setItem("Custom.Settings.Menu.Hidden", "Y");
+            document.body.classList.add("hidden-template-buttons");
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function subscribeMutationObserver() {
+    // 取得要監聽的 DOM 元素
+    var targetNode = document.body;
+
+    // 設定 MutationObserver
+    var observer = new MutationObserver(function (mutations) {
+      // 如果 0.5 秒內沒有新的變動，就處理變動
+      clearTimeout(mutationTimer);
+      mutationTimer = setTimeout(function () {
+        if (
+          document.querySelector("nav.flex") &&
+          !document.getElementById("switchMenu")
+        ) {
+          addCustomLeftMenuItem();
+        }
+      }, 500);
+    });
+
+    // 開始監聽 DOM 變動
+    const config = { attributes: true, childList: true, subtree: true };
+    observer.observe(targetNode, config);
+  }
+  subscribeMutationObserver();
+
   // 初始化
   function init() {
     questionDialog.style.display = "none";
@@ -1410,14 +1492,14 @@
   function darkModeToggle() {
     if (localStorage.getItem("theme") === "dark") {
       localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
-      document.documentElement.style.colorScheme = 'light';
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+      document.documentElement.style.colorScheme = "light";
     } else {
       localStorage.setItem("theme", "dark");
-      document.documentElement.classList.remove('light');
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.colorScheme = 'dark';
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
     }
   }
 
@@ -1712,9 +1794,15 @@
       if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y") {
         localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
         document.body.classList.remove("hidden-template-buttons");
+        try {
+          document.getElementById("switchMenu").checked = true;
+        } catch (error) {}
       } else {
         localStorage.setItem("Custom.Settings.Menu.Hidden", "Y");
         document.body.classList.add("hidden-template-buttons");
+        try {
+          document.getElementById("switchMenu").checked = false;
+        } catch (error) {}
       }
 
       return;
@@ -2247,11 +2335,9 @@
   });
 
   resetSettingBtn.addEventListener("click", () => {
+    const result = confirm("確定要還原到系統最初的 預設樣板 與 快速回覆 ?");
 
-    const result = confirm('確定要還原到系統最初的 預設樣板 與 快速回覆 ?');
-
-    if(result){
-
+    if (result) {
       localStorage.setItem(
         "Custom.Settings.Prompt",
         JSON.stringify(defaultPromptList)
@@ -2269,7 +2355,6 @@
 
       alert("已還原成功!");
     }
-
   });
 
   function checkFileContent(obj) {
@@ -2468,7 +2553,7 @@
   });
 
   // ------------ 建立右側按鈕 相關程式碼 ------------
-  function createButton(textContent, btnColorClass = 'success') {
+  function createButton(textContent, btnColorClass = "success") {
     const button = document.createElement("button");
     button.classList.add(btnColorClass, "custom-template-buttons");
     button.textContent = textContent;
@@ -2488,7 +2573,6 @@
   }
 
   function generateButtons() {
-
     const findCustomMenu = document.querySelector(".custom-menu");
 
     if (findCustomMenu) {
@@ -2532,7 +2616,7 @@
       filteredContinueButton[0].remove();
     }
 
-    const continueButton = createButton(`C. 繼續`, 'info');
+    const continueButton = createButton(`C. 繼續`, "info");
 
     continueButton.addEventListener("click", () => {
       sendMessage("繼續");
@@ -2546,7 +2630,7 @@
         return;
       }
 
-      const button = createButton(`${settings.key}. ${settings.text}`,'info');
+      const button = createButton(`${settings.key}. ${settings.text}`, "info");
 
       const handleClick = () => {
         if (settings.quickReplyMessage.trim()) {
@@ -2563,28 +2647,34 @@
     });
 
     // prompt settings
-    const promptSettingsButton = createButton(`W. 提問樣板 設定`, 'primary');
+    const promptSettingsButton = createButton(`W. 提問樣板 設定`, "primary");
     promptSettingsButton.addEventListener("click", () => {
       showSettingsDialog(1);
     });
     menuDiv.appendChild(promptSettingsButton);
 
     // prompt settings2
-    const promptSettingsButton2 = createButton(`S. 提問樣板2 設定`, 'primary');
+    const promptSettingsButton2 = createButton(`S. 提問樣板2 設定`, "primary");
     promptSettingsButton2.addEventListener("click", () => {
       showSettingsDialog(2);
     });
     menuDiv.appendChild(promptSettingsButton2);
 
     // quickReply Settings
-    const quickReplySettingsButton2 = createButton(`E. 快速回覆 設定`, 'primary');
+    const quickReplySettingsButton2 = createButton(
+      `E. 快速回覆 設定`,
+      "primary"
+    );
     quickReplySettingsButton2.addEventListener("click", () => {
       showQuickReplySettingsDialog();
     });
     menuDiv.appendChild(quickReplySettingsButton2);
 
     // 匯出匯入設定擋
-    const exportAndImportConfigButton = createButton(`G. 匯入 / 匯出 設定`, 'primary');
+    const exportAndImportConfigButton = createButton(
+      `G. 匯入 / 匯出 設定`,
+      "primary"
+    );
     exportAndImportConfigButton.addEventListener("click", () => {
       openExportAndImportDialog();
     });
