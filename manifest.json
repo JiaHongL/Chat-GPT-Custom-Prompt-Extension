@@ -3,7 +3,7 @@
   "name": "ChatGPT 提問助手",
   "description": "此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本、快速回覆文字，以及方便的快捷鍵功能。",
   "author": "Joe",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "icons": {
     "16": "images/icon/16.png",
     "32": "images/icon/32.png",
