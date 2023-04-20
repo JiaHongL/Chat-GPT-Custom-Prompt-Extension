@@ -633,9 +633,9 @@
         </td>
         <td>
           <div class="shortcut-wrapper">
-            <span class="shortcut-content"> ${
-              isMac ? "Control" : "Ctrl"
-            } + Shift </span>
+            <span class="shortcut-content"> ${capitalizeFirstLetter(
+              mainKeyText
+            )} + B  </span>
           </div>
         </td>
         <td>
@@ -1878,8 +1878,10 @@
       return;
     }
 
-    // control + shift : change to gpt-4 or gpt-3.5 (url)
-    if (event.ctrlKey && event.shiftKey) {
+    // main + b : change to gpt-4 or gpt-3.5 (url)
+    if (
+      event[mainKey] && event.key.toLocaleLowerCase() === "b"
+    ) {
       event.preventDefault();
       const url = new URL(window.location.href);
       const urlSearchParams = new URLSearchParams(url.search);
