@@ -42,7 +42,7 @@
       }
       .question-textarea {
           width: 100%;
-          height: 350px;
+          height: 427px;
           border: 1px solid #ccc;
           border-radius: 3px;
           padding: 5px;
@@ -68,6 +68,12 @@
           justify-content: center;
           align-items: center;
       }
+
+      .footer .buy-me-a-coffee {
+        position: absolute;
+        right: 0;
+      }
+
       button.primary {
           background-color: #9a8e81;
           color: #fff;
@@ -183,7 +189,7 @@
       .dark .shortcut-content {
           color: #d1d5db !important;
       }
-      .hidden-template-buttons .custom-template-buttons{
+      .hidden-template-buttons .custom-menu{
           display: none;
       }
       .ellipsis {
@@ -264,18 +270,6 @@
       }
       .slide-checkbox input[type=checkbox]:checked + label {
         left: 43px !important;
-      } 
-      .buy-me-a-coffee{
-        display: inline-block;
-      }     
-      .buy-me-a-coffee-dark {
-        display: none;
-      }
-      .dark .buy-me-a-coffee {
-        display: none;
-      }     
-      .dark .buy-me-a-coffee-dark {
-        display: inline-block;
       }
       `;
 
@@ -287,7 +281,7 @@
   // 提問視窗 HTML
   const dialogHTML = `
       <div id="dialog" class="dialog-wrapper" style="display;none">
-          <div class="dialog" style="max-width: 850px;">
+          <div class="dialog" style="max-width: 965px;">
               <div id="questionPreviewArea"></div>
               <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="請輸入問題，Shift+Enter 為換行，輸入完成後，按下 Enter 即可送出。"></textarea>
               <div class="center">
@@ -599,6 +593,11 @@
         <div class="footer" class="center">
           <button tabindex="16" id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
           <button tabindex="17" id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
+          <div class="buy-me-a-coffee">
+            <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+            </a>
+          </div>
         </div>
 
       </div>
@@ -1075,6 +1074,11 @@
       <div class="footer" class="center">
         <button tabindex="11" id="dialog4-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
         <button tabindex="12" id="dialog4-cancel" class="secondary">取消 ( esc ) </button>
+        <div class="buy-me-a-coffee">
+          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+          </a>
+        </div>
       </div>
   </div>
 
@@ -1085,11 +1089,11 @@
   const exportAndImportHTML = `
     <div id="dialog5" class="dialog-wrapper" style="display:none">
 
-      <div class="dialog" style="max-width: 1100px;">
+      <div class="dialog" style="max-width:750px;">
 
         <table class="my-table" style="width:100%">
           <tr>
-            <th colspan="4">匯出 與 匯入 設定檔</th>
+            <th colspan="3">匯出 與 匯入 設定檔</th>
           </tr>
           <tr>
             <td style="width:100px">
@@ -1106,14 +1110,7 @@
             </td>
             <td> 
               <div class="center">
-                <button id="resetSetting" class="info">恢復系統預設值</button>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                  <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-                </a>
+                <button id="resetSetting" class="info" style="margin-right:0px">恢復系統預設值</button>
               </div>
             </td>
           </tr>        
@@ -1123,6 +1120,11 @@
 
         <div class="footer" class="center">
           <button id="dialog5-cancel" class="secondary">關閉 ( esc ) </button>
+          <div class="buy-me-a-coffee">
+            <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+            </a>
+          </div>
         </div>
     </div>
 
@@ -1479,7 +1481,6 @@
 
     // 設定 MutationObserver
     var observer = new MutationObserver(function (mutations) {
-      // 如果 0.5 秒內沒有新的變動，就處理變動
       clearTimeout(mutationTimer);
       mutationTimer = setTimeout(function () {
         if (
@@ -1489,7 +1490,7 @@
           addCustomLeftMenuItem();
           addCustomLeftMenuItem2();
         }
-      }, 500);
+      }, 0);
     });
 
     // 開始監聽 DOM 變動
@@ -2629,7 +2630,7 @@
     const button = document.createElement("button");
     button.classList.add(btnColorClass, "custom-template-buttons");
     button.textContent = textContent;
-    button.style.width = "155px";
+    button.style.width = "152px";
     button.style.margin = "0 0 5px 0";
     button.style.color = "white";
     button.style.border = "none";
