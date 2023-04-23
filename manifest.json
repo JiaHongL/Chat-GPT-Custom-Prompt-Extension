@@ -3,7 +3,7 @@
   "name": "__MSG_extension_name__",
   "description": "__MSG_extension_description__",
   "author": "Joe",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "default_locale": "en",
   "icons": {
     "16": "images/icon/16.png",
