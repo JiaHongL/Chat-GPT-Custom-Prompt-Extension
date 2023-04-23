@@ -1,0 +1,196 @@
+{
+  "extension_name": {
+    "message": "ChatGPT 提問支援ツール"
+  },
+  "extension_description": {
+    "message": "このツールは、ChatGPTとより効率的に会話するために、様々な質問テンプレート、迅速な返信テキスト、および便利なショートカット機能を提供します。"
+  },
+  "button_save": {
+    "message": "保存する"
+  },
+  "button_send": {
+    "message": "送信する"
+  },
+  "button_cancel": {
+    "message": "キャンセル"
+  },
+  "button_close": {
+    "message": "閉じる"
+  },
+  "button_export": {
+    "message": "エクスポート"
+  },
+  "button_import_all": {
+    "message": "すべてインポート"
+  },
+  "button_import_only_prompt": {
+    "message": "問題テンプレートのみインポート"
+  },
+  "button_import_only_replay": {
+    "message": "迅速な返信のみインポート"
+  },
+  "button_reset": {
+    "message": "システムのデフォルト値に戻す"
+  },
+  "title_import_export": {
+    "message": "設定ファイルのインポートおよびエクスポート"
+  },
+  "nav_menu_help_menu": {
+    "message": "右メニュー"
+  },
+  "nav_item_download_message_html": {
+    "message": "現在の会話をダウンロード"
+  },
+  "menu_item_continue": {
+    "message": "続ける"
+  },
+  "menu_prompt_template_settings": {
+    "message": "プロンプト設定"
+  },
+  "menu_prompt_template2_settings": {
+    "message": "プロンプト設定 2"
+  },
+  "menu_reply_message_settings": {
+    "message": "迅速な返信の設定"
+  },
+  "menu_import_export": {
+    "message": "輸出入"
+  },
+  "table_header_import_export": {
+    "message": "インポートおよびエクスポートの設定ファイル"
+  },
+  "table_title_shortcut": {
+    "message": "ショートカットキー"
+  },
+  "table_title_button_name": {
+    "message": "ボタン名"
+  },
+  "table_title_prefix_text": {
+    "message": "前置きテキスト"
+  },
+  "table_title_suffix_text": {
+    "message": "サフィックステキスト"
+  },
+  "table_title_is_show": {
+    "message": "表示するかどうか"
+  },
+  "table_title_replay_message": {
+    "message": "迅速な返信メッセージ"
+  },
+  "alert_not_found_input": {
+    "message": "ChatGPTの入力欄が見つかりませんでした！"
+  },
+  "alert_not_found_send_button": {
+    "message": "chatGPTの送信ボタンが見つかりませんでした！"
+  },
+  "alert_reset_success": {
+    "message": "リセットが成功しました！"
+  },
+  "alert_import_success": {
+    "message": "インポートが成功しました！"
+  },
+  "alert_import_error": {
+    "message": "ファイル内容にエラーがあります。もう一度選択してください。"
+  },
+  "placeholder_prompt_textarea": {
+    "message": "問題を入力してください。Shift+Enterで改行し、入力が完了したらEnterキーを押して送信してください。"
+  },
+  "placeholder_please_input": {
+    "message": "入力してください"
+  },
+  "confirm_is_reset_system_settings": {
+    "message": "システムのデフォルトのテンプレートとクイックリプライにリセットしますか？"
+  },
+  "confirm_is_import_all": {
+    "message": "『$fileName$』をインポートしますか？",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_prompt_template": {
+    "message": "『$fileName$』の問題テンプレートのみをインポートしますか？",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_reply_message": {
+    "message": "『$fileName$』のクイックリプライのみをインポートしますか？",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "export_file_name": {
+    "message": "chatGPT質問アシスタント_設定ファイル_$year$年$month$月$date$日$hour$時$minute$分$seconds$秒",
+    "placeholders": {
+      "year": {
+        "content": "$1"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "date": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "seconds": {
+        "content": "$6"
+      }
+    }
+  },
+  "shortcut_key_tips_Z": {
+    "message": "ショートカットキーを表示"
+  },
+  "shortcut_key_tips_A": {
+    "message": "右側メニューを表示または非表示にする"
+  },
+  "shortcut_key_tips_D": {
+    "message": "ダークモードを切り替える"
+  },
+  "shortcut_key_tips_N": {
+    "message": "新しいチャットを開始"
+  },
+  "shortcut_key_tips_M": {
+    "message": "モデルのメニューを切り替える"
+  },
+  "shortcut_key_tips_C": {
+    "message": "会話を継続する"
+  },
+  "shortcut_key_tips_X": {
+    "message": "会話をキャンセルする"
+  },
+  "shortcut_key_tips_R": {
+    "message": "再度回答"
+  },
+  "shortcut_key_tips_E": {
+    "message": "快速返信設定ウィンドウを開く"
+  },
+  "shortcut_key_tips_ESC": {
+    "message": "ウィンドウを閉じる"
+  },
+  "shortcut_key_tips_S": {
+    "message": "保存(ウィンドウを開いた時)"
+  },
+  "shortcut_key_tips_W": {
+    "message": "プロンプト設定"
+  },
+  "shortcut_key_tips_B": {
+    "message": "3.5 / 4.0切り替え"
+  },
+  "shortcut_key_tips_G": {
+    "message": "設定のインポート / エクスポート"
+  },
+  "shortcut_key_tips_S2": {
+    "message": "プロンプト設定 2"
+  }
+}

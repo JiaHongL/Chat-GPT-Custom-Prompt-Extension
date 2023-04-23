@@ -1,0 +1,14 @@
+This tool can help you communicate with ChatGPT more efficiently, providing various question templates, quick reply text, and convenient shortcut functions. The main features are:
+
+- Provide 10 question templates for users to quickly create questions.
+- Provide customizable settings window for users to freely design the format of questions.
+- Provide 5 sets of custom quick reply buttons for users to freely design the content of quick replies.
+- Support shortcut functions for Windows and Mac platforms to allow users to operate more quickly.
+- Support Dark Mode to make users comfortable to use in low-light environments.
+- Export the configuration file and share your designed question templates and quick reply text with friends.
+- Download the current conversation webpage and share the conversation with friends.
+
+If you like this tool, please encourage us through the following link:
+https://www.buymeacoffee.com/Joe.lin
+
+Please note that this tool only provides assistance in conversation and shortcut functions and does not include the use of ChatGPT 4.0. To use ChatGPT 4.0, please visit the official website to subscribe.

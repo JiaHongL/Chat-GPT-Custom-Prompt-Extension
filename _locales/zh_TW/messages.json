@@ -1,0 +1,196 @@
+{
+  "extension_name": {
+    "message": "ChatGPT 提問助手"
+  },
+  "extension_description": {
+    "message": "此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本、快速回覆文字，以及方便的快捷鍵功能。"
+  },
+  "button_save": {
+    "message": "儲存"
+  },
+  "button_send": {
+    "message": "送出"
+  },
+  "button_cancel": {
+    "message": "取消"
+  },
+  "button_close": {
+    "message": "關閉"
+  },
+  "button_export": {
+    "message": "匯出"
+  },
+  "button_import_all": {
+    "message": "匯入全部"
+  },
+  "button_import_only_prompt": {
+    "message": "只匯入問題樣板"
+  },
+  "button_import_only_replay": {
+    "message": "只匯入快速回覆"
+  },
+  "button_reset": {
+    "message": "恢復系統預設值"
+  },
+  "title_import_export": {
+    "message": "匯入與匯出設定檔"
+  },
+  "nav_menu_help_menu": {
+    "message": "提問助手選單"
+  },
+  "nav_item_download_message_html": {
+    "message": "下載當前對話視窗的網頁"
+  },
+  "menu_item_continue": {
+    "message": "繼續"
+  },
+  "menu_prompt_template_settings": {
+    "message": "提問樣板 設定"
+  },
+  "menu_prompt_template2_settings": {
+    "message": "提問樣板2 設定"
+  },
+  "menu_reply_message_settings": {
+    "message": "快速回覆 設定"
+  },
+  "menu_import_export": {
+    "message": "匯入/匯出 設定"
+  },
+  "table_header_import_export": {
+    "message": "匯出 與 匯入 設定檔"
+  },
+  "table_title_shortcut": {
+    "message": "組合鍵"
+  },
+  "table_title_button_name": {
+    "message": "按鈕名稱"
+  },
+  "table_title_prefix_text": {
+    "message": "前段文字"
+  },
+  "table_title_suffix_text": {
+    "message": "後段文字"
+  },
+  "table_title_is_show": {
+    "message": "是否顯示"
+  },
+  "table_title_replay_message": {
+    "message": "快速回覆的訊息"
+  },
+  "alert_not_found_input": {
+    "message": "找不到 chatGPT 的 輸入框！"
+  },
+  "alert_not_found_send_button": {
+    "message": "找不到 chatGPT 的 送出按鈕！"
+  },
+  "alert_reset_success": {
+    "message": "已還原成功!"
+  },
+  "alert_import_success": {
+    "message": "匯入成功!"
+  },
+  "alert_import_error": {
+    "message": "檔案內容有誤，請從重選擇"
+  },
+  "placeholder_prompt_textarea": {
+    "message": "請輸入問題，Shift+Enter 為換行，輸入完成後，按下 Enter 即可送出。"
+  },
+  "placeholder_please_input": {
+    "message": "請輸入"
+  },
+  "confirm_is_reset_system_settings": {
+    "message": "確定要還原到系統最初的 預設樣板 與 快速回覆 ?"
+  },
+  "confirm_is_import_all": {
+    "message": "確定匯入『$fileName$』?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_prompt_template": {
+    "message": "確定只匯入『$fileName$』的 問題樣板 ?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_reply_message": {
+    "message": "確定只匯入『$fileName$』的 快速回覆 ?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "export_file_name": {
+    "message": "chatGPT提問助手_設定檔_$year$年$month$月$date$日$hour$點$minute$分$seconds$秒",
+    "placeholders": {
+      "year": {
+        "content": "$1"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "date": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "seconds": {
+        "content": "$6"
+      }
+    }
+  },
+  "shortcut_key_tips_Z": {
+    "message": "顯示快捷鍵"
+  },
+  "shortcut_key_tips_A": {
+    "message": "顯示或隱藏右側選單"
+  },
+  "shortcut_key_tips_D": {
+    "message": "切換 Dark Mode"
+  },
+  "shortcut_key_tips_N": {
+    "message": "新開 Chat"
+  },
+  "shortcut_key_tips_M": {
+    "message": "切換 Model 的選單"
+  },
+  "shortcut_key_tips_C": {
+    "message": "繼續對話"
+  },
+  "shortcut_key_tips_X": {
+    "message": "取消對話"
+  },
+  "shortcut_key_tips_R": {
+    "message": "重新回應"
+  },
+  "shortcut_key_tips_E": {
+    "message": "開啟快速回覆設定視窗"
+  },
+  "shortcut_key_tips_ESC": {
+    "message": "關閉視窗"
+  },
+  "shortcut_key_tips_S": {
+    "message": "儲存(開啟視窗時)"
+  },
+  "shortcut_key_tips_W": {
+    "message": "開啟設定視窗"
+  },
+  "shortcut_key_tips_B": {
+    "message": "轉換 3.5 / 4.0"
+  },
+  "shortcut_key_tips_G": {
+    "message": "匯入/匯出 設定"
+  },
+  "shortcut_key_tips_S2": {
+    "message": "開啟設定視窗2"
+  }
+}

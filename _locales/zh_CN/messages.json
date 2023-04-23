@@ -1,0 +1,196 @@
+{
+  "extension_name": {
+    "message": "ChatGPT 提问助手"
+  },
+  "extension_description": {
+    "message": "此工具能够帮助您更有效率地与 ChatGPT 进行对话，并提供了多种问题范本、快速回复文字，以及方便的快捷键功能。"
+  },
+  "button_save": {
+    "message": "保存"
+  },
+  "button_send": {
+    "message": "发送"
+  },
+  "button_cancel": {
+    "message": "取消"
+  },
+  "button_close": {
+    "message": "关闭"
+  },
+  "button_export": {
+    "message": "导出"
+  },
+  "button_import_all": {
+    "message": "导入全部"
+  },
+  "button_import_only_prompt": {
+    "message": "只导入问题样板"
+  },
+  "button_import_only_replay": {
+    "message": "只导入快速回复"
+  },
+  "button_reset": {
+    "message": "恢复系统预设值"
+  },
+  "title_import_export": {
+    "message": "导入与导出设定档"
+  },
+  "nav_menu_help_menu": {
+    "message": "提问助手选单"
+  },
+  "nav_item_download_message_html": {
+    "message": "下载当前对话视窗"
+  },
+  "menu_item_continue": {
+    "message": "继续"
+  },
+  "menu_prompt_template_settings": {
+    "message": "提问样板 设定"
+  },
+  "menu_prompt_template2_settings": {
+    "message": "提问样板2 设定"
+  },
+  "menu_reply_message_settings": {
+    "message": "快速回复 设定"
+  },
+  "menu_import_export": {
+    "message": "导入/导出 设定"
+  },
+  "table_header_import_export": {
+    "message": "导出 与 导入 设定档"
+  },
+  "table_title_shortcut": {
+    "message": "组合键"
+  },
+  "table_title_button_name": {
+    "message": "按钮名称"
+  },
+  "table_title_prefix_text": {
+    "message": "前段文字"
+  },
+  "table_title_suffix_text": {
+    "message": "后段文字"
+  },
+  "table_title_is_show": {
+    "message": "是否显示"
+  },
+  "table_title_replay_message": {
+    "message": "快速回复的讯息"
+  },
+  "alert_not_found_input": {
+    "message": "找不到 chatGPT 的 输入框！"
+  },
+  "alert_not_found_send_button": {
+    "message": "找不到 chatGPT 的 送出按钮！"
+  },
+  "alert_reset_success": {
+    "message": "已还原成功!"
+  },
+  "alert_import_success": {
+    "message": "导入成功!"
+  },
+  "alert_import_error": {
+    "message": "档案内容有误，请重新选择"
+  },
+  "placeholder_prompt_textarea": {
+    "message": "请输入问题，Shift+Enter 为换行，输入完成后，按下 Enter 即可送出。"
+  },
+  "placeholder_please_input": {
+    "message": "请输入"
+  },
+  "confirm_is_reset_system_settings": {
+    "message": "确定要还原到系统最初的 预设样板 与 快速回复 ?"
+  },
+  "confirm_is_import_all": {
+    "message": "确定导入『$fileName$』?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_prompt_template": {
+    "message": "确定只导入『$fileName$』的 问题样板 ?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_reply_message": {
+    "message": "确定只导入『$fileName$』的 快速回复 ?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "export_file_name": {
+    "message": "chatGPT提问助手_设定档_$year$年$month$月$date$日$hour$点$minute$分$seconds$秒",
+    "placeholders": {
+      "year": {
+        "content": "$1"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "date": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "seconds": {
+        "content": "$6"
+      }
+    }
+  },
+  "shortcut_key_tips_Z": {
+    "message": "显示快捷键"
+  },
+  "shortcut_key_tips_A": {
+    "message": "显示或隐藏右侧选单"
+  },
+  "shortcut_key_tips_D": {
+    "message": "切换 Dark Mode"
+  },
+  "shortcut_key_tips_N": {
+    "message": "新开 Chat"
+  },
+  "shortcut_key_tips_M": {
+    "message": "切换 Model 的选单"
+  },
+  "shortcut_key_tips_C": {
+    "message": "继续对话"
+  },
+  "shortcut_key_tips_X": {
+    "message": "取消对话"
+  },
+  "shortcut_key_tips_R": {
+    "message": "重新回应"
+  },
+  "shortcut_key_tips_E": {
+    "message": "开启快速回复设定视窗"
+  },
+  "shortcut_key_tips_ESC": {
+    "message": "关闭视窗"
+  },
+  "shortcut_key_tips_S": {
+    "message": "保存(开启视窗时)"
+  },
+  "shortcut_key_tips_W": {
+    "message": "开启设定视窗"
+  },
+  "shortcut_key_tips_B": {
+    "message": "转换 3.5 / 4.0"
+  },
+  "shortcut_key_tips_G": {
+    "message": "导入/导出 设定"
+  },
+  "shortcut_key_tips_S2": {
+    "message": "开启设定视窗2"
+  }
+}

@@ -1,4 +1,716 @@
-(function () {
+// defaultPromptList 多國語系
+const defaultPromptListTW = [
+  {
+    key: "1",
+    text: "自由提問",
+    prefix: "",
+    suffix: "，請使用繁體中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "2",
+    text: "英文解釋",
+    prefix: "你現在是一個英文教育專家，請解釋英文單字 [",
+    suffix: "]，拼音、詞性，並給出 5 個中英文的範例。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "3",
+    text: "多國語系翻譯",
+    prefix: "你現在是一個翻譯專家，請幫我翻譯 [",
+    suffix:
+      "] 的繁體中文、簡體中文、英文、日語、韓語，\n並請使用表格顯示，表頭分別為 zh-tw、zh-cn、en、ja、ko，\n不需要其他解釋或說明。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "4",
+    text: "程式問題",
+    prefix: "你現在是一個 Angular、RxJs、Typescript、Javascript 專家，\n",
+    suffix: "\n，請使用繁體中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "5",
+    text: "CSS 範例",
+    prefix: "你現在是一個 CSS 專家，請幫我做出以下敘述的樣式：\n",
+    suffix: "\n，請使用繁體中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "6",
+    text: "整理重點",
+    prefix:
+      "你現在是個閱讀專家，請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
+    suffix: "\n\n，請使用繁體中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "7",
+    text: "研究報告",
+    prefix: "寫一篇有關",
+    suffix:
+      "的 300 字研究報告，報告中需引述最新的研究，並引用專家觀點，請使用繁體中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "8",
+    text: "文字修飾",
+    prefix: "請幫我修飾以下敘述，符合台灣用語，且輕鬆活潑。\n\n",
+    suffix: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "9",
+    text: "問題建議",
+    prefix: "我遇到以下問題：\n",
+    suffix: "\n請幫我想出解決方式或替代方案，並使用繁體中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "10",
+    text: "食譜建議",
+    prefix: "你現在是一個食譜專家，我想煮",
+    suffix:
+      "，請使用繁體中文回答，回答需包括以下內容：\n1. 所需的食材清單，以及每種食材的建議分量\n2. 烹飪步驟，包括每個步驟的詳細說明和所需的時間\n3.注意事項。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultPromptListJA = [
+  {
+    key: "1",
+    text: "自由提問",
+    prefix: "",
+    suffix: "、回答に日本語を使用してください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "2",
+    text: "英語の説明",
+    prefix: "あなたは現在、英語の教育専門家です。英語の単語 [",
+    suffix: "] の発音、品詞を説明し、英日の例文5つを挙げてください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "3",
+    text: "多言語翻訳",
+    prefix: "あなたは現在、翻訳専門家です。[",
+    suffix:
+      "] の繁体字中国語、簡体字中国語、英語、日本語、韓国語の表を使用して表示してください。各列のヘッダーは、zh-tw、zh-cn、en、ja、koです。他の説明や説明は必要ありません。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "4",
+    text: "コード問題",
+    prefix: "あなたはAngular、RxJs、TypeScript、JavaScriptの専門家です。\n",
+    suffix: "\n、日本語で回答してください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "5",
+    text: "CSSの例",
+    prefix:
+      "あなたはCSSの専門家です。以下の説明に従ってスタイルを作成してください：\n",
+    suffix: "\n、日本語で回答してください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "6",
+    text: "ポイント整理",
+    prefix:
+      "あなたは読書の専門家です。以下の文章のポイントを整理して、リスト形式で10項目を列挙し、最後に総括を行ってください：\n\n",
+    suffix: "\n\n、日本語で回答してください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "7",
+    text: "研究報告",
+    prefix: "300字の、",
+    suffix:
+      "に関する研究報告を書いてください。報告中には、最新の研究を引用し、専門家の意見を引用する必要があります。回答には日本語を使用してください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "8",
+    text: "文字修飾",
+    prefix: "以下の文章を、軽快で楽しげな日本語に修飾してください。\n\n",
+    suffix: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "9",
+    text: "問題建議",
+    prefix: "以下の問題が発生しています。\n",
+    suffix: "\n解決策または代替案を考えて、回答には日本語を使用してください。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "10",
+    text: "食譜建議",
+    prefix: "あなたは今、料理の専門家です。私は",
+    suffix:
+      "を作りたいと思っています。回答には日本語を使用し、以下の内容を含めてください：\n1.必要な食材のリスト、および各食材の推奨量\n2.調理手順、各ステップの詳細な説明と必要な時間\n3.注意事項。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultPromptListEN = [
+  {
+    key: "1",
+    text: "Free Question",
+    prefix: "",
+    suffix: ", please answer in English.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "2",
+    text: "Explain English",
+    prefix:
+      "You are now an English education expert, please explain the English word [",
+    suffix:
+      "], including pronunciation, part of speech, and provide 5 examples.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "3",
+    text: "Multi Translation",
+    prefix: "You are now a translation expert, please translate [",
+    suffix:
+      "] in Traditional Chinese, Simplified Chinese, English, Japanese, and Korean, and display them in a table with headers respectively labeled as zh-tw, zh-cn, en, ja, and ko. No further explanation or clarification is needed.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "4",
+    text: "Programming",
+    prefix:
+      "You are now an Angular, RxJs, Typescript, and Javascript expert,\n",
+    suffix: "\n, please answer in English.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "5",
+    text: "CSS Example",
+    prefix:
+      "You are now a CSS expert, please create a style for the following statement:\n",
+    suffix: "\nPlease answer in English.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "6",
+    text: "Summarize",
+    prefix:
+      "You are a reading expert, please help me summarize the following article in bullet points. Please list 10 points and provide a conclusion:\n\n",
+    suffix: "\n\nPlease answer in English.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "7",
+    text: "Research Report",
+    prefix: "Write a 300-word research report on ",
+    suffix:
+      ", citing the latest research and expert opinions. Please answer in English.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "8",
+    text: "Text Modification",
+    prefix:
+      "Please help me modify the following statement to make it more lively and in American English:\n\n",
+    suffix: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "9",
+    text: "Problem Suggestion",
+    prefix: "I'm having the following problem:\n",
+    suffix:
+      "\nPlease help me come up with a solution or alternative, and answer in English.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "10",
+    text: "Recipe Suggestion",
+    prefix: "You are a recipe expert and I want to cook ",
+    suffix:
+      ". Please answer in English and include:\n1. A list of ingredients and recommended amounts for each\n2. Cooking instructions, including detailed explanations and required time for each step\n3. Any important notes.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultPromptListCN = [
+  {
+    key: "1",
+    text: "自由提问",
+    prefix: "",
+    suffix: "，请使用简体中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "2",
+    text: "英文解释",
+    prefix: "你现在是一个英文教育专家，请解释英文单字 [",
+    suffix: "]，拼音、词性，并给出 5 个中英文的例子。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "3",
+    text: "多国语系翻译",
+    prefix: "你现在是一个翻译专家，请帮我翻译 [",
+    suffix:
+      "] 的繁体中文、简体中文、英文、日语、韩语，\n并请使用表格显示，表头分别为 zh-tw、zh-cn、en、ja、ko，\n不需要其他解释或说明。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "4",
+    text: "程式问题",
+    prefix: "你现在是一个 Angular、RxJs、TypeScript、JavaScript 专家，\n",
+    suffix: "\n，请使用简体中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "5",
+    text: "CSS 范例",
+    prefix: "你现在是一个 CSS 专家，请帮我做出以下叙述的样式：\n",
+    suffix: "\n，请使用简体中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "6",
+    text: "整理重点",
+    prefix:
+      "你现在是个阅读专家，请帮我整理下面文章的重点，使用条列方式，列出10点，最后给出一个总结：\n\n",
+    suffix: "\n\n，请使用简体中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "7",
+    text: "研究报告",
+    prefix: "写一篇有关",
+    suffix:
+      "的300字研究报告，报告中需引述最新的研究，并引用专家观点，请使用简体中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "8",
+    text: "文字修饰",
+    prefix: "请帮我修饰以下叙述，符合中文用语，且轻松活泼。\n\n",
+    suffix: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "9",
+    text: "问题建议",
+    prefix: "我遇到以下问题：\n",
+    suffix: "\n请帮我想出解决方式或替代方案，并使用简体中文回答。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "10",
+    text: "食谱建议",
+    prefix: "你现在是一个食谱专家，我想煮",
+    suffix:
+      "，请使用简体中文回答，回答需包括以下内容：\n1. 所需的食材清单，以及每种食材的建议分量\n2. 烹饪步骤，包括每个步骤的详细说明和所需的时间\n3. 注意事项。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultPromptListKO = [
+  {
+    key: "1",
+    text: "자유롭게 질문",
+    prefix: "",
+    suffix: " 답변은 한국어로 부탁드립니다.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "2",
+    text: "영어 해설",
+    prefix: "당신은 현재 영어 교육 전문가입니다. 영어 단어 [",
+    suffix: "]에 대해 발음, 품사를 설명하고 5개의 한영 예문을 제시해주세요.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "3",
+    text: "다국어 번역",
+    prefix: "당신은 지금 번역 전문가입니다. [",
+    suffix:
+      "] 의 번체 중국어, 간체 중국어, 영어, 일본어, 한국어 번역을 테이블로 나열해주세요. 표 제목은 각각 zh-tw, zh-cn, en, ja, ko 입니다. 추가 설명이나 해석은 필요하지 않습니다.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "4",
+    text: "프로그램 질문",
+    prefix: "당신은 Angular, RxJs, Typescript, Javascript 전문가입니다.\n",
+    suffix: "\n 답변은 한국어로 부탁드립니다.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "5",
+    text: "CSS 예제",
+    prefix:
+      "당신은 CSS 전문가입니다. 다음 설명에 맞는 스타일을 만들어주세요. \n",
+    suffix: "\n 답변은 한국어로 부탁드립니다.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "6",
+    text: "요약 정리",
+    prefix:
+      "당신은 지금 독서 전문가입니다. 다음 글의 요점을 정리하여 10개의 항목으로 나열하고 마지막에 요약을 제시해주세요.\n\n",
+    suffix: "\n\n, 한국어로 답변해주세요.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "7",
+    text: "연구 보고서",
+    prefix: "",
+    suffix:
+      "에 관한 300자 분량의 연구 보고서를 작성해주세요. 최신 연구를 인용하고 전문가의 의견을 인용해야 합니다. 한국어로 답변해주세요.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "8",
+    text: "글 수정",
+    prefix:
+      "다음 글을 한국식 표현으로 수정하여, 쉽고 재미있게 표현해주세요.\n\n",
+    suffix: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "9",
+    text: "문제 제안",
+    prefix: "다음과 같은 문제가 발생했습니다:\n",
+    suffix:
+      "\n문제를 해결하거나 대체할 수 있는 방법을 생각하여, 한국어로 답변해주세요.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "10",
+    text: "레시피 제안",
+    prefix: "당신은 지금 요리 전문가입니다. 저는 ",
+    suffix:
+      "을(를) 요리하고 싶습니다. 한국어로 답변해주세요. 답변에는 다음과 같은 내용이 포함되어야 합니다:\n1. 필요한 식재료 목록 및 각 식재료의 권장 분량\n2. 조리 단계, 각 단계의 상세한 설명 및 필요한 시간\n3. 유의 사항.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+// defaultQuickReply 多國語系
+const defaultQuickReplyMessageListTW = [
+  {
+    key: "Y",
+    text: "提供其它範例",
+    quickReplyMessage: "請提供其它範例",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "U",
+    text: "更詳細的說明",
+    quickReplyMessage: "請提供更細節的說明",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "I",
+    text: "提供程式範例",
+    quickReplyMessage: "請提供程式範例",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "O",
+    text: "翻譯成繁體中文",
+    quickReplyMessage: "請翻譯成繁體中文",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "P",
+    text: "翻譯成英文",
+    quickReplyMessage: "請翻譯成英文",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultQuickReplyMessageListJA = [
+  {
+    key: "Y",
+    text: "他の例",
+    quickReplyMessage: "他の例を提供してください",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "U",
+    text: "より詳細な説明",
+    quickReplyMessage: "詳しい説明を提供してください",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "I",
+    text: "コード例",
+    quickReplyMessage: "プログラム例を提供してください",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "O",
+    text: "日本語に翻訳する",
+    quickReplyMessage: "日本語に翻訳してください",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "P",
+    text: "英語に翻訳する",
+    quickReplyMessage: "英語に翻訳してください",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultQuickReplyMessageListEN = [
+  {
+    key: "Y",
+    text: "Other examples",
+    quickReplyMessage: "Please provide other examples",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "U",
+    text: "More detailed",
+    quickReplyMessage: "Please provide a more detailed explanation",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "I",
+    text: "Code examples",
+    quickReplyMessage: "Please provide code examples",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "O",
+    text: "Trans into English",
+    quickReplyMessage: "Please translate into English",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "P",
+    text: "Trans into Chinese",
+    quickReplyMessage: "Please translate into Traditional Chinese",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultQuickReplyMessageListCN = [
+  {
+    key: "Y",
+    text: "提供其他示例",
+    quickReplyMessage: "请提供其他示例",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "U",
+    text: "更详细的说明",
+    quickReplyMessage: "请提供更详细的说明",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "I",
+    text: "提供编程示例",
+    quickReplyMessage: "请提供编程示例",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "O",
+    text: "翻译成简体中文",
+    quickReplyMessage: "请翻译成简体中文",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "P",
+    text: "翻译成英文",
+    quickReplyMessage: "请翻译成英文",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+const defaultQuickReplyMessageListKO = [
+  {
+    key: "Y",
+    text: "다른 예시 제공",
+    quickReplyMessage: "다른 예시를 제공해주세요",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "U",
+    text: "자세한 설명",
+    quickReplyMessage: "좀 더 자세한 설명을 제공해주세요",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "I",
+    text: "코드 예시 제공",
+    quickReplyMessage: "코드 예시를 제공해주세요",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "O",
+    text: "한국어로 번역",
+    quickReplyMessage: "한국어로 번역해주세요",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: "P",
+    text: "영어로 번역",
+    quickReplyMessage: "영어로 번역해주세요",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+];
+
+(() => {
   "use strict";
 
   // 系統判別 && 主按鍵 && 按鍵文字
@@ -11,6 +723,44 @@
 
   function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  function i18n(key, params = []) {
+    return chrome.i18n.getMessage(key, params);
+  }
+
+  function setDefaultList() {
+    const locale = chrome.i18n.getUILanguage();
+
+    switch (locale) {
+
+      case "zh-TW":
+        defaultPromptList = defaultPromptListTW;
+        defaultQuickReplyMessageList = defaultQuickReplyMessageListTW;
+        break;
+
+      case "ja":
+        defaultPromptList = defaultPromptListJA;
+        defaultQuickReplyMessageList = defaultQuickReplyMessageListJA;
+        break;
+
+      case "zh-CN":
+        defaultPromptList = defaultPromptListCN;
+        defaultQuickReplyMessageList = defaultQuickReplyMessageListCN;
+        break;
+
+      case "ko":
+        defaultPromptList = defaultPromptListKO;
+        defaultQuickReplyMessageList = defaultQuickReplyMessageListKO;
+        break;
+
+      default:
+        defaultPromptList = defaultPromptListEN;
+        defaultQuickReplyMessageList = defaultQuickReplyMessageListEN;
+        break;
+
+    }
+
   }
 
   // css style
@@ -34,7 +784,6 @@
           padding: 20px;
           width: 100%;
       }
-
       .dialog #questionPreviewArea {
         max-height:200px;
         overflow:auto;
@@ -68,12 +817,10 @@
           justify-content: center;
           align-items: center;
       }
-
       .footer .buy-me-a-coffee {
         position: absolute;
         right: 0;
       }
-
       button.primary {
           background-color: #9a8e81;
           color: #fff;
@@ -218,9 +965,13 @@
         z-index: 1000;
         height:90vh;
         max-height:700px;
-        width:160px;
         overflow-y: auto;
         overflow-x: hidden;
+
+        display:flex;
+        flex-direction: column;
+        min-width:160px;
+
       }
       .slide-checkbox {
         width: 80px;
@@ -283,10 +1034,16 @@
       <div id="dialog" class="dialog-wrapper" style="display;none">
           <div class="dialog" style="max-width: 965px;">
               <div id="questionPreviewArea"></div>
-              <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="請輸入問題，Shift+Enter 為換行，輸入完成後，按下 Enter 即可送出。"></textarea>
+              <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="${i18n(
+                "placeholder_prompt_textarea"
+              )}"></textarea>
               <div class="center">
-                  <button id="dialog-ok" class="primary" tabindex="2">送出 ( ${mainKeyText} + s )</button>
-                  <button id="dialog-cancel" class="secondary" tabindex="3">取消 ( esc )</button>
+                  <button id="dialog-ok" class="primary" tabindex="2">${i18n(
+                    "button_send"
+                  )} ( ${mainKeyText} + s )</button>
+                  <button id="dialog-cancel" class="secondary" tabindex="3">${i18n(
+                    "button_cancel"
+                  )} ( esc )</button>
               </div>
           </div>
       </div>
@@ -300,11 +1057,11 @@
 
         <table id="table-form" class="my-table">
           <tr>
-            <th style="width:118px">組合鍵</th>
-            <th style="width:160px">按鈕名稱</th>
-            <th>前段文字</th>
-            <th>後段文字</th>
-            <th style="width:118px">是否顯示</th>
+            <th style="width:118px">${i18n("table_title_shortcut")}</th>
+            <th style="width:160px">${i18n("table_title_button_name")}</th>
+            <th>${i18n("table_title_prefix_text")}</th>
+            <th>${i18n("table_title_suffix_text")}</th>
+            <th style="width:118px">${i18n("table_title_is_show")}</th>
           </tr>
 
           <tr>
@@ -315,15 +1072,21 @@
                 )} + 1 </span>
               </div>
             </td>
-            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="2" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="3" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -342,15 +1105,21 @@
                 )} + 2 </span>
               </div>
             </td>
-            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="5" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="6" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -369,15 +1138,21 @@
                 )} + 3 </span>
               </div>
             </td>
-            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="8" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="9" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -396,15 +1171,21 @@
                 )} + 4 </span>
               </div>
             </td>
-            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="11" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="12" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -423,15 +1204,21 @@
                 )} + 5 </span>
               </div>
             </td>
-            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="14" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="15" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -446,11 +1233,11 @@
 
         <table id="table-form2" class="my-table" style="width:100%">
           <tr>
-            <th style="width:118px">組合鍵</th>
-            <th style="width:160px">按鈕名稱</th>
-            <th>前段文字</th>
-            <th>後段文字</th>
-            <th style="width:118px">是否顯示</th>
+            <th style="width:118px">${i18n("table_title_shortcut")}</th>
+            <th style="width:160px">${i18n("table_title_button_name")}</th>
+            <th>${i18n("table_title_prefix_text")}</th>
+            <th>${i18n("table_title_suffix_text")}</th>
+            <th style="width:118px">${i18n("table_title_is_show")}</th>
           </tr>
 
           <tr>
@@ -461,15 +1248,21 @@
                 )} + 6 </span>
               </div>
             </td>
-            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="2" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="3" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -488,15 +1281,21 @@
                 )} + 7 </span>
               </div>
             </td>
-            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="5" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="6" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -515,15 +1314,21 @@
                 )} + 8 </span>
               </div>
             </td>
-            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="8" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="9" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -542,15 +1347,21 @@
                 )} + 9 </span>
               </div>
             </td>
-            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="11" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="12" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -569,15 +1380,21 @@
                 )} + 0 </span>
               </div>
             </td>
-            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="輸入框"></td>
+            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
+              "placeholder_please_input"
+            )}"></td>
             <td>
               <div class="center">
-                <textarea tabindex="14" class="prefixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
               <div class="center">
-                <textarea tabindex="15" class="suffixInput" placeholder="輸入框"></textarea>
+                <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
               </div>
             </td>
             <td>
@@ -591,8 +1408,12 @@
         </table>
 
         <div class="footer" class="center">
-          <button tabindex="16" id="dialog2-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
-          <button tabindex="17" id="dialog2-cancel" class="secondary">取消 ( esc ) </button>
+          <button tabindex="16" id="dialog2-ok" class="primary">${i18n(
+            "button_save"
+          )} ( ${mainKeyText} + s )</button>
+          <button tabindex="17" id="dialog2-cancel" class="secondary">${i18n(
+            "button_cancel"
+          )} ( esc ) </button>
           <div class="buy-me-a-coffee">
             <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
               <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
@@ -620,7 +1441,7 @@
         </div>
         </td>
         <td>
-          <div class="ellipsis">提示快捷鍵</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_Z")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -628,7 +1449,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">關閉視窗</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_ESC")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -638,7 +1459,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">轉換 3.5 / 4.0</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_B")}</div>
         </td>
       </tr>
 
@@ -651,7 +1472,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">顯示或隱藏右側選單</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_A")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -661,7 +1482,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">儲存 (開啟視窗時)</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_S")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -671,7 +1492,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">匯入 / 匯出 設定</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_G")}</div>
         </td>
       </tr>
 
@@ -684,7 +1505,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis"> 切換 Dark Mode </div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_D")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -694,7 +1515,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">開啟設定視窗</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_W")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -704,7 +1525,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">開啟設定視窗2</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_S2")}</div>
         </td>
       </tr>
 
@@ -717,7 +1538,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis"> 新開 Chat </div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_N")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -750,7 +1571,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">切換 Model 的選單</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_M")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -783,7 +1604,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">繼續對話</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_C")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -816,7 +1637,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis">取消對話</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_X")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -849,7 +1670,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis"> 重新回應 </div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_R")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -882,7 +1703,7 @@
           </div>
         </td>
         <td>
-          <div class="ellipsis"> 開啟快速回覆設定視窗 </div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_E")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -953,10 +1774,10 @@
       <table class="my-table" style="width:100%">
 
         <tr>
-          <th style="width:118px">組合鍵</th>
-          <th style="width:160px">按鈕名稱</th>
-          <th>快速回覆的文字</th>
-          <th style="width:118px">是否顯示</th>
+          <th style="width:118px">${i18n("table_title_shortcut")}</th>
+          <th style="width:160px">${i18n("table_title_button_name")}</th>
+          <th>${i18n("table_title_replay_message")}</th>
+          <th style="width:118px">${i18n("table_title_is_show")}</th>
         </tr>
 
         <tr>
@@ -967,10 +1788,14 @@
               )} + Y </span>
             </div>
           </td>
-          <td><input tabindex="1" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td><input tabindex="1" class="quickReplyButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
           <td>
             <div class="center">
-              <textarea style="width:100%" tabindex="2" class="quickReplyMessage" placeholder="輸入框"></textarea>
+              <textarea style="width:100%" tabindex="2" class="quickReplyMessage" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></textarea>
             </div>
           </td>
           <td>
@@ -989,10 +1814,14 @@
               )} + U </span>
             </div>
           </td>
-          <td><input tabindex="3" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td><input tabindex="3" class="quickReplyButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
           <td>
             <div class="center">
-              <textarea style="width:100%" tabindex="4" class="quickReplyMessage" placeholder="輸入框"></textarea>
+              <textarea style="width:100%" tabindex="4" class="quickReplyMessage" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></textarea>
             </div>
           </td>
           <td>
@@ -1011,10 +1840,14 @@
               )} + I </span>
             </div>
           </td>
-          <td><input tabindex="5" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td><input tabindex="5" class="quickReplyButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
           <td>
             <div class="center">
-              <textarea style="width:100%" tabindex="6" class="quickReplyMessage" placeholder="輸入框"></textarea>
+              <textarea style="width:100%" tabindex="6" class="quickReplyMessage" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></textarea>
             </div>
           </td>
           <td>
@@ -1033,10 +1866,14 @@
               )} + O </span>
             </div>
           </td>
-          <td><input tabindex="7" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td><input tabindex="7" class="quickReplyButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
           <td>
             <div class="center">
-              <textarea style="width:100%" tabindex="8" class="quickReplyMessage" placeholder="輸入框"></textarea>
+              <textarea style="width:100%" tabindex="8" class="quickReplyMessage" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></textarea>
             </div>
           </td>
           <td>
@@ -1055,10 +1892,14 @@
               )} + P </span>
             </div>
           </td>
-          <td><input tabindex="9" class="quickReplyButtonText" type="text" placeholder="輸入框"></td>
+          <td><input tabindex="9" class="quickReplyButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
           <td>
             <div class="center">
-              <textarea style="width:100%" tabindex="10" class="quickReplyMessage" placeholder="輸入框"></textarea>
+              <textarea style="width:100%" tabindex="10" class="quickReplyMessage" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></textarea>
             </div>
           </td>
           <td>
@@ -1072,8 +1913,12 @@
       </table>
 
       <div class="footer" class="center">
-        <button tabindex="11" id="dialog4-ok" class="primary">儲存設定 ( ${mainKeyText} + s )</button>
-        <button tabindex="12" id="dialog4-cancel" class="secondary">取消 ( esc ) </button>
+        <button tabindex="11" id="dialog4-ok" class="primary">${i18n(
+          "button_save"
+        )} ( ${mainKeyText} + s )</button>
+        <button tabindex="12" id="dialog4-cancel" class="secondary">${i18n(
+          "button_cancel"
+        )} ( esc ) </button>
         <div class="buy-me-a-coffee">
           <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
             <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
@@ -1093,24 +1938,34 @@
 
         <table class="my-table" style="width:100%">
           <tr>
-            <th colspan="3">匯出 與 匯入 設定檔</th>
+            <th colspan="3">${i18n("table_header_import_export")}</th>
           </tr>
           <tr>
             <td style="width:100px">
               <div class="center">
-                <button id="export" style="margin-right:0px;flex:0 0 65px;" class="success">匯出</button>
+                <button id="export" style="margin-right:0px;flex:0 0 65px;" class="success">
+                  ${i18n("button_export")}
+                </button>
               </div>
             </td>
             <td> 
               <div class="center" style="justify-content: space-evenly;">
-                <button id="importAll" class="primary">匯入全部</button>
-                <button id="importPrompt" class="primary">只匯入問題樣板</button>
-                <button id="importQuickReply" class="primary" style="margin-right:0px">只匯入快速回覆</button>
+                <button id="importAll" class="primary">${i18n(
+                  "button_import_all"
+                )}</button>
+                <button id="importPrompt" class="primary">${i18n(
+                  "button_import_only_prompt"
+                )}</button>
+                <button id="importQuickReply" class="primary" style="margin-right:0px">${i18n(
+                  "button_import_only_replay"
+                )}</button>
               </div>
             </td>
             <td> 
               <div class="center">
-                <button id="resetSetting" class="info" style="margin-right:0px">恢復系統預設值</button>
+                <button id="resetSetting" class="info" style="margin-right:0px">${i18n(
+                  "button_reset"
+                )}</button>
               </div>
             </td>
           </tr>        
@@ -1119,7 +1974,9 @@
         <input style="display:none" type="file" id="importFileInput" name="file" accept="application/json">
 
         <div class="footer" class="center">
-          <button id="dialog5-cancel" class="secondary">關閉 ( esc ) </button>
+          <button id="dialog5-cancel" class="secondary">${i18n(
+            "button_close"
+          )} ( esc ) </button>
           <div class="buy-me-a-coffee">
             <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
               <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
@@ -1203,149 +2060,15 @@
   let importType;
 
   // promptList / quickReply
-  const defaultPromptList = [
-    {
-      key: "1",
-      text: "自由提問",
-      prefix: "",
-      suffix: "，請使用繁體中文回答。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "2",
-      text: "英文解釋",
-      prefix: "你現在是一個英文教育專家，請解釋英文單字 [",
-      suffix: "]，拼音、詞性，並給出 5 個中英文的範例。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "3",
-      text: "多國語系翻譯",
-      prefix: "你現在是一個翻譯專家，請幫我翻譯 [",
-      suffix:
-        "] 的繁體中文、簡體中文、英文、日文，\n並請使用表格顯示，表頭分別為 zh-tw、zh-cn、en、ja，\n不需要其他解釋或說明。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "4",
-      text: "程式問題",
-      prefix: "你現在是一個 Angular、RxJs、Typescript、Javascript 專家，\n",
-      suffix: "\n，請使用繁體中文回答。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "5",
-      text: "CSS 範例",
-      prefix: "你現在是一個 CSS 專家，請幫我做出以下敘述的樣式：\n",
-      suffix: "\n，請使用繁體中文回答。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "6",
-      text: "整理重點",
-      prefix:
-        "你現在是個閱讀專家，請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
-      suffix: "\n\n，請使用繁體中文回答。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "7",
-      text: "研究報告",
-      prefix: "寫一篇有關",
-      suffix:
-        "的 300 字研究報告，報告中需引述最新的研究，並引用專家觀點，請使用繁體中文回答。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "8",
-      text: "文字修飾",
-      prefix: "請幫我修飾以下敘述，符合台灣用語，且輕鬆活潑。\n\n",
-      suffix: "",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "9",
-      text: "問題建議",
-      prefix: "我遇到以下問題：\n",
-      suffix: "\n請幫我想出解決方式或替代方案，並使用繁體中文回答。",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "10",
-      text: "登山建議",
-      prefix: "你現在是一個登山專家，我近期打算去爬",
-      suffix:
-        "，請使用繁體中文回答，回答需包括以下內容：\n1. 登山難度及時間\n2. 交通資訊\n3. 景點氣候特性\n4. 其他補充",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-  ];
+  let defaultPromptList = [];
 
   let promptList = [];
 
-  const defaultQuickReplyMessageList = [
-    {
-      key: "Y",
-      text: "提供其它範例",
-      quickReplyMessage: "請提供其它範例",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "U",
-      text: "更詳細的說明",
-      quickReplyMessage: "請提供更細節的說明",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "I",
-      text: "提供程式範例",
-      quickReplyMessage: "請提供程式範例",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "O",
-      text: "翻譯成繁體中文",
-      quickReplyMessage: "請翻譯成繁體中文",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-    {
-      key: "P",
-      text: "翻譯成英文",
-      quickReplyMessage: "請翻譯成英文",
-      buttonElement: null,
-      handleClickFn: null,
-      isVisible: true,
-    },
-  ];
+  let defaultQuickReplyMessageList = [];
 
   let quickReplyMessageList = [];
+
+  setDefaultList();
 
   // 開關選單的選項加在右側
 
@@ -1370,11 +2093,12 @@
       );
 
       const switchMenuDiv = document.createElement("div");
+      switchMenuDiv.style = "width:100%";
       switchMenuDiv.innerHTML = `    
-        <div class="flex items-center justify-between">
-        <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>
-          <div>提問助手選單</div>
-          <div class="slide-checkbox" style="margin: 0 0 0 20px;">  
+        <div class="flex items-center">
+          <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>
+          <div class="flex-1" style="margin-right:5px">${i18n("nav_menu_help_menu")}</div>
+          <div class="slide-checkbox" style="margin: 0 0 0 0">  
             <input type="checkbox" value="true" id="switchMenu" name="check"/>
             <label for="switchMenu"></label>
           </div>
@@ -1428,7 +2152,7 @@
       menuItemDiv.innerHTML = `    
         <div id="downloadChatPDF" class="flex items-center justify-between">
           <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
-          <div>下載當前對話的網頁</div>
+          <div>${i18n("nav_item_download_message_html")}</div>
         </div>
       `;
 
@@ -1437,16 +2161,17 @@
       nav.insertBefore(customATagEl, nav.children[3]);
 
       downloadChatPDF.addEventListener("click", () => {
-
-        const container = document.querySelector("main")?.children[0].children[0].children[0];
+        const container =
+          document.querySelector("main")?.children[0].children[0].children[0];
         const clonedContainer = container.cloneNode(true);
-        const avatarList = clonedContainer.querySelectorAll('img.rounded-sm');
-        const buttons = clonedContainer.querySelectorAll('button');
+        const avatarList = clonedContainer.querySelectorAll("img.rounded-sm");
+        const buttons = clonedContainer.querySelectorAll("button");
 
-        avatarList.forEach((avatar)=>{
+        avatarList.forEach((avatar) => {
           const originalElement = avatar;
-          const newElement = document.createElement('div');
-          newElement.innerHTML = '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>'
+          const newElement = document.createElement("div");
+          newElement.innerHTML =
+            '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>';
           const parentElement = originalElement.parentNode;
           while (parentElement.firstChild) {
             parentElement.removeChild(parentElement.firstChild);
@@ -1454,19 +2179,32 @@
           parentElement.appendChild(newElement);
         });
 
-        buttons.forEach((button)=>{
+        buttons.forEach((button) => {
           button.remove();
         });
 
         const html = clonedContainer.outerHTML;
         const styles = Array.from(document.styleSheets)
-          .filter(styleSheet => !styleSheet.href || styleSheet.href.startsWith(window.location.origin))
-          .map(styleSheet => Array.from(styleSheet.cssRules).map(rule => rule.cssText).join('\n'))
-          .join('\n');
-        const blob = new Blob([`<!DOCTYPE html>\n<html>\n<head>\n<style>\n${styles}\n</style>\n</head>\n<body>\n${html}\n</body>\n</html>`], { type: 'text/html' });
-        const a = document.createElement('a');
+          .filter(
+            (styleSheet) =>
+              !styleSheet.href ||
+              styleSheet.href.startsWith(window.location.origin)
+          )
+          .map((styleSheet) =>
+            Array.from(styleSheet.cssRules)
+              .map((rule) => rule.cssText)
+              .join("\n")
+          )
+          .join("\n");
+        const blob = new Blob(
+          [
+            `<!DOCTYPE html>\n<html>\n<head>\n<style>\n${styles}\n</style>\n</head>\n<body>\n${html}\n</body>\n</html>`,
+          ],
+          { type: "text/html" }
+        );
+        const a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
-        a.download = document.title + '.html';
+        a.download = document.title + ".html";
         document.body.appendChild(a);
         a.click();
       });
@@ -1767,7 +2505,7 @@
       event.key.toLocaleLowerCase() === "c"
     ) {
       event.preventDefault();
-      sendMessage("繼續");
+      sendMessage(i18n("menu_item_continue"));
       return;
     }
 
@@ -1880,9 +2618,7 @@
     }
 
     // main + b : change to gpt-4 or gpt-3.5 (url)
-    if (
-      event[mainKey] && event.key.toLocaleLowerCase() === "b"
-    ) {
+    if (event[mainKey] && event.key.toLocaleLowerCase() === "b") {
       event.preventDefault();
       const url = new URL(window.location.href);
       const urlSearchParams = new URLSearchParams(url.search);
@@ -2033,12 +2769,12 @@
       .querySelector(".absolute.p-1.rounded-md.text-gray-500.right-1");
 
     if (!chatInput) {
-      alert("找不到 chatGPT 的 輸入框！");
+      alert(i18n("alert_not_found_input"));
       return;
     }
 
     if (!sendButton) {
-      alert("找不到 chatGPT 的 送出按鈕！");
+      alert(i18n("alert_not_found_send_button"));
       return;
     }
 
@@ -2356,7 +3092,14 @@
     let minute = now.getMinutes().toString().padStart(2, "0");
     let seconds = now.getSeconds().toString().padStart(2, "0");
 
-    const fileName = `chatGPT提問助手_設定檔_${year}年${month}月${date}日${hour}點${minute}分${seconds}秒`;
+    const fileName = i18n("export_file_name", [
+      year,
+      month,
+      date,
+      hour,
+      minute,
+      seconds,
+    ]);
 
     const currentPromptSetting = JSON.parse(JSON.stringify(promptList));
     const currentQuickReplyMessageList = JSON.parse(
@@ -2408,7 +3151,7 @@
   });
 
   resetSettingBtn.addEventListener("click", () => {
-    const result = confirm("確定要還原到系統最初的 預設樣板 與 快速回覆 ?");
+    const result = confirm(i18n("confirm_is_reset_system_settings"));
 
     if (result) {
       localStorage.setItem(
@@ -2426,7 +3169,7 @@
 
       generateButtons();
 
-      alert("已還原成功!");
+      alert(i18n("alert_reset_success"));
     }
   });
 
@@ -2522,7 +3265,7 @@
 
     if (!checkFileContent(json)) {
       importFileInput.value = "";
-      alert("檔案內容有誤，請從重選擇");
+      alert(i18n("alert_import_error"));
       return;
     }
 
@@ -2530,15 +3273,21 @@
 
     switch (importType) {
       case 1:
-        confirmMessage = `確定只匯入『${importFileInput.files[0].name}』的 問題樣板 ?`;
+        confirmMessage = i18n("confirm_is_import_only_prompt_template", [
+          importFileInput.files[0].name,
+        ]);
         break;
 
       case 2:
-        confirmMessage = `確定只匯入『${importFileInput.files[0].name}』的 快速回覆 ?`;
+        confirmMessage = i18n("confirm_is_import_only_reply_message", [
+          importFileInput.files[0].name,
+        ]);
         break;
 
       default:
-        confirmMessage = `確定匯入『${importFileInput.files[0].name}』?`;
+        confirmMessage = i18n("confirm_is_import_all", [
+          importFileInput.files[0].name,
+        ]);
         break;
     }
 
@@ -2610,7 +3359,7 @@
 
       generateButtons();
 
-      alert("匯入成功!");
+      alert(i18n("alert_import_success"));
 
       importFileInput.value = "";
     } else {
@@ -2627,15 +3376,33 @@
 
   // ------------ 建立右側按鈕 相關程式碼 ------------
   function createButton(textContent, btnColorClass = "success") {
+
+    let fontSize = "1rem";
+    let width = "152px";
+    let padding = "3px 10px";
+
+    if(chrome.i18n.getUILanguage()==='en-US'){
+      fontSize = "0.92rem";
+      width = "160px";
+      padding = "3px 6px";
+    }
+
+    if(chrome.i18n.getUILanguage()==='ja'){
+      fontSize = "0.95rem";
+      width = "156px";
+      padding = "3px 6px";
+    }
+
     const button = document.createElement("button");
     button.classList.add(btnColorClass, "custom-template-buttons");
     button.textContent = textContent;
-    button.style.width = "152px";
+    button.title = textContent;
+    button.style.width = width;
     button.style.margin = "0 0 5px 0";
     button.style.color = "white";
     button.style.border = "none";
-    button.style.padding = "3px 10px";
-    button.style.fontSize = "1rem";
+    button.style.padding = padding;
+    button.style.fontSize = fontSize;
     button.style.cursor = "pointer";
     button.style.borderRadius = "5px";
     button.style.textAlign = "left";
@@ -2682,17 +3449,20 @@
     const filteredContinueButton = Array.from(
       document.querySelectorAll(".custom-template-buttons")
     ).filter((element) => {
-      return element.textContent === "C. 繼續";
+      return element.textContent === `C. ${i18n("menu_item_continue")}`;
     });
 
     if (filteredContinueButton.length) {
       filteredContinueButton[0].remove();
     }
 
-    const continueButton = createButton(`C. 繼續`, "info");
+    const continueButton = createButton(
+      `C. ${i18n("menu_item_continue")}`,
+      "info"
+    );
 
     continueButton.addEventListener("click", () => {
-      sendMessage("繼續");
+      sendMessage(i18n("menu_item_continue"));
     });
 
     menuDiv.appendChild(continueButton);
@@ -2720,14 +3490,20 @@
     });
 
     // prompt settings
-    const promptSettingsButton = createButton(`W. 提問樣板 設定`, "primary");
+    const promptSettingsButton = createButton(
+      `W. ${i18n("menu_prompt_template_settings")}`,
+      "primary"
+    );
     promptSettingsButton.addEventListener("click", () => {
       showSettingsDialog(1);
     });
     menuDiv.appendChild(promptSettingsButton);
 
     // prompt settings2
-    const promptSettingsButton2 = createButton(`S. 提問樣板2 設定`, "primary");
+    const promptSettingsButton2 = createButton(
+      `S. ${i18n("menu_prompt_template2_settings")}`,
+      "primary"
+    );
     promptSettingsButton2.addEventListener("click", () => {
       showSettingsDialog(2);
     });
@@ -2735,7 +3511,7 @@
 
     // quickReply Settings
     const quickReplySettingsButton2 = createButton(
-      `E. 快速回覆 設定`,
+      `E. ${i18n("menu_reply_message_settings")}`,
       "primary"
     );
     quickReplySettingsButton2.addEventListener("click", () => {
@@ -2745,7 +3521,7 @@
 
     // 匯出匯入設定擋
     const exportAndImportConfigButton = createButton(
-      `G. 匯入 / 匯出 設定`,
+      `G. ${i18n("menu_import_export")}`,
       "primary"
     );
     exportAndImportConfigButton.addEventListener("click", () => {

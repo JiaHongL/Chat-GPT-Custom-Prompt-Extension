@@ -1,0 +1,196 @@
+{
+  "extension_name": {
+    "message": "ChatGPT Question Assistant"
+  },
+  "extension_description": {
+    "message": "This tool improves efficiency when conversing with ChatGPT by providing templates, quick replies, and shortcut functions."
+  },
+  "button_save": {
+    "message": "Save"
+  },
+  "button_send": {
+    "message": "Send"
+  },
+  "button_cancel": {
+    "message": "Cancel"
+  },
+  "button_close": {
+    "message": "Close"
+  },
+  "button_export": {
+    "message": "Export"
+  },
+  "button_import_all": {
+    "message": "Import All"
+  },
+  "button_import_only_prompt": {
+    "message": "Import Question Templates Only"
+  },
+  "button_import_only_replay": {
+    "message": "Import Quick Replies Only"
+  },
+  "button_reset": {
+    "message": "Restore System Defaults"
+  },
+  "title_import_export": {
+    "message": "Import and Export Settings"
+  },
+  "nav_menu_help_menu": {
+    "message": "Assistant Menu"
+  },
+  "nav_item_download_message_html": {
+    "message": "Download Conversation"
+  },
+  "menu_item_continue": {
+    "message": "Continue"
+  },
+  "menu_prompt_template_settings": {
+    "message": "Prompt Settings"
+  },
+  "menu_prompt_template2_settings": {
+    "message": "Prompt Settings 2"
+  },
+  "menu_reply_message_settings": {
+    "message": "Reply Settings"
+  },
+  "menu_import_export": {
+    "message": "Import/Export"
+  },
+  "table_header_import_export": {
+    "message": "Import and Export Settings"
+  },
+  "table_title_shortcut": {
+    "message": "Keyboard Shortcut"
+  },
+  "table_title_button_name": {
+    "message": "Button Name"
+  },
+  "table_title_prefix_text": {
+    "message": "Prefix Text"
+  },
+  "table_title_suffix_text": {
+    "message": "Suffix Text"
+  },
+  "table_title_is_show": {
+    "message": "Show/Hide"
+  },
+  "table_title_replay_message": {
+    "message": "Quick Reply Message"
+  },
+  "alert_not_found_input": {
+    "message": "Cannot find the input box of ChatGPT!"
+  },
+  "alert_not_found_send_button": {
+    "message": "Cannot find the send button of ChatGPT!"
+  },
+  "alert_reset_success": {
+    "message": "Restored successfully!"
+  },
+  "alert_import_success": {
+    "message": "Imported successfully!"
+  },
+  "alert_import_error": {
+    "message": "File content is invalid, please choose another file."
+  },
+  "placeholder_prompt_textarea": {
+    "message": "Please enter your question here. Press Shift+Enter for line break, and press Enter to submit."
+  },
+  "placeholder_please_input": {
+    "message": "Please enter"
+  },
+  "confirm_is_reset_system_settings": {
+    "message": "Are you sure you want to restore to the system's default templates and quick replies?"
+  },
+  "confirm_is_import_all": {
+    "message": "Are you sure you want to import '$fileName$'?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_prompt_template": {
+    "message": "Are you sure you only want to import the question templates from '$fileName$'?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_reply_message": {
+    "message": "Are you sure you only want to import the quick replies from '$fileName$'?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "export_file_name": {
+    "message": "ChatGPTQuestionAssistant_Settings_$year$year_$month$month_$date$date_$hour$hour_$minute$minute_$seconds$seconds",
+    "placeholders": {
+      "year": {
+        "content": "$1"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "date": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "seconds": {
+        "content": "$6"
+      }
+    }
+  },
+  "shortcut_key_tips_Z": {
+    "message": "Show Shortcut Keys"
+  },
+  "shortcut_key_tips_A": {
+    "message": "Show/Hide Side Menu"
+  },
+  "shortcut_key_tips_D": {
+    "message": "Toggle Dark Mode"
+  },
+  "shortcut_key_tips_N": {
+    "message": "Open a New Chat"
+  },
+  "shortcut_key_tips_M": {
+    "message": "Toggle Model Menu"
+  },
+  "shortcut_key_tips_C": {
+    "message": "Continue Conversation"
+  },
+  "shortcut_key_tips_X": {
+    "message": "Cancel Conversation"
+  },
+  "shortcut_key_tips_R": {
+    "message": "Restart Response"
+  },
+  "shortcut_key_tips_E": {
+    "message": "Open Reply Settings"
+  },
+  "shortcut_key_tips_ESC": {
+    "message": "Close Window"
+  },
+  "shortcut_key_tips_S": {
+    "message": "Save"
+  },
+  "shortcut_key_tips_W": {
+    "message": "Open Prompt Settings"
+  },
+  "shortcut_key_tips_B": {
+    "message": "Switch between 3.5 / 4.0"
+  },
+  "shortcut_key_tips_G": {
+    "message": "Import/Export Settings"
+  },
+  "shortcut_key_tips_S2": {
+    "message": "Open Prompt Settings 2"
+  }
+}
