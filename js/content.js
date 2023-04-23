@@ -733,7 +733,7 @@ const defaultQuickReplyMessageListKO = [
     const locale = chrome.i18n.getUILanguage();
 
     switch (locale) {
-
+      
       case "zh-TW":
         defaultPromptList = defaultPromptListTW;
         defaultQuickReplyMessageList = defaultQuickReplyMessageListTW;
@@ -3164,8 +3164,8 @@ const defaultQuickReplyMessageListKO = [
         JSON.stringify(defaultQuickReplyMessageList)
       );
 
-      promptList = defaultPromptList;
-      quickReplyMessageList = defaultQuickReplyMessageList;
+      promptList = JSON.parse(JSON.stringify(defaultPromptList));
+      quickReplyMessageList = JSON.parse(JSON.stringify(defaultQuickReplyMessageList));
 
       generateButtons();
 
