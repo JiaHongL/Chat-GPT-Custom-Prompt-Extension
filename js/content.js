@@ -2107,7 +2107,7 @@ const defaultQuickReplyMessageListKO = [
 
       customATagEl.appendChild(switchMenuDiv);
       const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[2]);
+      nav.insertBefore(customATagEl, nav.children[3]);
 
       document.getElementById("switchMenu").checked =
         localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
@@ -2158,7 +2158,7 @@ const defaultQuickReplyMessageListKO = [
 
       customATagEl.appendChild(menuItemDiv);
       const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[3]);
+      nav.insertBefore(customATagEl, nav.children[4]);
 
       downloadChatPDF.addEventListener("click", () => {
         const container =
