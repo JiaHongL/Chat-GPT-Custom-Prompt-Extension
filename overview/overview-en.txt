@@ -1,4 +1,4 @@
-This tool can help you communicate with ChatGPT more efficiently, providing various question templates, quick reply text, and convenient shortcut functions. The main features are:
+The main features are:
 
 - Provide 10 question templates for users to quickly create questions.
 - Provide customizable settings window for users to freely design the format of questions.
