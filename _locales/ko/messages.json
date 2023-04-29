@@ -29,6 +29,9 @@
   "button_import_only_replay": {
     "message": "빠른 답변만 가져오기"
   },
+  "button_import_only_super_prompt": {
+    "message": "슈퍼 템플릿만 가져오기"
+  },
   "button_reset": {
     "message": "시스템 기본값으로 복원"
   },
@@ -41,6 +44,9 @@
   "nav_item_download_message_html": {
     "message": "현재 대화 창의 웹 페이지 다운로드"
   },
+  "nav_item_settings": {
+    "message": "다양한 기능 설정"
+  },
   "menu_item_continue": {
     "message": "계속"
   },
@@ -49,6 +55,12 @@
   },
   "menu_prompt_template2_settings": {
     "message": "질문 템플릿2 설정"
+  },
+  "menu_super_prompt_template_settings": {
+    "message": "슈퍼 템플릿 설정"
+  },
+  "menu_super_prompt_template_settings2": {
+    "message": "슈퍼 템플릿 2 설정"
   },
   "menu_reply_message_settings": {
     "message": "빠른 답장 설정"
@@ -77,6 +89,9 @@
   "table_title_replay_message": {
     "message": "빠른 답장 메시지"
   },
+  "table_title_super_prompt_text": {
+    "message": "슈퍼 템플릿 내용"
+  },
   "alert_not_found_input": {
     "message": "ChatGPT의 입력 상자를 찾을 수 없습니다!"
   },
@@ -97,6 +112,9 @@
   },
   "placeholder_please_input": {
     "message": "입력해주세요"
+  },
+  "placeholder_supper_prompt_desc": {
+    "message": "{{}}를 사용하면 필드를 나타낼 수 있습니다. {{}} 내에 필드 이름과 기본값을 설정할 수 있습니다. 예를 들어, {{ 역할 || 요리사 }} 입니다."
   },
   "confirm_is_reset_system_settings": {
     "message": "시스템 기본 템플릿 및 빠른 답장으로 복원하시겠습니까?"
@@ -119,6 +137,14 @@
   },
   "confirm_is_import_only_reply_message": {
     "message": "'$fileName$'의 빠른 답장만 가져오시겠습니까?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_super_prompt_template": {
+    "message": "確定只匯入『$fileName$』的 超級樣板 ?",
     "placeholders": {
       "fileName": {
         "content": "$1"

@@ -29,6 +29,9 @@
   "button_import_only_replay": {
     "message": "只导入快速回复"
   },
+  "button_import_only_super_prompt": {
+    "message": "只导入超级模板"
+  },
   "button_reset": {
     "message": "恢复系统预设值"
   },
@@ -41,6 +44,9 @@
   "nav_item_download_message_html": {
     "message": "下载当前对话视窗"
   },
+  "nav_item_settings": {
+    "message": "各种功能设置"
+  },
   "menu_item_continue": {
     "message": "继续"
   },
@@ -49,6 +55,12 @@
   },
   "menu_prompt_template2_settings": {
     "message": "提问样板2 设定"
+  },
+  "menu_super_prompt_template_settings": {
+    "message": "超级模板设置"
+  },
+  "menu_super_prompt_template_settings2": {
+    "message": "超级模板2 设置"
   },
   "menu_reply_message_settings": {
     "message": "快速回复 设定"
@@ -77,6 +89,9 @@
   "table_title_replay_message": {
     "message": "快速回复的讯息"
   },
+  "table_title_super_prompt_text": {
+    "message": "超级模板内容"
+  },
   "alert_not_found_input": {
     "message": "找不到 chatGPT 的 输入框！"
   },
@@ -97,6 +112,9 @@
   },
   "placeholder_please_input": {
     "message": "请输入"
+  },
+  "placeholder_supper_prompt_desc": {
+    "message": "使用{{}}可以代表一个字段，{{}}里面可以设置字段名称和默认值，例如：{{ 角色 || 厨师 }}。"
   },
   "confirm_is_reset_system_settings": {
     "message": "确定要还原到系统最初的 预设样板 与 快速回复 ?"
@@ -119,6 +137,14 @@
   },
   "confirm_is_import_only_reply_message": {
     "message": "确定只导入『$fileName$』的 快速回复 ?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_super_prompt_template": {
+    "message": "确定只导入『$fileName$』的超级模板？",
     "placeholders": {
       "fileName": {
         "content": "$1"

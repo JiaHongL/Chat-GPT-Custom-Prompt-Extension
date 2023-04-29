@@ -29,6 +29,9 @@
   "button_import_only_replay": {
     "message": "迅速な返信のみインポート"
   },
+  "button_import_only_super_prompt": {
+    "message": "スーパーテンプレートのみインポートする"
+  },
   "button_reset": {
     "message": "システムのデフォルト値に戻す"
   },
@@ -41,6 +44,9 @@
   "nav_item_download_message_html": {
     "message": "現在の会話をダウンロード"
   },
+  "nav_item_settings": {
+    "message": "様々な機能設定"
+  },
   "menu_item_continue": {
     "message": "続ける"
   },
@@ -49,6 +55,12 @@
   },
   "menu_prompt_template2_settings": {
     "message": "プロンプト設定 2"
+  },
+  "menu_super_prompt_template_settings": {
+    "message": "スーパーテンプレート設定"
+  },
+  "menu_super_prompt_template_settings2": {
+    "message": "スーパーテンプレート2設定"
   },
   "menu_reply_message_settings": {
     "message": "迅速な返信の設定"
@@ -77,6 +89,9 @@
   "table_title_replay_message": {
     "message": "迅速な返信メッセージ"
   },
+  "table_title_super_prompt_text": {
+    "message": "スーパーテンプレートの内容"
+  },
   "alert_not_found_input": {
     "message": "ChatGPTの入力欄が見つかりませんでした！"
   },
@@ -97,6 +112,9 @@
   },
   "placeholder_please_input": {
     "message": "入力してください"
+  },
+  "placeholder_supper_prompt_desc": {
+    "message": "{{}} を使用すると、フィールドを表すことができます。{{}} 内にフィールド名とデフォルト値を設定できます。例えば、{{ ロール || シェフ }}。"
   },
   "confirm_is_reset_system_settings": {
     "message": "システムのデフォルトのテンプレートとクイックリプライにリセットしますか？"
@@ -119,6 +137,14 @@
   },
   "confirm_is_import_only_reply_message": {
     "message": "『$fileName$』のクイックリプライのみをインポートしますか？",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_super_prompt_template": {
+    "message": "「$fileName$」のスーパーテンプレートのみをインポートしますか？",
     "placeholders": {
       "fileName": {
         "content": "$1"

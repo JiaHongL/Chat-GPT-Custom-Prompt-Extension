@@ -710,6 +710,432 @@ const defaultQuickReplyMessageListKO = [
   },
 ];
 
+// defaultSuperPromptList 多國語系
+const defaultSuperPromptListTW = [
+  {
+    key: null,
+    text: "撰寫宣傳文章",
+    prompt:
+      "你現在是一位 {{ 角色 || 行銷人員 }} ，幫我想出介紹 {{ 物品 }} 的宣傳文，字數限制 {{ 字數 || 300 }} 字。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "多國語系翻譯",
+    prompt:
+      "你現在是一位翻譯專家，請幫我翻譯 [ {{ 翻譯的文字 }} ] 的 {{ 語言 || 繁體中文、簡體中文、英文、日語、韓語 }}，並請使用表格顯示，表頭分別為 {{ 表頭 || zh-tw、zh-cn、en、ja、ko }}，不需要其他解釋或說明。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "SuperPrompt3",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt4",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt5",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt6",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt7",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt8",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt9",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+];
+
+const defaultSuperPromptListJA = [
+  {
+    key: null,
+    text: "宣伝記事を書く",
+    prompt:
+      "現在、{{ 役割 || マーケター }} として、{{ 商品 }} の紹介文を {{ 文字数 || 300 }} 文字以内で考えてください",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "多言語翻訳",
+    prompt:
+      "翻訳の専門家として、[{{ 翻訳するテキスト }}]を {{ 言語 || 繁体字中国語、簡体字中国語、英語、日本語、韓国語 }} に翻訳して、表のヘッダーが {{ ヘッダー || zh-tw、zh-cn、en、ja、ko }} である表を使用して表示してください。その他の説明や説明は必要ありません。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "SuperPrompt3",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt4",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt5",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt6",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt7",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt8",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt9",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+];
+
+const defaultSuperPromptListEN = [
+  {
+    key: null,
+    text: "Write a article",
+    prompt:
+      "You are a {{ role || marketer }} now. Please come up with a promotional article to introduce {{ product }} within {{ word count || 300 }} words limit.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "Multi Translation",
+    prompt:
+      "You are a translation expert. Please help me translate [{{text to translate}}] into {{ language || Traditional Chinese, Simplified Chinese, English, Japanese, Korean }}, and display the results in a table with headers as {{ headers || zh-tw, zh-cn, en, ja, ko }}. No additional explanation or clarification is needed.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "SuperPrompt3",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt4",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt5",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt6",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt7",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt8",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt9",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+];
+
+const defaultSuperPromptListCN = [
+  {
+    key: null,
+    text: "撰写宣传文章",
+    prompt:
+      "你现在是 {{ 角色 || 销售人员 }}，请为我想出一篇介绍 {{ 物品 }} 的宣传文，字数限制为 {{ 字数 || 300 }} 字。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "多语言翻译",
+    prompt:
+      "你现在是一名翻译专家，请帮我翻译[ {{ 翻译的文字 }} ]的 {{ 语言 || 繁体中文、简体中文、英文、日语、韩语 }} 版本，并使用表格显示，表头分别为 {{ 表头 || zh-tw、zh-cn、en、ja、ko }}，无需其他解释或说明。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "SuperPrompt3",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt4",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt5",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt6",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt7",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt8",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt9",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+];
+
+const defaultSuperPromptListKO = [
+  {
+    key: null,
+    text: "홍보 기사 작성",
+    prompt:
+      "당신은 {{ 역할 || 판매원 }} 입니다. {{ 제품 }} 을 소개하는 홍보 기사를 {{ 글자 수 || 300 }} 자 이내로 작성해주세요.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "다국어 번역",
+    prompt:
+      "당신은 현재 번역 전문가입니다. [ {{ 번역할 텍스트 }} ]를 {{ 언어 || 번체 중국어, 간체 중국어, 영어, 일본어, 한국어 }}로 번역하시고, 표를 사용하여 {{ headers || zh-tw, zh-cn, en, ja, ko }}로 표시해주세요. 추가 설명이나 지시 사항은 필요하지 않습니다.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: null,
+    text: "SuperPrompt3",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt4",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt5",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt6",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt7",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt8",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt9",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+];
+
 (() => {
   "use strict";
 
@@ -721,46 +1147,48 @@ const defaultQuickReplyMessageListKO = [
   const mainKey = isMac ? "ctrlKey" : "altKey";
   const mainKeyText = isMac ? "control" : "alt";
 
-  function capitalizeFirstLetter(str) {
+  const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+  };
 
-  function i18n(key, params = []) {
+  const i18n = (key, params = []) => {
     return chrome.i18n.getMessage(key, params);
-  }
+  };
 
   function setDefaultList() {
     const locale = chrome.i18n.getUILanguage();
 
     switch (locale) {
-      
       case "zh-TW":
         defaultPromptList = defaultPromptListTW;
         defaultQuickReplyMessageList = defaultQuickReplyMessageListTW;
+        defaultSuperPromptList = defaultSuperPromptListTW;
         break;
 
       case "ja":
         defaultPromptList = defaultPromptListJA;
         defaultQuickReplyMessageList = defaultQuickReplyMessageListJA;
+        defaultSuperPromptList = defaultSuperPromptListJA;
         break;
 
       case "zh-CN":
         defaultPromptList = defaultPromptListCN;
         defaultQuickReplyMessageList = defaultQuickReplyMessageListCN;
+        defaultSuperPromptList = defaultSuperPromptListCN;
         break;
 
       case "ko":
         defaultPromptList = defaultPromptListKO;
         defaultQuickReplyMessageList = defaultQuickReplyMessageListKO;
+        defaultSuperPromptList = defaultSuperPromptListKO;
         break;
 
       default:
         defaultPromptList = defaultPromptListEN;
         defaultQuickReplyMessageList = defaultQuickReplyMessageListEN;
+        defaultSuperPromptList = defaultSuperPromptListEN;
         break;
-
     }
-
   }
 
   // css style
@@ -802,6 +1230,9 @@ const defaultQuickReplyMessageListKO = [
           margin-bottom: 20px;
           color:black;
       }
+      .quickReplyMessage{
+        border-radius: 3px;
+      }
       .dialog button {
           border: none;
           border-radius: 3px;
@@ -837,6 +1268,10 @@ const defaultQuickReplyMessageListKO = [
           background-color: #5A7DAB;
           color: #fff;
       }
+      button.warning {
+          background-color: hsl(267, 30%, 55%);
+          color: #fff;
+      }
       .dark button.primary {
         background-color: #5a5646;
         color: #d1d5db !important;
@@ -852,6 +1287,10 @@ const defaultQuickReplyMessageListKO = [
       .dark button.info {
           background-color: #3A5276;
           color: #d1d5db !important;
+      }
+      .dark button.warning {
+        background-color: hsl(267, 30%, 40%);
+        color: #d1d5db !important;
       }
       .center {
           display: flex;
@@ -967,11 +1406,8 @@ const defaultQuickReplyMessageListKO = [
         max-height:700px;
         overflow-y: auto;
         overflow-x: hidden;
-
-        display:flex;
-        flex-direction: column;
-        min-width:160px;
-
+        box-sizing: content-box;
+        width:160px;
       }
       .slide-checkbox {
         width: 80px;
@@ -1021,6 +1457,96 @@ const defaultQuickReplyMessageListKO = [
       }
       .slide-checkbox input[type=checkbox]:checked + label {
         left: 43px !important;
+      }
+      #dialog6 .my-table textarea{
+        width: 100%;
+        height: 85px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px;
+        line-height: 1.5;
+        color:black;
+      }
+      .super-prompt-preview-area{
+        max-height:100px;
+        overflow:auto;
+        font-size: 18px;
+      }
+      .super-prompt-table-wrapper{
+        max-height:500px;
+        overflow:auto;
+        font-size: 18px;
+        margin-bottom:20px;
+      }
+      .super-prompt-table-wrapper .fieldItem{
+        padding-bottom:8px;
+      }
+      .super-prompt-table-wrapper .fieldItem .superPromptName{
+        padding-bottom:2px;
+      }
+      .super-prompt-text {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 5px;
+        font-size: 18px !important;
+        line-height: 1.5;
+        resize: vertical;
+        color:black;
+      }
+
+      .chatgpt-dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .chatgpt-dropdown-btn {
+        background-color: rgba(5,5,9,1);
+        color: #333;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      
+      .chatgpt-dropdown-content {
+        position: absolute;
+        top: 100%;
+        left: -10px;
+        z-index: 1;
+        display: none;
+        min-width: 160px;
+        background-color: rgba(5,5,9,1);
+        border: 1px solid rgba(5,5,9,1);
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        z-index:999;
+        width:240px;
+      }
+      .chatgpt-dropdown-content a {
+        color: white;
+        padding: 15px;
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+        font-size:15px;
+      }
+      .chatgpt-dropdown-content a:hover {
+        background-color: rgba(64,65,79,1);
+      }
+      .chatgpt-dropdown-todo:hover .chatgpt-dropdown-content {
+        display: block;
+      }
+      .chatgpt-dropdown-content.show {
+        display: block;
+      }
+      .chatgpt-dropdown-up .chatgpt-dropdown-content {
+        top: auto;
+        bottom: 100%;
+      }
+      .chatgpt-dropdown-up .chatgpt-dropdown-btn {
+        border-radius: 5px 5px 0 0;
       }
       `;
 
@@ -1934,7 +2460,7 @@ const defaultQuickReplyMessageListKO = [
   const exportAndImportHTML = `
     <div id="dialog5" class="dialog-wrapper" style="display:none">
 
-      <div class="dialog" style="max-width:750px;">
+      <div class="dialog" style="max-width:950px;">
 
         <table class="my-table" style="width:100%">
           <tr>
@@ -1950,13 +2476,16 @@ const defaultQuickReplyMessageListKO = [
             </td>
             <td> 
               <div class="center" style="justify-content: space-evenly;">
-                <button id="importAll" class="primary">${i18n(
+                <button id="importAll" class="warning">${i18n(
                   "button_import_all"
                 )}</button>
-                <button id="importPrompt" class="primary">${i18n(
+                <button id="importPrompt" class="warning">${i18n(
                   "button_import_only_prompt"
                 )}</button>
-                <button id="importQuickReply" class="primary" style="margin-right:0px">${i18n(
+                <button id="importSuperPrompt" class="warning">${i18n(
+                  "button_import_only_super_prompt"
+                )}</button>
+                <button id="importQuickReply" class="warning" style="margin-right:0px">${i18n(
                   "button_import_only_replay"
                 )}</button>
               </div>
@@ -1988,6 +2517,318 @@ const defaultQuickReplyMessageListKO = [
   </div>    
   `;
 
+  // 超級樣板 設定 HTML
+  const superPromptSettingsHTML = `
+  <div id="dialog6" class="dialog-wrapper" style="display:none">
+    <div class="dialog" style="max-width:90%;">
+      <table id="super-table-form" class="my-table" style="width:100%">
+
+        <tr>
+          <th style="width:118px">${i18n("table_title_shortcut")}</th>
+          <th style="width:160px">${i18n("table_title_button_name")}</th>
+          <th>${i18n("table_title_super_prompt_text")}</th>
+          <th style="width:118px">${i18n("table_title_is_show")}</th>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1" name="check"/>
+              <label for="superSlideCheckbox1"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2" name="check"/>
+              <label for="superSlideCheckbox2"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3" name="check"/>
+              <label for="superSlideCheckbox3"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4" name="check"/>
+              <label for="superSlideCheckbox4"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5" name="check"/>
+              <label for="superSlideCheckbox5"></label>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+
+      <table id="super-table-form2" class="my-table" style="width:100%">
+
+        <tr>
+          <th style="width:118px">${i18n("table_title_shortcut")}</th>
+          <th style="width:160px">${i18n("table_title_button_name")}</th>
+          <th>${i18n("table_title_super_prompt_text")}</th>
+          <th style="width:118px">${i18n("table_title_is_show")}</th>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox6" name="check"/>
+              <label for="superSlideCheckbox6"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox7" name="check"/>
+              <label for="superSlideCheckbox7"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox8" name="check"/>
+              <label for="superSlideCheckbox8"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox9" name="check"/>
+              <label for="superSlideCheckbox9"></label>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <div class="shortcut-wrapper">
+              <span class="shortcut-content"> none </span>
+            </div>
+          </td>
+          <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+            "placeholder_please_input"
+          )}"></td>
+          <td>
+            <div class="center">
+              <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                "placeholder_supper_prompt_desc"
+              )}"></textarea>
+            </div>
+          </td>
+          <td>
+            <div class="slide-checkbox">  
+              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox10" name="check"/>
+              <label for="superSlideCheckbox10"></label>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+
+      <div class="footer" class="center">
+        <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
+          "button_save"
+        )} ( ${mainKeyText} + s )</button>
+        <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
+          "button_cancel"
+        )} ( esc ) </button>
+        <div class="buy-me-a-coffee">
+          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>  
+`;
+
+  // 超級樣板 HTML
+  const superPromptHTML = `
+  <div id="dialog7" class="dialog-wrapper" style="display:none">
+
+    <div class="dialog" style="max-width: 965px;">
+      <div class="super-prompt-preview-area" id="superPromptPreviewArea"></div>
+      <div class="super-prompt-table-wrapper">
+        <div id="superPromptTable" class="my-table super-prompt-table" style="width:100%">
+        </div>
+      </div>
+      <div class="footer" class="center">
+        <button tabindex="99" id="dialog7-ok" class="primary">${i18n(
+          "button_send"
+        )} ( ${mainKeyText} + s )</button>
+        <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
+          "button_cancel"
+        )} ( esc ) </button>
+        <div class="buy-me-a-coffee">
+          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+          </a>
+        </div>
+      </div>
+  </div?>
+
+</div>  
+  `;
+
   // 插入 HTML 元素
   const dialogEl = document.createElement("div");
   dialogEl.innerHTML = dialogHTML;
@@ -2008,6 +2849,14 @@ const defaultQuickReplyMessageListKO = [
   const exportAndImportDialogEl = document.createElement("div");
   exportAndImportDialogEl.innerHTML = exportAndImportHTML;
   document.body.appendChild(exportAndImportDialogEl);
+
+  const superPromptSettingsDialogEl = document.createElement("div");
+  superPromptSettingsDialogEl.innerHTML = superPromptSettingsHTML;
+  document.body.appendChild(superPromptSettingsDialogEl);
+
+  const superPromptDialogEl = document.createElement("div");
+  superPromptDialogEl.innerHTML = superPromptHTML;
+  document.body.appendChild(superPromptDialogEl);
 
   // Question
   const questionDialog = document.getElementById("dialog");
@@ -2040,12 +2889,33 @@ const defaultQuickReplyMessageListKO = [
   const exportSettingsBtn = document.getElementById("export");
   const importAllBtn = document.getElementById("importAll");
   const importOnlyPromptBtn = document.getElementById("importPrompt");
+  const importOnlySuperPromptBtn = document.getElementById("importSuperPrompt");
   const importOnlyQuickReplyBtn = document.getElementById("importQuickReply");
   const resetSettingBtn = document.getElementById("resetSetting");
   const exportAndImportDialogCancelBtn =
     document.getElementById("dialog5-cancel");
 
   const importFileInput = document.getElementById("importFileInput");
+
+  // superPromptSetting
+  const superPromptSettingsDialog = document.getElementById("dialog6");
+  const superPromptSettingsDialogOkBtn = document.querySelector("#dialog6-ok");
+  const superPromptSettingsDialogCancelBtn =
+    document.querySelector("#dialog6-cancel");
+  const superPromptSettingsTableForm =
+    superPromptSettingsDialog.querySelector("#super-table-form");
+  const superPromptSettingsTableForm2 =
+    superPromptSettingsDialog.querySelector("#super-table-form2");
+
+  // superPrompt
+  const superPromptDialog = document.getElementById("dialog7");
+  const superPromptDialogOkBtn = document.querySelector("#dialog7-ok");
+  const superPromptDialogCancelBtn = document.querySelector("#dialog7-cancel");
+  const superPromptPreviewAreaDiv = document.getElementById(
+    "superPromptPreviewArea"
+  );
+
+  let superPrompt = "";
 
   // other
   let intervalID = null;
@@ -2056,17 +2926,23 @@ const defaultQuickReplyMessageListKO = [
   /** 1:form or 2:form2 */
   let currentSettingFormType;
 
-  /** 0:all or 1:prompt or 2:quickReply */
+  /** 1:form or 2:form2 */
+  let currentSuperSettingFormType;
+
+  /** 0:all or 1:prompt or 2:quickReply or 3:superPrompt */
   let importType;
 
-  // promptList / quickReply
+  // promptList
   let defaultPromptList = [];
-
   let promptList = [];
 
+  // quickReply
   let defaultQuickReplyMessageList = [];
-
   let quickReplyMessageList = [];
+
+  // Super prompt
+  let defaultSuperPromptList = [];
+  let superPromptList = [];
 
   setDefaultList();
 
@@ -2097,7 +2973,9 @@ const defaultQuickReplyMessageListKO = [
       switchMenuDiv.innerHTML = `    
         <div class="flex items-center">
           <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>
-          <div class="flex-1" style="margin-right:5px">${i18n("nav_menu_help_menu")}</div>
+          <div class="flex-1" style="margin-right:5px">${i18n(
+            "nav_menu_help_menu"
+          )}</div>
           <div class="slide-checkbox" style="margin: 0 0 0 0">  
             <input type="checkbox" value="true" id="switchMenu" name="check"/>
             <label for="switchMenu"></label>
@@ -2149,6 +3027,116 @@ const defaultQuickReplyMessageListKO = [
       );
 
       const menuItemDiv = document.createElement("div");
+      menuItemDiv.style = "width:100%;";
+      menuItemDiv.innerHTML = `    
+        <div id="allSettings" class="chatgpt-dropdown chatgpt-dropdown-up" style="width:100%">
+          <div class="flex items-center">
+            <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5L304 89.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1l-28.2 9.3c-10.7-8.8-23-16-36.2-20.9L199 27.1c-1.9-9.3-9.1-16.7-18.5-17.8C173.9 8.4 167.2 8 160.4 8h-.7c-6.8 0-13.5 .4-20.1 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9L50.5 67.8c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8C32.6 161.9 32 168.9 32 176s.6 14.1 1.7 20.9L11.5 216.7c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7 .8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5c3.7-8.7 .9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM112 176a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM504.7 500.5c6.3 7.1 16.2 9.9 25 6.2c5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8c7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2l29.1-6.1c9.3-1.9 16.7-9.1 17.8-18.5c.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5L583.9 307c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7c-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6c-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1 .6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2c-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9c-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2L315.1 313c-9.3 1.9-16.7 9.1-17.8 18.5c-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7c4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6c8.7 3.7 18.6 .9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 304a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>  
+            <div>${i18n("nav_item_settings")}</div>
+          </div>
+          <div class="chatgpt-dropdown-content">
+            <a class="custom-menu-item">W. ${i18n(
+              "menu_prompt_template_settings"
+            )}</a>
+            <a class="custom-menu-item">S. ${i18n(
+              "menu_prompt_template2_settings"
+            )}</a>
+            <a class="custom-menu-item">🆕 ${i18n(
+              "menu_super_prompt_template_settings"
+            )}</a>
+            <a class="custom-menu-item">🆕 ${i18n(
+              "menu_super_prompt_template_settings2"
+            )}</a>
+            <a class="custom-menu-item">E. ${i18n(
+              "menu_reply_message_settings"
+            )}</a>
+            <a class="custom-menu-item">G. ${i18n("menu_import_export")}</a>
+          </div>
+        </div>
+      `;
+
+      customATagEl.appendChild(menuItemDiv);
+      const nav = document.querySelector("nav.flex");
+      nav.insertBefore(customATagEl, nav.children[4]);
+
+      const menuItems = customATagEl.querySelectorAll(".custom-menu-item");
+      const chatgptDropdownContentEl = customATagEl.querySelector(
+        ".chatgpt-dropdown-content"
+      );
+
+      customATagEl.addEventListener("click", () => {
+        chatgptDropdownContentEl.classList.add("show");
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !customATagEl.contains(event.target) &&
+          !chatgptDropdownContentEl.contains(event.target)
+        ) {
+          chatgptDropdownContentEl.classList.remove("show");
+        }
+      });
+
+      // 選項
+      menuItems[0].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showSettingsDialog(1);
+      });
+
+      menuItems[1].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showSettingsDialog(2);
+      });
+
+      menuItems[2].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showSuperPromptSettingDialog(1);
+      });
+
+      menuItems[3].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showSuperPromptSettingDialog(2);
+      });
+
+      menuItems[4].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showQuickReplySettingsDialog();
+      });
+
+      menuItems[5].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        openExportAndImportDialog();
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function addCustomLeftMenuItem3() {
+    try {
+      const customATagEl = document.createElement("a");
+      customATagEl.classList.add(
+        "flex",
+        "py-3",
+        "px-3",
+        "items-center",
+        "gap-3",
+        "rounded-md",
+        "hover:bg-gray-500/10",
+        "transition-colors",
+        "duration-200",
+        "text-white",
+        "cursor-pointer",
+        "text-sm"
+      );
+
+      const menuItemDiv = document.createElement("div");
       menuItemDiv.innerHTML = `    
         <div id="downloadChatPDF" class="flex items-center justify-between">
           <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
@@ -2158,7 +3146,7 @@ const defaultQuickReplyMessageListKO = [
 
       customATagEl.appendChild(menuItemDiv);
       const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[4]);
+      nav.insertBefore(customATagEl, nav.children[5]);
 
       downloadChatPDF.addEventListener("click", () => {
         const container =
@@ -2227,6 +3215,7 @@ const defaultQuickReplyMessageListKO = [
         ) {
           addCustomLeftMenuItem();
           addCustomLeftMenuItem2();
+          addCustomLeftMenuItem3();
         }
       }, 0);
     });
@@ -2243,6 +3232,8 @@ const defaultQuickReplyMessageListKO = [
     settingsDialog.style.display = "none";
     shortcutKeyHintDialog.style.display = "none";
     exportAndImportDialog.style.display = "none";
+    superPromptSettingsDialog.style.display = "none";
+    superPromptDialog.style.display = "none";
 
     if (!localStorage.getItem("Custom.Settings.Prompt")) {
       localStorage.setItem(
@@ -2262,11 +3253,22 @@ const defaultQuickReplyMessageListKO = [
       localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
     }
 
+    if (!localStorage.getItem("Custom.Settings.SuperPrompt")) {
+      localStorage.setItem(
+        "Custom.Settings.SuperPrompt",
+        JSON.stringify(defaultSuperPromptList)
+      );
+    }
+
     localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
       ? document.body.classList.add("hidden-template-buttons")
       : document.body.classList.remove("hidden-template-buttons");
 
     promptList = JSON.parse(localStorage.getItem("Custom.Settings.Prompt"));
+
+    superPromptList = JSON.parse(
+      localStorage.getItem("Custom.Settings.SuperPrompt")
+    );
 
     quickReplyMessageList = JSON.parse(
       localStorage.getItem("Custom.Settings.QuickReply")
@@ -2368,12 +3370,36 @@ const defaultQuickReplyMessageListKO = [
       return;
     }
 
+    // esc : close superPromptSettingsDialog
+    if (
+      !isComposing &&
+      superPromptSettingsDialog.style.display === "flex" &&
+      event.key === "Escape"
+    ) {
+      event.preventDefault();
+      superPromptSettingsDialog.style.display = "none";
+      return;
+    }
+
+    // esc : close superPromptDialog
+    if (
+      !isComposing &&
+      superPromptDialog.style.display === "flex" &&
+      event.key === "Escape"
+    ) {
+      event.preventDefault();
+      superPromptDialog.style.display = "none";
+      return;
+    }
+
     // mainKey + w : open settingsDialog
     if (
       questionDialog.style.display === "none" &&
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "w"
     ) {
@@ -2388,6 +3414,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "s"
     ) {
@@ -2402,6 +3430,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "e"
     ) {
@@ -2416,6 +3446,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "g"
     ) {
@@ -2459,12 +3491,36 @@ const defaultQuickReplyMessageListKO = [
       return;
     }
 
+    // mainKey + s : save superPromptSettingsDialog
+    if (
+      superPromptSettingsDialog.style.display === "flex" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "s"
+    ) {
+      event.preventDefault();
+      saveSuperPromptSittings();
+      return;
+    }
+
+    // mainKey + s : save superPromptDialog
+    if (
+      superPromptDialog.style.display === "flex" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "s"
+    ) {
+      event.preventDefault();
+      sendSuperPrompt();
+      return;
+    }
+
     // mainKey + r : regenerate response
     if (
       settingsDialog.style.display === "none" &&
       questionDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "r"
     ) {
@@ -2483,6 +3539,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "x"
     ) {
@@ -2501,6 +3559,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "c"
     ) {
@@ -2515,6 +3575,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "y"
     ) {
@@ -2531,6 +3593,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "u"
     ) {
@@ -2547,6 +3611,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "i"
     ) {
@@ -2563,6 +3629,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "o"
     ) {
@@ -2579,6 +3647,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "p"
     ) {
@@ -2640,6 +3710,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "n"
     ) {
@@ -2658,6 +3730,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "m"
     ) {
@@ -2691,6 +3765,8 @@ const defaultQuickReplyMessageListKO = [
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
       exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
       event[mainKey]
     ) {
       switch (event.key) {
@@ -2848,7 +3924,7 @@ const defaultQuickReplyMessageListKO = [
   function showQuestionDialog() {
     const innerHTML =
       prefix.replace(/\n/g, "<br>") +
-      " { $input } " +
+      " {{ $input }} " +
       suffix.replace(/\n/g, "<br>");
 
     questionPreviewAreaDiv.innerHTML = innerHTML;
@@ -2948,6 +4024,188 @@ const defaultQuickReplyMessageListKO = [
 
   settingsDialogCancelBtn.addEventListener("click", () => {
     settingsDialog.style.display = "none";
+  });
+
+  // ------------ super 設定視窗相關 程式碼 ------------
+  function showSuperPromptSettingDialog(superFormType) {
+    currentSuperSettingFormType = superFormType;
+
+    superPromptSettingsDialog.style.display = "flex";
+
+    superPromptSettingsTableForm.style.display = "none";
+    superPromptSettingsTableForm2.style.display = "none";
+
+    if (currentSuperSettingFormType === 1) {
+      superPromptSettingsTableForm.style.display = "table";
+      superPromptSettingsTableForm.style.width = "100%";
+    } else {
+      superPromptSettingsTableForm2.style.display = "table";
+      superPromptSettingsTableForm2.style.width = "100%";
+    }
+
+    const superPromptButtonTextElements = document.querySelectorAll(
+      ".superPromptButtonText"
+    );
+    const superPromptTextElements =
+      document.querySelectorAll(".superPromptText");
+
+    const superPromptSlideElements =
+      document.querySelectorAll(".superPromptSlide");
+
+    let startIndex = 0;
+    let endIndex = 5;
+
+    if (currentSuperSettingFormType == 2) {
+      startIndex = 5;
+      endIndex = 10;
+    }
+
+    for (let index = startIndex; index < endIndex; index++) {
+      superPromptButtonTextElements[index].value = superPromptList[index].text;
+      superPromptTextElements[index].value = superPromptList[index].prompt;
+      superPromptSlideElements[index].checked =
+        superPromptList[index].isVisible;
+    }
+
+    currentSuperSettingFormType === 1
+      ? superPromptButtonTextElements[0].focus()
+      : superPromptButtonTextElements[5].focus();
+  }
+
+  function saveSuperPromptSittings() {
+    const btnTextInputElements = document.querySelectorAll(
+      ".superPromptButtonText"
+    );
+    const textInputElements = document.querySelectorAll(".superPromptText");
+    const promptSlideElements = document.querySelectorAll(".superPromptSlide");
+
+    let startIndex = 0;
+    let endIndex = 5;
+
+    if (currentSuperSettingFormType == 2) {
+      startIndex = 5;
+      endIndex = 10;
+    }
+
+    const previousSuperPromptList = JSON.parse(JSON.stringify(superPromptList));
+
+    for (let index = startIndex; index < endIndex; index++) {
+      superPromptList[index].text = btnTextInputElements[index].value;
+      superPromptList[index].prompt = textInputElements[index].value;
+      superPromptList[index].isVisible = promptSlideElements[index].checked;
+
+      if (previousSuperPromptList.isVisible) {
+        superPromptList[index].buttonElement.removeEventListener(
+          "click",
+          superPromptList[index].handleClickFn
+        );
+        superPromptList[index].buttonElement.remove();
+
+        delete superPromptList[index].buttonElement;
+        delete superPromptList[index].handleClickFn;
+      }
+    }
+
+    localStorage.setItem(
+      "Custom.Settings.SuperPrompt",
+      JSON.stringify(superPromptList)
+    );
+
+    generateButtons();
+
+    superPromptSettingsDialog.style.display = "none";
+  }
+
+  superPromptSettingsDialogOkBtn.addEventListener("click", () => {
+    saveSuperPromptSittings();
+  });
+
+  superPromptSettingsDialogCancelBtn.addEventListener("click", () => {
+    superPromptSettingsDialog.style.display = "none";
+  });
+
+  // ------------ super 樣板視窗 程式碼 ------------
+
+  const showSuperPromptTextareaPlaceholder = i18n("placeholder_please_input");
+
+  function showSuperPromptDialog() {
+    superPromptDialog.style.display = "flex";
+
+    const table = document.querySelector("#superPromptTable");
+    const fieldItemList = table.querySelectorAll(".fieldItem");
+
+    // 使用迴圈移除每個 <tr> 元素
+    for (let i = 0; i < fieldItemList.length; i++) {
+      const tr = fieldItemList[i];
+      tr.parentNode.removeChild(tr);
+    }
+
+    const innerHTML = superPrompt.replace(/\n/g, "<br>");
+
+    superPromptPreviewAreaDiv.innerHTML = innerHTML;
+
+    // 使用正規表達式搜尋 {{ 和 }} 之間的內容
+    const matches = superPrompt.match(/{{(.*?)}}/g);
+
+    if (!matches) {
+      return;
+    }
+
+    let htmlStr = "";
+
+    matches.forEach((string, i) => {
+      let [fieldName, fieldValue] = string
+        ?.slice(2, -2)
+        ?.split("||")
+        ?.map((s) => s?.trim());
+      if (!fieldValue) {
+        fieldValue = "";
+      }
+      htmlStr += `
+          <div class="fieldItem">
+            <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${fieldName}</div>
+            <div class="center">
+              <textarea rows="3" style="width:100%" tabindex="${
+                i + 1
+              }" class="super-prompt-text superPromptText" placeholder="${showSuperPromptTextareaPlaceholder}">${fieldValue}</textarea>
+            </div>
+          </div>
+        `;
+    });
+
+    table.innerHTML += htmlStr;
+
+    addCompositionEventListener(".superPromptText");
+
+    controlSuperDialogTabindex();
+
+    table.querySelector(".superPromptText").focus();
+  }
+
+  function sendSuperPrompt() {
+    const table = document.querySelector("#superPromptTable");
+    const superPromptTextList = table.querySelectorAll(".superPromptText");
+
+    const matches = superPrompt.match(/{{\s*(.*?)\s*}}/g);
+    let message = superPrompt;
+
+    if (!matches) {
+      return;
+    }
+
+    for (let i = 0; i < superPromptTextList.length; i++) {
+      message = message.replace(matches[i], superPromptTextList[i].value);
+    }
+    superPromptDialog.style.display = "none";
+    sendMessage(message);
+  }
+
+  superPromptDialogOkBtn.addEventListener("click", () => {
+    sendSuperPrompt();
+  });
+
+  superPromptDialogCancelBtn.addEventListener("click", () => {
+    superPromptDialog.style.display = "none";
   });
 
   // ------------ 快速回覆設定視窗 ------------
@@ -3102,11 +4360,19 @@ const defaultQuickReplyMessageListKO = [
     ]);
 
     const currentPromptSetting = JSON.parse(JSON.stringify(promptList));
+    const currentSuperPromptSetting = JSON.parse(
+      JSON.stringify(superPromptList)
+    );
     const currentQuickReplyMessageList = JSON.parse(
       JSON.stringify(quickReplyMessageList)
     );
 
     currentPromptSetting.forEach((setting) => {
+      delete setting.buttonElement;
+      delete setting.handleClickFn;
+    });
+
+    currentSuperPromptSetting.forEach((setting) => {
       delete setting.buttonElement;
       delete setting.handleClickFn;
     });
@@ -3122,6 +4388,7 @@ const defaultQuickReplyMessageListKO = [
           prompt: currentPromptSetting,
           quickReply: currentQuickReplyMessageList,
           isHiddenMenu: localStorage.getItem("Custom.Settings.Menu.Hidden"),
+          superPrompt: currentSuperPromptSetting,
         },
       },
       null,
@@ -3145,6 +4412,11 @@ const defaultQuickReplyMessageListKO = [
     importFileInput.click();
   });
 
+  importOnlySuperPromptBtn.addEventListener("click", () => {
+    importType = 3;
+    importFileInput.click();
+  });
+
   importOnlyQuickReplyBtn.addEventListener("click", () => {
     importType = 2;
     importFileInput.click();
@@ -3164,8 +4436,16 @@ const defaultQuickReplyMessageListKO = [
         JSON.stringify(defaultQuickReplyMessageList)
       );
 
+      localStorage.setItem(
+        "Custom.Settings.SuperPrompt",
+        JSON.stringify(defaultSuperPromptList)
+      );
+
       promptList = JSON.parse(JSON.stringify(defaultPromptList));
-      quickReplyMessageList = JSON.parse(JSON.stringify(defaultQuickReplyMessageList));
+      superPromptList = JSON.parse(JSON.stringify(defaultSuperPromptList));
+      quickReplyMessageList = JSON.parse(
+        JSON.stringify(defaultQuickReplyMessageList)
+      );
 
       generateButtons();
 
@@ -3252,6 +4532,7 @@ const defaultQuickReplyMessageListKO = [
           }
         });
       }
+      // ps: superPrompt 先不檢查
     } catch (error) {
       isValidated = false;
       console.log("error", error);
@@ -3280,6 +4561,12 @@ const defaultQuickReplyMessageListKO = [
 
       case 2:
         confirmMessage = i18n("confirm_is_import_only_reply_message", [
+          importFileInput.files[0].name,
+        ]);
+        break;
+
+      case 3:
+        confirmMessage = i18n("confirm_is_import_only_super_prompt_template", [
           importFileInput.files[0].name,
         ]);
         break;
@@ -3319,12 +4606,12 @@ const defaultQuickReplyMessageListKO = [
             delete setting.buttonElement;
             delete setting.handleClickFn;
           }
-
-          localStorage.setItem(
-            "Custom.Settings.Prompt",
-            JSON.stringify(promptList)
-          );
         });
+
+        localStorage.setItem(
+          "Custom.Settings.Prompt",
+          JSON.stringify(promptList)
+        );
       }
 
       // 覆蓋快速回覆
@@ -3357,6 +4644,38 @@ const defaultQuickReplyMessageListKO = [
         );
       }
 
+      // 覆蓋超級樣板
+      if (
+        (importType === 0 && json.settings.hasOwnProperty("superPrompt")) ||
+        (importType === 3 && json.settings.hasOwnProperty("superPrompt"))
+      ) {
+        const previousSuperPromptList = JSON.parse(
+          JSON.stringify(superPromptList)
+        );
+
+        superPromptList.forEach((setting, index) => {
+          setting.text = json.settings.superPrompt[index].text;
+          setting.prompt = json.settings.superPrompt[index].prompt;
+          setting.isVisible = json.settings.superPrompt[index].isVisible;
+
+          if (previousSuperPromptList.isVisible) {
+            setting.buttonElement.removeEventListener(
+              "click",
+              setting.handleClickFn
+            );
+            setting.buttonElement.remove();
+
+            delete setting.buttonElement;
+            delete setting.handleClickFn;
+          }
+        });
+
+        localStorage.setItem(
+          "Custom.Settings.SuperPrompt",
+          JSON.stringify(superPromptList)
+        );
+      }
+
       generateButtons();
 
       alert(i18n("alert_import_success"));
@@ -3376,18 +4695,17 @@ const defaultQuickReplyMessageListKO = [
 
   // ------------ 建立右側按鈕 相關程式碼 ------------
   function createButton(textContent, btnColorClass = "success") {
-
     let fontSize = "1rem";
     let width = "152px";
     let padding = "3px 10px";
 
-    if(chrome.i18n.getUILanguage()==='en-US'){
+    if (chrome.i18n.getUILanguage() === "en-US") {
       fontSize = "0.92rem";
       width = "160px";
       padding = "3px 6px";
     }
 
-    if(chrome.i18n.getUILanguage()==='ja'){
+    if (chrome.i18n.getUILanguage() === "ja") {
       fontSize = "0.95rem";
       width = "156px";
       padding = "3px 6px";
@@ -3444,8 +4762,28 @@ const defaultQuickReplyMessageListKO = [
       menuDiv.appendChild(button);
     });
 
-    // 繼續 按鈕
+    // super 模版
+    superPromptList.forEach((settings) => {
+      if (!settings.isVisible) {
+        return;
+      }
 
+      const button = createButton(`${settings.text}`, "warning");
+
+      const handleClick = () => {
+        superPrompt = settings.prompt;
+        showSuperPromptDialog();
+      };
+
+      button.addEventListener("click", handleClick);
+
+      settings.buttonElement = button;
+      settings.handleClickFn = handleClick;
+
+      menuDiv.appendChild(button);
+    });
+
+    // 繼續 按鈕
     const filteredContinueButton = Array.from(
       document.querySelectorAll(".custom-template-buttons")
     ).filter((element) => {
@@ -3489,46 +4827,6 @@ const defaultQuickReplyMessageListKO = [
       menuDiv.appendChild(button);
     });
 
-    // prompt settings
-    const promptSettingsButton = createButton(
-      `W. ${i18n("menu_prompt_template_settings")}`,
-      "primary"
-    );
-    promptSettingsButton.addEventListener("click", () => {
-      showSettingsDialog(1);
-    });
-    menuDiv.appendChild(promptSettingsButton);
-
-    // prompt settings2
-    const promptSettingsButton2 = createButton(
-      `S. ${i18n("menu_prompt_template2_settings")}`,
-      "primary"
-    );
-    promptSettingsButton2.addEventListener("click", () => {
-      showSettingsDialog(2);
-    });
-    menuDiv.appendChild(promptSettingsButton2);
-
-    // quickReply Settings
-    const quickReplySettingsButton2 = createButton(
-      `E. ${i18n("menu_reply_message_settings")}`,
-      "primary"
-    );
-    quickReplySettingsButton2.addEventListener("click", () => {
-      showQuickReplySettingsDialog();
-    });
-    menuDiv.appendChild(quickReplySettingsButton2);
-
-    // 匯出匯入設定擋
-    const exportAndImportConfigButton = createButton(
-      `G. ${i18n("menu_import_export")}`,
-      "primary"
-    );
-    exportAndImportConfigButton.addEventListener("click", () => {
-      openExportAndImportDialog();
-    });
-    menuDiv.appendChild(exportAndImportConfigButton);
-
     // 重新設定高度
     menuDiv.style.maxHeight = `${menuDiv.children.length * 35}px`;
 
@@ -3538,32 +4836,6 @@ const defaultQuickReplyMessageListKO = [
   generateButtons();
 
   // ------------ 監聽各式 composition 事件 ------------
-  document.querySelectorAll(".btnTextInput").forEach((input) => {
-    input.addEventListener("compositionstart", () => {
-      isComposing = true;
-    });
-    input.addEventListener("compositionend", () => {
-      isComposing = false;
-    });
-  });
-
-  document.querySelectorAll(".prefixInput").forEach((input) => {
-    input.addEventListener("compositionstart", () => {
-      isComposing = true;
-    });
-    input.addEventListener("compositionend", () => {
-      isComposing = false;
-    });
-  });
-
-  document.querySelectorAll(".suffixInput").forEach((input) => {
-    input.addEventListener("compositionstart", () => {
-      isComposing = true;
-    });
-    input.addEventListener("compositionend", () => {
-      isComposing = false;
-    });
-  });
 
   questionDialogTextarea.addEventListener("compositionstart", () => {
     isComposing = true;
@@ -3573,23 +4845,28 @@ const defaultQuickReplyMessageListKO = [
     isComposing = false;
   });
 
-  document.querySelectorAll(".quickReplyButtonText").forEach((input) => {
-    input.addEventListener("compositionstart", () => {
-      isComposing = true;
-    });
-    input.addEventListener("compositionend", () => {
-      isComposing = false;
-    });
+  [
+    ".btnTextInput",
+    ".prefixInput",
+    ".suffixInput",
+    ".quickReplyButtonText",
+    ".quickReplyMessage",
+    ".superPromptButtonText",
+    ".superPromptText",
+  ].forEach((queryName) => {
+    addCompositionEventListener(queryName);
   });
 
-  document.querySelectorAll(".quickReplyMessage").forEach((input) => {
-    input.addEventListener("compositionstart", () => {
-      isComposing = true;
+  function addCompositionEventListener(queryName) {
+    document.querySelectorAll(queryName).forEach((input) => {
+      input.addEventListener("compositionstart", () => {
+        isComposing = true;
+      });
+      input.addEventListener("compositionend", () => {
+        isComposing = false;
+      });
     });
-    input.addEventListener("compositionend", () => {
-      isComposing = false;
-    });
-  });
+  }
 
   // ------------ 控制視窗的焦點切換 ------------
   function controlQuestionDialogTabindex() {
@@ -3705,4 +4982,94 @@ const defaultQuickReplyMessageListKO = [
     });
   }
   controlQuickReplySettingsDialogTabindex();
+
+  function controlSuperPromptSettingsDialogTabindex() {
+    // tableForm tabindexElements
+    let tableFormTabindexElements =
+      superPromptSettingsTableForm.querySelectorAll("input, textarea, button");
+
+    tableFormTabindexElements = [
+      ...tableFormTabindexElements,
+      superPromptSettingsDialogOkBtn,
+      superPromptSettingsDialogCancelBtn,
+    ];
+
+    const tableFormFirstTabindexElement = tableFormTabindexElements[0];
+    const tableFormLastTabindexElement =
+      tableFormTabindexElements[tableFormTabindexElements.length - 1];
+
+    // tableForm2 tabindexElements
+    let tableForm2TabindexElements =
+      superPromptSettingsTableForm2.querySelectorAll("input, textarea, button");
+
+    tableForm2TabindexElements = [
+      ...tableForm2TabindexElements,
+      superPromptSettingsDialogOkBtn,
+      superPromptSettingsDialogCancelBtn,
+    ];
+
+    const tableForm2FirstTabindexElement = tableForm2TabindexElements[0];
+    const tableForm2LastTabindexElement =
+      tableForm2TabindexElements[tableForm2TabindexElements.length - 1];
+
+    // superPromptDialog keydown event
+    superPromptSettingsDialog.addEventListener("keydown", function (e) {
+      if (superPromptSettingsTableForm.style.display === "table") {
+        if (e.key === "Tab" && !e.shiftKey) {
+          if (document.activeElement === tableFormLastTabindexElement) {
+            e.preventDefault();
+            tableFormFirstTabindexElement.focus();
+          }
+        } else if (e.key === "Tab" && e.shiftKey) {
+          if (document.activeElement === tableFormFirstTabindexElement) {
+            e.preventDefault();
+            tableFormLastTabindexElement.focus();
+          }
+        }
+      }
+
+      if (superPromptSettingsTableForm2.style.display === "table") {
+        if (e.key === "Tab" && !e.shiftKey) {
+          if (document.activeElement === tableForm2LastTabindexElement) {
+            e.preventDefault();
+            tableForm2FirstTabindexElement.focus();
+          }
+        } else if (e.key === "Tab" && e.shiftKey) {
+          if (document.activeElement === tableForm2FirstTabindexElement) {
+            e.preventDefault();
+            tableForm2LastTabindexElement.focus();
+          }
+        }
+      }
+    });
+  }
+  controlSuperPromptSettingsDialogTabindex();
+
+  function controlSuperDialogTabindex() {
+    // tableForm tabindexElements
+    let superPromptDialogTabindexElements = superPromptDialog.querySelectorAll(
+      "input, textarea, button"
+    );
+
+    const allTabindexElements = [...superPromptDialogTabindexElements];
+
+    const firstTabindexElement = allTabindexElements[0];
+    const lastTabindexElement =
+      allTabindexElements[allTabindexElements.length - 1];
+
+    // superPromptDialog keydown event
+    superPromptDialog.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" && !e.shiftKey) {
+        if (document.activeElement === lastTabindexElement) {
+          e.preventDefault();
+          firstTabindexElement.focus();
+        }
+      } else if (e.key === "Tab" && e.shiftKey) {
+        if (document.activeElement === firstTabindexElement) {
+          e.preventDefault();
+          lastTabindexElement.focus();
+        }
+      }
+    });
+  }
 })();

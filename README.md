@@ -10,12 +10,20 @@
 
 - 提供 10 種的問題範本，方便使用者快速建立問題。
 - 提供客製化的設定視窗，讓使用者能夠自由設計問題的格式。
+- 提供 10 組的超級樣板，可更加靈活製作問題範本。
 - 提供 5 組客製快速回覆的按鈕，讓使用者能夠自由設計快速回覆的內容。
 - 支援 Windows 和 Mac 平台的快捷鍵功能，讓使用者更加快速地操作。
 - 支援 Dark Mode，讓使用者在低光環境下也能舒適地使用。
-- 可匯出設定檔，和朋友分享您設計的問題樣板和快速回覆文字。
+- 可匯出設定檔，和朋友分享你設計的問題樣板和快速回覆文字。
+- 可下載當前對話的網頁，和朋友分享對話。
 
 > 請注意：本工具僅提供 輔助對話 和 快捷鍵 功能，並不包括 ChatGPT 4.0 的使用。如果您需要使用 ChatGPT 4.0，請自行前往官方網站訂閱。
+
+## 贊助作者
+
+如果您覺得這個小工具實用，歡迎請作者喝杯咖啡，感謝您的支持！
+
+<a href="https://www.buymeacoffee.com/Joe.lin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## 操作功能一覽
 
@@ -161,6 +169,13 @@ ChatGPT 雖厲害，但也有其極限，所以我們要加強自己的判斷力
 
 > 推薦用這個[ 網站 ](https://regex101.com/)來驗證是否正確
 
+### 程式碼轉換
+
+![](https://i.imgur.com/QkKVMfb.png)
+
+![](https://i.imgur.com/kcgDfba.png)
+
+
 ### 程式開發建議
 
 ![](https://i.imgur.com/knl8qSM.png)
@@ -262,12 +277,41 @@ ChatGPT 雖厲害，但也有其極限，所以我們要加強自己的判斷力
 ### 0.6.0 版
 
 送審日期：2023/4/20
-通過日期：正在審核中
+通過日期：2023/4/22
 
 * 將『轉換 3.5 / 4.0』 功能的快捷鍵，調整為 主鍵 + B
 
-## 贊助作者
+### 0.7.0 版
 
-如果您覺得這個小工具實用，歡迎請作者喝杯咖啡，感謝您的支持！
+送審日期：2023/4/22
+通過日期：2023/4/25
 
-<a href="https://www.buymeacoffee.com/Joe.lin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+- 調整提問視窗的輸入框，預設顯示15行，每行最多顯示50個字。
+- 每個設定視窗的右下方增加 buy me a coffee 按鈕
+- 右側選單寬度微調
+
+### 0.8.0 版
+
+送審日期：2023/4/25
+通過日期：2023/4/27
+
+- 加入多國語系，預設英文，支援繁體中文、簡體中文、日文、韓文
+- 調整 爬山 prompt 為 食譜
+- 修正匯入的問題
+- 因 ChatGPT 改版，修正左側選單擺放位置
+
+### 0.9.0 版
+
+送審日期：2023/4/30
+通過日期：送審中
+
+- 將設定功能選項，整合到左側的各式功能設定
+
+![](https://i.imgur.com/37Ad7sI.png)
+
+- 新增全新超級樣板，可更加靈活製作問題範本
+
+![](https://i.imgur.com/4nbcS7t.png)
+
+![](https://i.imgur.com/eQtFO1v.png)
+

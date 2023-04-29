@@ -29,6 +29,9 @@
   "button_import_only_replay": {
     "message": "只匯入快速回覆"
   },
+  "button_import_only_super_prompt": {
+    "message": "只匯入超級樣板"
+  },
   "button_reset": {
     "message": "恢復系統預設值"
   },
@@ -41,6 +44,9 @@
   "nav_item_download_message_html": {
     "message": "下載當前對話視窗的網頁"
   },
+  "nav_item_settings": {
+    "message": "各式功能設定"
+  },
   "menu_item_continue": {
     "message": "繼續"
   },
@@ -49,6 +55,12 @@
   },
   "menu_prompt_template2_settings": {
     "message": "提問樣板2 設定"
+  },
+  "menu_super_prompt_template_settings": {
+    "message": "超級樣板 設定"
+  },
+  "menu_super_prompt_template_settings2": {
+    "message": "超級樣板2 設定"
   },
   "menu_reply_message_settings": {
     "message": "快速回覆 設定"
@@ -77,6 +89,9 @@
   "table_title_replay_message": {
     "message": "快速回覆的訊息"
   },
+  "table_title_super_prompt_text": {
+    "message": "超級樣板內容"
+  },
   "alert_not_found_input": {
     "message": "找不到 chatGPT 的 輸入框！"
   },
@@ -97,6 +112,9 @@
   },
   "placeholder_please_input": {
     "message": "請輸入"
+  },
+  "placeholder_supper_prompt_desc": {
+    "message": "使用{{}}可以代表一個欄位，{{}}裡面可以設定欄位名稱和預設值，例如： {{ 角色 || 廚師 }}。"
   },
   "confirm_is_reset_system_settings": {
     "message": "確定要還原到系統最初的 預設樣板 與 快速回覆 ?"
@@ -119,6 +137,14 @@
   },
   "confirm_is_import_only_reply_message": {
     "message": "確定只匯入『$fileName$』的 快速回覆 ?",
+    "placeholders": {
+      "fileName": {
+        "content": "$1"
+      }
+    }
+  },
+  "confirm_is_import_only_super_prompt_template": {
+    "message": "確定只匯入『$fileName$』的 超級樣板 ?",
     "placeholders": {
       "fileName": {
         "content": "$1"
