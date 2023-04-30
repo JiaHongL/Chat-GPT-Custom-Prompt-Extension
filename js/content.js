@@ -4402,7 +4402,7 @@ const i18n = (key, params = []) => {
 
   let mutationTimer = null;
 
-  function resetCustomMenuItem(){
+  function resetCustomMenuItem() {
     const customMenuItemElements = document.querySelectorAll(".customMenuItem");
     customMenuItemElements.forEach((customMenuItem) => {
       customMenuItem.remove();
@@ -4647,13 +4647,27 @@ const i18n = (key, params = []) => {
             <div>${i18n("nav_item_super_prompt_template")}</div>
           </div>
           <div class="chatgpt-dropdown-content">
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[0].name}</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[1].name}</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[2].name}</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[3].name}</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[4].name}</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[5].name}</a>
-            <a class="custom-menu-item"> ${i18n("menu_custom_super_prompt_category")}</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
+              superPromptCategoryList[0].name
+            }</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
+              superPromptCategoryList[1].name
+            }</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
+              superPromptCategoryList[2].name
+            }</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
+              superPromptCategoryList[3].name
+            }</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
+              superPromptCategoryList[4].name
+            }</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
+              superPromptCategoryList[5].name
+            }</a>
+            <a class="custom-menu-item"> ${i18n(
+              "menu_custom_super_prompt_category"
+            )}</a>
           </div>
         </div>
       `;
@@ -5587,6 +5601,7 @@ const i18n = (key, params = []) => {
 
   // ------------ super 設定視窗相關 程式碼 ------------
   function showSuperPromptSettingDialog(superFormType) {
+
     currentSuperSettingFormType = superFormType;
 
     superPromptSettingsDialog.style.display = "flex";
@@ -5634,9 +5649,11 @@ const i18n = (key, params = []) => {
         superPromptList[index].isVisible;
     }
 
-    currentSuperSettingFormType === 1
-      ? superPromptButtonTextElements[0].focus()
-      : superPromptButtonTextElements[5].focus();
+    superPromptButtonTextElements[
+      (currentSuperSettingFormType - 1) * 5
+    ].focus();
+
+    controlSuperPromptSettingsDialogTabindex();
   }
 
   function saveSuperPromptSittings() {
@@ -5803,7 +5820,9 @@ const i18n = (key, params = []) => {
 
     superPromptCategoryNameListElement.innerHTML += htmlStr;
 
-    superPromptCategoryNameSettingsDialog.querySelector('.superPromptCategoryNameInput').focus();
+    superPromptCategoryNameSettingsDialog
+      .querySelector(".superPromptCategoryNameInput")
+      .focus();
 
     controlSuperPromptCategoryNameSettingsDialogTabindex();
   }
@@ -6083,7 +6102,9 @@ const i18n = (key, params = []) => {
       quickReplyMessageList = JSON.parse(
         JSON.stringify(defaultQuickReplyMessageList)
       );
-      superPromptCategoryList = JSON.parse(JSON.stringify(defaultSuperPromptCategoryList));
+      superPromptCategoryList = JSON.parse(
+        JSON.stringify(defaultSuperPromptCategoryList)
+      );
 
       resetCustomMenuItem();
 
@@ -6228,7 +6249,6 @@ const i18n = (key, params = []) => {
 
       // 覆蓋問題樣板
       if (importType === 0 || importType === 1) {
-
         const previousPromptList = JSON.parse(JSON.stringify(promptList));
 
         promptList.forEach((setting, index) => {
@@ -6259,7 +6279,6 @@ const i18n = (key, params = []) => {
 
       // 覆蓋快速回覆
       if (importType === 0 || importType === 2) {
-
         const previousQuickReplyMessageList = JSON.parse(
           JSON.stringify(quickReplyMessageList)
         );
@@ -6288,7 +6307,6 @@ const i18n = (key, params = []) => {
           "Custom.Settings.QuickReply",
           JSON.stringify(quickReplyMessageList)
         );
-
       }
 
       // 覆蓋超級樣板
@@ -6296,7 +6314,6 @@ const i18n = (key, params = []) => {
         (importType === 0 && json.settings.hasOwnProperty("superPrompt")) ||
         (importType === 3 && json.settings.hasOwnProperty("superPrompt"))
       ) {
-
         const previousSuperPromptList = JSON.parse(
           JSON.stringify(superPromptList)
         );
@@ -6337,7 +6354,6 @@ const i18n = (key, params = []) => {
         );
 
         resetCustomMenuItem();
-
       }
 
       generateButtons();
@@ -6533,6 +6549,22 @@ const i18n = (key, params = []) => {
   }
 
   // ------------ 控制視窗的焦點切換 ------------
+
+  function handleTabindex(firstTabindexElement, lastTabindexElement, e) {
+    console.log("-------handleTabindex------");
+    if (e.key === "Tab" && !e.shiftKey) {
+      if (document.activeElement === lastTabindexElement) {
+        e.preventDefault();
+        firstTabindexElement.focus();
+      }
+    } else if (e.key === "Tab" && e.shiftKey) {
+      if (document.activeElement === firstTabindexElement) {
+        e.preventDefault();
+        lastTabindexElement.focus();
+      }
+    }
+  }
+
   function controlQuestionDialogTabindex() {
     const questionDialogAllTabindexElements =
       questionDialog.querySelectorAll("textarea, button");
@@ -6647,10 +6679,44 @@ const i18n = (key, params = []) => {
   }
   controlQuickReplySettingsDialogTabindex();
 
+  let superPromptSettingsDialogBindTabindexHandler = null;
+
   function controlSuperPromptSettingsDialogTabindex() {
+
+    let currentSuperPromptSettingsTableForm = null;
+
+    switch (currentSuperSettingFormType) {
+      case 2:
+        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm2;
+        break;
+
+      case 3:
+        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm3;
+        break;
+
+      case 4:
+        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm4;
+        break;
+
+      case 5:
+        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm5;
+        break;
+
+      case 6:
+        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm6;
+        break;
+
+      case 1:
+      default:
+        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm;
+        break;
+    }
+
     // tableForm tabindexElements
     let tableFormTabindexElements =
-      superPromptSettingsTableForm.querySelectorAll("input, textarea, button");
+      currentSuperPromptSettingsTableForm.querySelectorAll(
+        "input, textarea, button"
+      );
 
     tableFormTabindexElements = [
       ...tableFormTabindexElements,
@@ -6662,54 +6728,29 @@ const i18n = (key, params = []) => {
     const tableFormLastTabindexElement =
       tableFormTabindexElements[tableFormTabindexElements.length - 1];
 
-    // tableForm2 tabindexElements
-    let tableForm2TabindexElements =
-      superPromptSettingsTableForm2.querySelectorAll("input, textarea, button");
+    if (superPromptSettingsDialogBindTabindexHandler) {
+      superPromptSettingsDialog.removeEventListener(
+        "keydown",
+        superPromptSettingsDialogBindTabindexHandler
+      );
+    }
 
-    tableForm2TabindexElements = [
-      ...tableForm2TabindexElements,
-      superPromptSettingsDialogOkBtn,
-      superPromptSettingsDialogCancelBtn,
-    ];
+    superPromptSettingsDialogBindTabindexHandler = handleTabindex.bind(
+      null,
+      tableFormFirstTabindexElement,
+      tableFormLastTabindexElement
+    );
 
-    const tableForm2FirstTabindexElement = tableForm2TabindexElements[0];
-    const tableForm2LastTabindexElement =
-      tableForm2TabindexElements[tableForm2TabindexElements.length - 1];
-
-    // superPromptDialog keydown event
-    superPromptSettingsDialog.addEventListener("keydown", function (e) {
-      if (superPromptSettingsTableForm.style.display === "table") {
-        if (e.key === "Tab" && !e.shiftKey) {
-          if (document.activeElement === tableFormLastTabindexElement) {
-            e.preventDefault();
-            tableFormFirstTabindexElement.focus();
-          }
-        } else if (e.key === "Tab" && e.shiftKey) {
-          if (document.activeElement === tableFormFirstTabindexElement) {
-            e.preventDefault();
-            tableFormLastTabindexElement.focus();
-          }
-        }
-      }
-
-      if (superPromptSettingsTableForm2.style.display === "table") {
-        if (e.key === "Tab" && !e.shiftKey) {
-          if (document.activeElement === tableForm2LastTabindexElement) {
-            e.preventDefault();
-            tableForm2FirstTabindexElement.focus();
-          }
-        } else if (e.key === "Tab" && e.shiftKey) {
-          if (document.activeElement === tableForm2FirstTabindexElement) {
-            e.preventDefault();
-            tableForm2LastTabindexElement.focus();
-          }
-        }
-      }
-    });
+    superPromptSettingsDialog.addEventListener(
+      "keydown",
+      superPromptSettingsDialogBindTabindexHandler
+    );
   }
-  controlSuperPromptSettingsDialogTabindex();
+
+  let superDialogTabindexBindTabindexHandler = null;
 
   function controlSuperDialogTabindex() {
+
     let superPromptDialogTabindexElements = superPromptDialog.querySelectorAll(
       "input, textarea, button"
     );
@@ -6720,46 +6761,54 @@ const i18n = (key, params = []) => {
     const lastTabindexElement =
       allTabindexElements[allTabindexElements.length - 1];
 
-    // superPromptDialog keydown event
-    superPromptDialog.addEventListener("keydown", function (e) {
-      if (e.key === "Tab" && !e.shiftKey) {
-        if (document.activeElement === lastTabindexElement) {
-          e.preventDefault();
-          firstTabindexElement.focus();
-        }
-      } else if (e.key === "Tab" && e.shiftKey) {
-        if (document.activeElement === firstTabindexElement) {
-          e.preventDefault();
-          lastTabindexElement.focus();
-        }
-      }
-    });
-  }
+    if (superDialogTabindexBindTabindexHandler) {
+      superPromptDialog.removeEventListener(
+        "keydown",
+        superDialogTabindexBindTabindexHandler
+      );
+    }
 
-  function controlSuperPromptCategoryNameSettingsDialogTabindex() {
-    let superPromptCategoryNameSettingsDialogTabindexElements = superPromptCategoryNameSettingsDialog.querySelectorAll(
-      "input, button"
+    superDialogTabindexBindTabindexHandler = handleTabindex.bind(
+      null,
+      firstTabindexElement,
+      lastTabindexElement
     );
 
-    const allTabindexElements = [...superPromptCategoryNameSettingsDialogTabindexElements];
+    superPromptDialog.addEventListener(
+      "keydown",
+      superDialogTabindexBindTabindexHandler
+    );
+  }
+
+  let superPromptCategoryNameSettingsDialogBindTabindexHandler = null;
+
+  function controlSuperPromptCategoryNameSettingsDialogTabindex() {
+
+    let superPromptCategoryNameSettingsDialogTabindexElements =
+      superPromptCategoryNameSettingsDialog.querySelectorAll("input, button");
+
+    const allTabindexElements = [
+      ...superPromptCategoryNameSettingsDialogTabindexElements,
+    ];
 
     const firstTabindexElement = allTabindexElements[0];
-    const lastTabindexElement = allTabindexElements[allTabindexElements.length - 1];
+    const lastTabindexElement =
+      allTabindexElements[allTabindexElements.length - 1];
 
-    superPromptCategoryNameSettingsDialog.addEventListener("keydown", function (e) {
-      if (e.key === "Tab" && !e.shiftKey) {
-        if (document.activeElement === lastTabindexElement) {
-          e.preventDefault();
-          firstTabindexElement.focus();
-        }
-      } else if (e.key === "Tab" && e.shiftKey) {
-        if (document.activeElement === firstTabindexElement) {
-          e.preventDefault();
-          lastTabindexElement.focus();
-        }
-      }
-    });
+    if (superPromptCategoryNameSettingsDialogBindTabindexHandler) {
+      superPromptCategoryNameSettingsDialog.removeEventListener(
+        "keydown",
+        superPromptCategoryNameSettingsDialogBindTabindexHandler
+      );
+    }
 
+    superPromptCategoryNameSettingsDialogBindTabindexHandler =
+      handleTabindex.bind(null, firstTabindexElement, lastTabindexElement);
+
+    superPromptCategoryNameSettingsDialog.addEventListener(
+      "keydown",
+      superPromptCategoryNameSettingsDialogBindTabindexHandler
+    );
   }
 
 })();
