@@ -3376,841 +3376,160 @@ const i18n = (key, params = []) => {
   const superPromptSettingsHTML = `
   <div id="dialog6" class="dialog-wrapper" style="display:none">
     <div class="dialog" style="max-width:90%;">
-      <div class="dialog-title"></div>
-      <table id="super-table-form" class="my-table" style="width:100%;margin-top:0px;">
+        <div class="dialog-title"></div>
+        <table id="super-table-form" class="my-table" style="width:100%;margin-top:0px;">
 
-          <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
-              <th style="width:160px">${i18n("table_title_button_name")}</th>
-              <th>${i18n("table_title_super_prompt_text")}</th>
-              <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
+            <tr>
+                <th style="width:118px">${i18n("table_title_shortcut")}</th>
+                <th style="width:160px">${i18n("table_title_button_name")}</th>
+                <th>${i18n("table_title_super_prompt_text")}</th>
+                <th style="width:118px">${i18n("table_title_is_show")}</th>
+            </tr>
 
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1"
-                          name="check" />
-                      <label for="superSlideCheckbox1"></label>
-                  </div>
-              </td>
-          </tr>
+            <tr>
+                <td>
+                    <div class="shortcut-wrapper">
+                        <span class="shortcut-content"> none </span>
+                    </div>
+                </td>
+                <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></td>
+                <td>
+                    <div class="center">
+                        <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                          " placeholder_supper_prompt_desc"
+                        )}"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="slide-checkbox">
+                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1"
+                            name="check" />
+                        <label for="superSlideCheckbox1"></label>
+                    </div>
+                </td>
+            </tr>
 
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2"
-                          name="check" />
-                      <label for="superSlideCheckbox2"></label>
-                  </div>
-              </td>
-          </tr>
+            <tr>
+                <td>
+                    <div class="shortcut-wrapper">
+                        <span class="shortcut-content"> none </span>
+                    </div>
+                </td>
+                <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></td>
+                <td>
+                    <div class="center">
+                        <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                          " placeholder_supper_prompt_desc"
+                        )}"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="slide-checkbox">
+                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2"
+                            name="check" />
+                        <label for="superSlideCheckbox2"></label>
+                    </div>
+                </td>
+            </tr>
 
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3"
-                          name="check" />
-                      <label for="superSlideCheckbox3"></label>
-                  </div>
-              </td>
-          </tr>
+            <tr>
+                <td>
+                    <div class="shortcut-wrapper">
+                        <span class="shortcut-content"> none </span>
+                    </div>
+                </td>
+                <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></td>
+                <td>
+                    <div class="center">
+                        <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                          " placeholder_supper_prompt_desc"
+                        )}"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="slide-checkbox">
+                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3"
+                            name="check" />
+                        <label for="superSlideCheckbox3"></label>
+                    </div>
+                </td>
+            </tr>
 
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4"
-                          name="check" />
-                      <label for="superSlideCheckbox4"></label>
-                  </div>
-              </td>
-          </tr>
+            <tr>
+                <td>
+                    <div class="shortcut-wrapper">
+                        <span class="shortcut-content"> none </span>
+                    </div>
+                </td>
+                <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></td>
+                <td>
+                    <div class="center">
+                        <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                          " placeholder_supper_prompt_desc"
+                        )}"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="slide-checkbox">
+                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4"
+                            name="check" />
+                        <label for="superSlideCheckbox4"></label>
+                    </div>
+                </td>
+            </tr>
 
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5"
-                          name="check" />
-                      <label for="superSlideCheckbox5"></label>
-                  </div>
-              </td>
-          </tr>
+            <tr>
+                <td>
+                    <div class="shortcut-wrapper">
+                        <span class="shortcut-content"> none </span>
+                    </div>
+                </td>
+                <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></td>
+                <td>
+                    <div class="center">
+                        <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                          " placeholder_supper_prompt_desc"
+                        )}"></textarea>
+                    </div>
+                </td>
+                <td>
+                    <div class="slide-checkbox">
+                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5"
+                            name="check" />
+                        <label for="superSlideCheckbox5"></label>
+                    </div>
+                </td>
+            </tr>
 
-      </table>
+        </table>
 
-      <table id="super-table-form2" class="my-table" style="width:100%;margin-top:0px;">
-
-          <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
-              <th style="width:160px">${i18n("table_title_button_name")}</th>
-              <th>${i18n("table_title_super_prompt_text")}</th>
-              <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox6"
-                          name="check" />
-                      <label for="superSlideCheckbox6"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox7"
-                          name="check" />
-                      <label for="superSlideCheckbox7"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox8"
-                          name="check" />
-                      <label for="superSlideCheckbox8"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox9"
-                          name="check" />
-                      <label for="superSlideCheckbox9"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox10"
-                          name="check" />
-                      <label for="superSlideCheckbox10"></label>
-                  </div>
-              </td>
-          </tr>
-
-      </table>
-
-      <table id="super-table-form3" class="my-table" style="width:100%;margin-top:0px;">
-
-          <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
-              <th style="width:160px">${i18n("table_title_button_name")}</th>
-              <th>${i18n("table_title_super_prompt_text")}</th>
-              <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox11"
-                          name="check" />
-                      <label for="superSlideCheckbox11"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox12"
-                          name="check" />
-                      <label for="superSlideCheckbox12"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox13"
-                          name="check" />
-                      <label for="superSlideCheckbox13"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox14"
-                          name="check" />
-                      <label for="superSlideCheckbox14"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox15"
-                          name="check" />
-                      <label for="superSlideCheckbox15"></label>
-                  </div>
-              </td>
-          </tr>
-
-      </table>
-
-      <table id="super-table-form4" class="my-table" style="width:100%;margin-top:0px;">
-
-          <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
-              <th style="width:160px">${i18n("table_title_button_name")}</th>
-              <th>${i18n("table_title_super_prompt_text")}</th>
-              <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox16"
-                          name="check" />
-                      <label for="superSlideCheckbox16"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox17"
-                          name="check" />
-                      <label for="superSlideCheckbox17"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox18"
-                          name="check" />
-                      <label for="superSlideCheckbox18"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox19"
-                          name="check" />
-                      <label for="superSlideCheckbox19"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox20"
-                          name="check" />
-                      <label for="superSlideCheckbox20"></label>
-                  </div>
-              </td>
-          </tr>
-
-      </table>
-
-      <table id="super-table-form5" class="my-table" style="width:100%;margin-top:0px;">
-
-          <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
-              <th style="width:160px">${i18n("table_title_button_name")}</th>
-              <th>${i18n("table_title_super_prompt_text")}</th>
-              <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox21"
-                          name="check" />
-                      <label for="superSlideCheckbox21"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox22"
-                          name="check" />
-                      <label for="superSlideCheckbox22"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox23"
-                          name="check" />
-                      <label for="superSlideCheckbox23"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox24"
-                          name="check" />
-                      <label for="superSlideCheckbox24"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox25"
-                          name="check" />
-                      <label for="superSlideCheckbox25"></label>
-                  </div>
-              </td>
-          </tr>
-
-      </table>
-      
-      <table id="super-table-form6" class="my-table" style="width:100%;margin-top:0px;">
-
-          <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
-              <th style="width:160px">${i18n("table_title_button_name")}</th>
-              <th>${i18n("table_title_super_prompt_text")}</th>
-              <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox26"
-                          name="check" />
-                      <label for="superSlideCheckbox26"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox27"
-                          name="check" />
-                      <label for="superSlideCheckbox27"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox28"
-                          name="check" />
-                      <label for="superSlideCheckbox28"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox29"
-                          name="check" />
-                      <label for="superSlideCheckbox29"></label>
-                  </div>
-              </td>
-          </tr>
-
-          <tr>
-              <td>
-                  <div class="shortcut-wrapper">
-                      <span class="shortcut-content"> none </span>
-                  </div>
-              </td>
-              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></td>
-              <td>
-                  <div class="center">
-                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                        "placeholder_supper_prompt_desc"
-                      )}"></textarea>
-                  </div>
-              </td>
-              <td>
-                  <div class="slide-checkbox">
-                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox30"
-                          name="check" />
-                      <label for="superSlideCheckbox30"></label>
-                  </div>
-              </td>
-          </tr>
-
-      </table>
-
-      <div class="footer" class="center">
-          <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
-            "button_save"
-          )} ( ${mainKeyText} + s )</button>
-          <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
-            "button_cancel"
-          )} ( esc ) </button>
-          <div class="buy-me-a-coffee">
-              <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                  <img style="scale: 0.9;"
-                      src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-              </a>
-          </div>
-      </div>
-
-  </div>
+        <div class="footer" class="center">
+            <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
+              "button_save"
+            )} ( ${mainKeyText} + s )</button>
+            <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
+              "button_cancel"
+            )} ( esc ) </button>
+            <div class="buy-me-a-coffee">
+                <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+                    <img style="scale: 0.9;"
+                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-`;
+  `;
 
   // 超級樣板 HTML
   const superPromptHTML = `
@@ -4335,16 +3654,6 @@ const i18n = (key, params = []) => {
     document.querySelector("#dialog6-cancel");
   const superPromptSettingsTableForm =
     superPromptSettingsDialog.querySelector("#super-table-form");
-  const superPromptSettingsTableForm2 =
-    superPromptSettingsDialog.querySelector("#super-table-form2");
-  const superPromptSettingsTableForm3 =
-    superPromptSettingsDialog.querySelector("#super-table-form3");
-  const superPromptSettingsTableForm4 =
-    superPromptSettingsDialog.querySelector("#super-table-form4");
-  const superPromptSettingsTableForm5 =
-    superPromptSettingsDialog.querySelector("#super-table-form5");
-  const superPromptSettingsTableForm6 =
-    superPromptSettingsDialog.querySelector("#super-table-form6");
 
   // superPrompt
   const superPromptDialog = document.getElementById("dialog7");
@@ -5601,28 +4910,9 @@ const i18n = (key, params = []) => {
 
   // ------------ super 設定視窗相關 程式碼 ------------
   function showSuperPromptSettingDialog(superFormType) {
-
     currentSuperSettingFormType = superFormType;
 
     superPromptSettingsDialog.style.display = "flex";
-
-    superPromptSettingsTableForm.style.display = "none";
-    superPromptSettingsTableForm2.style.display = "none";
-    superPromptSettingsTableForm3.style.display = "none";
-    superPromptSettingsTableForm4.style.display = "none";
-    superPromptSettingsTableForm5.style.display = "none";
-    superPromptSettingsTableForm6.style.display = "none";
-
-    if (currentSuperSettingFormType === 1) {
-      superPromptSettingsTableForm.style.display = "table";
-      superPromptSettingsTableForm.style.width = "100%";
-    } else {
-      const form = document.getElementById(
-        `super-table-form${currentSuperSettingFormType}`
-      );
-      form.style.display = "table";
-      form.style.width = "100%";
-    }
 
     const superPromptButtonTextElements = document.querySelectorAll(
       ".superPromptButtonText"
@@ -5639,19 +4929,18 @@ const i18n = (key, params = []) => {
     dialogTitleElement.innerHTML =
       superPromptCategoryList[currentSuperSettingFormType - 1].name;
 
-    const startIndex = 0 * currentSuperSettingFormType;
-    const endIndex = 5 * currentSuperSettingFormType;
+    const nowSuperPromptList = superPromptList.slice(
+      (currentSuperSettingFormType - 1 ) * 5 ,
+      currentSuperSettingFormType * 5
+    );
 
-    for (let index = startIndex; index < endIndex; index++) {
-      superPromptButtonTextElements[index].value = superPromptList[index].text;
-      superPromptTextElements[index].value = superPromptList[index].prompt;
-      superPromptSlideElements[index].checked =
-        superPromptList[index].isVisible;
+    for (let index = 0; index < 5; index++) {
+      superPromptButtonTextElements[index].value = nowSuperPromptList[index].text;
+      superPromptTextElements[index].value = nowSuperPromptList[index].prompt;
+      superPromptSlideElements[index].checked = nowSuperPromptList[index].isVisible;
     }
 
-    superPromptButtonTextElements[
-      (currentSuperSettingFormType - 1) * 5
-    ].focus();
+    superPromptButtonTextElements[0].focus();
 
     controlSuperPromptSettingsDialogTabindex();
   }
@@ -5663,25 +4952,27 @@ const i18n = (key, params = []) => {
     const textInputElements = document.querySelectorAll(".superPromptText");
     const promptSlideElements = document.querySelectorAll(".superPromptSlide");
 
-    const startIndex = 0 * currentSuperSettingFormType;
-    const endIndex = 5 * currentSuperSettingFormType;
+    const nowSuperPromptList = superPromptList.slice(
+      (currentSuperSettingFormType - 1 ) * 5 ,
+      currentSuperSettingFormType * 5
+    );
 
-    const previousSuperPromptList = JSON.parse(JSON.stringify(superPromptList));
+    const previousSuperPromptList = JSON.parse(JSON.stringify(nowSuperPromptList));
 
-    for (let index = startIndex; index < endIndex; index++) {
-      superPromptList[index].text = btnTextInputElements[index].value;
-      superPromptList[index].prompt = textInputElements[index].value;
-      superPromptList[index].isVisible = promptSlideElements[index].checked;
+    for (let index = 0; index < 5; index++) {
+      nowSuperPromptList[index].text = btnTextInputElements[index].value;
+      nowSuperPromptList[index].prompt = textInputElements[index].value;
+      nowSuperPromptList[index].isVisible = promptSlideElements[index].checked;
 
       if (previousSuperPromptList.isVisible) {
-        superPromptList[index].buttonElement.removeEventListener(
+        nowSuperPromptList[index].buttonElement.removeEventListener(
           "click",
-          superPromptList[index].handleClickFn
+          nowSuperPromptList[index].handleClickFn
         );
-        superPromptList[index].buttonElement.remove();
+        nowSuperPromptList[index].buttonElement.remove();
 
-        delete superPromptList[index].buttonElement;
-        delete superPromptList[index].handleClickFn;
+        delete nowSuperPromptList[index].buttonElement;
+        delete nowSuperPromptList[index].handleClickFn;
       }
     }
 
@@ -6682,35 +5973,7 @@ const i18n = (key, params = []) => {
   let superPromptSettingsDialogBindTabindexHandler = null;
 
   function controlSuperPromptSettingsDialogTabindex() {
-
-    let currentSuperPromptSettingsTableForm = null;
-
-    switch (currentSuperSettingFormType) {
-      case 2:
-        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm2;
-        break;
-
-      case 3:
-        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm3;
-        break;
-
-      case 4:
-        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm4;
-        break;
-
-      case 5:
-        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm5;
-        break;
-
-      case 6:
-        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm6;
-        break;
-
-      case 1:
-      default:
-        currentSuperPromptSettingsTableForm = superPromptSettingsTableForm;
-        break;
-    }
+    let currentSuperPromptSettingsTableForm = superPromptSettingsTableForm;
 
     // tableForm tabindexElements
     let tableFormTabindexElements =
@@ -6750,7 +6013,6 @@ const i18n = (key, params = []) => {
   let superDialogTabindexBindTabindexHandler = null;
 
   function controlSuperDialogTabindex() {
-
     let superPromptDialogTabindexElements = superPromptDialog.querySelectorAll(
       "input, textarea, button"
     );
@@ -6783,7 +6045,6 @@ const i18n = (key, params = []) => {
   let superPromptCategoryNameSettingsDialogBindTabindexHandler = null;
 
   function controlSuperPromptCategoryNameSettingsDialogTabindex() {
-
     let superPromptCategoryNameSettingsDialogTabindexElements =
       superPromptCategoryNameSettingsDialog.querySelectorAll("input, button");
 
@@ -6810,5 +6071,4 @@ const i18n = (key, params = []) => {
       superPromptCategoryNameSettingsDialogBindTabindexHandler
     );
   }
-
 })();
