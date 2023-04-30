@@ -794,6 +794,166 @@ const defaultSuperPromptListTW = [
     handleClickFn: null,
     isVisible: false,
   },
+  {
+    key: null,
+    text: "SuperPrompt11",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt12",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt13",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt14",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt15",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt16",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt17",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt18",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt19",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt20",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt21",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt22",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt23",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt24",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt25",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt26",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt27",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt28",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt29",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt30",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
 ];
 
 const defaultSuperPromptListJA = [
@@ -874,6 +1034,166 @@ const defaultSuperPromptListJA = [
   {
     key: null,
     text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt11",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt12",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt13",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt14",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt15",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt16",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt17",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt18",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt19",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt20",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt21",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt22",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt23",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt24",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt25",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt26",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt27",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt28",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt29",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt30",
     prompt: "",
     buttonElement: null,
     handleClickFn: null,
@@ -964,6 +1284,166 @@ const defaultSuperPromptListEN = [
     handleClickFn: null,
     isVisible: false,
   },
+  {
+    key: null,
+    text: "SuperPrompt11",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt12",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt13",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt14",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt15",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt16",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt17",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt18",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt19",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt20",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt21",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt22",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt23",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt24",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt25",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt26",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt27",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt28",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt29",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt30",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
 ];
 
 const defaultSuperPromptListCN = [
@@ -1044,6 +1524,166 @@ const defaultSuperPromptListCN = [
   {
     key: null,
     text: "SuperPrompt10",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt11",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt12",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt13",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt14",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt15",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt16",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt17",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt18",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt19",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt20",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt21",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt22",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt23",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt24",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt25",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt26",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt27",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt28",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt29",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt30",
     prompt: "",
     buttonElement: null,
     handleClickFn: null,
@@ -1134,7 +1774,198 @@ const defaultSuperPromptListKO = [
     handleClickFn: null,
     isVisible: false,
   },
+  {
+    key: null,
+    text: "SuperPrompt11",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt12",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt13",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt14",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt15",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt16",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt17",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt18",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt19",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt20",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt21",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt22",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt23",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt24",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt25",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt26",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt27",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt28",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt29",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
+  {
+    key: null,
+    text: "SuperPrompt30",
+    prompt: "",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: false,
+  },
 ];
+
+const defaultSuperPromptCategoryList = [
+  {
+    id: 1,
+    name: chrome.i18n.getMessage("menu_super_prompt_template_settings"),
+  },
+  {
+    id: 2,
+    name: chrome.i18n.getMessage("menu_super_prompt_template_settings2"),
+  },
+  {
+    id: 3,
+    name: chrome.i18n.getMessage("menu_super_prompt_template_settings3"),
+  },
+  {
+    id: 4,
+    name: chrome.i18n.getMessage("menu_super_prompt_template_settings4"),
+  },
+  {
+    id: 5,
+    name: chrome.i18n.getMessage("menu_super_prompt_template_settings5"),
+  },
+  {
+    id: 6,
+    name: chrome.i18n.getMessage("menu_super_prompt_template_settings6"),
+  },
+];
+
+const i18n = (key, params = []) => {
+  return chrome.i18n.getMessage(key, params);
+};
 
 (() => {
   "use strict";
@@ -1149,10 +1980,6 @@ const defaultSuperPromptListKO = [
 
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
-  const i18n = (key, params = []) => {
-    return chrome.i18n.getMessage(key, params);
   };
 
   function setDefaultList() {
@@ -1323,6 +2150,15 @@ const defaultSuperPromptListKO = [
           box-sizing: border-box;
           color:black;
       }
+      .superPromptCategoryNameInput{
+        width:100%;
+        padding: 6px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        color:black;
+        margin:5px 0px;
+      }
       .shortcut-wrapper {
           display: flex;
           justify-content: center;
@@ -1371,6 +2207,10 @@ const defaultSuperPromptListKO = [
       .dark .my-table input[type="text"] {
           background-color: rgba(32,33,35,1);
           color: #d1d5db !important;
+      }
+      .dark .superPromptCategoryNameInput {
+        background-color: rgba(32,33,35,1);
+        color: #d1d5db !important;
       }
       .dark .shortcut-content {
           color: #d1d5db !important;
@@ -1494,7 +2334,22 @@ const defaultSuperPromptListKO = [
         resize: vertical;
         color:black;
       }
-
+      .dialog-title {
+        width: 100%;
+        text-align: center;
+        color: black;
+        margin-top: -20px;
+        font-size: 25px;
+        padding: 10px;
+        color:black;
+        
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap;
+      }
+      .dark .dialog-title{
+        color: #d1d5db !important;
+      }
       .chatgpt-dropdown {
         position: relative;
         display: inline-block;
@@ -2521,290 +3376,845 @@ const defaultSuperPromptListKO = [
   const superPromptSettingsHTML = `
   <div id="dialog6" class="dialog-wrapper" style="display:none">
     <div class="dialog" style="max-width:90%;">
-      <table id="super-table-form" class="my-table" style="width:100%">
+      <div class="dialog-title"></div>
+      <table id="super-table-form" class="my-table" style="width:100%;margin-top:0px;">
 
-        <tr>
-          <th style="width:118px">${i18n("table_title_shortcut")}</th>
-          <th style="width:160px">${i18n("table_title_button_name")}</th>
-          <th>${i18n("table_title_super_prompt_text")}</th>
-          <th style="width:118px">${i18n("table_title_is_show")}</th>
-        </tr>
+          <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_super_prompt_text")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1" name="check"/>
-              <label for="superSlideCheckbox1"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1"
+                          name="check" />
+                      <label for="superSlideCheckbox1"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2" name="check"/>
-              <label for="superSlideCheckbox2"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2"
+                          name="check" />
+                      <label for="superSlideCheckbox2"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3" name="check"/>
-              <label for="superSlideCheckbox3"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3"
+                          name="check" />
+                      <label for="superSlideCheckbox3"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4" name="check"/>
-              <label for="superSlideCheckbox4"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4"
+                          name="check" />
+                      <label for="superSlideCheckbox4"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5" name="check"/>
-              <label for="superSlideCheckbox5"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5"
+                          name="check" />
+                      <label for="superSlideCheckbox5"></label>
+                  </div>
+              </td>
+          </tr>
 
       </table>
 
-      <table id="super-table-form2" class="my-table" style="width:100%">
+      <table id="super-table-form2" class="my-table" style="width:100%;margin-top:0px;">
 
-        <tr>
-          <th style="width:118px">${i18n("table_title_shortcut")}</th>
-          <th style="width:160px">${i18n("table_title_button_name")}</th>
-          <th>${i18n("table_title_super_prompt_text")}</th>
-          <th style="width:118px">${i18n("table_title_is_show")}</th>
-        </tr>
+          <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_super_prompt_text")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox6" name="check"/>
-              <label for="superSlideCheckbox6"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox6"
+                          name="check" />
+                      <label for="superSlideCheckbox6"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox7" name="check"/>
-              <label for="superSlideCheckbox7"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox7"
+                          name="check" />
+                      <label for="superSlideCheckbox7"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox8" name="check"/>
-              <label for="superSlideCheckbox8"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox8"
+                          name="check" />
+                      <label for="superSlideCheckbox8"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox9" name="check"/>
-              <label for="superSlideCheckbox9"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox9"
+                          name="check" />
+                      <label for="superSlideCheckbox9"></label>
+                  </div>
+              </td>
+          </tr>
 
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> none </span>
-            </div>
-          </td>
-          <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                "placeholder_supper_prompt_desc"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox10" name="check"/>
-              <label for="superSlideCheckbox10"></label>
-            </div>
-          </td>
-        </tr>
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox10"
+                          name="check" />
+                      <label for="superSlideCheckbox10"></label>
+                  </div>
+              </td>
+          </tr>
+
+      </table>
+
+      <table id="super-table-form3" class="my-table" style="width:100%;margin-top:0px;">
+
+          <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_super_prompt_text")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox11"
+                          name="check" />
+                      <label for="superSlideCheckbox11"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox12"
+                          name="check" />
+                      <label for="superSlideCheckbox12"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox13"
+                          name="check" />
+                      <label for="superSlideCheckbox13"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox14"
+                          name="check" />
+                      <label for="superSlideCheckbox14"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox15"
+                          name="check" />
+                      <label for="superSlideCheckbox15"></label>
+                  </div>
+              </td>
+          </tr>
+
+      </table>
+
+      <table id="super-table-form4" class="my-table" style="width:100%;margin-top:0px;">
+
+          <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_super_prompt_text")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox16"
+                          name="check" />
+                      <label for="superSlideCheckbox16"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox17"
+                          name="check" />
+                      <label for="superSlideCheckbox17"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox18"
+                          name="check" />
+                      <label for="superSlideCheckbox18"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox19"
+                          name="check" />
+                      <label for="superSlideCheckbox19"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox20"
+                          name="check" />
+                      <label for="superSlideCheckbox20"></label>
+                  </div>
+              </td>
+          </tr>
+
+      </table>
+
+      <table id="super-table-form5" class="my-table" style="width:100%;margin-top:0px;">
+
+          <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_super_prompt_text")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox21"
+                          name="check" />
+                      <label for="superSlideCheckbox21"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox22"
+                          name="check" />
+                      <label for="superSlideCheckbox22"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox23"
+                          name="check" />
+                      <label for="superSlideCheckbox23"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox24"
+                          name="check" />
+                      <label for="superSlideCheckbox24"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox25"
+                          name="check" />
+                      <label for="superSlideCheckbox25"></label>
+                  </div>
+              </td>
+          </tr>
+
+      </table>
+      
+      <table id="super-table-form6" class="my-table" style="width:100%;margin-top:0px;">
+
+          <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_super_prompt_text")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox26"
+                          name="check" />
+                      <label for="superSlideCheckbox26"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox27"
+                          name="check" />
+                      <label for="superSlideCheckbox27"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox28"
+                          name="check" />
+                      <label for="superSlideCheckbox28"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox29"
+                          name="check" />
+                      <label for="superSlideCheckbox29"></label>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+              <td>
+                  <div class="shortcut-wrapper">
+                      <span class="shortcut-content"> none </span>
+                  </div>
+              </td>
+              <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
+                "placeholder_please_input"
+              )}"></td>
+              <td>
+                  <div class="center">
+                      <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
+                        "placeholder_supper_prompt_desc"
+                      )}"></textarea>
+                  </div>
+              </td>
+              <td>
+                  <div class="slide-checkbox">
+                      <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox30"
+                          name="check" />
+                      <label for="superSlideCheckbox30"></label>
+                  </div>
+              </td>
+          </tr>
 
       </table>
 
       <div class="footer" class="center">
-        <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
-          "button_save"
-        )} ( ${mainKeyText} + s )</button>
-        <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
-          "button_cancel"
-        )} ( esc ) </button>
-        <div class="buy-me-a-coffee">
-          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-          </a>
-        </div>
+          <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
+            "button_save"
+          )} ( ${mainKeyText} + s )</button>
+          <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
+            "button_cancel"
+          )} ( esc ) </button>
+          <div class="buy-me-a-coffee">
+              <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+                  <img style="scale: 0.9;"
+                      src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+              </a>
+          </div>
       </div>
-      
-    </div>
-  </div>  
+
+  </div>
+</div>
 `;
 
   // 超級樣板 HTML
   const superPromptHTML = `
   <div id="dialog7" class="dialog-wrapper" style="display:none">
-
     <div class="dialog" style="max-width: 965px;">
       <div class="super-prompt-preview-area" id="superPromptPreviewArea"></div>
       <div class="super-prompt-table-wrapper">
@@ -2824,9 +4234,25 @@ const defaultSuperPromptListKO = [
           </a>
         </div>
       </div>
-  </div?>
+    </div>
+  </div>  
+  `;
 
-</div>  
+  // 超級樣板分類名稱 設定 HTML
+  const superPromptCategoryNameSettingHTML = `
+  <div id="dialog8" class="dialog-wrapper" style="display:none">
+    <div class="dialog" style="max-width: 350px;">
+      <div id="superPromptCategoryNameList" style="width:100%;margin-bottom:10px;text-align:center;"></div>
+      <div class="footer" class="center">
+        <button tabindex="99" id="dialog8-ok" class="primary">${i18n(
+          "button_send"
+        )} ( ${mainKeyText} + s )</button>
+        <button tabindex="100" id="dialog8-cancel" class="secondary">${i18n(
+          "button_cancel"
+        )} ( esc ) </button>
+      </div>
+    </div>
+  </div>  
   `;
 
   // 插入 HTML 元素
@@ -2857,6 +4283,11 @@ const defaultSuperPromptListKO = [
   const superPromptDialogEl = document.createElement("div");
   superPromptDialogEl.innerHTML = superPromptHTML;
   document.body.appendChild(superPromptDialogEl);
+
+  const superPromptCategoryNameSettingDialogEl = document.createElement("div");
+  superPromptCategoryNameSettingDialogEl.innerHTML =
+    superPromptCategoryNameSettingHTML;
+  document.body.appendChild(superPromptCategoryNameSettingDialogEl);
 
   // Question
   const questionDialog = document.getElementById("dialog");
@@ -2906,6 +4337,14 @@ const defaultSuperPromptListKO = [
     superPromptSettingsDialog.querySelector("#super-table-form");
   const superPromptSettingsTableForm2 =
     superPromptSettingsDialog.querySelector("#super-table-form2");
+  const superPromptSettingsTableForm3 =
+    superPromptSettingsDialog.querySelector("#super-table-form3");
+  const superPromptSettingsTableForm4 =
+    superPromptSettingsDialog.querySelector("#super-table-form4");
+  const superPromptSettingsTableForm5 =
+    superPromptSettingsDialog.querySelector("#super-table-form5");
+  const superPromptSettingsTableForm6 =
+    superPromptSettingsDialog.querySelector("#super-table-form6");
 
   // superPrompt
   const superPromptDialog = document.getElementById("dialog7");
@@ -2917,6 +4356,14 @@ const defaultSuperPromptListKO = [
 
   let superPrompt = "";
 
+  // superPromptCategoryNameSettings
+  const superPromptCategoryNameSettingsDialog =
+    document.getElementById("dialog8");
+  const superPromptCategoryNameSettingsDialogOkBtn =
+    document.querySelector("#dialog8-ok");
+  const superPromptCategoryNameSettingsDialogCancelBtn =
+    document.querySelector("#dialog8-cancel");
+
   // other
   let intervalID = null;
   let modeBtn = null;
@@ -2926,7 +4373,7 @@ const defaultSuperPromptListKO = [
   /** 1:form or 2:form2 */
   let currentSettingFormType;
 
-  /** 1:form or 2:form2 */
+  /** 1:form or 2:form2 .... 6:form6 */
   let currentSuperSettingFormType;
 
   /** 0:all or 1:prompt or 2:quickReply or 3:superPrompt */
@@ -2944,16 +4391,29 @@ const defaultSuperPromptListKO = [
   let defaultSuperPromptList = [];
   let superPromptList = [];
 
+  // superPromptCategory
+  let superPromptCategoryList = [];
+
   setDefaultList();
+  init();
+  subscribeMutationObserver();
 
   // 開關選單的選項加在右側
 
   let mutationTimer = null;
 
+  function resetCustomMenuItem(){
+    const customMenuItemElements = document.querySelectorAll(".customMenuItem");
+    customMenuItemElements.forEach((customMenuItem) => {
+      customMenuItem.remove();
+    });
+  }
+
   function addCustomLeftMenuItem() {
     try {
       const customATagEl = document.createElement("a");
       customATagEl.classList.add(
+        "customMenuItem",
         "flex",
         "py-3",
         "px-3",
@@ -3012,6 +4472,7 @@ const defaultSuperPromptListKO = [
     try {
       const customATagEl = document.createElement("a");
       customATagEl.classList.add(
+        "customMenuItem",
         "flex",
         "py-3",
         "px-3",
@@ -3041,16 +4502,13 @@ const defaultSuperPromptListKO = [
             <a class="custom-menu-item">S. ${i18n(
               "menu_prompt_template2_settings"
             )}</a>
-            <a class="custom-menu-item">🆕 ${i18n(
-              "menu_super_prompt_template_settings"
-            )}</a>
-            <a class="custom-menu-item">🆕 ${i18n(
-              "menu_super_prompt_template_settings2"
-            )}</a>
             <a class="custom-menu-item">E. ${i18n(
               "menu_reply_message_settings"
             )}</a>
             <a class="custom-menu-item">G. ${i18n("menu_import_export")}</a>
+            <a class="custom-menu-item">
+              <span>${i18n("nav_item_download_message_html")}</span>
+            </a>
           </div>
         </div>
       `;
@@ -3093,62 +4551,22 @@ const defaultSuperPromptListKO = [
       menuItems[2].addEventListener("click", (event) => {
         event.stopPropagation();
         chatgptDropdownContentEl.classList.remove("show");
-        showSuperPromptSettingDialog(1);
+        showQuickReplySettingsDialog();
       });
 
       menuItems[3].addEventListener("click", (event) => {
         event.stopPropagation();
         chatgptDropdownContentEl.classList.remove("show");
-        showSuperPromptSettingDialog(2);
+        openExportAndImportDialog();
       });
 
       menuItems[4].addEventListener("click", (event) => {
         event.stopPropagation();
         chatgptDropdownContentEl.classList.remove("show");
-        showQuickReplySettingsDialog();
+        downloadHtml();
       });
 
-      menuItems[5].addEventListener("click", (event) => {
-        event.stopPropagation();
-        chatgptDropdownContentEl.classList.remove("show");
-        openExportAndImportDialog();
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  function addCustomLeftMenuItem3() {
-    try {
-      const customATagEl = document.createElement("a");
-      customATagEl.classList.add(
-        "flex",
-        "py-3",
-        "px-3",
-        "items-center",
-        "gap-3",
-        "rounded-md",
-        "hover:bg-gray-500/10",
-        "transition-colors",
-        "duration-200",
-        "text-white",
-        "cursor-pointer",
-        "text-sm"
-      );
-
-      const menuItemDiv = document.createElement("div");
-      menuItemDiv.innerHTML = `    
-        <div id="downloadChatPDF" class="flex items-center justify-between">
-          <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM216 232V334.1l31-31c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-72 72c-9.4 9.4-24.6 9.4-33.9 0l-72-72c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l31 31V232c0-13.3 10.7-24 24-24s24 10.7 24 24z"/></svg>
-          <div>${i18n("nav_item_download_message_html")}</div>
-        </div>
-      `;
-
-      customATagEl.appendChild(menuItemDiv);
-      const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[5]);
-
-      downloadChatPDF.addEventListener("click", () => {
+      function downloadHtml() {
         const container =
           document.querySelector("main")?.children[0].children[0].children[0];
         const clonedContainer = container.cloneNode(true);
@@ -3195,12 +4613,92 @@ const defaultSuperPromptListKO = [
         a.download = document.title + ".html";
         document.body.appendChild(a);
         a.click();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function addCustomLeftMenuItem3() {
+    try {
+      const customATagEl = document.createElement("a");
+      customATagEl.classList.add(
+        "customMenuItem",
+        "flex",
+        "py-3",
+        "px-3",
+        "items-center",
+        "gap-3",
+        "rounded-md",
+        "hover:bg-gray-500/10",
+        "transition-colors",
+        "duration-200",
+        "text-white",
+        "cursor-pointer",
+        "text-sm"
+      );
+
+      const menuItemDiv = document.createElement("div");
+      menuItemDiv.style = "width:100%;";
+      menuItemDiv.innerHTML = `    
+        <div id="allSettings" class="chatgpt-dropdown chatgpt-dropdown-up" style="width:100%">
+          <div class="flex items-center">
+          <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg>
+            <div>${i18n("nav_item_super_prompt_template")}</div>
+          </div>
+          <div class="chatgpt-dropdown-content">
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[0].name}</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[1].name}</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[2].name}</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[3].name}</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[4].name}</a>
+            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[5].name}</a>
+            <a class="custom-menu-item"> ${i18n("menu_custom_super_prompt_category")}</a>
+          </div>
+        </div>
+      `;
+
+      customATagEl.appendChild(menuItemDiv);
+      const nav = document.querySelector("nav.flex");
+      nav.insertBefore(customATagEl, nav.children[5]);
+
+      const menuItems = customATagEl.querySelectorAll(".custom-menu-item");
+      const chatgptDropdownContentEl = customATagEl.querySelector(
+        ".chatgpt-dropdown-content"
+      );
+
+      customATagEl.addEventListener("click", () => {
+        chatgptDropdownContentEl.classList.add("show");
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !customATagEl.contains(event.target) &&
+          !chatgptDropdownContentEl.contains(event.target)
+        ) {
+          chatgptDropdownContentEl.classList.remove("show");
+        }
+      });
+
+      [0, 1, 2, 3, 4, 5].forEach((value) => {
+        menuItems[value].addEventListener("click", (event) => {
+          event.stopPropagation();
+          chatgptDropdownContentEl.classList.remove("show");
+          showSuperPromptSettingDialog(value + 1);
+        });
+      });
+
+      menuItems[6].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showSuperPromptCategoryNameSettingsDialog();
       });
     } catch (error) {
       console.log(error);
     }
   }
 
+  // 訂閱畫面變化
   function subscribeMutationObserver() {
     // 取得要監聽的 DOM 元素
     var targetNode = document.body;
@@ -3224,7 +4722,6 @@ const defaultSuperPromptListKO = [
     const config = { attributes: true, childList: true, subtree: true };
     observer.observe(targetNode, config);
   }
-  subscribeMutationObserver();
 
   // 初始化
   function init() {
@@ -3260,6 +4757,28 @@ const defaultSuperPromptListKO = [
       );
     }
 
+    // 如果是 0.9.0 版本的話，SuperPrompt 只會有10個
+    if (
+      JSON.parse(localStorage.getItem("Custom.Settings.SuperPrompt")).length ===
+      10
+    ) {
+      let migrateSuperPrompt = [
+        ...defaultSuperPromptList,
+        JSON.parse(localStorage.getItem("Custom.Settings.SuperPrompt")),
+      ];
+      localStorage.setItem(
+        "Custom.Settings.SuperPrompt",
+        JSON.stringify(migrateSuperPrompt)
+      );
+    }
+
+    if (!localStorage.getItem("Custom.Settings.SuperPromptCategoryList")) {
+      localStorage.setItem(
+        "Custom.Settings.SuperPromptCategoryList",
+        JSON.stringify(defaultSuperPromptCategoryList)
+      );
+    }
+
     localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
       ? document.body.classList.add("hidden-template-buttons")
       : document.body.classList.remove("hidden-template-buttons");
@@ -3273,8 +4792,11 @@ const defaultSuperPromptListKO = [
     quickReplyMessageList = JSON.parse(
       localStorage.getItem("Custom.Settings.QuickReply")
     );
+
+    superPromptCategoryList = JSON.parse(
+      localStorage.getItem("Custom.Settings.SuperPromptCategoryList")
+    );
   }
-  init();
 
   function findModeBtn() {
     intervalID = setInterval(function () {
@@ -3392,6 +4914,17 @@ const defaultSuperPromptListKO = [
       return;
     }
 
+    // esc : close superPromptDialog
+    if (
+      !isComposing &&
+      superPromptCategoryNameSettingsDialog.style.display === "flex" &&
+      event.key === "Escape"
+    ) {
+      event.preventDefault();
+      superPromptCategoryNameSettingsDialog.style.display = "none";
+      return;
+    }
+
     // mainKey + w : open settingsDialog
     if (
       questionDialog.style.display === "none" &&
@@ -3400,6 +4933,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "w"
     ) {
@@ -3416,6 +4950,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "s"
     ) {
@@ -3432,6 +4967,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "e"
     ) {
@@ -3448,6 +4984,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "g"
     ) {
@@ -3513,6 +5050,17 @@ const defaultSuperPromptListKO = [
       return;
     }
 
+    // mainKey + s : save superPromptDialog
+    if (
+      superPromptCategoryNameSettingsDialog.style.display === "flex" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "s"
+    ) {
+      event.preventDefault();
+      saveSuperPromptCategoryNameSettings();
+      return;
+    }
+
     // mainKey + r : regenerate response
     if (
       settingsDialog.style.display === "none" &&
@@ -3521,6 +5069,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "r"
     ) {
@@ -3541,6 +5090,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "x"
     ) {
@@ -3561,6 +5111,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "c"
     ) {
@@ -3577,6 +5128,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "y"
     ) {
@@ -3595,6 +5147,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "u"
     ) {
@@ -3613,6 +5166,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "i"
     ) {
@@ -3631,6 +5185,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "o"
     ) {
@@ -3649,6 +5204,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "p"
     ) {
@@ -3712,6 +5268,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "n"
     ) {
@@ -3732,6 +5289,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey] &&
       event.key.toLocaleLowerCase() === "m"
     ) {
@@ -3767,6 +5325,7 @@ const defaultSuperPromptListKO = [
       exportAndImportDialog.style.display === "none" &&
       superPromptSettingsDialog.style.display === "none" &&
       superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
       event[mainKey]
     ) {
       switch (event.key) {
@@ -4034,13 +5593,20 @@ const defaultSuperPromptListKO = [
 
     superPromptSettingsTableForm.style.display = "none";
     superPromptSettingsTableForm2.style.display = "none";
+    superPromptSettingsTableForm3.style.display = "none";
+    superPromptSettingsTableForm4.style.display = "none";
+    superPromptSettingsTableForm5.style.display = "none";
+    superPromptSettingsTableForm6.style.display = "none";
 
     if (currentSuperSettingFormType === 1) {
       superPromptSettingsTableForm.style.display = "table";
       superPromptSettingsTableForm.style.width = "100%";
     } else {
-      superPromptSettingsTableForm2.style.display = "table";
-      superPromptSettingsTableForm2.style.width = "100%";
+      const form = document.getElementById(
+        `super-table-form${currentSuperSettingFormType}`
+      );
+      form.style.display = "table";
+      form.style.width = "100%";
     }
 
     const superPromptButtonTextElements = document.querySelectorAll(
@@ -4052,13 +5618,14 @@ const defaultSuperPromptListKO = [
     const superPromptSlideElements =
       document.querySelectorAll(".superPromptSlide");
 
-    let startIndex = 0;
-    let endIndex = 5;
+    const dialogTitleElement =
+      superPromptSettingsDialog.querySelector(".dialog-title");
 
-    if (currentSuperSettingFormType == 2) {
-      startIndex = 5;
-      endIndex = 10;
-    }
+    dialogTitleElement.innerHTML =
+      superPromptCategoryList[currentSuperSettingFormType - 1].name;
+
+    const startIndex = 0 * currentSuperSettingFormType;
+    const endIndex = 5 * currentSuperSettingFormType;
 
     for (let index = startIndex; index < endIndex; index++) {
       superPromptButtonTextElements[index].value = superPromptList[index].text;
@@ -4079,13 +5646,8 @@ const defaultSuperPromptListKO = [
     const textInputElements = document.querySelectorAll(".superPromptText");
     const promptSlideElements = document.querySelectorAll(".superPromptSlide");
 
-    let startIndex = 0;
-    let endIndex = 5;
-
-    if (currentSuperSettingFormType == 2) {
-      startIndex = 5;
-      endIndex = 10;
-    }
+    const startIndex = 0 * currentSuperSettingFormType;
+    const endIndex = 5 * currentSuperSettingFormType;
 
     const previousSuperPromptList = JSON.parse(JSON.stringify(superPromptList));
 
@@ -4207,6 +5769,75 @@ const defaultSuperPromptListKO = [
   superPromptDialogCancelBtn.addEventListener("click", () => {
     superPromptDialog.style.display = "none";
   });
+
+  // ------------ 超級樣板分類名稱 設定 ------------
+
+  const placeholderPleaseInput = i18n("placeholder_please_input");
+
+  function showSuperPromptCategoryNameSettingsDialog() {
+    superPromptCategoryNameSettingsDialog.style.display = "flex";
+    const superPromptCategoryNameListElement = document.getElementById(
+      "superPromptCategoryNameList"
+    );
+
+    const superPromptCategoryNameInputs =
+      superPromptCategoryNameListElement.querySelectorAll(
+        ".superPromptCategoryNameInput"
+      );
+
+    superPromptCategoryNameInputs.forEach((input) => {
+      input.remove();
+    });
+
+    let htmlStr = "";
+
+    superPromptCategoryList.forEach((superPromptCategory, index) => {
+      htmlStr += `
+      <input class="superPromptCategoryNameInput" tabindex="${
+        index + 1
+      }" class="btnTextInput" type="text" placeholder="${placeholderPleaseInput}" value="${
+        superPromptCategory.name
+      }">
+    `;
+    });
+
+    superPromptCategoryNameListElement.innerHTML += htmlStr;
+
+    superPromptCategoryNameSettingsDialog.querySelector('.superPromptCategoryNameInput').focus();
+
+    controlSuperPromptCategoryNameSettingsDialogTabindex();
+  }
+
+  function saveSuperPromptCategoryNameSettings() {
+    const superPromptCategoryNameInputs =
+      superPromptCategoryNameSettingsDialog.querySelectorAll(
+        ".superPromptCategoryNameInput"
+      );
+
+    superPromptCategoryNameInputs.forEach((input, index) => {
+      superPromptCategoryList[index].name = input.value;
+    });
+
+    localStorage.setItem(
+      "Custom.Settings.SuperPromptCategoryList",
+      JSON.stringify(superPromptCategoryList)
+    );
+
+    resetCustomMenuItem();
+
+    superPromptCategoryNameSettingsDialog.style.display = "none";
+  }
+
+  superPromptCategoryNameSettingsDialogOkBtn.addEventListener("click", () => {
+    saveSuperPromptCategoryNameSettings();
+  });
+
+  superPromptCategoryNameSettingsDialogCancelBtn.addEventListener(
+    "click",
+    () => {
+      superPromptCategoryNameSettingsDialog.style.display = "none";
+    }
+  );
 
   // ------------ 快速回覆設定視窗 ------------
   function showQuickReplySettingsDialog() {
@@ -4389,6 +6020,7 @@ const defaultSuperPromptListKO = [
           quickReply: currentQuickReplyMessageList,
           isHiddenMenu: localStorage.getItem("Custom.Settings.Menu.Hidden"),
           superPrompt: currentSuperPromptSetting,
+          superPromptCategoryList: superPromptCategoryList,
         },
       },
       null,
@@ -4441,11 +6073,19 @@ const defaultSuperPromptListKO = [
         JSON.stringify(defaultSuperPromptList)
       );
 
+      localStorage.setItem(
+        "Custom.Settings.SuperPromptCategoryList",
+        JSON.stringify(defaultSuperPromptCategoryList)
+      );
+
       promptList = JSON.parse(JSON.stringify(defaultPromptList));
       superPromptList = JSON.parse(JSON.stringify(defaultSuperPromptList));
       quickReplyMessageList = JSON.parse(
         JSON.stringify(defaultQuickReplyMessageList)
       );
+      superPromptCategoryList = JSON.parse(JSON.stringify(defaultSuperPromptCategoryList));
+
+      resetCustomMenuItem();
 
       generateButtons();
 
@@ -4588,23 +6228,26 @@ const defaultSuperPromptListKO = [
 
       // 覆蓋問題樣板
       if (importType === 0 || importType === 1) {
+
         const previousPromptList = JSON.parse(JSON.stringify(promptList));
 
         promptList.forEach((setting, index) => {
-          setting.text = json.settings.prompt[index].text;
-          setting.prefix = json.settings.prompt[index].prefix;
-          setting.suffix = json.settings.prompt[index].suffix;
-          setting.isVisible = json.settings.prompt[index].isVisible;
+          if (json.settings.prompt[index]) {
+            setting.text = json.settings.prompt[index].text;
+            setting.prefix = json.settings.prompt[index].prefix;
+            setting.suffix = json.settings.prompt[index].suffix;
+            setting.isVisible = json.settings.prompt[index].isVisible;
 
-          if (previousPromptList.isVisible) {
-            setting.buttonElement.removeEventListener(
-              "click",
-              setting.handleClickFn
-            );
-            setting.buttonElement.remove();
+            if (previousPromptList.isVisible) {
+              setting.buttonElement.removeEventListener(
+                "click",
+                setting.handleClickFn
+              );
+              setting.buttonElement.remove();
 
-            delete setting.buttonElement;
-            delete setting.handleClickFn;
+              delete setting.buttonElement;
+              delete setting.handleClickFn;
+            }
           }
         });
 
@@ -4616,25 +6259,28 @@ const defaultSuperPromptListKO = [
 
       // 覆蓋快速回覆
       if (importType === 0 || importType === 2) {
+
         const previousQuickReplyMessageList = JSON.parse(
           JSON.stringify(quickReplyMessageList)
         );
 
         quickReplyMessageList.forEach((settings, index) => {
-          settings.text = json.settings.quickReply[index].text;
-          settings.quickReplyMessage =
-            json.settings.quickReply[index].quickReplyMessage;
-          settings.isVisible = json.settings.quickReply[index].isVisible;
+          if (json.settings.quickReply[index]) {
+            settings.text = json.settings.quickReply[index].text;
+            settings.quickReplyMessage =
+              json.settings.quickReply[index].quickReplyMessage;
+            settings.isVisible = json.settings.quickReply[index].isVisible;
 
-          if (previousQuickReplyMessageList.isVisible) {
-            settings.buttonElement.removeEventListener(
-              "click",
-              settings.handleClickFn
-            );
-            settings.buttonElement.remove();
+            if (previousQuickReplyMessageList.isVisible) {
+              settings.buttonElement.removeEventListener(
+                "click",
+                settings.handleClickFn
+              );
+              settings.buttonElement.remove();
 
-            delete settings.buttonElement;
-            delete settings.handleClickFn;
+              delete settings.buttonElement;
+              delete settings.handleClickFn;
+            }
           }
         });
 
@@ -4642,6 +6288,7 @@ const defaultSuperPromptListKO = [
           "Custom.Settings.QuickReply",
           JSON.stringify(quickReplyMessageList)
         );
+
       }
 
       // 覆蓋超級樣板
@@ -4649,24 +6296,27 @@ const defaultSuperPromptListKO = [
         (importType === 0 && json.settings.hasOwnProperty("superPrompt")) ||
         (importType === 3 && json.settings.hasOwnProperty("superPrompt"))
       ) {
+
         const previousSuperPromptList = JSON.parse(
           JSON.stringify(superPromptList)
         );
 
         superPromptList.forEach((setting, index) => {
-          setting.text = json.settings.superPrompt[index].text;
-          setting.prompt = json.settings.superPrompt[index].prompt;
-          setting.isVisible = json.settings.superPrompt[index].isVisible;
+          if (json.settings.superPrompt[index]) {
+            setting.text = json.settings.superPrompt[index].text;
+            setting.prompt = json.settings.superPrompt[index].prompt;
+            setting.isVisible = json.settings.superPrompt[index].isVisible;
 
-          if (previousSuperPromptList.isVisible) {
-            setting.buttonElement.removeEventListener(
-              "click",
-              setting.handleClickFn
-            );
-            setting.buttonElement.remove();
+            if (previousSuperPromptList.isVisible) {
+              setting.buttonElement.removeEventListener(
+                "click",
+                setting.handleClickFn
+              );
+              setting.buttonElement.remove();
 
-            delete setting.buttonElement;
-            delete setting.handleClickFn;
+              delete setting.buttonElement;
+              delete setting.handleClickFn;
+            }
           }
         });
 
@@ -4674,6 +6324,20 @@ const defaultSuperPromptListKO = [
           "Custom.Settings.SuperPrompt",
           JSON.stringify(superPromptList)
         );
+
+        superPromptCategoryList.forEach((item, index) => {
+          if (json.settings.superPromptCategoryList[index]) {
+            item.name = json.settings.superPromptCategoryList[index].name;
+          }
+        });
+
+        localStorage.setItem(
+          "Custom.Settings.SuperPromptCategoryList",
+          JSON.stringify(superPromptCategoryList)
+        );
+
+        resetCustomMenuItem();
+
       }
 
       generateButtons();
@@ -5046,7 +6710,6 @@ const defaultSuperPromptListKO = [
   controlSuperPromptSettingsDialogTabindex();
 
   function controlSuperDialogTabindex() {
-    // tableForm tabindexElements
     let superPromptDialogTabindexElements = superPromptDialog.querySelectorAll(
       "input, textarea, button"
     );
@@ -5072,4 +6735,31 @@ const defaultSuperPromptListKO = [
       }
     });
   }
+
+  function controlSuperPromptCategoryNameSettingsDialogTabindex() {
+    let superPromptCategoryNameSettingsDialogTabindexElements = superPromptCategoryNameSettingsDialog.querySelectorAll(
+      "input, button"
+    );
+
+    const allTabindexElements = [...superPromptCategoryNameSettingsDialogTabindexElements];
+
+    const firstTabindexElement = allTabindexElements[0];
+    const lastTabindexElement = allTabindexElements[allTabindexElements.length - 1];
+
+    superPromptCategoryNameSettingsDialog.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" && !e.shiftKey) {
+        if (document.activeElement === lastTabindexElement) {
+          e.preventDefault();
+          firstTabindexElement.focus();
+        }
+      } else if (e.key === "Tab" && e.shiftKey) {
+        if (document.activeElement === firstTabindexElement) {
+          e.preventDefault();
+          lastTabindexElement.focus();
+        }
+      }
+    });
+
+  }
+
 })();

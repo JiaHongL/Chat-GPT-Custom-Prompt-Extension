@@ -45,7 +45,10 @@
     "message": "下載當前對話視窗的網頁"
   },
   "nav_item_settings": {
-    "message": "各式功能設定"
+    "message": "各式功能"
+  },
+  "nav_item_super_prompt_template": {
+    "message": "超級樣板"
   },
   "menu_item_continue": {
     "message": "繼續"
@@ -57,10 +60,25 @@
     "message": "提問樣板2 設定"
   },
   "menu_super_prompt_template_settings": {
-    "message": "超級樣板 設定"
+    "message": "🆕 超級樣板 設定"
   },
   "menu_super_prompt_template_settings2": {
-    "message": "超級樣板2 設定"
+    "message": "🆕 超級樣板2 設定"
+  },
+  "menu_super_prompt_template_settings3": {
+    "message": "🆕 超級樣板3 設定"
+  },
+  "menu_super_prompt_template_settings4": {
+    "message": "🆕 超級樣板4 設定"
+  },
+  "menu_super_prompt_template_settings5": {
+    "message": "🆕 超級樣板5 設定"
+  },
+  "menu_super_prompt_template_settings6": {
+    "message": "🆕 超級樣板6 設定"
+  },
+  "menu_custom_super_prompt_category": {
+    "message": "自定分類名稱"
   },
   "menu_reply_message_settings": {
     "message": "快速回覆 設定"

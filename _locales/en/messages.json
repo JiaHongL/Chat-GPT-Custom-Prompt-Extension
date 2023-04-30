@@ -45,7 +45,10 @@
     "message": "Download Conversation"
   },
   "nav_item_settings": {
-    "message": "Various function settings"
+    "message": "Various function"
+  },
+  "nav_item_super_prompt_template": {
+    "message": "Super template"
   },
   "menu_item_continue": {
     "message": "Continue"
@@ -57,10 +60,25 @@
     "message": "Prompt Settings 2"
   },
   "menu_super_prompt_template_settings": {
-    "message": "Super template settings"
+    "message": "🆕 Super template settings"
   },
   "menu_super_prompt_template_settings2": {
-    "message": "Super template2 settings"
+    "message": "🆕 Super template2 settings"
+  },
+  "menu_super_prompt_template_settings3": {
+    "message": "🆕 Super template3 settings"
+  },
+  "menu_super_prompt_template_settings4": {
+    "message": "🆕 Super template4 settings"
+  },
+  "menu_super_prompt_template_settings5": {
+    "message": "🆕 Super template5 settings"
+  },
+  "menu_super_prompt_template_settings6": {
+    "message": "🆕 Super template6 settings"
+  },
+  "menu_custom_super_prompt_category": {
+    "message": "Custom Category"
   },
   "menu_reply_message_settings": {
     "message": "Reply Settings"

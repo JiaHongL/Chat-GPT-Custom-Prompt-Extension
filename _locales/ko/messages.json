@@ -45,7 +45,10 @@
     "message": "현재 대화 창의 웹 페이지 다운로드"
   },
   "nav_item_settings": {
-    "message": "다양한 기능 설정"
+    "message": "다양한 기능"
+  },
+  "nav_item_super_prompt_template": {
+    "message": "슈퍼 템플릿"
   },
   "menu_item_continue": {
     "message": "계속"
@@ -57,10 +60,25 @@
     "message": "질문 템플릿2 설정"
   },
   "menu_super_prompt_template_settings": {
-    "message": "슈퍼 템플릿 설정"
+    "message": "🆕 슈퍼 템플릿 설정"
   },
   "menu_super_prompt_template_settings2": {
-    "message": "슈퍼 템플릿 2 설정"
+    "message": "🆕 슈퍼 템플릿 2 설정"
+  },
+  "menu_super_prompt_template_settings3": {
+    "message": "🆕 슈퍼 템플릿 3 설정"
+  },
+  "menu_super_prompt_template_settings4": {
+    "message": "🆕 슈퍼 템플릿 4 설정"
+  },
+  "menu_super_prompt_template_settings5": {
+    "message": "🆕 슈퍼 템플릿 5 설정"
+  },
+  "menu_super_prompt_template_settings6": {
+    "message": "🆕 슈퍼 템플릿 6 설정"
+  },
+  "menu_custom_super_prompt_category": {
+    "message": "사용자 정의 분류"
   },
   "menu_reply_message_settings": {
     "message": "빠른 답장 설정"
