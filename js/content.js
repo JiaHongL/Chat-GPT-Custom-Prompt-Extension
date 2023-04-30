@@ -2020,6 +2020,32 @@ const i18n = (key, params = []) => {
 
   // css style
   const styles = `
+      .custom-menu {
+        position: fixed;
+        top:15px;
+        right:0;
+        padding-right:4px;
+        z-index: 1000;
+        height:90vh;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        box-sizing: content-box;
+        width:160px;
+        
+        display:flex;
+        flex-direction:column;
+      }
+      .custom-menu .prompt-list-area{
+        flex:0 1 auto;
+        overflow-y: auto;
+      }
+      .custom-menu .quick-reply-area{
+        margin-top:10px;
+        flex:0 0 180px;
+      }
+      .hidden-template-buttons .custom-menu{
+          display: none;
+      }
       .dialog-wrapper {
           position: fixed;
           top: 0;
@@ -2215,9 +2241,6 @@ const i18n = (key, params = []) => {
       .dark .shortcut-content {
           color: #d1d5db !important;
       }
-      .hidden-template-buttons .custom-menu{
-          display: none;
-      }
       .ellipsis {
           width: 240px;
           white-space: nowrap;
@@ -2235,19 +2258,6 @@ const i18n = (key, params = []) => {
           padding: 5px;
           line-height: 1.5;
           color:black;
-      }
-      .custom-menu {
-        position: fixed;
-        top:50px;
-        right:2px;
-        padding-right:4px;
-        z-index: 1000;
-        height:90vh;
-        max-height:700px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        box-sizing: content-box;
-        width:160px;
       }
       .slide-checkbox {
         width: 80px;
@@ -5711,6 +5721,15 @@ const i18n = (key, params = []) => {
     const menuDiv = document.createElement("div");
     menuDiv.classList.add("custom-menu");
 
+    const promptListDiv = document.createElement("div");
+    promptListDiv.classList.add("prompt-list-area");
+
+    const quickReplyDiv = document.createElement("div");
+    quickReplyDiv.classList.add("quick-reply-area");
+
+    menuDiv.appendChild(promptListDiv);
+    menuDiv.appendChild(quickReplyDiv);
+
     // 模版
     promptList.forEach((settings) => {
       if (!settings.isVisible) {
@@ -5730,7 +5749,7 @@ const i18n = (key, params = []) => {
       settings.buttonElement = button;
       settings.handleClickFn = handleClick;
 
-      menuDiv.appendChild(button);
+      promptListDiv.appendChild(button);
     });
 
     // super 模版
@@ -5751,7 +5770,7 @@ const i18n = (key, params = []) => {
       settings.buttonElement = button;
       settings.handleClickFn = handleClick;
 
-      menuDiv.appendChild(button);
+      promptListDiv.appendChild(button);
     });
 
     // 繼續 按鈕
@@ -5774,7 +5793,7 @@ const i18n = (key, params = []) => {
       sendMessage(i18n("menu_item_continue"));
     });
 
-    menuDiv.appendChild(continueButton);
+    quickReplyDiv.appendChild(continueButton);
 
     // 快速回覆按鈕
     quickReplyMessageList.forEach((settings) => {
@@ -5795,11 +5814,11 @@ const i18n = (key, params = []) => {
       settings.buttonElement = button;
       settings.handleClickFn = handleClick;
 
-      menuDiv.appendChild(button);
+      quickReplyDiv.appendChild(button);
     });
 
     // 重新設定高度
-    menuDiv.style.maxHeight = `${menuDiv.children.length * 35}px`;
+    // menuDiv.style.maxHeight = `${(promptListDiv.children.length + quickReplyDiv.children.length) * 35}px`;
 
     document.body.appendChild(menuDiv);
   }
