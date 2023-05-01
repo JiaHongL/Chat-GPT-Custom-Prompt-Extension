@@ -5,6 +5,9 @@
   "extension_description": {
     "message": "This tool improves efficiency when conversing with ChatGPT by providing templates, quick replies, and shortcut functions."
   },
+  "button_edit": {
+    "message": "edit"
+  },
   "button_save": {
     "message": "Save"
   },
@@ -60,22 +63,12 @@
     "message": "Prompt Settings 2"
   },
   "menu_super_prompt_template_settings": {
-    "message": "🆕 Super template settings"
-  },
-  "menu_super_prompt_template_settings2": {
-    "message": "🆕 Super template2 settings"
-  },
-  "menu_super_prompt_template_settings3": {
-    "message": "🆕 Super template3 settings"
-  },
-  "menu_super_prompt_template_settings4": {
-    "message": "🆕 Super template4 settings"
-  },
-  "menu_super_prompt_template_settings5": {
-    "message": "🆕 Super template5 settings"
-  },
-  "menu_super_prompt_template_settings6": {
-    "message": "🆕 Super template6 settings"
+    "message": "🆕 Super template$count$ settings",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
   },
   "menu_custom_super_prompt_category": {
     "message": "Custom Category"

@@ -5,6 +5,9 @@
   "extension_description": {
     "message": "此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本、快速回覆文字，以及方便的快捷鍵功能。"
   },
+  "button_edit": {
+    "message": "編輯"
+  },
   "button_save": {
     "message": "儲存"
   },
@@ -60,22 +63,12 @@
     "message": "提問樣板2 設定"
   },
   "menu_super_prompt_template_settings": {
-    "message": "🆕 超級樣板 設定"
-  },
-  "menu_super_prompt_template_settings2": {
-    "message": "🆕 超級樣板2 設定"
-  },
-  "menu_super_prompt_template_settings3": {
-    "message": "🆕 超級樣板3 設定"
-  },
-  "menu_super_prompt_template_settings4": {
-    "message": "🆕 超級樣板4 設定"
-  },
-  "menu_super_prompt_template_settings5": {
-    "message": "🆕 超級樣板5 設定"
-  },
-  "menu_super_prompt_template_settings6": {
-    "message": "🆕 超級樣板6 設定"
+    "message": "🆕 超級樣板$count$ 設定",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
   },
   "menu_custom_super_prompt_category": {
     "message": "自定分類名稱"

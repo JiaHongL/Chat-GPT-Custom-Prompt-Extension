@@ -5,6 +5,9 @@
   "extension_description": {
     "message": "このツールは、ChatGPTとより効率的に会話するために、様々な質問テンプレート、迅速な返信テキスト、および便利なショートカット機能を提供します。"
   },
+  "button_edit": {
+    "message": "編集"
+  },
   "button_save": {
     "message": "保存する"
   },
@@ -60,22 +63,12 @@
     "message": "プロンプト設定 2"
   },
   "menu_super_prompt_template_settings": {
-    "message": "🆕 スーパーテンプレート設定"
-  },
-  "menu_super_prompt_template_settings2": {
-    "message": "🆕 スーパーテンプレート2設定"
-  },
-  "menu_super_prompt_template_settings3": {
-    "message": "🆕 スーパーテンプレート3設定"
-  },
-  "menu_super_prompt_template_settings4": {
-    "message": "🆕 スーパーテンプレート4設定"
-  },
-  "menu_super_prompt_template_settings5": {
-    "message": "🆕 スーパーテンプレート5設定"
-  },
-  "menu_super_prompt_template_settings6": {
-    "message": "🆕 スーパーテンプレート6設定"
+    "message": "🆕 スーパーテンプレート $count$ 設定",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
   },
   "menu_custom_super_prompt_category": {
     "message": "カスタムカテゴリ"

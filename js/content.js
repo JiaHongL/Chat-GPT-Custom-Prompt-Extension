@@ -1,3 +1,21 @@
+const i18n = (key, params = []) => {
+  try {
+    return chrome.i18n.getMessage(key, params);
+  } catch (error) {
+    console.log("i18n", error);
+    return "";
+  }
+};
+
+const getUILanguage = () => {
+  try {
+    return chrome.i18n.getUILanguage();
+  } catch (error) {
+    console.log("getUILanguage", error);
+    return "en-US";
+  }
+};
+
 // defaultPromptList 多國語系
 const defaultPromptListTW = [
   {
@@ -711,9 +729,31 @@ const defaultQuickReplyMessageListKO = [
 ];
 
 // defaultSuperPromptList 多國語系
-const defaultSuperPromptListTW = [
+
+/** 每個 super prompt settings item 總數量 */
+const SuperPromptSettingsAllItems = 1500;
+
+/** 每個 super prompt settings list 的 item 數量 */
+const SuperPromptSettingsListLength = 30;
+
+let DefaultEmptySuperPromptList = [];
+
+Array.from({ length: SuperPromptSettingsAllItems }).forEach((_, index) => {
+  if (index > 1) {
+    DefaultEmptySuperPromptList.push({
+      key: index + 1,
+      text: "SuperPrompt" + (index + 1),
+      prompt: "",
+      buttonElement: null,
+      handleClickFn: null,
+      isVisible: false,
+    });
+  }
+});
+
+let defaultSuperPromptListTW = [
   {
-    key: null,
+    key: 1,
     text: "撰寫宣傳文章",
     prompt:
       "你現在是一位 {{ 角色 || 行銷人員 }} ，幫我想出介紹 {{ 物品 }} 的宣傳文，字數限制 {{ 字數 || 300 }} 字。",
@@ -722,7 +762,7 @@ const defaultSuperPromptListTW = [
     isVisible: true,
   },
   {
-    key: null,
+    key: 2,
     text: "多國語系翻譯",
     prompt:
       "你現在是一位翻譯專家，請幫我翻譯 [ {{ 翻譯的文字 }} ] 的 {{ 語言 || 繁體中文、簡體中文、英文、日語、韓語 }}，並請使用表格顯示，表頭分別為 {{ 表頭 || zh-tw、zh-cn、en、ja、ko }}，不需要其他解釋或說明。",
@@ -730,235 +770,15 @@ const defaultSuperPromptListTW = [
     handleClickFn: null,
     isVisible: true,
   },
-  {
-    key: null,
-    text: "SuperPrompt3",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt4",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt5",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt6",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt7",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt8",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt9",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt10",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt11",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt12",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt13",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt14",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt15",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt16",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt17",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt18",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt19",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt20",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt21",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt22",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt23",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt24",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt25",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt26",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt27",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt28",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt29",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt30",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
+];
+defaultSuperPromptListTW = [
+  ...defaultSuperPromptListTW,
+  ...DefaultEmptySuperPromptList,
 ];
 
-const defaultSuperPromptListJA = [
+let defaultSuperPromptListJA = [
   {
-    key: null,
+    key: 1,
     text: "宣伝記事を書く",
     prompt:
       "現在、{{ 役割 || マーケター }} として、{{ 商品 }} の紹介文を {{ 文字数 || 300 }} 文字以内で考えてください",
@@ -967,7 +787,7 @@ const defaultSuperPromptListJA = [
     isVisible: true,
   },
   {
-    key: null,
+    key: 2,
     text: "多言語翻訳",
     prompt:
       "翻訳の専門家として、[{{ 翻訳するテキスト }}]を {{ 言語 || 繁体字中国語、簡体字中国語、英語、日本語、韓国語 }} に翻訳して、表のヘッダーが {{ ヘッダー || zh-tw、zh-cn、en、ja、ko }} である表を使用して表示してください。その他の説明や説明は必要ありません。",
@@ -975,235 +795,15 @@ const defaultSuperPromptListJA = [
     handleClickFn: null,
     isVisible: true,
   },
-  {
-    key: null,
-    text: "SuperPrompt3",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt4",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt5",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt6",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt7",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt8",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt9",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt10",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt11",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt12",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt13",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt14",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt15",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt16",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt17",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt18",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt19",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt20",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt21",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt22",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt23",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt24",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt25",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt26",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt27",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt28",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt29",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt30",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
+];
+defaultSuperPromptListJA = [
+  ...defaultSuperPromptListJA,
+  ...DefaultEmptySuperPromptList,
 ];
 
-const defaultSuperPromptListEN = [
+let defaultSuperPromptListEN = [
   {
-    key: null,
+    key: 1,
     text: "Write a article",
     prompt:
       "You are a {{ role || marketer }} now. Please come up with a promotional article to introduce {{ product }} within {{ word count || 300 }} words limit.",
@@ -1212,7 +812,7 @@ const defaultSuperPromptListEN = [
     isVisible: true,
   },
   {
-    key: null,
+    key: 2,
     text: "Multi Translation",
     prompt:
       "You are a translation expert. Please help me translate [{{text to translate}}] into {{ language || Traditional Chinese, Simplified Chinese, English, Japanese, Korean }}, and display the results in a table with headers as {{ headers || zh-tw, zh-cn, en, ja, ko }}. No additional explanation or clarification is needed.",
@@ -1220,235 +820,15 @@ const defaultSuperPromptListEN = [
     handleClickFn: null,
     isVisible: true,
   },
-  {
-    key: null,
-    text: "SuperPrompt3",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt4",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt5",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt6",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt7",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt8",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt9",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt10",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt11",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt12",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt13",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt14",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt15",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt16",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt17",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt18",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt19",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt20",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt21",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt22",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt23",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt24",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt25",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt26",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt27",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt28",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt29",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt30",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
+];
+defaultSuperPromptListEN = [
+  ...defaultSuperPromptListEN,
+  ...DefaultEmptySuperPromptList,
 ];
 
-const defaultSuperPromptListCN = [
+let defaultSuperPromptListCN = [
   {
-    key: null,
+    key: 1,
     text: "撰写宣传文章",
     prompt:
       "你现在是 {{ 角色 || 销售人员 }}，请为我想出一篇介绍 {{ 物品 }} 的宣传文，字数限制为 {{ 字数 || 300 }} 字。",
@@ -1457,7 +837,7 @@ const defaultSuperPromptListCN = [
     isVisible: true,
   },
   {
-    key: null,
+    key: 2,
     text: "多语言翻译",
     prompt:
       "你现在是一名翻译专家，请帮我翻译[ {{ 翻译的文字 }} ]的 {{ 语言 || 繁体中文、简体中文、英文、日语、韩语 }} 版本，并使用表格显示，表头分别为 {{ 表头 || zh-tw、zh-cn、en、ja、ko }}，无需其他解释或说明。",
@@ -1465,235 +845,15 @@ const defaultSuperPromptListCN = [
     handleClickFn: null,
     isVisible: true,
   },
-  {
-    key: null,
-    text: "SuperPrompt3",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt4",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt5",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt6",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt7",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt8",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt9",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt10",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt11",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt12",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt13",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt14",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt15",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt16",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt17",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt18",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt19",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt20",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt21",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt22",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt23",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt24",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt25",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt26",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt27",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt28",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt29",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt30",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
+];
+defaultSuperPromptListCN = [
+  ...defaultSuperPromptListCN,
+  ...DefaultEmptySuperPromptList,
 ];
 
-const defaultSuperPromptListKO = [
+let defaultSuperPromptListKO = [
   {
-    key: null,
+    key: 1,
     text: "홍보 기사 작성",
     prompt:
       "당신은 {{ 역할 || 판매원 }} 입니다. {{ 제품 }} 을 소개하는 홍보 기사를 {{ 글자 수 || 300 }} 자 이내로 작성해주세요.",
@@ -1702,7 +862,7 @@ const defaultSuperPromptListKO = [
     isVisible: true,
   },
   {
-    key: null,
+    key: 2,
     text: "다국어 번역",
     prompt:
       "당신은 현재 번역 전문가입니다. [ {{ 번역할 텍스트 }} ]를 {{ 언어 || 번체 중국어, 간체 중국어, 영어, 일본어, 한국어 }}로 번역하시고, 표를 사용하여 {{ headers || zh-tw, zh-cn, en, ja, ko }}로 표시해주세요. 추가 설명이나 지시 사항은 필요하지 않습니다.",
@@ -1710,262 +870,37 @@ const defaultSuperPromptListKO = [
     handleClickFn: null,
     isVisible: true,
   },
-  {
-    key: null,
-    text: "SuperPrompt3",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt4",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt5",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt6",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt7",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt8",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt9",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt10",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt11",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt12",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt13",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt14",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt15",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt16",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt17",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt18",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt19",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt20",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt21",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt22",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt23",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt24",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt25",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt26",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt27",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt28",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt29",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
-  {
-    key: null,
-    text: "SuperPrompt30",
-    prompt: "",
-    buttonElement: null,
-    handleClickFn: null,
-    isVisible: false,
-  },
+];
+defaultSuperPromptListKO = [
+  ...defaultSuperPromptListKO,
+  ...DefaultEmptySuperPromptList,
 ];
 
-const defaultSuperPromptCategoryList = [
-  {
-    id: 1,
-    name: chrome.i18n.getMessage("menu_super_prompt_template_settings"),
-  },
-  {
-    id: 2,
-    name: chrome.i18n.getMessage("menu_super_prompt_template_settings2"),
-  },
-  {
-    id: 3,
-    name: chrome.i18n.getMessage("menu_super_prompt_template_settings3"),
-  },
-  {
-    id: 4,
-    name: chrome.i18n.getMessage("menu_super_prompt_template_settings4"),
-  },
-  {
-    id: 5,
-    name: chrome.i18n.getMessage("menu_super_prompt_template_settings5"),
-  },
-  {
-    id: 6,
-    name: chrome.i18n.getMessage("menu_super_prompt_template_settings6"),
-  },
-];
+// defaultSuperPromptCategoryList 預設分類
 
-const i18n = (key, params = []) => {
-  return chrome.i18n.getMessage(key, params);
-};
+/** 最大多少分類 */
+SuperPromptCategoryListEmptyArray = Array.from({
+  length: SuperPromptSettingsAllItems / SuperPromptSettingsListLength,
+});
+
+/** 當前最大分類數量限制 */
+SuperPromptCategoryListLimit = Array.from({ length: 8 });
+
+let defaultSuperPromptCategoryList = [];
+
+SuperPromptCategoryListEmptyArray.forEach((_, index) => {
+  if (index === 0) {
+    defaultSuperPromptCategoryList.push({
+      id: index + 1,
+      name: i18n("menu_super_prompt_template_settings", []),
+    });
+  } else {
+    defaultSuperPromptCategoryList.push({
+      id: index + 1,
+      name: i18n("menu_super_prompt_template_settings", [index + 1]),
+    });
+  }
+});
 
 (() => {
   "use strict";
@@ -1983,7 +918,7 @@ const i18n = (key, params = []) => {
   };
 
   function setDefaultList() {
-    const locale = chrome.i18n.getUILanguage();
+    const locale = getUILanguage();
 
     switch (locale) {
       case "zh-TW":
@@ -2034,17 +969,80 @@ const i18n = (key, params = []) => {
         
         display:flex;
         flex-direction:column;
+
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(0);
+      }
+      .hidden-template-buttons .custom-menu{
+        transform: translateX(200px);
+      }
+      .custom-menu .menu-collapse-button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:30px;
+      }
+      .custom-menu .menu-collapse-button svg{
+        width:18px;
+        fill:white;
+      }
+      .dark .custom-menu .menu-collapse-button svg{
+        fill: #ccc;
+      }
+      .collapse-button {
+        position: fixed;
+        top: 20px;
+        right:0px;
+        transform: translateY(-50%);
+        display:none;
+        padding:10px;
+        cursor:pointer;
+      }
+      .collapse-button svg{
+        height:22px;
+        width:22px;
+        margin-right: 5px;
+        fill: black;
+      }
+      .dark .collapse-button svg{
+        fill: #ccc;
+      }
+      .hidden-template-buttons .collapse-button{
+        display:inline-block;
+      }
+      
+      .custom-menu .search-box{
+        flex:0 0 30px;
+        padding-right:10px;
+        margin-bottom:5px;
+      }
+      .custom-menu .search-box .custom-keyword-input {
+        display: block;
+        width:100%;
+        height: 30px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+        box-shadow: 0 0 1px #f1f1f1;
+        border: none;
+        padding: 0 10px;
+        font-size: 16px;
+        color: black;
+        outline: none;
+        width: 100%;
+      }
+      .dark .custom-menu .search-box .custom-keyword-input {
+        background-color: black;
+        box-shadow: 0 0 1px black;
+        color: #ccc;
+        font-size:16px;
       }
       .custom-menu .prompt-list-area{
         flex:0 1 auto;
         overflow-y: auto;
       }
       .custom-menu .quick-reply-area{
-        margin-top:10px;
+        margin-top:5px;
         flex:0 0 180px;
-      }
-      .hidden-template-buttons .custom-menu{
-          display: none;
       }
       .dialog-wrapper {
           position: fixed;
@@ -2105,6 +1103,10 @@ const i18n = (key, params = []) => {
         position: absolute;
         right: 0;
       }
+      .footer #dialog7-edit {
+        position: absolute;
+        left: 0;
+      }
       button.primary {
           background-color: #9a8e81;
           color: #fff;
@@ -2124,6 +1126,14 @@ const i18n = (key, params = []) => {
       button.warning {
           background-color: hsl(267, 30%, 55%);
           color: #fff;
+      }
+      button.light{
+        background-color: #d1d5db;
+        color: white;
+      }
+      .dark button.light{
+        background-color: rgba(64,65,79,1) !important;
+        color: #d1d5db;
       }
       .dark button.primary {
         background-color: #5a5646;
@@ -2413,6 +1423,30 @@ const i18n = (key, params = []) => {
       .chatgpt-dropdown-up .chatgpt-dropdown-btn {
         border-radius: 5px 5px 0 0;
       }
+      .table-container {
+        width: 100%;
+        overflow-y: auto;
+        max-height: 552px;
+        margin-bottom:20px;
+        border-bottom: 1px solid #ccc;
+      }
+      .super-table-form {
+        width: 100%;
+        border-collapse: collapse;
+        margin:0px;
+      }
+      .super-table-form thead tr {
+        position: sticky;
+        top: 0;
+        z-index:999;
+      }
+      .dark .super-table-form thead th {
+        background-color: #757575;
+      }
+      .dark .super-prompt-id{
+        color: #d1d5db !important;
+        font-size:16px;
+      }      
       `;
 
   // 插入 style
@@ -3385,149 +2419,65 @@ const i18n = (key, params = []) => {
   // 超級樣板 設定 HTML
   const superPromptSettingsHTML = `
   <div id="dialog6" class="dialog-wrapper" style="display:none">
-    <div class="dialog" style="max-width:90%;">
+    <div class="dialog" style="max-width:95%;">
         <div class="dialog-title"></div>
-        <table id="super-table-form" class="my-table" style="width:100%;margin-top:0px;">
-
-            <tr>
-                <th style="width:118px">${i18n("table_title_shortcut")}</th>
-                <th style="width:160px">${i18n("table_title_button_name")}</th>
-                <th>${i18n("table_title_super_prompt_text")}</th>
-                <th style="width:118px">${i18n("table_title_is_show")}</th>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
+        <div class="table-container">
+          <table id="superTableForm" class="my-table super-table-form" style="width:100%;margin-top:0px;">
+            <thead>
+              <tr>
+                  <th style="width:50px">#</th>
+                  <th style="width:265px">${i18n(
+                    "table_title_button_name"
+                  )}</th>
+                  <th style="width:auto">${i18n(
+                    "table_title_super_prompt_text"
+                  )}</th>
+                  <th style="width:118px">${i18n("table_title_is_show")}</th>
+              </tr>
+            </thead>
+            <tbody>
+            ${Array.from({ length: SuperPromptSettingsListLength })
+              .map((_, index) => {
+                return `
+                  <tr>
+                    <td style="text-align:center;width:50px">
+                      <span class="superPromptId super-prompt-id"></span>
+                    </td>
+                    <td style="width:265px">
+                      <input tabindex="${
+                        index * 2 + 1
+                      }" class="superPromptButtonText" type="text" placeholder="${i18n(
                   "placeholder_please_input"
-                )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                          " placeholder_supper_prompt_desc"
-                        )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1"
-                            name="check" />
-                        <label for="superSlideCheckbox1"></label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                          " placeholder_supper_prompt_desc"
-                        )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2"
-                            name="check" />
-                        <label for="superSlideCheckbox2"></label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                          " placeholder_supper_prompt_desc"
-                        )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3"
-                            name="check" />
-                        <label for="superSlideCheckbox3"></label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                          " placeholder_supper_prompt_desc"
-                        )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4"
-                            name="check" />
-                        <label for="superSlideCheckbox4"></label>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                          " placeholder_supper_prompt_desc"
-                        )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5"
-                            name="check" />
-                        <label for="superSlideCheckbox5"></label>
-                    </div>
-                </td>
-            </tr>
-
-        </table>
-
+                )}">
+                    </td>
+                    <td style="width:auto">
+                        <div class="center">
+                            <textarea style="width:100%" tabindex="${
+                              index * 2 + 2
+                            }" class="superPromptText" placeholder="${i18n(
+                  "placeholder_supper_prompt_desc"
+                )}"></textarea>
+                        </div>
+                    </td>
+                    <td style="width:118px">
+                        <div class="slide-checkbox">
+                            <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox${index}"
+                                name="check" />
+                            <label for="superSlideCheckbox${index}"></label>
+                        </div>
+                    </td>
+                </tr>
+                `;
+              })
+              .join("")}
+            </tbody>
+          </table>
+        </div>
         <div class="footer" class="center">
-            <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
+            <button tabindex="998" id="dialog6-ok" class="primary">${i18n(
               "button_save"
             )} ( ${mainKeyText} + s )</button>
-            <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
+            <button tabindex="999" id="dialog6-cancel" class="secondary">${i18n(
               "button_cancel"
             )} ( esc ) </button>
             <div class="buy-me-a-coffee">
@@ -3551,6 +2501,9 @@ const i18n = (key, params = []) => {
         </div>
       </div>
       <div class="footer" class="center">
+        <button tabindex="98" id="dialog7-edit" class="info">${i18n(
+          "button_edit"
+        )}</button>
         <button tabindex="99" id="dialog7-ok" class="primary">${i18n(
           "button_send"
         )} ( ${mainKeyText} + s )</button>
@@ -3618,6 +2571,15 @@ const i18n = (key, params = []) => {
     superPromptCategoryNameSettingHTML;
   document.body.appendChild(superPromptCategoryNameSettingDialogEl);
 
+  const collapseButtonEl = document.createElement("div");
+  collapseButtonEl.classList.add("collapse-button");
+  collapseButtonEl.innerHTML =
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"></path></svg>';
+  document.body.appendChild(collapseButtonEl);
+  collapseButtonEl.addEventListener("click", () => {
+    collapseToggle();
+  });
+
   // Question
   const questionDialog = document.getElementById("dialog");
   const questionPreviewAreaDiv = document.getElementById("questionPreviewArea");
@@ -3663,7 +2625,7 @@ const i18n = (key, params = []) => {
   const superPromptSettingsDialogCancelBtn =
     document.querySelector("#dialog6-cancel");
   const superPromptSettingsTableForm =
-    superPromptSettingsDialog.querySelector("#super-table-form");
+    superPromptSettingsDialog.querySelector("#superTableForm");
 
   // superPrompt
   const superPromptDialog = document.getElementById("dialog7");
@@ -3672,8 +2634,10 @@ const i18n = (key, params = []) => {
   const superPromptPreviewAreaDiv = document.getElementById(
     "superPromptPreviewArea"
   );
+  const editSuperPromptBtn = document.getElementById("dialog7-edit");
 
   let superPrompt = "";
+  let superPromptId = "";
 
   // superPromptCategoryNameSettings
   const superPromptCategoryNameSettingsDialog =
@@ -3727,6 +2691,23 @@ const i18n = (key, params = []) => {
       customMenuItem.remove();
     });
   }
+
+  function handleDocumentClick(event) {
+    const chatgptDropdownContentElements = document.querySelectorAll(
+      ".chatgpt-dropdown-content"
+    );
+    chatgptDropdownContentElements.forEach((chatgptDropdownContentElement) => {
+      if (
+        !chatgptDropdownContentElement.contains(event.target) &&
+        !chatgptDropdownContentElement.contains(event.target) &&
+        chatgptDropdownContentElement.classList.contains("show")
+      ) {
+        chatgptDropdownContentElement.classList.remove("show");
+      }
+    });
+  }
+
+  document.addEventListener("click", handleDocumentClick);
 
   function addCustomLeftMenuItem() {
     try {
@@ -3841,17 +2822,9 @@ const i18n = (key, params = []) => {
         ".chatgpt-dropdown-content"
       );
 
-      customATagEl.addEventListener("click", () => {
+      customATagEl.addEventListener("click", (event) => {
+        event.stopPropagation();
         chatgptDropdownContentEl.classList.add("show");
-      });
-
-      document.addEventListener("click", (event) => {
-        if (
-          !customATagEl.contains(event.target) &&
-          !chatgptDropdownContentEl.contains(event.target)
-        ) {
-          chatgptDropdownContentEl.classList.remove("show");
-        }
       });
 
       // 選項
@@ -3966,24 +2939,11 @@ const i18n = (key, params = []) => {
             <div>${i18n("nav_item_super_prompt_template")}</div>
           </div>
           <div class="chatgpt-dropdown-content">
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
-              superPromptCategoryList[0].name
-            }</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
-              superPromptCategoryList[1].name
-            }</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
-              superPromptCategoryList[2].name
-            }</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
-              superPromptCategoryList[3].name
-            }</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
-              superPromptCategoryList[4].name
-            }</a>
-            <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${
-              superPromptCategoryList[5].name
-            }</a>
+            ${SuperPromptCategoryListLimit.map(
+              (_, index) => `
+                <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[index].name}</a>
+              `
+            ).join("")}
             <a class="custom-menu-item"> ${i18n(
               "menu_custom_super_prompt_category"
             )}</a>
@@ -4000,32 +2960,27 @@ const i18n = (key, params = []) => {
         ".chatgpt-dropdown-content"
       );
 
-      customATagEl.addEventListener("click", () => {
+      customATagEl.addEventListener("click", (event) => {
+        event.stopPropagation();
         chatgptDropdownContentEl.classList.add("show");
       });
 
-      document.addEventListener("click", (event) => {
-        if (
-          !customATagEl.contains(event.target) &&
-          !chatgptDropdownContentEl.contains(event.target)
-        ) {
-          chatgptDropdownContentEl.classList.remove("show");
-        }
-      });
-
-      [0, 1, 2, 3, 4, 5].forEach((value) => {
-        menuItems[value].addEventListener("click", (event) => {
+      SuperPromptCategoryListLimit.forEach((_, index) => {
+        menuItems[index].addEventListener("click", (event) => {
           event.stopPropagation();
           chatgptDropdownContentEl.classList.remove("show");
-          showSuperPromptSettingDialog(value + 1);
+          showSuperPromptSettingDialog(index + 1);
         });
       });
 
-      menuItems[6].addEventListener("click", (event) => {
-        event.stopPropagation();
-        chatgptDropdownContentEl.classList.remove("show");
-        showSuperPromptCategoryNameSettingsDialog();
-      });
+      menuItems[SuperPromptCategoryListLimit.length].addEventListener(
+        "click",
+        (event) => {
+          event.stopPropagation();
+          chatgptDropdownContentEl.classList.remove("show");
+          showSuperPromptCategoryNameSettingsDialog();
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -4166,6 +3121,22 @@ const i18n = (key, params = []) => {
       document.documentElement.classList.remove("light");
       document.documentElement.classList.add("dark");
       document.documentElement.style.colorScheme = "dark";
+    }
+  }
+
+  function collapseToggle() {
+    if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y") {
+      localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
+      document.body.classList.remove("hidden-template-buttons");
+      try {
+        document.getElementById("switchMenu").checked = true;
+      } catch (error) {}
+    } else {
+      localStorage.setItem("Custom.Settings.Menu.Hidden", "Y");
+      document.body.classList.add("hidden-template-buttons");
+      try {
+        document.getElementById("switchMenu").checked = false;
+      } catch (error) {}
     }
   }
 
@@ -4558,21 +3529,7 @@ const i18n = (key, params = []) => {
     // mainKey + a : show / hidden right buttons
     if (event[mainKey] && event.key.toLocaleLowerCase() === "a") {
       event.preventDefault();
-
-      if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y") {
-        localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
-        document.body.classList.remove("hidden-template-buttons");
-        try {
-          document.getElementById("switchMenu").checked = true;
-        } catch (error) {}
-      } else {
-        localStorage.setItem("Custom.Settings.Menu.Hidden", "Y");
-        document.body.classList.add("hidden-template-buttons");
-        try {
-          document.getElementById("switchMenu").checked = false;
-        } catch (error) {}
-      }
-
+      collapseToggle();
       return;
     }
 
@@ -4919,7 +3876,10 @@ const i18n = (key, params = []) => {
   });
 
   // ------------ super 設定視窗相關 程式碼 ------------
-  function showSuperPromptSettingDialog(superFormType) {
+  function showSuperPromptSettingDialog(
+    superFormType,
+    focusElementIndex = null
+  ) {
     currentSuperSettingFormType = superFormType;
 
     superPromptSettingsDialog.style.display = "flex";
@@ -4933,6 +3893,8 @@ const i18n = (key, params = []) => {
     const superPromptSlideElements =
       document.querySelectorAll(".superPromptSlide");
 
+    const superPromptIdElements = document.querySelectorAll(".superPromptId");
+
     const dialogTitleElement =
       superPromptSettingsDialog.querySelector(".dialog-title");
 
@@ -4940,17 +3902,24 @@ const i18n = (key, params = []) => {
       superPromptCategoryList[currentSuperSettingFormType - 1].name;
 
     const nowSuperPromptList = superPromptList.slice(
-      (currentSuperSettingFormType - 1 ) * 5 ,
-      currentSuperSettingFormType * 5
+      (currentSuperSettingFormType - 1) * SuperPromptSettingsListLength,
+      currentSuperSettingFormType * SuperPromptSettingsListLength
     );
 
-    for (let index = 0; index < 5; index++) {
-      superPromptButtonTextElements[index].value = nowSuperPromptList[index].text;
+    for (let index = 0; index < SuperPromptSettingsListLength; index++) {
+      superPromptButtonTextElements[index].value =
+        nowSuperPromptList[index].text;
       superPromptTextElements[index].value = nowSuperPromptList[index].prompt;
-      superPromptSlideElements[index].checked = nowSuperPromptList[index].isVisible;
+      superPromptSlideElements[index].checked =
+        nowSuperPromptList[index].isVisible;
+      superPromptIdElements[index].innerHTML = nowSuperPromptList[index].key;
     }
 
-    superPromptButtonTextElements[0].focus();
+    if (focusElementIndex) {
+      superPromptButtonTextElements[focusElementIndex].focus();
+    } else {
+      superPromptButtonTextElements[0].focus();
+    }
 
     controlSuperPromptSettingsDialogTabindex();
   }
@@ -4963,13 +3932,15 @@ const i18n = (key, params = []) => {
     const promptSlideElements = document.querySelectorAll(".superPromptSlide");
 
     const nowSuperPromptList = superPromptList.slice(
-      (currentSuperSettingFormType - 1 ) * 5 ,
-      currentSuperSettingFormType * 5
+      (currentSuperSettingFormType - 1) * SuperPromptSettingsListLength,
+      currentSuperSettingFormType * SuperPromptSettingsListLength
     );
 
-    const previousSuperPromptList = JSON.parse(JSON.stringify(nowSuperPromptList));
+    const previousSuperPromptList = JSON.parse(
+      JSON.stringify(nowSuperPromptList)
+    );
 
-    for (let index = 0; index < 5; index++) {
+    for (let index = 0; index < SuperPromptSettingsListLength; index++) {
       nowSuperPromptList[index].text = btnTextInputElements[index].value;
       nowSuperPromptList[index].prompt = textInputElements[index].value;
       nowSuperPromptList[index].isVisible = promptSlideElements[index].checked;
@@ -5022,7 +3993,7 @@ const i18n = (key, params = []) => {
 
     const innerHTML = superPrompt.replace(/\n/g, "<br>");
 
-    superPromptPreviewAreaDiv.innerHTML = innerHTML;
+    superPromptPreviewAreaDiv.innerHTML = "#" + superPromptId + " " + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{(.*?)}}/g);
@@ -5088,6 +4059,18 @@ const i18n = (key, params = []) => {
     superPromptDialog.style.display = "none";
   });
 
+  editSuperPromptBtn.addEventListener("click", () => {
+    superPromptDialog.style.display = "none";
+    function findGroupAndIndex(promptId) {
+      const groupSize = 30;
+      const group = Math.floor((promptId - 1) / groupSize) + 1;
+      const order = ((promptId - 1) % groupSize) + 1;
+      return { group, order };
+    }
+    const { group, order } = findGroupAndIndex(superPromptId);
+    showSuperPromptSettingDialog(group, order - 1);
+  });
+
   // ------------ 超級樣板分類名稱 設定 ------------
 
   const placeholderPleaseInput = i18n("placeholder_please_input");
@@ -5109,12 +4092,12 @@ const i18n = (key, params = []) => {
 
     let htmlStr = "";
 
-    superPromptCategoryList.forEach((superPromptCategory, index) => {
+    SuperPromptCategoryListLimit.forEach((_, index) => {
       htmlStr += `
       <input class="superPromptCategoryNameInput" tabindex="${
         index + 1
       }" class="btnTextInput" type="text" placeholder="${placeholderPleaseInput}" value="${
-        superPromptCategory.name
+        superPromptCategoryList[index].name
       }">
     `;
     });
@@ -5134,7 +4117,7 @@ const i18n = (key, params = []) => {
         ".superPromptCategoryNameInput"
       );
 
-    superPromptCategoryNameInputs.forEach((input, index) => {
+    SuperPromptCategoryListLimit.forEach((input, index) => {
       superPromptCategoryList[index].name = input.value;
     });
 
@@ -5504,166 +4487,175 @@ const i18n = (key, params = []) => {
   }
 
   function handleFileLoad(event) {
-    const json = JSON.parse(event.target.result);
+    try {
+      const json = JSON.parse(event.target.result);
 
-    if (!checkFileContent(json)) {
-      importFileInput.value = "";
-      alert(i18n("alert_import_error"));
-      return;
-    }
-
-    let confirmMessage = "";
-
-    switch (importType) {
-      case 1:
-        confirmMessage = i18n("confirm_is_import_only_prompt_template", [
-          importFileInput.files[0].name,
-        ]);
-        break;
-
-      case 2:
-        confirmMessage = i18n("confirm_is_import_only_reply_message", [
-          importFileInput.files[0].name,
-        ]);
-        break;
-
-      case 3:
-        confirmMessage = i18n("confirm_is_import_only_super_prompt_template", [
-          importFileInput.files[0].name,
-        ]);
-        break;
-
-      default:
-        confirmMessage = i18n("confirm_is_import_all", [
-          importFileInput.files[0].name,
-        ]);
-        break;
-    }
-
-    const result = confirm(confirmMessage);
-
-    if (result) {
-      // 暫時不覆蓋 isHiddenMenu ，避免使用者誤會選單消失。
-      // json.settings.isHiddenMenu === "Y"
-      //   ? document.body.classList.add("hidden-template-buttons")
-      //   : document.body.classList.remove("hidden-template-buttons");
-
-      // 覆蓋問題樣板
-      if (importType === 0 || importType === 1) {
-        const previousPromptList = JSON.parse(JSON.stringify(promptList));
-
-        promptList.forEach((setting, index) => {
-          if (json.settings.prompt[index]) {
-            setting.text = json.settings.prompt[index].text;
-            setting.prefix = json.settings.prompt[index].prefix;
-            setting.suffix = json.settings.prompt[index].suffix;
-            setting.isVisible = json.settings.prompt[index].isVisible;
-
-            if (previousPromptList.isVisible) {
-              setting.buttonElement.removeEventListener(
-                "click",
-                setting.handleClickFn
-              );
-              setting.buttonElement.remove();
-
-              delete setting.buttonElement;
-              delete setting.handleClickFn;
-            }
-          }
-        });
-
-        localStorage.setItem(
-          "Custom.Settings.Prompt",
-          JSON.stringify(promptList)
-        );
+      if (!checkFileContent(json)) {
+        importFileInput.value = "";
+        alert(i18n("alert_import_error"));
+        return;
       }
 
-      // 覆蓋快速回覆
-      if (importType === 0 || importType === 2) {
-        const previousQuickReplyMessageList = JSON.parse(
-          JSON.stringify(quickReplyMessageList)
-        );
+      let confirmMessage = "";
 
-        quickReplyMessageList.forEach((settings, index) => {
-          if (json.settings.quickReply[index]) {
-            settings.text = json.settings.quickReply[index].text;
-            settings.quickReplyMessage =
-              json.settings.quickReply[index].quickReplyMessage;
-            settings.isVisible = json.settings.quickReply[index].isVisible;
+      switch (importType) {
+        case 1:
+          confirmMessage = i18n("confirm_is_import_only_prompt_template", [
+            importFileInput.files[0].name,
+          ]);
+          break;
 
-            if (previousQuickReplyMessageList.isVisible) {
-              settings.buttonElement.removeEventListener(
-                "click",
-                settings.handleClickFn
-              );
-              settings.buttonElement.remove();
+        case 2:
+          confirmMessage = i18n("confirm_is_import_only_reply_message", [
+            importFileInput.files[0].name,
+          ]);
+          break;
 
-              delete settings.buttonElement;
-              delete settings.handleClickFn;
-            }
-          }
-        });
+        case 3:
+          confirmMessage = i18n(
+            "confirm_is_import_only_super_prompt_template",
+            [importFileInput.files[0].name]
+          );
+          break;
 
-        localStorage.setItem(
-          "Custom.Settings.QuickReply",
-          JSON.stringify(quickReplyMessageList)
-        );
+        default:
+          confirmMessage = i18n("confirm_is_import_all", [
+            importFileInput.files[0].name,
+          ]);
+          break;
       }
 
-      // 覆蓋超級樣板
-      if (
-        (importType === 0 && json.settings.hasOwnProperty("superPrompt")) ||
-        (importType === 3 && json.settings.hasOwnProperty("superPrompt"))
-      ) {
-        const previousSuperPromptList = JSON.parse(
-          JSON.stringify(superPromptList)
-        );
+      const result = confirm(confirmMessage);
 
-        superPromptList.forEach((setting, index) => {
-          if (json.settings.superPrompt[index]) {
-            setting.text = json.settings.superPrompt[index].text;
-            setting.prompt = json.settings.superPrompt[index].prompt;
-            setting.isVisible = json.settings.superPrompt[index].isVisible;
+      if (result) {
+        // 暫時不覆蓋 isHiddenMenu ，避免使用者誤會選單消失。
+        // json.settings.isHiddenMenu === "Y"
+        //   ? document.body.classList.add("hidden-template-buttons")
+        //   : document.body.classList.remove("hidden-template-buttons");
 
-            if (previousSuperPromptList.isVisible) {
-              setting.buttonElement.removeEventListener(
-                "click",
-                setting.handleClickFn
-              );
-              setting.buttonElement.remove();
+        // 覆蓋問題樣板
+        if (importType === 0 || importType === 1) {
+          const previousPromptList = JSON.parse(JSON.stringify(promptList));
 
-              delete setting.buttonElement;
-              delete setting.handleClickFn;
+          promptList.forEach((setting, index) => {
+            if (json.settings.prompt[index]) {
+              setting.text = json.settings.prompt[index].text;
+              setting.prefix = json.settings.prompt[index].prefix;
+              setting.suffix = json.settings.prompt[index].suffix;
+              setting.isVisible = json.settings.prompt[index].isVisible;
+
+              if (previousPromptList.isVisible) {
+                setting.buttonElement.removeEventListener(
+                  "click",
+                  setting.handleClickFn
+                );
+                setting.buttonElement.remove();
+
+                delete setting.buttonElement;
+                delete setting.handleClickFn;
+              }
             }
-          }
-        });
+          });
 
-        localStorage.setItem(
-          "Custom.Settings.SuperPrompt",
-          JSON.stringify(superPromptList)
-        );
+          localStorage.setItem(
+            "Custom.Settings.Prompt",
+            JSON.stringify(promptList)
+          );
+        }
 
-        superPromptCategoryList.forEach((item, index) => {
-          if (json.settings.superPromptCategoryList[index]) {
-            item.name = json.settings.superPromptCategoryList[index].name;
-          }
-        });
+        // 覆蓋快速回覆
+        if (importType === 0 || importType === 2) {
+          const previousQuickReplyMessageList = JSON.parse(
+            JSON.stringify(quickReplyMessageList)
+          );
 
-        localStorage.setItem(
-          "Custom.Settings.SuperPromptCategoryList",
-          JSON.stringify(superPromptCategoryList)
-        );
+          quickReplyMessageList.forEach((settings, index) => {
+            if (json.settings.quickReply[index]) {
+              settings.text = json.settings.quickReply[index].text;
+              settings.quickReplyMessage =
+                json.settings.quickReply[index].quickReplyMessage;
+              settings.isVisible = json.settings.quickReply[index].isVisible;
 
-        resetCustomMenuItem();
+              if (previousQuickReplyMessageList.isVisible) {
+                settings.buttonElement.removeEventListener(
+                  "click",
+                  settings.handleClickFn
+                );
+                settings.buttonElement.remove();
+
+                delete settings.buttonElement;
+                delete settings.handleClickFn;
+              }
+            }
+          });
+
+          localStorage.setItem(
+            "Custom.Settings.QuickReply",
+            JSON.stringify(quickReplyMessageList)
+          );
+        }
+
+        // 覆蓋超級樣板
+        if (
+          (importType === 0 &&
+            json.settings.hasOwnProperty("superPrompt") &&
+            json.settings.hasOwnProperty("superPromptCategoryList")) ||
+          (importType === 3 &&
+            json.settings.hasOwnProperty("superPrompt") &&
+            json.settings.hasOwnProperty("superPromptCategoryList"))
+        ) {
+          const previousSuperPromptList = JSON.parse(
+            JSON.stringify(superPromptList)
+          );
+
+          superPromptList.forEach((setting, index) => {
+            if (json.settings.superPrompt[index]) {
+              setting.text = json.settings.superPrompt[index].text;
+              setting.prompt = json.settings.superPrompt[index].prompt;
+              setting.isVisible = json.settings.superPrompt[index].isVisible;
+
+              if (previousSuperPromptList.isVisible) {
+                setting.buttonElement.removeEventListener(
+                  "click",
+                  setting.handleClickFn
+                );
+                setting.buttonElement.remove();
+
+                delete setting.buttonElement;
+                delete setting.handleClickFn;
+              }
+            }
+          });
+
+          localStorage.setItem(
+            "Custom.Settings.SuperPrompt",
+            JSON.stringify(superPromptList)
+          );
+
+          superPromptCategoryList.forEach((item, index) => {
+            if (json.settings.superPromptCategoryList[index]) {
+              item.name = json.settings.superPromptCategoryList[index].name;
+            }
+          });
+
+          localStorage.setItem(
+            "Custom.Settings.SuperPromptCategoryList",
+            JSON.stringify(superPromptCategoryList)
+          );
+
+          resetCustomMenuItem();
+        }
+
+        generateButtons();
+
+        alert(i18n("alert_import_success"));
+
+        importFileInput.value = "";
+      } else {
+        importFileInput.value = "";
       }
-
-      generateButtons();
-
-      alert(i18n("alert_import_success"));
-
-      importFileInput.value = "";
-    } else {
-      importFileInput.value = "";
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -5675,18 +4667,23 @@ const i18n = (key, params = []) => {
   });
 
   // ------------ 建立右側按鈕 相關程式碼 ------------
-  function createButton(textContent, btnColorClass = "success") {
+  function createButton(
+    textContent,
+    btnColorClass = "success",
+    title = "",
+    isCollapseButton = false
+  ) {
     let fontSize = "1rem";
     let width = "152px";
     let padding = "3px 10px";
 
-    if (chrome.i18n.getUILanguage() === "en-US") {
+    if (getUILanguage() === "en-US") {
       fontSize = "0.92rem";
       width = "160px";
       padding = "3px 6px";
     }
 
-    if (chrome.i18n.getUILanguage() === "ja") {
+    if (getUILanguage() === "ja") {
       fontSize = "0.95rem";
       width = "156px";
       padding = "3px 6px";
@@ -5695,7 +4692,7 @@ const i18n = (key, params = []) => {
     const button = document.createElement("button");
     button.classList.add(btnColorClass, "custom-template-buttons");
     button.textContent = textContent;
-    button.title = textContent;
+    button.title = title ? title : textContent;
     button.style.width = width;
     button.style.margin = "0 0 5px 0";
     button.style.color = "white";
@@ -5708,6 +4705,13 @@ const i18n = (key, params = []) => {
     button.style.whiteSpace = "nowrap";
     button.style.overflow = "hidden";
     button.style.textOverflow = "ellipsis";
+
+    if (isCollapseButton) {
+      button.classList.add("menu-collapse-button");
+      button.innerHTML =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>';
+    }
+
     return button;
   }
 
@@ -5721,22 +4725,53 @@ const i18n = (key, params = []) => {
     const menuDiv = document.createElement("div");
     menuDiv.classList.add("custom-menu");
 
+    // search
+    const searchBoxDiv = document.createElement("div");
+    searchBoxDiv.classList.add("search-box");
+    searchBoxDiv.innerHTML = `<input tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="keyword or #id">`;
+
+    let timerId;
+    const inputBox = searchBoxDiv.querySelector("#customKeywordInput");
+
+    inputBox.addEventListener("input", (event) => {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => {
+        const customTemplateButtons =
+          document.querySelector(".prompt-list-area");
+
+        customTemplateButtons.childNodes.forEach((customTemplateButton) => {
+          if (event.target.value === "") {
+            customTemplateButton.style.display = "block";
+            return;
+          }
+          if (customTemplateButton.title.includes(event.target.value)) {
+            customTemplateButton.style.display = "block";
+          } else {
+            customTemplateButton.style.display = "none";
+          }
+        });
+      }, 300);
+    });
+
     const promptListDiv = document.createElement("div");
     promptListDiv.classList.add("prompt-list-area");
 
     const quickReplyDiv = document.createElement("div");
     quickReplyDiv.classList.add("quick-reply-area");
 
+    menuDiv.appendChild(searchBoxDiv);
     menuDiv.appendChild(promptListDiv);
     menuDiv.appendChild(quickReplyDiv);
 
     // 模版
-    promptList.forEach((settings) => {
+    promptList.forEach((settings,index) => {
       if (!settings.isVisible) {
         return;
       }
 
       const button = createButton(`${settings.key}. ${settings.text}`);
+
+      button.tabIndex = index + 2;
 
       const handleClick = () => {
         prefix = settings.prefix;
@@ -5753,14 +4788,21 @@ const i18n = (key, params = []) => {
     });
 
     // super 模版
-    superPromptList.forEach((settings) => {
+    superPromptList.forEach((settings,index) => {
       if (!settings.isVisible) {
         return;
       }
 
-      const button = createButton(`${settings.text}`, "warning");
+      const button = createButton(
+        `${settings.text}`,
+        "warning",
+        `#${settings.key} ${settings.text}`
+      );
+
+      button.tabIndex = index + 13;
 
       const handleClick = () => {
+        superPromptId = settings.key;
         superPrompt = settings.prompt;
         showSuperPromptDialog();
       };
@@ -5817,10 +4859,23 @@ const i18n = (key, params = []) => {
       quickReplyDiv.appendChild(button);
     });
 
-    // 重新設定高度
-    // menuDiv.style.maxHeight = `${(promptListDiv.children.length + quickReplyDiv.children.length) * 35}px`;
+    // 收合按鈕
+    const menuCollapseButton = createButton("", "light", "", true);
+    menuCollapseButton.addEventListener("click", () => {
+      collapseToggle();
+    });
+    quickReplyDiv.appendChild(menuCollapseButton);
+
+    menuDiv.addEventListener("transitionend", function (event) {
+      if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "N") {
+        document.querySelector("#customKeywordInput").focus();
+      }
+    });
 
     document.body.appendChild(menuDiv);
+
+    controlCustomMenuTabindex();
+
   }
 
   generateButtons();
@@ -5861,7 +4916,6 @@ const i18n = (key, params = []) => {
   // ------------ 控制視窗的焦點切換 ------------
 
   function handleTabindex(firstTabindexElement, lastTabindexElement, e) {
-    console.log("-------handleTabindex------");
     if (e.key === "Tab" && !e.shiftKey) {
       if (document.activeElement === lastTabindexElement) {
         e.preventDefault();
@@ -6006,8 +5060,8 @@ const i18n = (key, params = []) => {
       superPromptSettingsDialogCancelBtn,
     ];
 
-    const tableFormFirstTabindexElement = tableFormTabindexElements[0];
-    const tableFormLastTabindexElement =
+    const firstTabindexElement = tableFormTabindexElements[0];
+    const lastTabindexElement =
       tableFormTabindexElements[tableFormTabindexElements.length - 1];
 
     if (superPromptSettingsDialogBindTabindexHandler) {
@@ -6019,8 +5073,8 @@ const i18n = (key, params = []) => {
 
     superPromptSettingsDialogBindTabindexHandler = handleTabindex.bind(
       null,
-      tableFormFirstTabindexElement,
-      tableFormLastTabindexElement
+      firstTabindexElement,
+      lastTabindexElement
     );
 
     superPromptSettingsDialog.addEventListener(
@@ -6090,4 +5144,23 @@ const i18n = (key, params = []) => {
       superPromptCategoryNameSettingsDialogBindTabindexHandler
     );
   }
+
+  function controlCustomMenuTabindex(){
+
+    const allTabindexElements = [
+      document.querySelector('#customKeywordInput'),
+      ...document.querySelector('.prompt-list-area').querySelectorAll("button")
+    ];
+
+    const firstTabindexElement = allTabindexElements[0];
+    const lastTabindexElement =
+      allTabindexElements[allTabindexElements.length - 1];
+
+    document.querySelector(".custom-menu").addEventListener(
+      "keydown",
+      handleTabindex.bind(null, firstTabindexElement, lastTabindexElement)
+    );
+
+  }
+
 })();

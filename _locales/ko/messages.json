@@ -5,6 +5,9 @@
   "extension_description": {
     "message": "이 도구는 ChatGPT와 더 효율적으로 대화하며 다양한 문제 템플릿, 빠른 답변 텍스트 및 편리한 단축키 기능을 제공하여 작업을 더욱 효율적으로 수행할 수 있습니다."
   },
+  "button_edit": {
+    "message": "편집"
+  },
   "button_save": {
     "message": "저장"
   },
@@ -60,22 +63,12 @@
     "message": "질문 템플릿2 설정"
   },
   "menu_super_prompt_template_settings": {
-    "message": "🆕 슈퍼 템플릿 설정"
-  },
-  "menu_super_prompt_template_settings2": {
-    "message": "🆕 슈퍼 템플릿 2 설정"
-  },
-  "menu_super_prompt_template_settings3": {
-    "message": "🆕 슈퍼 템플릿 3 설정"
-  },
-  "menu_super_prompt_template_settings4": {
-    "message": "🆕 슈퍼 템플릿 4 설정"
-  },
-  "menu_super_prompt_template_settings5": {
-    "message": "🆕 슈퍼 템플릿 5 설정"
-  },
-  "menu_super_prompt_template_settings6": {
-    "message": "🆕 슈퍼 템플릿 6 설정"
+    "message": "🆕 슈퍼 템플릿 $count$ 설정",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
   },
   "menu_custom_super_prompt_category": {
     "message": "사용자 정의 분류"
