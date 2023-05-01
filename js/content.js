@@ -1269,6 +1269,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           line-height: 1.5;
           color:black;
       }
+      
       .slide-checkbox {
         width: 80px;
         height: 26px;
@@ -1276,8 +1277,9 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
         margin: 20px auto;
         position: relative;
         border-radius: 50px;
-        box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.5), 0px 1px 0px rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
       }
+      
       .slide-checkbox:after {
         content: 'OFF';
         color: #000;
@@ -1286,7 +1288,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
         z-index: 0;
         font: 12px/26px Arial, sans-serif;
         font-weight: bold;
-        text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.15);
+        text-shadow: 1px 1px 0px rgba(255,255,255,.15);
       }
       .slide-checkbox:before {
         content: 'ON';
@@ -1299,24 +1301,32 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
       }
       .slide-checkbox label {
         display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      .slide-checkbox label span {
+        display: block;
         width: 34px;
         height: 20px;
-        cursor: pointer;
         position: absolute;
         top: 3px;
         left: 3px;
-        z-index: 1;
         background: #fcfff4;
         background: linear-gradient(to bottom, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
         border-radius: 50px;
         transition: all 0.4s ease;
-        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
       }
       .slide-checkbox input[type=checkbox] {
-        visibility: hidden !important;
+        visibility: hidden;
       }
-      .slide-checkbox input[type=checkbox]:checked + label {
-        left: 43px !important;
+      .slide-checkbox input[type=checkbox]:checked + label span {
+        left: 43px;
       }
       #dialog6 .my-table textarea{
         width: 100%;
@@ -1517,7 +1527,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox" name="check"  />
-                <label for="slideCheckbox"></label>
+                <label for="slideCheckbox"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1550,7 +1560,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox2" name="check"  />
-                <label for="slideCheckbox2"></label>
+                <label for="slideCheckbox2"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1583,7 +1593,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox3" name="check"  />
-                <label for="slideCheckbox3"></label>
+                <label for="slideCheckbox3"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1616,7 +1626,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox4" name="check"  />
-                <label for="slideCheckbox4"></label>
+                <label for="slideCheckbox4"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1649,7 +1659,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox5" name="check"  />
-                <label for="slideCheckbox5"></label>
+                <label for="slideCheckbox5"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1693,7 +1703,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox6" name="check"  />
-                <label for="slideCheckbox6"></label>
+                <label for="slideCheckbox6"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1726,7 +1736,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox7" name="check"  />
-                <label for="slideCheckbox7"></label>
+                <label for="slideCheckbox7"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1759,7 +1769,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox8" name="check"  />
-                <label for="slideCheckbox8"></label>
+                <label for="slideCheckbox8"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1792,7 +1802,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox9" name="check"/>
-                <label for="slideCheckbox9"></label>
+                <label for="slideCheckbox9"><span></span></label>
               </div>
             </td>
           </tr>
@@ -1825,7 +1835,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
             <td>
               <div class="slide-checkbox">  
                 <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox10" name="check"/>
-                <label for="slideCheckbox10"></label>
+                <label for="slideCheckbox10"><span></span></label>
               </div>
             </td>
           </tr>
@@ -2226,7 +2236,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           <td>
             <div class="slide-checkbox">  
               <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox11" name="check"/>
-              <label for="slideCheckbox11"></label>
+              <label for="slideCheckbox11"><span></span></label>
             </div>
           </td>
         </tr>
@@ -2252,7 +2262,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           <td>
             <div class="slide-checkbox">  
               <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox12" name="check"/>
-              <label for="slideCheckbox12"></label>
+              <label for="slideCheckbox12"><span></span></label>
             </div>
           </td>
         </tr>
@@ -2278,7 +2288,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           <td>
             <div class="slide-checkbox">  
               <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox13" name="check"/>
-              <label for="slideCheckbox13"></label>
+              <label for="slideCheckbox13"><span></span></label>
             </div>
           </td>
         </tr>
@@ -2304,7 +2314,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           <td>
             <div class="slide-checkbox">  
               <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox14" name="check"/>
-              <label for="slideCheckbox14"></label>
+              <label for="slideCheckbox14"><span></span></label>
             </div>
           </td>
         </tr>
@@ -2330,7 +2340,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           <td>
             <div class="slide-checkbox">  
               <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox15" name="check"/>
-              <label for="slideCheckbox15"></label>
+              <label for="slideCheckbox15"><span></span></label>
             </div>
           </td>
         </tr>
@@ -2463,7 +2473,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
                         <div class="slide-checkbox">
                             <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox${index}"
                                 name="check" />
-                            <label for="superSlideCheckbox${index}"></label>
+                            <label for="superSlideCheckbox${index}"><span></span></label>
                         </div>
                     </td>
                 </tr>
@@ -2738,7 +2748,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           )}</div>
           <div class="slide-checkbox" style="margin: 0 0 0 0">  
             <input type="checkbox" value="true" id="switchMenu" name="check"/>
-            <label for="switchMenu"></label>
+            <label for="switchMenu"><span></span></label>
           </div>
         </div>
       `;
