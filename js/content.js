@@ -757,7 +757,7 @@ const defaultQuickReplyMessageListKO = [
 const SuperPromptSettingsAllItems = 1500;
 
 /** 每個 super prompt settings list 的 item 數量 */
-const SuperPromptSettingsListLength = 30;
+const SuperPromptSettingsListLength = 50;
 
 let DefaultEmptySuperPromptList = [];
 
@@ -924,6 +924,13 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
     });
   }
 });
+
+function findGroupAndIndex(promptId) {
+  const groupSize = SuperPromptSettingsListLength;
+  const group = Math.floor((promptId - 1) / groupSize) + 1;
+  const order = ((promptId - 1) % groupSize) + 1;
+  return { group, order };
+}
 
 (() => {
   "use strict";
@@ -2485,7 +2492,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
                     </td>
                     <td style="width:auto">
                         <div class="center">
-                            <textarea style="width:100%" tabindex="${
+                            <textarea style="width:100%;" tabindex="${
                               index * 2 + 2
                             }" class="superPromptText" placeholder="${i18n(
                   "placeholder_supper_prompt_desc"
@@ -3866,6 +3873,9 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
       prefixInputElements[index].value = promptList[index].prefix;
       suffixInputElements[index].value = promptList[index].suffix;
       promptSlideElements[index].checked = promptList[index].isVisible;
+
+      prefixInputElements[index].style.height = '85px';
+      suffixInputElements[index].style.height = '85px';
     }
 
     currentSettingFormType === 1
@@ -3960,6 +3970,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
       superPromptSlideElements[index].checked =
         nowSuperPromptList[index].isVisible;
       superPromptIdElements[index].innerHTML = nowSuperPromptList[index].key;
+      superPromptTextElements[index].style.height = '85px';
     }
 
     if (focusElementIndex) {
@@ -4108,12 +4119,6 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
 
   editSuperPromptBtn.addEventListener("click", () => {
     superPromptDialog.style.display = "none";
-    function findGroupAndIndex(promptId) {
-      const groupSize = 30;
-      const group = Math.floor((promptId - 1) / groupSize) + 1;
-      const order = ((promptId - 1) % groupSize) + 1;
-      return { group, order };
-    }
     const { group, order } = findGroupAndIndex(superPromptId);
     showSuperPromptSettingDialog(group, order - 1);
   });
@@ -4164,8 +4169,8 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
         ".superPromptCategoryNameInput"
       );
 
-    SuperPromptCategoryListLimit.forEach((input, index) => {
-      superPromptCategoryList[index].name = input.value;
+    SuperPromptCategoryListLimit.forEach((_, index) => {
+      superPromptCategoryList[index].name = superPromptCategoryNameInputs[index].value;
     });
 
     localStorage.setItem(
@@ -4206,6 +4211,8 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
       quickReplyButtonTextElements[index].value = settings.text;
       quickReplyMessageElements[index].value = settings.quickReplyMessage;
       quickReplySlideElements[index].checked = settings.isVisible;
+
+      quickReplyMessageElements[index].style.height = '85px';
     });
 
     quickReplyButtonTextElements[0].focus();
@@ -4840,10 +4847,12 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
         return;
       }
 
+      const { group } = findGroupAndIndex(settings.key);
+  
       const button = createButton(
         `${settings.text}`,
         "warning",
-        `#${settings.key} ${settings.text}`
+        `${superPromptCategoryList[group-1].name} \n #${settings.key} ${settings.text}`
       );
 
       button.tabIndex = index + 13;
