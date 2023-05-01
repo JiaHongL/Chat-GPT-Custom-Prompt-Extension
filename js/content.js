@@ -16,6 +16,29 @@ const getUILanguage = () => {
   }
 };
 
+let tabindexElements;
+
+function disableMenuItemTabindex() {
+  tabindexElements = Array.from(
+    document.querySelector(".custom-menu").querySelectorAll("[tabindex]")
+  );
+  tabindexElements.forEach((element) => {
+    element.setAttribute(
+      "data-orig-tabindex",
+      element.getAttribute("tabindex")
+    );
+    element.setAttribute("tabindex", "-1");
+  });
+}
+
+function restoreMenuItemTabindex() {
+  tabindexElements.forEach((element) => {
+    const originalTabindex = element.getAttribute("data-orig-tabindex");
+    element.setAttribute("tabindex", originalTabindex);
+    element.removeAttribute("data-orig-tabindex");
+  });
+}
+
 // defaultPromptList 多國語系
 const defaultPromptListTW = [
   {
@@ -3013,6 +3036,19 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
           addCustomLeftMenuItem2();
           addCustomLeftMenuItem3();
         }
+
+        try {
+          const modifyAttributeElement = mutations.filter(
+            (mutations) => mutations.type === "attributes"
+          );
+          modifyAttributeElement.forEach((mutation) => {
+            if(mutation.target && mutation.target.classList.contains('dialog-wrapper')){
+              mutation.target.style.display === 'flex' ? disableMenuItemTabindex() : restoreMenuItemTabindex();
+            }
+          });
+        } catch (error) {
+          console.log("mutations error", error);
+        }
       }, 0);
     });
 
@@ -3287,6 +3323,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
     ) {
       event.preventDefault();
       showQuickReplySettingsDialog();
+      disableMenuItemTabindex();
       return;
     }
 
@@ -4774,7 +4811,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
     menuDiv.appendChild(quickReplyDiv);
 
     // 模版
-    promptList.forEach((settings,index) => {
+    promptList.forEach((settings, index) => {
       if (!settings.isVisible) {
         return;
       }
@@ -4798,7 +4835,7 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
     });
 
     // super 模版
-    superPromptList.forEach((settings,index) => {
+    superPromptList.forEach((settings, index) => {
       if (!settings.isVisible) {
         return;
       }
@@ -4885,7 +4922,6 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
     document.body.appendChild(menuDiv);
 
     controlCustomMenuTabindex();
-
   }
 
   generateButtons();
@@ -5155,22 +5191,21 @@ SuperPromptCategoryListEmptyArray.forEach((_, index) => {
     );
   }
 
-  function controlCustomMenuTabindex(){
-
+  function controlCustomMenuTabindex() {
     const allTabindexElements = [
-      document.querySelector('#customKeywordInput'),
-      ...document.querySelector('.prompt-list-area').querySelectorAll("button")
+      document.querySelector("#customKeywordInput"),
+      ...document.querySelector(".prompt-list-area").querySelectorAll("button"),
     ];
 
     const firstTabindexElement = allTabindexElements[0];
     const lastTabindexElement =
       allTabindexElements[allTabindexElements.length - 1];
 
-    document.querySelector(".custom-menu").addEventListener(
-      "keydown",
-      handleTabindex.bind(null, firstTabindexElement, lastTabindexElement)
-    );
-
+    document
+      .querySelector(".custom-menu")
+      .addEventListener(
+        "keydown",
+        handleTabindex.bind(null, firstTabindexElement, lastTabindexElement)
+      );
   }
-
 })();
