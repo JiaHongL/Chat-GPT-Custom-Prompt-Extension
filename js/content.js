@@ -3049,8 +3049,13 @@ function findGroupAndIndex(promptId) {
             (mutations) => mutations.type === "attributes"
           );
           modifyAttributeElement.forEach((mutation) => {
-            if(mutation.target && mutation.target.classList.contains('dialog-wrapper')){
-              mutation.target.style.display === 'flex' ? disableMenuItemTabindex() : restoreMenuItemTabindex();
+            if (
+              mutation.target &&
+              mutation.target.classList.contains("dialog-wrapper")
+            ) {
+              mutation.target.style.display === "flex"
+                ? disableMenuItemTabindex()
+                : restoreMenuItemTabindex();
             }
           });
         } catch (error) {
@@ -3874,8 +3879,8 @@ function findGroupAndIndex(promptId) {
       suffixInputElements[index].value = promptList[index].suffix;
       promptSlideElements[index].checked = promptList[index].isVisible;
 
-      prefixInputElements[index].style.height = '85px';
-      suffixInputElements[index].style.height = '85px';
+      prefixInputElements[index].style.height = "85px";
+      suffixInputElements[index].style.height = "85px";
     }
 
     currentSettingFormType === 1
@@ -3970,7 +3975,7 @@ function findGroupAndIndex(promptId) {
       superPromptSlideElements[index].checked =
         nowSuperPromptList[index].isVisible;
       superPromptIdElements[index].innerHTML = nowSuperPromptList[index].key;
-      superPromptTextElements[index].style.height = '85px';
+      superPromptTextElements[index].style.height = "85px";
     }
 
     if (focusElementIndex) {
@@ -4170,7 +4175,8 @@ function findGroupAndIndex(promptId) {
       );
 
     SuperPromptCategoryListLimit.forEach((_, index) => {
-      superPromptCategoryList[index].name = superPromptCategoryNameInputs[index].value;
+      superPromptCategoryList[index].name =
+        superPromptCategoryNameInputs[index].value;
     });
 
     localStorage.setItem(
@@ -4212,7 +4218,7 @@ function findGroupAndIndex(promptId) {
       quickReplyMessageElements[index].value = settings.quickReplyMessage;
       quickReplySlideElements[index].checked = settings.isVisible;
 
-      quickReplyMessageElements[index].style.height = '85px';
+      quickReplyMessageElements[index].style.height = "85px";
     });
 
     quickReplyButtonTextElements[0].focus();
@@ -4804,6 +4810,7 @@ function findGroupAndIndex(promptId) {
             customTemplateButton.style.display = "none";
           }
         });
+        controlCustomMenuTabindex();
       }, 300);
     });
 
@@ -4848,11 +4855,13 @@ function findGroupAndIndex(promptId) {
       }
 
       const { group } = findGroupAndIndex(settings.key);
-  
+
       const button = createButton(
         `${settings.text}`,
         "warning",
-        `${superPromptCategoryList[group-1].name} \n #${settings.key} ${settings.text}`
+        `${superPromptCategoryList[group - 1].name} \n #${settings.key} ${
+          settings.text
+        }`
       );
 
       button.tabIndex = index + 13;
@@ -5200,21 +5209,36 @@ function findGroupAndIndex(promptId) {
     );
   }
 
+  var controlCustomMenuTabindexHandler = null;
+
   function controlCustomMenuTabindex() {
-    const allTabindexElements = [
+    let allTabindexElements = [
       document.querySelector("#customKeywordInput"),
       ...document.querySelector(".prompt-list-area").querySelectorAll("button"),
     ];
+
+    allTabindexElements = allTabindexElements.filter(
+      (element) => element.style.display !== "none"
+    );
 
     const firstTabindexElement = allTabindexElements[0];
     const lastTabindexElement =
       allTabindexElements[allTabindexElements.length - 1];
 
+    if (controlCustomMenuTabindexHandler) {
+      document
+        .querySelector(".custom-menu")
+        .removeEventListener("keydown", controlCustomMenuTabindexHandler);
+    }
+
+    controlCustomMenuTabindexHandler = handleTabindex.bind(
+      null,
+      firstTabindexElement,
+      lastTabindexElement
+    );
+
     document
       .querySelector(".custom-menu")
-      .addEventListener(
-        "keydown",
-        handleTabindex.bind(null, firstTabindexElement, lastTabindexElement)
-      );
+      .addEventListener("keydown", controlCustomMenuTabindexHandler);
   }
 })();
