@@ -762,7 +762,7 @@ const SuperPromptSettingsListLength = 50;
 let DefaultEmptySuperPromptList = [];
 
 Array.from({ length: SuperPromptSettingsAllItems }).forEach((_, index) => {
-  if (index > 1) {
+  if (index > 2) {
     DefaultEmptySuperPromptList.push({
       key: index + 1,
       text: "SuperPrompt" + (index + 1),
@@ -777,6 +777,15 @@ Array.from({ length: SuperPromptSettingsAllItems }).forEach((_, index) => {
 let defaultSuperPromptListTW = [
   {
     key: 1,
+    text: "Prompt 產生器",
+    prompt:
+      "扮演 GPT-3.5 的提示產生器。 我將陳述我想要的內容，您將設計一個提示，以產生 GPT-3.5 的最佳和最理想的響應。 每個提示都應涉及要求 GPT-3.5 '扮演[角色]'，例如，'扮演律師'。 提示應該詳細而全面，並且應該建立在我要求的基礎上，以便從 GPT-3.5 產生盡可能好的回應。 您必須考慮並應用可以產生良好的上下文回應的良好提示。 不要只是重複我的請求，改進和構建我的請求，以便最終提示將產生 GPT-3.5 中最好、最有用和最有利的回應。 這是我想要的提示：'{{需求}}'",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 2,
     text: "撰寫宣傳文章",
     prompt:
       "你現在是一位 {{ 角色 || 行銷人員 }} ，幫我想出介紹 {{ 物品 }} 的宣傳文，字數限制 {{ 字數 || 300 }} 字。",
@@ -785,7 +794,7 @@ let defaultSuperPromptListTW = [
     isVisible: true,
   },
   {
-    key: 2,
+    key: 3,
     text: "多國語系翻譯",
     prompt:
       "你現在是一位翻譯專家，請幫我翻譯 [ {{ 翻譯的文字 }} ] 的 {{ 語言 || 繁體中文、簡體中文、英文、日語、韓語 }}，並請使用表格顯示，表頭分別為 {{ 表頭 || zh-tw、zh-cn、en、ja、ko }}，不需要其他解釋或說明。",
@@ -802,6 +811,15 @@ defaultSuperPromptListTW = [
 let defaultSuperPromptListJA = [
   {
     key: 1,
+    text: "プロンプトジェネレーター",
+    prompt:
+      "GPT-3.5 ヒントジェネレーターを演じます。 私は要求された内容を述べ、GPT-3.5の最適で理想的な応答を生成するヒントを設計します。各ヒントは、'扮演[役割]'、たとえば'扮演弁護士'のように、GPT-3.5に要求を含める必要があります。ヒントは、詳細かつ包括的で、私の要求に基づいて構築される必要があります。これにより、最良かつ最も有用な上下文応答を生成できます。私の要求を単に繰り返すのではなく、改善し構築することで、最終的なヒントがGPT-3.5で最も優れ、最も有用、最も有利な応答を生成できるようにしてください。これが私が求めるヒントです：'{{要求内容}}'",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 2,
     text: "宣伝記事を書く",
     prompt:
       "現在、{{ 役割 || マーケター }} として、{{ 商品 }} の紹介文を {{ 文字数 || 300 }} 文字以内で考えてください",
@@ -810,7 +828,7 @@ let defaultSuperPromptListJA = [
     isVisible: true,
   },
   {
-    key: 2,
+    key: 3,
     text: "多言語翻訳",
     prompt:
       "翻訳の専門家として、[{{ 翻訳するテキスト }}]を {{ 言語 || 繁体字中国語、簡体字中国語、英語、日本語、韓国語 }} に翻訳して、表のヘッダーが {{ ヘッダー || zh-tw、zh-cn、en、ja、ko }} である表を使用して表示してください。その他の説明や説明は必要ありません。",
@@ -827,6 +845,15 @@ defaultSuperPromptListJA = [
 let defaultSuperPromptListEN = [
   {
     key: 1,
+    text: "Prompt generator",
+    prompt:
+      "Act as a prompt generator for GPT-3. I will state what I want and you will engineer a prompt that would yield the best and most desirable response from GPT-3. Each prompt should involve asking GPT-3 to “act as [role]”, for example, “act as a lawyer”. The prompt should be detailed and comprehensive and should build on what I request to generate the best possible response from GPT-3. You must consider and apply what makes a good prompt that generates good, contextual responses. Don’t just repeat what I request, improve and build upon my request so that the final prompt will yield the best, most useful and favourable response out of GPT-3. Here is the prompt I want: '{{describe}}'",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 2,
     text: "Write a article",
     prompt:
       "You are a {{ role || marketer }} now. Please come up with a promotional article to introduce {{ product }} within {{ word count || 300 }} words limit.",
@@ -835,7 +862,7 @@ let defaultSuperPromptListEN = [
     isVisible: true,
   },
   {
-    key: 2,
+    key: 3,
     text: "Multi Translation",
     prompt:
       "You are a translation expert. Please help me translate [{{text to translate}}] into {{ language || Traditional Chinese, Simplified Chinese, English, Japanese, Korean }}, and display the results in a table with headers as {{ headers || zh-tw, zh-cn, en, ja, ko }}. No additional explanation or clarification is needed.",
@@ -852,6 +879,15 @@ defaultSuperPromptListEN = [
 let defaultSuperPromptListCN = [
   {
     key: 1,
+    text: "提示生成器",
+    prompt:
+      "扮演 GPT-3.5 的提示生成器。我将陈述我想要的内容，您将设计一个提示，以产生 GPT-3.5 的最佳和最理想的响应。每个提示都应涉及要求 GPT-3.5 '扮演[角色]'，例如，'扮演律师'。提示应该详细而全面，并且应该建立在我要求的基础上，以便从 GPT-3.5 产生尽可能好的回应。您必须考虑并应用可以产生良好的上下文响应的良好提示。不要只是重复我的请求，改进和构建我的请求，以便最终提示将产生 GPT-3.5 中最好、最有用和最有利的响应。这是我想要的提示：'{{需求}}'",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 2,
     text: "撰写宣传文章",
     prompt:
       "你现在是 {{ 角色 || 销售人员 }}，请为我想出一篇介绍 {{ 物品 }} 的宣传文，字数限制为 {{ 字数 || 300 }} 字。",
@@ -860,7 +896,7 @@ let defaultSuperPromptListCN = [
     isVisible: true,
   },
   {
-    key: 2,
+    key: 3,
     text: "多语言翻译",
     prompt:
       "你现在是一名翻译专家，请帮我翻译[ {{ 翻译的文字 }} ]的 {{ 语言 || 繁体中文、简体中文、英文、日语、韩语 }} 版本，并使用表格显示，表头分别为 {{ 表头 || zh-tw、zh-cn、en、ja、ko }}，无需其他解释或说明。",
@@ -877,6 +913,15 @@ defaultSuperPromptListCN = [
 let defaultSuperPromptListKO = [
   {
     key: 1,
+    text: "프롬프트 생성기",
+    prompt:
+      "GPT-3.5 팁 생성기를 연기하십시오. 내가 원하는 내용을 설명하면, 최상의 GPT-3.5 응답을 생성하기 위해 팁을 디자인합니다. 각 팁은 GPT-3.5이 '[역할]을 연기하도록 요청'하는 것과 관련되어야합니다. 예 : '변호사 역할 연기'. 팁은 자세하고 포괄적이어야하며, 요청 내용을 기반으로 구축되어 GPT-3.5에서 가능한 최상의 응답을 생성하기 위해 적절한 팁을 적용해야합니다. 단순히 요청 내용을 반복하지 말고 요청을 개선하고 구축하여 최종 팁이 GPT-3.5에서 최상의, 가장 유용하고 유익한 응답을 생성하도록합니다. 이것은 내가 원하는 팁입니다 : '{{요구사항}}'",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 2,
     text: "홍보 기사 작성",
     prompt:
       "당신은 {{ 역할 || 판매원 }} 입니다. {{ 제품 }} 을 소개하는 홍보 기사를 {{ 글자 수 || 300 }} 자 이내로 작성해주세요.",
@@ -885,7 +930,7 @@ let defaultSuperPromptListKO = [
     isVisible: true,
   },
   {
-    key: 2,
+    key: 3,
     text: "다국어 번역",
     prompt:
       "당신은 현재 번역 전문가입니다. [ {{ 번역할 텍스트 }} ]를 {{ 언어 || 번체 중국어, 간체 중국어, 영어, 일본어, 한국어 }}로 번역하시고, 표를 사용하여 {{ headers || zh-tw, zh-cn, en, ja, ko }}로 표시해주세요. 추가 설명이나 지시 사항은 필요하지 않습니다.",
@@ -907,7 +952,7 @@ SuperPromptCategoryListEmptyArray = Array.from({
 });
 
 /** 當前最大分類數量限制 */
-SuperPromptCategoryListLimit = Array.from({ length: 8 });
+SuperPromptCategoryListLimit = Array.from({ length: 20 });
 
 let defaultSuperPromptCategoryList = [];
 
@@ -989,19 +1034,25 @@ function findGroupAndIndex(promptId) {
         position: fixed;
         top:15px;
         right:0;
-        padding-right:4px;
         z-index: 1000;
         height:90vh;
         overflow-y: hidden;
         overflow-x: hidden;
         box-sizing: content-box;
         width:160px;
+        padding:6px;
+        background:rgba(0, 0, 0, 0.5);
+        border-radius:10px;
+        margin-right:5px;
         
         display:flex;
         flex-direction:column;
 
         transition: transform 0.3s ease-in-out;
         transform: translateX(0);
+      }
+      .dark .custom-menu {
+        background:gray;
       }
       .hidden-template-buttons .custom-menu{
         transform: translateX(200px);
@@ -1043,7 +1094,6 @@ function findGroupAndIndex(promptId) {
       
       .custom-menu .search-box{
         flex:0 0 30px;
-        padding-right:10px;
         margin-bottom:5px;
       }
       .custom-menu .search-box .custom-keyword-input {
@@ -1067,8 +1117,13 @@ function findGroupAndIndex(promptId) {
         font-size:16px;
       }
       .custom-menu .prompt-list-area{
-        flex:0 1 auto;
+        flex:1 1 auto;
         overflow-y: auto;
+      }
+      .custom-menu .prompt-list-area::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background-color: transparent;
       }
       .custom-menu .quick-reply-area{
         margin-top:5px;
@@ -1137,6 +1192,10 @@ function findGroupAndIndex(promptId) {
         position: absolute;
         left: 0;
       }
+      .footer #dialog-edit {
+        position: absolute;
+        left: 0;
+      }
       button.primary {
           background-color: #9a8e81;
           color: #fff;
@@ -1158,7 +1217,7 @@ function findGroupAndIndex(promptId) {
           color: #fff;
       }
       button.light{
-        background-color: #d1d5db;
+        background-color: #9ca3af;
         color: white;
       }
       .dark button.light{
@@ -1486,7 +1545,15 @@ function findGroupAndIndex(promptId) {
       .dark .super-prompt-id{
         color: #d1d5db !important;
         font-size:16px;
-      }      
+      }   
+      .super-prompt-category-name-list{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* 每列 5 個欄位 */
+        grid-gap: 10px; /* 欄位間的間距 */
+        width:100%;
+        margin-bottom:10px;
+      }   
+      .super-prompt-category-name-list input{ margin:0px;}
       `;
 
   // 插入 style
@@ -1502,11 +1569,14 @@ function findGroupAndIndex(promptId) {
               <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="${i18n(
                 "placeholder_prompt_textarea"
               )}"></textarea>
-              <div class="center">
-                  <button id="dialog-ok" class="primary" tabindex="2">${i18n(
+              <div class="footer center">
+                  <button id="dialog-edit" class="info" tabindex="2">${i18n(
+                    "button_edit"
+                  )}</button>
+                  <button id="dialog-ok" class="primary" tabindex="3">${i18n(
                     "button_send"
                   )} ( ${mainKeyText} + s )</button>
-                  <button id="dialog-cancel" class="secondary" tabindex="3">${i18n(
+                  <button id="dialog-cancel" class="secondary" tabindex="4">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
               </div>
@@ -2550,11 +2620,6 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="buy-me-a-coffee">
-          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-          </a>
-        </div>
       </div>
     </div>
   </div>  
@@ -2563,8 +2628,8 @@ function findGroupAndIndex(promptId) {
   // 超級樣板分類名稱 設定 HTML
   const superPromptCategoryNameSettingHTML = `
   <div id="dialog8" class="dialog-wrapper" style="display:none">
-    <div class="dialog" style="max-width: 350px;">
-      <div id="superPromptCategoryNameList" style="width:100%;margin-bottom:10px;text-align:center;"></div>
+    <div class="dialog" style="max-width: 1200px;">
+      <div id="superPromptCategoryNameList" class="super-prompt-category-name-list"></div>
       <div class="footer" class="center">
         <button tabindex="99" id="dialog8-ok" class="primary">${i18n(
           "button_send"
@@ -2572,6 +2637,11 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog8-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
+        <div class="buy-me-a-coffee">
+          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+          </a>
+        </div>
       </div>
     </div>
   </div>  
@@ -2626,7 +2696,9 @@ function findGroupAndIndex(promptId) {
   const questionDialogTextarea = document.querySelector("#dialog-textarea");
   const questionDialogOkBtn = document.querySelector("#dialog-ok");
   const questionDialogCancelBtn = document.querySelector("#dialog-cancel");
+  const questionDialogEditBtn = document.querySelector("#dialog-edit");
 
+  let questionId = "";
   let prefix = "";
   let suffix = "";
 
@@ -2978,15 +3050,15 @@ function findGroupAndIndex(promptId) {
           <svg style="height:16px;width:16px;margin-right: 12px;fill: white;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z"/></svg>
             <div>${i18n("nav_item_super_prompt_template")}</div>
           </div>
-          <div class="chatgpt-dropdown-content">
+          <div class="chatgpt-dropdown-content" style="max-height:400px;overflow:auto">
+            <a class="custom-menu-item"> ✏️ ${i18n(
+              "menu_custom_super_prompt_category"
+            )}</a>
             ${SuperPromptCategoryListLimit.map(
               (_, index) => `
                 <a class="custom-menu-item" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${superPromptCategoryList[index].name}</a>
               `
             ).join("")}
-            <a class="custom-menu-item"> ${i18n(
-              "menu_custom_super_prompt_category"
-            )}</a>
           </div>
         </div>
       `;
@@ -3005,15 +3077,7 @@ function findGroupAndIndex(promptId) {
         chatgptDropdownContentEl.classList.add("show");
       });
 
-      SuperPromptCategoryListLimit.forEach((_, index) => {
-        menuItems[index].addEventListener("click", (event) => {
-          event.stopPropagation();
-          chatgptDropdownContentEl.classList.remove("show");
-          showSuperPromptSettingDialog(index + 1);
-        });
-      });
-
-      menuItems[SuperPromptCategoryListLimit.length].addEventListener(
+      menuItems[0].addEventListener(
         "click",
         (event) => {
           event.stopPropagation();
@@ -3021,6 +3085,15 @@ function findGroupAndIndex(promptId) {
           showSuperPromptCategoryNameSettingsDialog();
         }
       );
+
+      SuperPromptCategoryListLimit.forEach((_, index) => {
+        menuItems[index+1].addEventListener("click", (event) => {
+          event.stopPropagation();
+          chatgptDropdownContentEl.classList.remove("show");
+          showSuperPromptSettingDialog(index + 1);
+        });
+      });
+
     } catch (error) {
       console.log(error);
     }
@@ -3100,21 +3173,6 @@ function findGroupAndIndex(promptId) {
       localStorage.setItem(
         "Custom.Settings.SuperPrompt",
         JSON.stringify(defaultSuperPromptList)
-      );
-    }
-
-    // 如果是 0.9.0 版本的話，SuperPrompt 只會有10個
-    if (
-      JSON.parse(localStorage.getItem("Custom.Settings.SuperPrompt")).length ===
-      10
-    ) {
-      let migrateSuperPrompt = [
-        ...defaultSuperPromptList,
-        JSON.parse(localStorage.getItem("Custom.Settings.SuperPrompt")),
-      ];
-      localStorage.setItem(
-        "Custom.Settings.SuperPrompt",
-        JSON.stringify(migrateSuperPrompt)
       );
     }
 
@@ -3200,6 +3258,22 @@ function findGroupAndIndex(promptId) {
 
   // ------------ shortcutKey event handle ------------
   document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape" || event.code === "Escape") {
+      const chatgptDropdownContentElements = document.querySelectorAll(
+        ".chatgpt-dropdown-content"
+      );
+      chatgptDropdownContentElements.forEach((chatgptDropdownContentElement) => {
+        if (
+          !chatgptDropdownContentElement.contains(event.target) &&
+          !chatgptDropdownContentElement.contains(event.target) &&
+          chatgptDropdownContentElement.classList.contains("show")
+        ) {
+          chatgptDropdownContentElement.classList.remove("show");
+        }
+      });
+    }
+    
     // z 或 mainKey : 關閉 快捷鍵視窗
     if (
       (shortcutKeyHintDialog.style.display === "flex" &&
@@ -3783,7 +3857,14 @@ function findGroupAndIndex(promptId) {
     sendMessage(message);
   }
 
-  questionDialogTextarea.addEventListener("keydown", function (event) {
+  questionDialogEditBtn.addEventListener("click", () => {
+    const groupSize = 5;
+    const group = Math.floor((questionId - 1) / groupSize) + 1;
+    questionDialog.style.display = 'none';
+    showSettingsDialog(group, questionId - 1);
+  });
+
+  questionDialogTextarea.addEventListener("keydown", (event) => {
     // prevent submitting blank on enter
     if (
       event.key === "Enter" &&
@@ -3831,6 +3912,8 @@ function findGroupAndIndex(promptId) {
   // prompt 視窗
   function showQuestionDialog() {
     const innerHTML =
+      "#" +
+      questionId +
       prefix.replace(/\n/g, "<br>") +
       " {{ $input }} " +
       suffix.replace(/\n/g, "<br>");
@@ -3844,7 +3927,7 @@ function findGroupAndIndex(promptId) {
   }
 
   // ------------ 設定視窗相關 程式碼 ------------
-  function showSettingsDialog(formType) {
+  function showSettingsDialog(formType, focusElementIndex = null) {
     currentSettingFormType = formType;
 
     settingsDialog.style.display = "flex";
@@ -3883,9 +3966,13 @@ function findGroupAndIndex(promptId) {
       suffixInputElements[index].style.height = "85px";
     }
 
-    currentSettingFormType === 1
-      ? btnTextInputElements[0].focus()
-      : btnTextInputElements[5].focus();
+    if (focusElementIndex) {
+      btnTextInputElements[focusElementIndex].focus();
+    } else {
+      currentSettingFormType === 1
+        ? btnTextInputElements[0].focus()
+        : btnTextInputElements[5].focus();
+    }
   }
 
   function saveSittings() {
@@ -4734,20 +4821,8 @@ function findGroupAndIndex(promptId) {
     isCollapseButton = false
   ) {
     let fontSize = "1rem";
-    let width = "152px";
+    let width = "100%";
     let padding = "3px 10px";
-
-    if (getUILanguage() === "en-US") {
-      fontSize = "0.92rem";
-      width = "160px";
-      padding = "3px 6px";
-    }
-
-    if (getUILanguage() === "ja") {
-      fontSize = "0.95rem";
-      width = "156px";
-      padding = "3px 6px";
-    }
 
     const button = document.createElement("button");
     button.classList.add(btnColorClass, "custom-template-buttons");
@@ -4767,6 +4842,7 @@ function findGroupAndIndex(promptId) {
     button.style.textOverflow = "ellipsis";
 
     if (isCollapseButton) {
+      button.style.margin = "0 0 0 0";
       button.classList.add("menu-collapse-button");
       button.innerHTML =
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"/></svg>';
@@ -4788,7 +4864,7 @@ function findGroupAndIndex(promptId) {
     // search
     const searchBoxDiv = document.createElement("div");
     searchBoxDiv.classList.add("search-box");
-    searchBoxDiv.innerHTML = `<input tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="keyword or #id">`;
+    searchBoxDiv.innerHTML = `<input style="width:100%" tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="keyword or #id">`;
 
     let timerId;
     const inputBox = searchBoxDiv.querySelector("#customKeywordInput");
@@ -4830,13 +4906,14 @@ function findGroupAndIndex(promptId) {
         return;
       }
 
-      const button = createButton(`${settings.key}. ${settings.text}`);
+      const button = createButton(`${settings.text}`);
 
       button.tabIndex = index + 2;
 
       const handleClick = () => {
         prefix = settings.prefix;
         suffix = settings.suffix;
+        questionId = settings.key;
         showQuestionDialog();
       };
 
@@ -4880,19 +4957,9 @@ function findGroupAndIndex(promptId) {
       promptListDiv.appendChild(button);
     });
 
-    // 繼續 按鈕
-    const filteredContinueButton = Array.from(
-      document.querySelectorAll(".custom-template-buttons")
-    ).filter((element) => {
-      return element.textContent === `C. ${i18n("menu_item_continue")}`;
-    });
-
-    if (filteredContinueButton.length) {
-      filteredContinueButton[0].remove();
-    }
-
+    // 繼續
     const continueButton = createButton(
-      `C. ${i18n("menu_item_continue")}`,
+      `${i18n("menu_item_continue")}`,
       "info"
     );
 
@@ -4908,7 +4975,7 @@ function findGroupAndIndex(promptId) {
         return;
       }
 
-      const button = createButton(`${settings.key}. ${settings.text}`, "info");
+      const button = createButton(`${settings.text}`, "info");
 
       const handleClick = () => {
         if (settings.quickReplyMessage.trim()) {
