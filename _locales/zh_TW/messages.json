@@ -3,7 +3,7 @@
     "message": "ChatGPT 提問助手"
   },
   "extension_description": {
-    "message": "此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本、快速回覆文字，以及方便的快捷鍵功能。"
+    "message": "此工具能夠幫助您更有效率地與 ChatGPT 進行對話，並提供了多種問題範本、快速回覆文字，還有最新推出的超級樣板，以及方便的快捷鍵功能。"
   },
   "button_edit": {
     "message": "編輯"
