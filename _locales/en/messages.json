@@ -56,6 +56,9 @@
   "menu_item_continue": {
     "message": "Continue"
   },
+  "menu_item_download_html": {
+    "message": "Download the Page"
+  },
   "menu_prompt_template_settings": {
     "message": "Prompt Settings"
   },

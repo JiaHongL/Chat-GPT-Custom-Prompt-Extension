@@ -56,6 +56,9 @@
   "menu_item_continue": {
     "message": "繼續"
   },
+  "menu_item_download_html": {
+    "message": "📥 下載當前對話"
+  },
   "menu_prompt_template_settings": {
     "message": "提問樣板 設定"
   },

@@ -56,6 +56,9 @@
   "menu_item_continue": {
     "message": "続ける"
   },
+  "menu_item_download_html": {
+    "message": "📥 現在の会話"
+  },
   "menu_prompt_template_settings": {
     "message": "プロンプト設定"
   },

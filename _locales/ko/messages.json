@@ -56,6 +56,9 @@
   "menu_item_continue": {
     "message": "계속"
   },
+  "menu_item_download_html": {
+    "message": "📥 대화 내용 다운로드"
+  },
   "menu_prompt_template_settings": {
     "message": "질문 템플릿 설정"
   },

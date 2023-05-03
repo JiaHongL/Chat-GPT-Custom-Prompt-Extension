@@ -32,11 +32,60 @@ function disableMenuItemTabindex() {
 }
 
 function restoreMenuItemTabindex() {
-  tabindexElements.forEach((element) => {
+  tabindexElements?.forEach((element) => {
     const originalTabindex = element.getAttribute("data-orig-tabindex");
     element.setAttribute("tabindex", originalTabindex);
     element.removeAttribute("data-orig-tabindex");
   });
+}
+
+function downloadHtml() {
+  const container =
+    document.querySelector("main")?.children[0].children[0].children[0];
+  const clonedContainer = container.cloneNode(true);
+  const avatarList = clonedContainer.querySelectorAll("img.rounded-sm");
+  const buttons = clonedContainer.querySelectorAll("button");
+
+  avatarList.forEach((avatar) => {
+    const originalElement = avatar;
+    const newElement = document.createElement("div");
+    newElement.innerHTML =
+      '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>';
+    const parentElement = originalElement.parentNode;
+    while (parentElement.firstChild) {
+      parentElement.removeChild(parentElement.firstChild);
+    }
+    parentElement.appendChild(newElement);
+  });
+
+  buttons.forEach((button) => {
+    button.remove();
+  });
+
+  const html = clonedContainer.outerHTML;
+  const styles = Array.from(document.styleSheets)
+    .filter(
+      (styleSheet) =>
+        !styleSheet.href ||
+        styleSheet.href.startsWith(window.location.origin)
+    )
+    .map((styleSheet) =>
+      Array.from(styleSheet.cssRules)
+        .map((rule) => rule.cssText)
+        .join("\n")
+    )
+    .join("\n");
+  const blob = new Blob(
+    [
+      `<!DOCTYPE html>\n<html>\n<head>\n<style>\n${styles}\n</style>\n</head>\n<body>\n${html}\n</body>\n</html>`,
+    ],
+    { type: "text/html" }
+  );
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = document.title + ".html";
+  document.body.appendChild(a);
+  a.click();
 }
 
 // defaultPromptList 多國語系
@@ -1032,15 +1081,15 @@ function findGroupAndIndex(promptId) {
   const styles = `
       .custom-menu {
         position: fixed;
-        top:15px;
+        top:10px;
         right:0;
         z-index: 1000;
-        height:90vh;
+        height:95vh;
         overflow-y: hidden;
         overflow-x: hidden;
         box-sizing: content-box;
         width:160px;
-        padding:6px;
+        padding:5px;
         background:rgba(0, 0, 0, 0.5);
         border-radius:10px;
         margin-right:5px;
@@ -1145,7 +1194,7 @@ function findGroupAndIndex(promptId) {
           background-color: #fff;
           border-radius: 5px;
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          padding: 20px;
+          padding: 20px 20px 0px 20px;
           width: 100%;
       }
       .dialog #questionPreviewArea {
@@ -1163,7 +1212,6 @@ function findGroupAndIndex(promptId) {
           line-height: 1.5;
           resize: vertical;
           margin-top: 20px;
-          margin-bottom: 20px;
           color:black;
       }
       .quickReplyMessage{
@@ -1183,6 +1231,7 @@ function findGroupAndIndex(promptId) {
           display: flex;
           justify-content: center;
           align-items: center;
+          padding:20px 0px;
       }
       .footer .buy-me-a-coffee {
         position: absolute;
@@ -1252,7 +1301,6 @@ function findGroupAndIndex(promptId) {
       .my-table {
           width: 100%;
           border-collapse: collapse;
-          margin: 20px 0;
       }
       .my-table th, td {
           border: 1px solid #ccc;
@@ -1427,7 +1475,7 @@ function findGroupAndIndex(promptId) {
         color:black;
       }
       .super-prompt-preview-area{
-        max-height:100px;
+        max-height:160px;
         overflow:auto;
         font-size: 18px;
       }
@@ -1435,7 +1483,6 @@ function findGroupAndIndex(promptId) {
         max-height:500px;
         overflow:auto;
         font-size: 18px;
-        margin-bottom:20px;
       }
       .super-prompt-table-wrapper .fieldItem{
         padding-bottom:8px;
@@ -1564,7 +1611,7 @@ function findGroupAndIndex(promptId) {
   // 提問視窗 HTML
   const dialogHTML = `
       <div id="dialog" class="dialog-wrapper" style="display;none">
-          <div class="dialog" style="max-width: 965px;">
+          <div class="dialog" style="max-width: 1100px;">
               <div id="questionPreviewArea"></div>
               <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="${i18n(
                 "placeholder_prompt_textarea"
@@ -1951,7 +1998,7 @@ function findGroupAndIndex(promptId) {
           )} ( esc ) </button>
           <div class="buy-me-a-coffee">
             <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
             </a>
           </div>
         </div>
@@ -2456,7 +2503,7 @@ function findGroupAndIndex(promptId) {
         )} ( esc ) </button>
         <div class="buy-me-a-coffee">
           <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
           </a>
         </div>
       </div>
@@ -2517,7 +2564,7 @@ function findGroupAndIndex(promptId) {
           )} ( esc ) </button>
           <div class="buy-me-a-coffee">
             <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
             </a>
           </div>
         </div>
@@ -2593,7 +2640,7 @@ function findGroupAndIndex(promptId) {
             <div class="buy-me-a-coffee">
                 <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
                     <img style="scale: 0.9;"
-                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
                 </a>
             </div>
         </div>
@@ -2604,7 +2651,7 @@ function findGroupAndIndex(promptId) {
   // 超級樣板 HTML
   const superPromptHTML = `
   <div id="dialog7" class="dialog-wrapper" style="display:none">
-    <div class="dialog" style="max-width: 965px;">
+    <div class="dialog" style="max-width: 1100px;">
       <div class="super-prompt-preview-area" id="superPromptPreviewArea"></div>
       <div class="super-prompt-table-wrapper">
         <div id="superPromptTable" class="my-table super-prompt-table" style="width:100%">
@@ -2639,7 +2686,7 @@ function findGroupAndIndex(promptId) {
         )} ( esc ) </button>
         <div class="buy-me-a-coffee">
           <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
           </a>
         </div>
       </div>
@@ -2750,6 +2797,7 @@ function findGroupAndIndex(promptId) {
 
   let superPrompt = "";
   let superPromptId = "";
+  let superPromptName = "";
 
   // superPromptCategoryNameSettings
   const superPromptCategoryNameSettingsDialog =
@@ -2918,9 +2966,6 @@ function findGroupAndIndex(promptId) {
               "menu_reply_message_settings"
             )}</a>
             <a class="custom-menu-item">G. ${i18n("menu_import_export")}</a>
-            <a class="custom-menu-item">
-              <span>${i18n("nav_item_download_message_html")}</span>
-            </a>
           </div>
         </div>
       `;
@@ -2964,60 +3009,6 @@ function findGroupAndIndex(promptId) {
         openExportAndImportDialog();
       });
 
-      menuItems[4].addEventListener("click", (event) => {
-        event.stopPropagation();
-        chatgptDropdownContentEl.classList.remove("show");
-        downloadHtml();
-      });
-
-      function downloadHtml() {
-        const container =
-          document.querySelector("main")?.children[0].children[0].children[0];
-        const clonedContainer = container.cloneNode(true);
-        const avatarList = clonedContainer.querySelectorAll("img.rounded-sm");
-        const buttons = clonedContainer.querySelectorAll("button");
-
-        avatarList.forEach((avatar) => {
-          const originalElement = avatar;
-          const newElement = document.createElement("div");
-          newElement.innerHTML =
-            '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>';
-          const parentElement = originalElement.parentNode;
-          while (parentElement.firstChild) {
-            parentElement.removeChild(parentElement.firstChild);
-          }
-          parentElement.appendChild(newElement);
-        });
-
-        buttons.forEach((button) => {
-          button.remove();
-        });
-
-        const html = clonedContainer.outerHTML;
-        const styles = Array.from(document.styleSheets)
-          .filter(
-            (styleSheet) =>
-              !styleSheet.href ||
-              styleSheet.href.startsWith(window.location.origin)
-          )
-          .map((styleSheet) =>
-            Array.from(styleSheet.cssRules)
-              .map((rule) => rule.cssText)
-              .join("\n")
-          )
-          .join("\n");
-        const blob = new Blob(
-          [
-            `<!DOCTYPE html>\n<html>\n<head>\n<style>\n${styles}\n</style>\n</head>\n<body>\n${html}\n</body>\n</html>`,
-          ],
-          { type: "text/html" }
-        );
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = document.title + ".html";
-        document.body.appendChild(a);
-        a.click();
-      }
     } catch (error) {
       console.log(error);
     }
@@ -3074,6 +3065,7 @@ function findGroupAndIndex(promptId) {
 
       customATagEl.addEventListener("click", (event) => {
         event.stopPropagation();
+        chatgptDropdownContentEl.scrollIntoView();
         chatgptDropdownContentEl.classList.add("show");
       });
 
@@ -3912,8 +3904,6 @@ function findGroupAndIndex(promptId) {
   // prompt 視窗
   function showQuestionDialog() {
     const innerHTML =
-      "#" +
-      questionId +
       prefix.replace(/\n/g, "<br>") +
       " {{ $input }} " +
       suffix.replace(/\n/g, "<br>");
@@ -4143,7 +4133,7 @@ function findGroupAndIndex(promptId) {
 
     const innerHTML = superPrompt.replace(/\n/g, "<br>");
 
-    superPromptPreviewAreaDiv.innerHTML = "#" + superPromptId + " " + innerHTML;
+    superPromptPreviewAreaDiv.innerHTML = `#${superPromptId} ${superPromptName} <br><br>` + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{(.*?)}}/g);
@@ -4175,6 +4165,57 @@ function findGroupAndIndex(promptId) {
     });
 
     table.innerHTML += htmlStr;
+
+    // 只有一個的時候，行為模式跟一般 prompt 一樣
+    if(table.querySelectorAll('.superPromptText').length === 1){
+
+      const textarea = table.querySelectorAll('.superPromptText')[0];
+
+      textarea.style = "width:100%;height:380px;"
+      textarea.placeholder = i18n('placeholder_prompt_textarea');
+
+      textarea.addEventListener("keydown", (event) => {
+        // prevent submitting blank on enter
+        if (
+          event.key === "Enter" &&
+          !event.shiftKey &&
+          textarea.value.trim() === ""
+        ) {
+          event.preventDefault();
+          return;
+        }
+    
+        // enter : send
+        if (
+          !isComposing &&
+          !event.shiftKey &&
+          document.activeElement === textarea &&
+          event.key === "Enter"
+        ) {
+          sendSuperPrompt();
+          return;
+        }
+    
+        // esc : close
+        if (
+          !isComposing &&
+          event.target !== document.activeElement &&
+          event.key === "Escape"
+        ) {
+          superPromptDialog.style.display = "none";
+          return;
+        }
+      });
+
+    }
+
+    // 如果只有兩個，高度再加大一些
+    if(table.querySelectorAll('.superPromptText').length === 2){
+      const textareaElements = table.querySelectorAll('.superPromptText');
+      textareaElements.forEach((textarea)=>{
+        textarea.style = "width:100%;height:165px;"
+      });
+    }
 
     addCompositionEventListener(".superPromptText");
 
@@ -4890,6 +4931,10 @@ function findGroupAndIndex(promptId) {
       }, 300);
     });
 
+    inputBox.addEventListener('focus', (event)=> {
+      restoreMenuItemTabindex();
+    });
+
     const promptListDiv = document.createElement("div");
     promptListDiv.classList.add("prompt-list-area");
 
@@ -4945,6 +4990,7 @@ function findGroupAndIndex(promptId) {
 
       const handleClick = () => {
         superPromptId = settings.key;
+        superPromptName = settings.text;
         superPrompt = settings.prompt;
         showSuperPromptDialog();
       };
@@ -4990,6 +5036,13 @@ function findGroupAndIndex(promptId) {
 
       quickReplyDiv.appendChild(button);
     });
+
+    // 下載
+    const downloadHtmlButton = createButton(i18n('menu_item_download_html'), "secondary", "");
+    downloadHtmlButton.addEventListener("click", () => {
+      downloadHtml();
+    });
+    quickReplyDiv.appendChild(downloadHtmlButton);
 
     // 收合按鈕
     const menuCollapseButton = createButton("", "light", "", true);
