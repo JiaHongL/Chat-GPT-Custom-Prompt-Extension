@@ -4922,7 +4922,7 @@ function findGroupAndIndex(promptId) {
             customTemplateButton.style.display = "block";
             return;
           }
-          if (customTemplateButton.title.includes(event.target.value)) {
+          if (customTemplateButton.title.toLowerCase().includes(event.target.value?.toLowerCase())) {
             customTemplateButton.style.display = "block";
           } else {
             customTemplateButton.style.display = "none";
