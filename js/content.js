@@ -1475,9 +1475,10 @@ function findGroupAndIndex(promptId) {
         color:black;
       }
       .super-prompt-preview-area{
-        max-height:160px;
+        max-height:165px;
         overflow:auto;
         font-size: 18px;
+        margin-bottom:5px;
       }
       .super-prompt-table-wrapper{
         max-height:500px;
@@ -4133,7 +4134,7 @@ function findGroupAndIndex(promptId) {
 
     const innerHTML = superPrompt.replace(/\n/g, "<br>");
 
-    superPromptPreviewAreaDiv.innerHTML = `#${superPromptId} ${superPromptName} <br><br>` + innerHTML;
+    superPromptPreviewAreaDiv.innerHTML = `#${superPromptId} ${superPromptName} <br>` + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{(.*?)}}/g);
