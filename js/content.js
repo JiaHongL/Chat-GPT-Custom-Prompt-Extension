@@ -41,7 +41,7 @@ function restoreMenuItemTabindex() {
 
 function downloadHtml() {
   const container =
-    document.querySelector("main")?.children[0].children[0].children[0];
+    document.querySelector("main")?.querySelector('.overflow-hidden').children[0].children[0];
   const clonedContainer = container.cloneNode(true);
   const avatarList = clonedContainer.querySelectorAll("img.rounded-sm");
   const buttons = clonedContainer.querySelectorAll("button");
