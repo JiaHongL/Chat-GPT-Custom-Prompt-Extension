@@ -158,7 +158,7 @@
     }
   },
   "confirm_is_import_only_super_prompt_template": {
-    "message": "確定只匯入『$fileName$』的 超級樣板 ?",
+    "message": "'$fileName$' 슈퍼 템플릿만 가져오시겠습니까?",
     "placeholders": {
       "fileName": {
         "content": "$1"
