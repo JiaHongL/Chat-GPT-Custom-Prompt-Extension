@@ -127,6 +127,9 @@
   "placeholder_please_input": {
     "message": "请输入"
   },
+  "placeholder_prompt_input_tips":{
+    "message":"按下 Tab 可以移动到下一个单元格，按下 Shift + Tab 可以移回上一个单元格。"
+  },
   "placeholder_supper_prompt_desc": {
     "message": "使用{{}}可以代表一个字段，{{}}里面可以设置字段名称和默认值，例如：{{ 角色 || 厨师 }}。"
   },

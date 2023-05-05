@@ -1578,17 +1578,17 @@ function findGroupAndIndex(promptId) {
         border-bottom: 1px solid #ccc;
         padding-right:4px;
       }
-      .super-table-form {
+      .scroll-table-form {
         width: 100%;
         border-collapse: collapse;
         margin:0px;
       }
-      .super-table-form thead tr {
+      .scroll-table-form thead tr {
         position: sticky;
         top: 0;
         z-index:999;
       }
-      .dark .super-table-form thead th {
+      .dark .scroll-table-form thead th {
         background-color: #757575;
       }
       .dark .super-prompt-id{
@@ -1635,385 +1635,347 @@ function findGroupAndIndex(promptId) {
 
   // 設定模版的表單視窗 HTML
   const formDialogHTML = `
-    <div id="dialog2" class="dialog-wrapper" style="display:none">
+  <div id="dialog2" class="dialog-wrapper" style="display:none">
 
-      <div class="dialog" style="max-width: 95%;">
+  <div class="dialog" style="max-width: 95%;">
+      <div class="table-container" style="margin-bottom:0px;">
+          <table id="table-form" class="my-table scroll-table-form">
+              <thead>
+                <tr>
+                    <th style="width:118px">${i18n("table_title_shortcut")}</th>
+                    <th style="width:160px">${i18n("table_title_button_name")}</th>
+                    <th>${i18n("table_title_prefix_text")}</th>
+                    <th>${i18n("table_title_suffix_text")}</th>
+                    <th style="width:118px">${i18n("table_title_is_show")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 1 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox" name="check" />
+                            <label for="slideCheckbox"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-        <table id="table-form" class="my-table">
-          <tr>
-            <th style="width:118px">${i18n("table_title_shortcut")}</th>
-            <th style="width:160px">${i18n("table_title_button_name")}</th>
-            <th>${i18n("table_title_prefix_text")}</th>
-            <th>${i18n("table_title_suffix_text")}</th>
-            <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 2 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox2" name="check" />
+                            <label for="slideCheckbox2"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 1 </span>
-              </div>
-            </td>
-            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox" name="check"  />
-                <label for="slideCheckbox"><span></span></label>
-              </div>
-            </td>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 3 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox3" name="check" />
+                            <label for="slideCheckbox3"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 2 </span>
-              </div>
-            </td>
-            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox2" name="check"  />
-                <label for="slideCheckbox2"><span></span></label>
-              </div>
-            </td>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 4 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox4" name="check" />
+                            <label for="slideCheckbox4"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 3 </span>
-              </div>
-            </td>
-            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox3" name="check"  />
-                <label for="slideCheckbox3"><span></span></label>
-              </div>
-            </td>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 5 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox5" name="check" />
+                            <label for="slideCheckbox5"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 4 </span>
-              </div>
-            </td>
-            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox4" name="check"  />
-                <label for="slideCheckbox4"><span></span></label>
-              </div>
-            </td>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 6 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="16" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="17" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="18" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox6" name="check" />
+                            <label for="slideCheckbox6"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 5 </span>
-              </div>
-            </td>
-            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox5" name="check"  />
-                <label for="slideCheckbox5"><span></span></label>
-              </div>
-            </td>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 7 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="19" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="20" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="21" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox7" name="check" />
+                            <label for="slideCheckbox7"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-        </table>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 8 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="22" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="23" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="24" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox8" name="check" />
+                            <label for="slideCheckbox8"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-        <table id="table-form2" class="my-table" style="width:100%">
-          <tr>
-            <th style="width:118px">${i18n("table_title_shortcut")}</th>
-            <th style="width:160px">${i18n("table_title_button_name")}</th>
-            <th>${i18n("table_title_prefix_text")}</th>
-            <th>${i18n("table_title_suffix_text")}</th>
-            <th style="width:118px">${i18n("table_title_is_show")}</th>
-          </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 9 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="25" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="26" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="27" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox9" name="check" />
+                            <label for="slideCheckbox9"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 6 </span>
-              </div>
-            </td>
-            <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox6" name="check"  />
-                <label for="slideCheckbox6"><span></span></label>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 7 </span>
-              </div>
-            </td>
-            <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox7" name="check"  />
-                <label for="slideCheckbox7"><span></span></label>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 8 </span>
-              </div>
-            </td>
-            <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox8" name="check"  />
-                <label for="slideCheckbox8"><span></span></label>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 9 </span>
-              </div>
-            </td>
-            <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox9" name="check"/>
-                <label for="slideCheckbox9"><span></span></label>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="shortcut-wrapper">
-                <span class="shortcut-content"> ${capitalizeFirstLetter(
-                  mainKeyText
-                )} + 0 </span>
-              </div>
-            </td>
-            <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
-              "placeholder_please_input"
-            )}"></td>
-            <td>
-              <div class="center">
-                <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="center">
-                <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
-                  "placeholder_please_input"
-                )}"></textarea>
-              </div>
-            </td>
-            <td>
-              <div class="slide-checkbox">  
-                <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox10" name="check"/>
-                <label for="slideCheckbox10"><span></span></label>
-              </div>
-            </td>
-          </tr>
-          
-        </table>
-
-        <div class="footer" class="center">
-          <button tabindex="16" id="dialog2-ok" class="primary">${i18n(
-            "button_save"
-          )} ( ${mainKeyText} + s )</button>
-          <button tabindex="17" id="dialog2-cancel" class="secondary">${i18n(
-            "button_cancel"
-          )} ( esc ) </button>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 0 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="28" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="29" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="30" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox10" name="check" />
+                            <label for="slideCheckbox10"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="footer" class="center">
+          <button tabindex="99" id="dialog2-ok" class="primary">${i18n(
+              "button_save"
+              )} ( ${mainKeyText} + s )</button>
+          <button tabindex="100" id="dialog2-cancel" class="secondary">${i18n(
+              "button_cancel"
+              )} ( esc ) </button>
           <div class="buy-me-a-coffee">
-            <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-            </a>
+              <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+                  <img style="scale: 0.9;"
+                      src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+              </a>
           </div>
-        </div>
-
       </div>
 
-    </div>
+  </div>
+
+</div>
     `;
 
   // 快捷鍵提示視窗 HTML
   const keyboardShortcutHTML = `
   <div id="dialog3" class="dialog-wrapper" style="display;none">
-  <div class="dialog" style="max-width:1300px">
+  <div class="dialog" style="max-width:1300px;padding-bottom:20px">
     <table style="width:100%">
 
       <tr>
@@ -2581,7 +2543,7 @@ function findGroupAndIndex(promptId) {
     <div class="dialog" style="max-width:95%;">
         <div class="dialog-title"></div>
         <div class="table-container">
-          <table id="superTableForm" class="my-table super-table-form" style="width:100%;margin-top:0px;">
+          <table id="superTableForm" class="my-table scroll-table-form" style="width:100%;margin-top:0px;">
             <thead>
               <tr>
                   <th style="width:50px">#</th>
@@ -2756,7 +2718,6 @@ function findGroupAndIndex(promptId) {
   const settingsDialogOkBtn = document.querySelector("#dialog2-ok");
   const settingsDialogCancelBtn = document.querySelector("#dialog2-cancel");
   const settingsTableForm = settingsDialog.querySelector("#table-form");
-  const settingsTableForm2 = settingsDialog.querySelector("#table-form2");
 
   // Shortcut Key Hint
   const shortcutKeyHintDialog = document.getElementById("dialog3");
@@ -2814,9 +2775,6 @@ function findGroupAndIndex(promptId) {
   let modeBtn = null;
 
   let isComposing = false;
-
-  /** 1:form or 2:form2 */
-  let currentSettingFormType;
 
   /** 1:form or 2:form2 .... 6:form6 */
   let currentSuperSettingFormType;
@@ -2961,9 +2919,6 @@ function findGroupAndIndex(promptId) {
             <a class="custom-menu-item">W. ${i18n(
               "menu_prompt_template_settings"
             )}</a>
-            <a class="custom-menu-item">S. ${i18n(
-              "menu_prompt_template2_settings"
-            )}</a>
             <a class="custom-menu-item">E. ${i18n(
               "menu_reply_message_settings"
             )}</a>
@@ -2990,22 +2945,16 @@ function findGroupAndIndex(promptId) {
       menuItems[0].addEventListener("click", (event) => {
         event.stopPropagation();
         chatgptDropdownContentEl.classList.remove("show");
-        showSettingsDialog(1);
+        showSettingsDialog();
       });
 
       menuItems[1].addEventListener("click", (event) => {
         event.stopPropagation();
         chatgptDropdownContentEl.classList.remove("show");
-        showSettingsDialog(2);
-      });
-
-      menuItems[2].addEventListener("click", (event) => {
-        event.stopPropagation();
-        chatgptDropdownContentEl.classList.remove("show");
         showQuickReplySettingsDialog();
       });
 
-      menuItems[3].addEventListener("click", (event) => {
+      menuItems[2].addEventListener("click", (event) => {
         event.stopPropagation();
         chatgptDropdownContentEl.classList.remove("show");
         openExportAndImportDialog();
@@ -3368,7 +3317,7 @@ function findGroupAndIndex(promptId) {
       event.key.toLocaleLowerCase() === "w"
     ) {
       event.preventDefault();
-      showSettingsDialog(1);
+      showSettingsDialog();
       return;
     }
 
@@ -3385,7 +3334,7 @@ function findGroupAndIndex(promptId) {
       event.key.toLocaleLowerCase() === "s"
     ) {
       event.preventDefault();
-      showSettingsDialog(2);
+      showSettingsDialog();
       return;
     }
 
@@ -3852,10 +3801,8 @@ function findGroupAndIndex(promptId) {
   }
 
   questionDialogEditBtn.addEventListener("click", () => {
-    const groupSize = 5;
-    const group = Math.floor((questionId - 1) / groupSize) + 1;
     questionDialog.style.display = 'none';
-    showSettingsDialog(group, questionId - 1);
+    showSettingsDialog(questionId - 1);
   });
 
   questionDialogTextarea.addEventListener("keydown", (event) => {
@@ -3919,21 +3866,9 @@ function findGroupAndIndex(promptId) {
   }
 
   // ------------ 設定視窗相關 程式碼 ------------
-  function showSettingsDialog(formType, focusElementIndex = null) {
-    currentSettingFormType = formType;
+  function showSettingsDialog(focusElementIndex = null) {
 
     settingsDialog.style.display = "flex";
-
-    settingsTableForm.style.display = "none";
-    settingsTableForm2.style.display = "none";
-
-    if (currentSettingFormType === 1) {
-      settingsTableForm.style.display = "table";
-      settingsTableForm.style.width = "100%";
-    } else {
-      settingsTableForm2.style.display = "table";
-      settingsTableForm2.style.width = "100%";
-    }
 
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
     const prefixInputElements = document.querySelectorAll(".prefixInput");
@@ -3941,12 +3876,7 @@ function findGroupAndIndex(promptId) {
     const promptSlideElements = document.querySelectorAll(".promptSlide");
 
     let startIndex = 0;
-    let endIndex = 5;
-
-    if (formType == 2) {
-      startIndex = 5;
-      endIndex = 10;
-    }
+    let endIndex = 10;
 
     for (let index = startIndex; index < endIndex; index++) {
       btnTextInputElements[index].value = promptList[index].text;
@@ -3961,9 +3891,7 @@ function findGroupAndIndex(promptId) {
     if (focusElementIndex) {
       btnTextInputElements[focusElementIndex].focus();
     } else {
-      currentSettingFormType === 1
-        ? btnTextInputElements[0].focus()
-        : btnTextInputElements[5].focus();
+      btnTextInputElements[0].focus()
     }
   }
 
@@ -3974,12 +3902,7 @@ function findGroupAndIndex(promptId) {
     const promptSlideElements = document.querySelectorAll(".promptSlide");
 
     let startIndex = 0;
-    let endIndex = 5;
-
-    if (currentSettingFormType == 2) {
-      startIndex = 5;
-      endIndex = 10;
-    }
+    let endIndex = 10;
 
     const previousPromptList = JSON.parse(JSON.stringify(promptList));
 
@@ -4119,8 +4042,9 @@ function findGroupAndIndex(promptId) {
 
   // ------------ super 樣板視窗 程式碼 ------------
 
-  const showSuperPromptTextareaPlaceholder = i18n("placeholder_please_input");
-
+  const PlaceholderPromptInputTips = i18n("placeholder_prompt_input_tips");
+  const PlaceholderPromptTextarea = i18n('placeholder_prompt_textarea')
+  
   function showSuperPromptDialog() {
     superPromptDialog.style.display = "flex";
 
@@ -4160,7 +4084,7 @@ function findGroupAndIndex(promptId) {
             <div class="center">
               <textarea rows="3" style="width:100%" tabindex="${
                 i + 1
-              }" class="super-prompt-text superPromptText" placeholder="${showSuperPromptTextareaPlaceholder}">${fieldValue}</textarea>
+              }" class="super-prompt-text superPromptText" placeholder="${PlaceholderPromptInputTips}">${fieldValue}</textarea>
             </div>
           </div>
         `;
@@ -4174,7 +4098,7 @@ function findGroupAndIndex(promptId) {
       const textarea = table.querySelectorAll('.superPromptText')[0];
 
       textarea.style = "width:100%;height:380px;"
-      textarea.placeholder = i18n('placeholder_prompt_textarea');
+      textarea.placeholder = PlaceholderPromptTextarea;
 
       textarea.addEventListener("keydown", (event) => {
         // prevent submitting blank on enter
@@ -5156,48 +5080,17 @@ function findGroupAndIndex(promptId) {
     const tableFormLastTabindexElement =
       tableFormTabindexElements[tableFormTabindexElements.length - 1];
 
-    // tableForm2 tabindexElements
-    let tableForm2TabindexElements = settingsTableForm2.querySelectorAll(
-      "input, textarea, button"
-    );
-
-    tableForm2TabindexElements = [
-      ...tableForm2TabindexElements,
-      settingsDialogOkBtn,
-      settingsDialogCancelBtn,
-    ];
-
-    const tableForm2FirstTabindexElement = tableForm2TabindexElements[0];
-    const tableForm2LastTabindexElement =
-      tableForm2TabindexElements[tableForm2TabindexElements.length - 1];
-
     // settingsDialog keydown event
     settingsDialog.addEventListener("keydown", function (e) {
-      if (settingsTableForm.style.display === "table") {
-        if (e.key === "Tab" && !e.shiftKey) {
-          if (document.activeElement === tableFormLastTabindexElement) {
-            e.preventDefault();
-            tableFormFirstTabindexElement.focus();
-          }
-        } else if (e.key === "Tab" && e.shiftKey) {
-          if (document.activeElement === tableFormFirstTabindexElement) {
-            e.preventDefault();
-            tableFormLastTabindexElement.focus();
-          }
+      if (e.key === "Tab" && !e.shiftKey) {
+        if (document.activeElement === tableFormLastTabindexElement) {
+          e.preventDefault();
+          tableFormFirstTabindexElement.focus();
         }
-      }
-
-      if (settingsTableForm2.style.display === "table") {
-        if (e.key === "Tab" && !e.shiftKey) {
-          if (document.activeElement === tableForm2LastTabindexElement) {
-            e.preventDefault();
-            tableForm2FirstTabindexElement.focus();
-          }
-        } else if (e.key === "Tab" && e.shiftKey) {
-          if (document.activeElement === tableForm2FirstTabindexElement) {
-            e.preventDefault();
-            tableForm2LastTabindexElement.focus();
-          }
+      } else if (e.key === "Tab" && e.shiftKey) {
+        if (document.activeElement === tableFormFirstTabindexElement) {
+          e.preventDefault();
+          tableFormLastTabindexElement.focus();
         }
       }
     });

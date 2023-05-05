@@ -127,6 +127,9 @@
   "placeholder_please_input": {
     "message": "入力してください"
   },
+  "placeholder_prompt_input_tips":{
+    "message":"タブを押すと次のセルに移動できます。Shift + タブを押すと前のセルに戻ることができます。"
+  },
   "placeholder_supper_prompt_desc": {
     "message": "{{}} を使用すると、フィールドを表すことができます。{{}} 内にフィールド名とデフォルト値を設定できます。例えば、{{ ロール || シェフ }}。"
   },

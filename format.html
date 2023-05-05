@@ -1,145 +1,333 @@
-<div id="dialog6" class="dialog-wrapper" style="display:none">
-    <div class="dialog" style="max-width:90%;">
-        <div class="dialog-title"></div>
-        <table id="super-table-form" class="my-table" style="width:100%;margin-top:0px;">
+<div id="dialog2" class="dialog-wrapper" style="display:none">
 
-            <tr>
-                <th style="width:118px">${i18n("table_title_shortcut")}</th>
-                <th style="width:160px">${i18n("table_title_button_name")}</th>
-                <th>${i18n("table_title_super_prompt_text")}</th>
-                <th style="width:118px">${i18n("table_title_is_show")}</th>
-            </tr>
+    <div class="dialog" style="max-width: 95%;">
+        <div class="table-container">
+            <table id="table-form" class="my-table">
+                <tr>
+                    <th style="width:118px">${i18n("table_title_shortcut")}</th>
+                    <th style="width:160px">${i18n("table_title_button_name")}</th>
+                    <th>${i18n("table_title_prefix_text")}</th>
+                    <th>${i18n("table_title_suffix_text")}</th>
+                    <th style="width:118px">${i18n("table_title_is_show")}</th>
+                </tr>
 
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="1" class="superPromptButtonText" type="text" placeholder="${i18n(
-              " placeholder_please_input" )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="2" class="superPromptText" placeholder="${i18n(
-                      " placeholder_supper_prompt_desc" )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox1"
-                            name="check" />
-                        <label for="superSlideCheckbox1"></label>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 1 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox" name="check" />
+                            <label for="slideCheckbox"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="3" class="superPromptButtonText" type="text" placeholder="${i18n(
-              " placeholder_please_input" )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="4" class="superPromptText" placeholder="${i18n(
-                      " placeholder_supper_prompt_desc" )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox2"
-                            name="check" />
-                        <label for="superSlideCheckbox2"></label>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 2 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox2" name="check" />
+                            <label for="slideCheckbox2"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="5" class="superPromptButtonText" type="text" placeholder="${i18n(
-              " placeholder_please_input" )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="6" class="superPromptText" placeholder="${i18n(
-                      " placeholder_supper_prompt_desc" )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox3"
-                            name="check" />
-                        <label for="superSlideCheckbox3"></label>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 3 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox3" name="check" />
+                            <label for="slideCheckbox3"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="7" class="superPromptButtonText" type="text" placeholder="${i18n(
-              " placeholder_please_input" )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="8" class="superPromptText" placeholder="${i18n(
-                      " placeholder_supper_prompt_desc" )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox4"
-                            name="check" />
-                        <label for="superSlideCheckbox4"></label>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 4 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox4" name="check" />
+                            <label for="slideCheckbox4"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-            <tr>
-                <td>
-                    <div class="shortcut-wrapper">
-                        <span class="shortcut-content"> none </span>
-                    </div>
-                </td>
-                <td><input tabindex="9" class="superPromptButtonText" type="text" placeholder="${i18n(
-              " placeholder_please_input" )}"></td>
-                <td>
-                    <div class="center">
-                        <textarea style="width:100%" tabindex="10" class="superPromptText" placeholder="${i18n(
-                      " placeholder_supper_prompt_desc" )}"></textarea>
-                    </div>
-                </td>
-                <td>
-                    <div class="slide-checkbox">
-                        <input class="superPromptSlide" type="checkbox" value="true" id="superSlideCheckbox5"
-                            name="check" />
-                        <label for="superSlideCheckbox5"></label>
-                    </div>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 5 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox5" name="check" />
+                            <label for="slideCheckbox5"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
-        </table>
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 6 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox6" name="check" />
+                            <label for="slideCheckbox6"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 7 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox7" name="check" />
+                            <label for="slideCheckbox7"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 8 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox8" name="check" />
+                            <label for="slideCheckbox8"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 9 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox9" name="check" />
+                            <label for="slideCheckbox9"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="shortcut-wrapper">
+                            <span class="shortcut-content"> ${capitalizeFirstLetter(
+                                mainKeyText
+                                )} + 0 </span>
+                        </div>
+                    </td>
+                    <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
+                "placeholder_please_input" )}"></td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="center">
+                            <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
+                    "placeholder_please_input" )}"></textarea>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slide-checkbox">
+                            <input class="promptSlide" type="checkbox" value="true" id="slideCheckbox10" name="check" />
+                            <label for="slideCheckbox10"><span></span></label>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
         <div class="footer" class="center">
-            <button tabindex="11" id="dialog6-ok" class="primary">${i18n(
+            <button tabindex="16" id="dialog2-ok" class="primary">${i18n(
                 "button_save"
                 )} ( ${mainKeyText} + s )</button>
-            <button tabindex="12" id="dialog6-cancel" class="secondary">${i18n(
+            <button tabindex="17" id="dialog2-cancel" class="secondary">${i18n(
                 "button_cancel"
                 )} ( esc ) </button>
             <div class="buy-me-a-coffee">
                 <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
                     <img style="scale: 0.9;"
-                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee !!&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
                 </a>
             </div>
         </div>
+
     </div>
+
 </div>

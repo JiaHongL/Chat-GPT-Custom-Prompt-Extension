@@ -127,6 +127,9 @@
   "placeholder_please_input": {
     "message": "Please enter"
   },
+  "placeholder_prompt_input_tips":{
+    "message":"Pressing tab can move to the next cell, and pressing shift + tab can move back to the previous cell."
+  },
   "placeholder_supper_prompt_desc": {
     "message": "Using {{}} can represent a field. You can set the field name and default value in {{}}, for example: {{ role || chef }}."
   },

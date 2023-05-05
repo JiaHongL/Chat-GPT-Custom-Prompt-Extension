@@ -127,6 +127,9 @@
   "placeholder_please_input": {
     "message": "입력해주세요"
   },
+  "placeholder_prompt_input_tips":{
+    "message":"Tab을 누르면 다음 셀로 이동할 수 있으며, Shift + Tab을 누르면 이전 셀로 이동할 수 있습니다."
+  },
   "placeholder_supper_prompt_desc": {
     "message": "{{}}를 사용하면 필드를 나타낼 수 있습니다. {{}} 내에 필드 이름과 기본값을 설정할 수 있습니다. 예를 들어, {{ 역할 || 요리사 }} 입니다."
   },

@@ -127,6 +127,9 @@
   "placeholder_please_input": {
     "message": "請輸入"
   },
+  "placeholder_prompt_input_tips":{
+    "message":"按下 tab 可移動到下一格，按下 shift + tab 可移動回上一格。"
+  },
   "placeholder_supper_prompt_desc": {
     "message": "使用{{}}可以代表一個欄位，{{}}裡面可以設定欄位名稱和預設值，例如： {{ 角色 || 廚師 }}。"
   },
