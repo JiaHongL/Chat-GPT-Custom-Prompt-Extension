@@ -1576,6 +1576,7 @@ function findGroupAndIndex(promptId) {
         max-height: 552px;
         margin-bottom:20px;
         border-bottom: 1px solid #ccc;
+        padding-right:4px;
       }
       .super-table-form {
         width: 100%;
