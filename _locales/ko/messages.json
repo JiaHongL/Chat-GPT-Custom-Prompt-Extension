@@ -1,6 +1,6 @@
 {
   "extension_name": {
-    "message": "ChatGPT 질문 도우미"
+    "message": "ChatGPT 프롬프트 어시스턴트"
   },
   "extension_description": {
     "message": "이 도구는 ChatGPT와 더 효율적으로 대화하며 다양한 문제 템플릿, 빠른 답변 텍스트 및 편리한 단축키 기능을 제공하여 작업을 더욱 효율적으로 수행할 수 있습니다."

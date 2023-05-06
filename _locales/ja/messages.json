@@ -1,6 +1,6 @@
 {
   "extension_name": {
-    "message": "ChatGPT 提問支援ツール"
+    "message": "ChatGPT プロンプトアシスタント"
   },
   "extension_description": {
     "message": "このツールは、ChatGPTとより効率的に会話するために、様々な質問テンプレート、迅速な返信テキスト、および便利なショートカット機能を提供します。"
