@@ -133,6 +133,9 @@
   "placeholder_supper_prompt_desc": {
     "message": "{{}} を使用すると、フィールドを表すことができます。{{}} 内にフィールド名とデフォルト値を設定できます。例えば、{{ ロール || シェフ }}。"
   },
+  "placeholder_keyword_input":{
+    "message":"キーワード..."
+  },
   "confirm_is_reset_system_settings": {
     "message": "システムのデフォルトのテンプレートとクイックリプライにリセットしますか？"
   },

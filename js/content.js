@@ -1165,6 +1165,9 @@ function findGroupAndIndex(promptId) {
         color: #ccc;
         font-size:16px;
       }
+      .custom-keyword-input::placeholder {
+        font-size:14px;
+      }
       .custom-menu .prompt-list-area{
         flex:1 1 auto;
         overflow-y: auto;
@@ -4818,6 +4821,8 @@ function findGroupAndIndex(promptId) {
     return button;
   }
 
+  const PlaceholderKeywordInput = i18n('placeholder_keyword_input');
+
   function generateButtons() {
     const findCustomMenu = document.querySelector(".custom-menu");
 
@@ -4831,7 +4836,7 @@ function findGroupAndIndex(promptId) {
     // search
     const searchBoxDiv = document.createElement("div");
     searchBoxDiv.classList.add("search-box");
-    searchBoxDiv.innerHTML = `<input style="width:100%" tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="keyword or #id">`;
+    searchBoxDiv.innerHTML = `<input style="width:100%" tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="${PlaceholderKeywordInput}">`;
 
     let timerId;
     const inputBox = searchBoxDiv.querySelector("#customKeywordInput");
