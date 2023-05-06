@@ -1616,7 +1616,7 @@ function findGroupAndIndex(promptId) {
   // 提問視窗 HTML
   const dialogHTML = `
       <div id="dialog" class="dialog-wrapper" style="display;none">
-          <div class="dialog" style="max-width: 1100px;">
+          <div class="dialog" style="max-width: 1106px;">
               <div id="questionPreviewArea"></div>
               <textarea id="dialog-textarea" class="question-textarea" tabindex="1" placeholder="${i18n(
                 "placeholder_prompt_textarea"
@@ -2618,7 +2618,7 @@ function findGroupAndIndex(promptId) {
   // 超級樣板 HTML
   const superPromptHTML = `
   <div id="dialog7" class="dialog-wrapper" style="display:none">
-    <div class="dialog" style="max-width: 1100px;">
+    <div class="dialog" style="max-width: 1106px;">
       <div class="super-prompt-preview-area" id="superPromptPreviewArea"></div>
       <div class="super-prompt-table-wrapper">
         <div id="superPromptTable" class="my-table super-prompt-table" style="width:100%">
