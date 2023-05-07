@@ -40,8 +40,9 @@ function restoreMenuItemTabindex() {
 }
 
 function downloadHtml() {
-  const container =
-    document.querySelector("main")?.querySelector('.overflow-hidden').children[0].children[0];
+  const container = document
+    .querySelector("main")
+    ?.querySelector(".overflow-hidden").children[0].children[0];
   const clonedContainer = container.cloneNode(true);
   const avatarList = clonedContainer.querySelectorAll("img.rounded-sm");
   const buttons = clonedContainer.querySelectorAll("button");
@@ -66,8 +67,7 @@ function downloadHtml() {
   const styles = Array.from(document.styleSheets)
     .filter(
       (styleSheet) =>
-        !styleSheet.href ||
-        styleSheet.href.startsWith(window.location.origin)
+        !styleSheet.href || styleSheet.href.startsWith(window.location.origin)
     )
     .map((styleSheet) =>
       Array.from(styleSheet.cssRules)
@@ -585,7 +585,25 @@ const defaultPromptListKO = [
 ];
 
 // defaultQuickReply 多國語系
-const defaultQuickReplyMessageListTW = [
+
+const QuickReplyMessageAllItems = 50;
+
+let DefaultEmptyQuickReplyMessageList = [];
+
+Array.from({ length: QuickReplyMessageAllItems }).forEach((_, index) => {
+  if (index > 4) {
+    DefaultEmptyQuickReplyMessageList.push({
+      key: "none",
+      text: "quickReply" + (index + 1),
+      quickReplyMessage: "",
+      buttonElement: null,
+      handleClickFn: null,
+      isVisible: false,
+    });
+  }
+});
+
+let defaultQuickReplyMessageListTW = [
   {
     key: "Y",
     text: "提供其它範例",
@@ -625,10 +643,14 @@ const defaultQuickReplyMessageListTW = [
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
-  },
+  }
+];
+defaultQuickReplyMessageListTW = [
+  ...defaultQuickReplyMessageListTW,
+  ...DefaultEmptyQuickReplyMessageList
 ];
 
-const defaultQuickReplyMessageListJA = [
+let defaultQuickReplyMessageListJA = [
   {
     key: "Y",
     text: "他の例",
@@ -670,8 +692,12 @@ const defaultQuickReplyMessageListJA = [
     isVisible: true,
   },
 ];
+defaultQuickReplyMessageListJA = [
+  ...defaultQuickReplyMessageListJA,
+  ...DefaultEmptyQuickReplyMessageList
+];
 
-const defaultQuickReplyMessageListEN = [
+let defaultQuickReplyMessageListEN = [
   {
     key: "Y",
     text: "Other examples",
@@ -713,8 +739,12 @@ const defaultQuickReplyMessageListEN = [
     isVisible: true,
   },
 ];
+defaultQuickReplyMessageListEN = [
+  ...defaultQuickReplyMessageListEN,
+  ...DefaultEmptyQuickReplyMessageList
+];
 
-const defaultQuickReplyMessageListCN = [
+let defaultQuickReplyMessageListCN = [
   {
     key: "Y",
     text: "提供其他示例",
@@ -756,8 +786,12 @@ const defaultQuickReplyMessageListCN = [
     isVisible: true,
   },
 ];
+defaultQuickReplyMessageListCN = [
+  ...defaultQuickReplyMessageListCN,
+  ...DefaultEmptyQuickReplyMessageList
+];
 
-const defaultQuickReplyMessageListKO = [
+let defaultQuickReplyMessageListKO = [
   {
     key: "Y",
     text: "다른 예시 제공",
@@ -798,6 +832,10 @@ const defaultQuickReplyMessageListKO = [
     handleClickFn: null,
     isVisible: true,
   },
+];
+defaultQuickReplyMessageListKO = [
+  ...defaultQuickReplyMessageListKO,
+  ...DefaultEmptyQuickReplyMessageList
 ];
 
 // defaultSuperPromptList 多國語系
@@ -1179,7 +1217,21 @@ function findGroupAndIndex(promptId) {
       }
       .custom-menu .quick-reply-area{
         margin-top:5px;
-        flex:0 0 180px;
+        flex: 0 0 auto;
+        max-height: 380px;
+        overflow-y: auto;
+      }
+      .custom-menu .other-area{
+        margin-top:5px;
+        flex:0 0 60px;
+      }
+      .custom-menu .quick-reply-area::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        background-color: transparent;
+      }
+      .custom-menu .quick-reply-area .custom-template-buttons:last-child {
+        margin:0 !important;
       }
       .dialog-wrapper {
           position: fixed;
@@ -1646,7 +1698,9 @@ function findGroupAndIndex(promptId) {
               <thead>
                 <tr>
                     <th style="width:118px">${i18n("table_title_shortcut")}</th>
-                    <th style="width:160px">${i18n("table_title_button_name")}</th>
+                    <th style="width:160px">${i18n(
+                      "table_title_button_name"
+                    )}</th>
                     <th>${i18n("table_title_prefix_text")}</th>
                     <th>${i18n("table_title_suffix_text")}</th>
                     <th style="width:118px">${i18n("table_title_is_show")}</th>
@@ -1657,22 +1711,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 1 </span>
+                              mainKeyText
+                            )} + 1 </span>
                         </div>
                     </td>
                     <td><input tabindex="1" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="2" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="3" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1687,22 +1744,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 2 </span>
+                              mainKeyText
+                            )} + 2 </span>
                         </div>
                     </td>
                     <td><input tabindex="4" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="5" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="6" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1717,22 +1777,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 3 </span>
+                              mainKeyText
+                            )} + 3 </span>
                         </div>
                     </td>
                     <td><input tabindex="7" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="8" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="9" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1747,22 +1810,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 4 </span>
+                              mainKeyText
+                            )} + 4 </span>
                         </div>
                     </td>
                     <td><input tabindex="10" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="11" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="12" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1777,22 +1843,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 5 </span>
+                              mainKeyText
+                            )} + 5 </span>
                         </div>
                     </td>
                     <td><input tabindex="13" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="14" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="15" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1807,22 +1876,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 6 </span>
+                              mainKeyText
+                            )} + 6 </span>
                         </div>
                     </td>
                     <td><input tabindex="16" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="17" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="18" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1837,22 +1909,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 7 </span>
+                              mainKeyText
+                            )} + 7 </span>
                         </div>
                     </td>
                     <td><input tabindex="19" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="20" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="21" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1867,22 +1942,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 8 </span>
+                              mainKeyText
+                            )} + 8 </span>
                         </div>
                     </td>
                     <td><input tabindex="22" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="23" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="24" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1897,22 +1975,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 9 </span>
+                              mainKeyText
+                            )} + 9 </span>
                         </div>
                     </td>
                     <td><input tabindex="25" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="26" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="27" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1927,22 +2008,25 @@ function findGroupAndIndex(promptId) {
                     <td>
                         <div class="shortcut-wrapper">
                             <span class="shortcut-content"> ${capitalizeFirstLetter(
-                                mainKeyText
-                                )} + 0 </span>
+                              mainKeyText
+                            )} + 0 </span>
                         </div>
                     </td>
                     <td><input tabindex="28" class="btnTextInput" type="text" placeholder="${i18n(
-                "placeholder_please_input" )}"></td>
+                      "placeholder_please_input"
+                    )}"></td>
                     <td>
                         <div class="center">
                             <textarea tabindex="29" class="prefixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
                         <div class="center">
                             <textarea tabindex="30" class="suffixInput" placeholder="${i18n(
-                    "placeholder_please_input" )}"></textarea>
+                              "placeholder_please_input"
+                            )}"></textarea>
                         </div>
                     </td>
                     <td>
@@ -1957,11 +2041,11 @@ function findGroupAndIndex(promptId) {
       </div>
       <div class="footer" class="center">
           <button tabindex="99" id="dialog2-ok" class="primary">${i18n(
-              "button_save"
-              )} ( ${mainKeyText} + s )</button>
+            "button_save"
+          )} ( ${mainKeyText} + s )</button>
           <button tabindex="100" id="dialog2-cancel" class="secondary">${i18n(
-              "button_cancel"
-              )} ( esc ) </button>
+            "button_cancel"
+          )} ( esc ) </button>
           <div class="buy-me-a-coffee">
               <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
                   <img style="scale: 0.9;"
@@ -2319,153 +2403,58 @@ function findGroupAndIndex(promptId) {
   <div id="dialog4" class="dialog-wrapper" style="display:none">
 
     <div class="dialog" style="max-width: 60%;">
-
-      <table class="my-table" style="width:100%">
-
-        <tr>
-          <th style="width:118px">${i18n("table_title_shortcut")}</th>
-          <th style="width:160px">${i18n("table_title_button_name")}</th>
-          <th>${i18n("table_title_replay_message")}</th>
-          <th style="width:118px">${i18n("table_title_is_show")}</th>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> ${capitalizeFirstLetter(
-                mainKeyText
-              )} + Y </span>
-            </div>
-          </td>
-          <td><input tabindex="1" class="quickReplyButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="2" class="quickReplyMessage" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox11" name="check"/>
-              <label for="slideCheckbox11"><span></span></label>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> ${capitalizeFirstLetter(
-                mainKeyText
-              )} + U </span>
-            </div>
-          </td>
-          <td><input tabindex="3" class="quickReplyButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="4" class="quickReplyMessage" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox12" name="check"/>
-              <label for="slideCheckbox12"><span></span></label>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> ${capitalizeFirstLetter(
-                mainKeyText
-              )} + I </span>
-            </div>
-          </td>
-          <td><input tabindex="5" class="quickReplyButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="6" class="quickReplyMessage" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox13" name="check"/>
-              <label for="slideCheckbox13"><span></span></label>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> ${capitalizeFirstLetter(
-                mainKeyText
-              )} + O </span>
-            </div>
-          </td>
-          <td><input tabindex="7" class="quickReplyButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="8" class="quickReplyMessage" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox14" name="check"/>
-              <label for="slideCheckbox14"><span></span></label>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <div class="shortcut-wrapper">
-              <span class="shortcut-content"> ${capitalizeFirstLetter(
-                mainKeyText
-              )} + P </span>
-            </div>
-          </td>
-          <td><input tabindex="9" class="quickReplyButtonText" type="text" placeholder="${i18n(
-            "placeholder_please_input"
-          )}"></td>
-          <td>
-            <div class="center">
-              <textarea style="width:100%" tabindex="10" class="quickReplyMessage" placeholder="${i18n(
-                "placeholder_please_input"
-              )}"></textarea>
-            </div>
-          </td>
-          <td>
-            <div class="slide-checkbox">  
-              <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckbox15" name="check"/>
-              <label for="slideCheckbox15"><span></span></label>
-            </div>
-          </td>
-        </tr>
-      
-      </table>
-
+      <div class="table-container">
+        <table class="my-table scroll-table-form" style="width:100%">
+          <thead>
+            <tr>
+              <th style="width:118px">${i18n("table_title_shortcut")}</th>
+              <th style="width:160px">${i18n("table_title_button_name")}</th>
+              <th>${i18n("table_title_replay_message")}</th>
+              <th style="width:118px">${i18n("table_title_is_show")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${Array.from({ length: QuickReplyMessageAllItems })
+              .map((_, index) => {
+                return `
+              <tr>
+                <td>
+                  <div class="shortcut-wrapper">
+                    <span class="shortcutContent shortcut-content"></span>
+                  </div>
+                </td>
+                <td><input tabindex="${
+                  index * 2 + 1
+                }" class="quickReplyButtonText" type="text" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></td>
+                <td>
+                  <div class="center">
+                    <textarea style="width:100%" tabindex="${
+                      index * 2 + 2
+                    }" class="quickReplyMessage" placeholder="${i18n(
+                  "placeholder_please_input"
+                )}"></textarea>
+                  </div>
+                </td>
+                <td>
+                  <div class="slide-checkbox">  
+                    <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckboxReplayMessage${index}" name="check"/>
+                    <label for="slideCheckboxReplayMessage${index}"><span></span></label>
+                  </div>
+                </td>
+              </tr>
+              `;
+              })
+              .join("")}
+          </tbody>
+        </table>
+      </div>
       <div class="footer" class="center">
-        <button tabindex="11" id="dialog4-ok" class="primary">${i18n(
+        <button tabindex="999" id="dialog4-ok" class="primary">${i18n(
           "button_save"
         )} ( ${mainKeyText} + s )</button>
-        <button tabindex="12" id="dialog4-cancel" class="secondary">${i18n(
+        <button tabindex="1000" id="dialog4-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
         <div class="buy-me-a-coffee">
@@ -2962,7 +2951,6 @@ function findGroupAndIndex(promptId) {
         chatgptDropdownContentEl.classList.remove("show");
         openExportAndImportDialog();
       });
-
     } catch (error) {
       console.log(error);
     }
@@ -3023,23 +3011,19 @@ function findGroupAndIndex(promptId) {
         chatgptDropdownContentEl.classList.add("show");
       });
 
-      menuItems[0].addEventListener(
-        "click",
-        (event) => {
-          event.stopPropagation();
-          chatgptDropdownContentEl.classList.remove("show");
-          showSuperPromptCategoryNameSettingsDialog();
-        }
-      );
+      menuItems[0].addEventListener("click", (event) => {
+        event.stopPropagation();
+        chatgptDropdownContentEl.classList.remove("show");
+        showSuperPromptCategoryNameSettingsDialog();
+      });
 
       SuperPromptCategoryListLimit.forEach((_, index) => {
-        menuItems[index+1].addEventListener("click", (event) => {
+        menuItems[index + 1].addEventListener("click", (event) => {
           event.stopPropagation();
           chatgptDropdownContentEl.classList.remove("show");
           showSuperPromptSettingDialog(index + 1);
         });
       });
-
     } catch (error) {
       console.log(error);
     }
@@ -3109,6 +3093,28 @@ function findGroupAndIndex(promptId) {
         "Custom.Settings.QuickReply",
         JSON.stringify(defaultQuickReplyMessageList)
       );
+    }
+
+    // 0.9.3 版，從原本的5組，增加到50組
+    if (
+      JSON.parse(localStorage.getItem("Custom.Settings.QuickReply")).length ===
+      5
+    ) {
+
+      let quickReplyMessageListTemp = JSON.parse(
+        localStorage.getItem("Custom.Settings.QuickReply")
+      );
+
+      quickReplyMessageListTemp = [
+        ...quickReplyMessageListTemp,
+        ...DefaultEmptyQuickReplyMessageList
+      ];
+
+      localStorage.setItem(
+        "Custom.Settings.QuickReply",
+        JSON.stringify(quickReplyMessageListTemp)
+      );
+
     }
 
     if (localStorage.getItem("Custom.Settings.Menu.Hidden") === null) {
@@ -3204,22 +3210,23 @@ function findGroupAndIndex(promptId) {
 
   // ------------ shortcutKey event handle ------------
   document.addEventListener("keydown", function (event) {
-
     if (event.key === "Escape" || event.code === "Escape") {
       const chatgptDropdownContentElements = document.querySelectorAll(
         ".chatgpt-dropdown-content"
       );
-      chatgptDropdownContentElements.forEach((chatgptDropdownContentElement) => {
-        if (
-          !chatgptDropdownContentElement.contains(event.target) &&
-          !chatgptDropdownContentElement.contains(event.target) &&
-          chatgptDropdownContentElement.classList.contains("show")
-        ) {
-          chatgptDropdownContentElement.classList.remove("show");
+      chatgptDropdownContentElements.forEach(
+        (chatgptDropdownContentElement) => {
+          if (
+            !chatgptDropdownContentElement.contains(event.target) &&
+            !chatgptDropdownContentElement.contains(event.target) &&
+            chatgptDropdownContentElement.classList.contains("show")
+          ) {
+            chatgptDropdownContentElement.classList.remove("show");
+          }
         }
-      });
+      );
     }
-    
+
     // z 或 mainKey : 關閉 快捷鍵視窗
     if (
       (shortcutKeyHintDialog.style.display === "flex" &&
@@ -3804,7 +3811,7 @@ function findGroupAndIndex(promptId) {
   }
 
   questionDialogEditBtn.addEventListener("click", () => {
-    questionDialog.style.display = 'none';
+    questionDialog.style.display = "none";
     showSettingsDialog(questionId - 1);
   });
 
@@ -3870,7 +3877,6 @@ function findGroupAndIndex(promptId) {
 
   // ------------ 設定視窗相關 程式碼 ------------
   function showSettingsDialog(focusElementIndex = null) {
-
     settingsDialog.style.display = "flex";
 
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
@@ -3894,7 +3900,7 @@ function findGroupAndIndex(promptId) {
     if (focusElementIndex) {
       btnTextInputElements[focusElementIndex].focus();
     } else {
-      btnTextInputElements[0].focus()
+      btnTextInputElements[0].focus();
     }
   }
 
@@ -4046,8 +4052,8 @@ function findGroupAndIndex(promptId) {
   // ------------ super 樣板視窗 程式碼 ------------
 
   const PlaceholderPromptInputTips = i18n("placeholder_prompt_input_tips");
-  const PlaceholderPromptTextarea = i18n('placeholder_prompt_textarea')
-  
+  const PlaceholderPromptTextarea = i18n("placeholder_prompt_textarea");
+
   function showSuperPromptDialog() {
     superPromptDialog.style.display = "flex";
 
@@ -4062,7 +4068,8 @@ function findGroupAndIndex(promptId) {
 
     const innerHTML = superPrompt.replace(/\n/g, "<br>");
 
-    superPromptPreviewAreaDiv.innerHTML = `#${superPromptId} ${superPromptName} <br>` + innerHTML;
+    superPromptPreviewAreaDiv.innerHTML =
+      `#${superPromptId} ${superPromptName} <br>` + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{(.*?)}}/g);
@@ -4096,11 +4103,10 @@ function findGroupAndIndex(promptId) {
     table.innerHTML += htmlStr;
 
     // 只有一個的時候，行為模式跟一般 prompt 一樣
-    if(table.querySelectorAll('.superPromptText').length === 1){
+    if (table.querySelectorAll(".superPromptText").length === 1) {
+      const textarea = table.querySelectorAll(".superPromptText")[0];
 
-      const textarea = table.querySelectorAll('.superPromptText')[0];
-
-      textarea.style = "width:100%;height:380px;"
+      textarea.style = "width:100%;height:380px;";
       textarea.placeholder = PlaceholderPromptTextarea;
 
       textarea.addEventListener("keydown", (event) => {
@@ -4113,7 +4119,7 @@ function findGroupAndIndex(promptId) {
           event.preventDefault();
           return;
         }
-    
+
         // enter : send
         if (
           !isComposing &&
@@ -4124,7 +4130,7 @@ function findGroupAndIndex(promptId) {
           sendSuperPrompt();
           return;
         }
-    
+
         // esc : close
         if (
           !isComposing &&
@@ -4135,14 +4141,13 @@ function findGroupAndIndex(promptId) {
           return;
         }
       });
-
     }
 
     // 如果只有兩個，高度再加大一些
-    if(table.querySelectorAll('.superPromptText').length === 2){
-      const textareaElements = table.querySelectorAll('.superPromptText');
-      textareaElements.forEach((textarea)=>{
-        textarea.style = "width:100%;height:165px;"
+    if (table.querySelectorAll(".superPromptText").length === 2) {
+      const textareaElements = table.querySelectorAll(".superPromptText");
+      textareaElements.forEach((textarea) => {
+        textarea.style = "width:100%;height:165px;";
       });
     }
 
@@ -4267,14 +4272,20 @@ function findGroupAndIndex(promptId) {
     const quickReplyMessageElements =
       document.querySelectorAll(".quickReplyMessage");
 
+    const shortcutContentElements =
+      document.querySelectorAll(".shortcutContent");
+
     const quickReplySlideElements =
       document.querySelectorAll(".quickReplySlide");
 
     quickReplyMessageList.forEach((settings, index) => {
+      shortcutContentElements[index].innerHTML =
+        settings.key === "none"
+          ? "none"
+          : capitalizeFirstLetter(mainKeyText) + '+' + settings.key;
       quickReplyButtonTextElements[index].value = settings.text;
       quickReplyMessageElements[index].value = settings.quickReplyMessage;
       quickReplySlideElements[index].checked = settings.isVisible;
-
       quickReplyMessageElements[index].style.height = "85px";
     });
 
@@ -4821,7 +4832,7 @@ function findGroupAndIndex(promptId) {
     return button;
   }
 
-  const PlaceholderKeywordInput = i18n('placeholder_keyword_input');
+  const PlaceholderKeywordInput = i18n("placeholder_keyword_input");
 
   function generateButtons() {
     const findCustomMenu = document.querySelector(".custom-menu");
@@ -4852,7 +4863,11 @@ function findGroupAndIndex(promptId) {
             customTemplateButton.style.display = "block";
             return;
           }
-          if (customTemplateButton.title.toLowerCase().includes(event.target.value?.toLowerCase())) {
+          if (
+            customTemplateButton.title
+              .toLowerCase()
+              .includes(event.target.value?.toLowerCase())
+          ) {
             customTemplateButton.style.display = "block";
           } else {
             customTemplateButton.style.display = "none";
@@ -4862,7 +4877,7 @@ function findGroupAndIndex(promptId) {
       }, 300);
     });
 
-    inputBox.addEventListener('focus', (event)=> {
+    inputBox.addEventListener("focus", (event) => {
       restoreMenuItemTabindex();
     });
 
@@ -4872,9 +4887,13 @@ function findGroupAndIndex(promptId) {
     const quickReplyDiv = document.createElement("div");
     quickReplyDiv.classList.add("quick-reply-area");
 
+    const otherDiv = document.createElement("div");
+    otherDiv.classList.add("other-area");
+
     menuDiv.appendChild(searchBoxDiv);
     menuDiv.appendChild(promptListDiv);
     menuDiv.appendChild(quickReplyDiv);
+    menuDiv.appendChild(otherDiv);
 
     // 模版
     promptList.forEach((settings, index) => {
@@ -4969,18 +4988,22 @@ function findGroupAndIndex(promptId) {
     });
 
     // 下載
-    const downloadHtmlButton = createButton(i18n('menu_item_download_html'), "secondary", "");
+    const downloadHtmlButton = createButton(
+      i18n("menu_item_download_html"),
+      "secondary",
+      ""
+    );
     downloadHtmlButton.addEventListener("click", () => {
       downloadHtml();
     });
-    quickReplyDiv.appendChild(downloadHtmlButton);
+    otherDiv.appendChild(downloadHtmlButton);
 
     // 收合按鈕
     const menuCollapseButton = createButton("", "light", "", true);
     menuCollapseButton.addEventListener("click", () => {
       collapseToggle();
     });
-    quickReplyDiv.appendChild(menuCollapseButton);
+    otherDiv.appendChild(menuCollapseButton);
 
     menuDiv.addEventListener("transitionend", function (event) {
       if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "N") {
