@@ -586,7 +586,7 @@ const defaultPromptListKO = [
 
 // defaultQuickReply 多國語系
 
-const QuickReplyMessageAllItems = 50;
+const QuickReplyMessageAllItems = 100;
 
 let DefaultEmptyQuickReplyMessageList = [];
 
@@ -1039,7 +1039,7 @@ SuperPromptCategoryListEmptyArray = Array.from({
 });
 
 /** 當前最大分類數量限制 */
-SuperPromptCategoryListLimit = Array.from({ length: 20 });
+SuperPromptCategoryListLimit = Array.from({ length: 30 });
 
 let defaultSuperPromptCategoryList = [];
 
@@ -3095,7 +3095,7 @@ function findGroupAndIndex(promptId) {
       );
     }
 
-    // 0.9.3 版，從原本的5組，增加到50組
+    // 0.9.3 版，從原本的5組，增加到100組
     if (
       JSON.parse(localStorage.getItem("Custom.Settings.QuickReply")).length ===
       5
