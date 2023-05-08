@@ -20,6 +20,12 @@
   "button_close": {
     "message": "關閉"
   },
+  "button_export_super_prompt_category": {
+    "message": "匯出分類"
+  },
+  "button_import_super_prompt_category": {
+    "message": "匯入分類"
+  },
   "button_export": {
     "message": "匯出"
   },
@@ -117,6 +123,9 @@
   },
   "alert_import_success": {
     "message": "匯入成功!"
+  },
+  "alert_import_super_prompt_success": {
+    "message": "匯入成功!，按下儲存後，即可完成。"
   },
   "alert_import_error": {
     "message": "檔案內容有誤，請從重選擇"

@@ -20,6 +20,12 @@
   "button_close": {
     "message": "닫기"
   },
+  "button_export_super_prompt_category": {
+    "message": "분류 내보내기"
+  },
+  "button_import_super_prompt_category": {
+    "message": "분류 가져오기"
+  },
   "button_export": {
     "message": "내보내기"
   },
@@ -117,6 +123,9 @@
   },
   "alert_import_success": {
     "message": "가져오기가 성공했습니다!"
+  },
+  "alert_import_super_prompt_success": {
+    "message": "가져 오기 성공! 저장 버튼을 누르면 완료됩니다."
   },
   "alert_import_error": {
     "message": "파일 내용이 잘못되었습니다. 다시 선택해주세요."

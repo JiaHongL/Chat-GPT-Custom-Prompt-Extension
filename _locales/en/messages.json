@@ -20,6 +20,12 @@
   "button_close": {
     "message": "Close"
   },
+  "button_export_super_prompt_category": {
+    "message": "Export Category"
+  },
+  "button_import_super_prompt_category": {
+    "message": "Import Category"
+  },
   "button_export": {
     "message": "Export"
   },
@@ -117,6 +123,9 @@
   },
   "alert_import_success": {
     "message": "Imported successfully!"
+  },
+  "alert_import_super_prompt_success": {
+    "message": "Import successful! Press save to complete."
   },
   "alert_import_error": {
     "message": "File content is invalid, please choose another file."

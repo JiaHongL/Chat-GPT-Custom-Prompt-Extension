@@ -20,6 +20,12 @@
   "button_close": {
     "message": "閉じる"
   },
+  "button_export_super_prompt_category": {
+    "message": "エクスポート"
+  },
+  "button_import_super_prompt_category": {
+    "message": "インポート"
+  },
   "button_export": {
     "message": "エクスポート"
   },
@@ -117,6 +123,9 @@
   },
   "alert_import_success": {
     "message": "インポートが成功しました！"
+  },
+  "alert_import_super_prompt_success": {
+    "message": "インポートが完了しました。保存を押すと完了します。"
   },
   "alert_import_error": {
     "message": "ファイル内容にエラーがあります。もう一度選択してください。"

@@ -20,6 +20,12 @@
   "button_close": {
     "message": "关闭"
   },
+  "button_export_super_prompt_category": {
+    "message": "汇出分类"
+  },
+  "button_import_super_prompt_category": {
+    "message": "汇入分类"
+  },
   "button_export": {
     "message": "导出"
   },
@@ -117,6 +123,9 @@
   },
   "alert_import_success": {
     "message": "导入成功!"
+  },
+  "alert_import_super_prompt_success": {
+    "message": "导入成功！按下保存即可完成。"
   },
   "alert_import_error": {
     "message": "档案内容有误，请重新选择"

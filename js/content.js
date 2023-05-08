@@ -643,11 +643,11 @@ let defaultQuickReplyMessageListTW = [
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
-  }
+  },
 ];
 defaultQuickReplyMessageListTW = [
   ...defaultQuickReplyMessageListTW,
-  ...DefaultEmptyQuickReplyMessageList
+  ...DefaultEmptyQuickReplyMessageList,
 ];
 
 let defaultQuickReplyMessageListJA = [
@@ -694,7 +694,7 @@ let defaultQuickReplyMessageListJA = [
 ];
 defaultQuickReplyMessageListJA = [
   ...defaultQuickReplyMessageListJA,
-  ...DefaultEmptyQuickReplyMessageList
+  ...DefaultEmptyQuickReplyMessageList,
 ];
 
 let defaultQuickReplyMessageListEN = [
@@ -741,7 +741,7 @@ let defaultQuickReplyMessageListEN = [
 ];
 defaultQuickReplyMessageListEN = [
   ...defaultQuickReplyMessageListEN,
-  ...DefaultEmptyQuickReplyMessageList
+  ...DefaultEmptyQuickReplyMessageList,
 ];
 
 let defaultQuickReplyMessageListCN = [
@@ -788,7 +788,7 @@ let defaultQuickReplyMessageListCN = [
 ];
 defaultQuickReplyMessageListCN = [
   ...defaultQuickReplyMessageListCN,
-  ...DefaultEmptyQuickReplyMessageList
+  ...DefaultEmptyQuickReplyMessageList,
 ];
 
 let defaultQuickReplyMessageListKO = [
@@ -835,7 +835,7 @@ let defaultQuickReplyMessageListKO = [
 ];
 defaultQuickReplyMessageListKO = [
   ...defaultQuickReplyMessageListKO,
-  ...DefaultEmptyQuickReplyMessageList
+  ...DefaultEmptyQuickReplyMessageList,
 ];
 
 // defaultSuperPromptList 多國語系
@@ -1291,6 +1291,10 @@ function findGroupAndIndex(promptId) {
       .footer .buy-me-a-coffee {
         position: absolute;
         right: 0;
+      }
+      .footer .fixed-left {
+        position: absolute;
+        left: 0;
       }
       .footer #dialog7-edit {
         position: absolute;
@@ -2587,6 +2591,15 @@ function findGroupAndIndex(promptId) {
           </table>
         </div>
         <div class="footer" class="center">
+            <div class="fixed-left">
+              <button tabindex="996" id="dialog6-export" class="info">${i18n(
+                "button_export_super_prompt_category"
+              )}</button>
+              <button tabindex="997" id="dialog6-import" class="success">${i18n(
+                "button_import_super_prompt_category"
+              )}</button>
+              <input style="display:none" type="file" id="importCategoryFileInput" name="file" accept="application/json">
+            </div>
             <button tabindex="998" id="dialog6-ok" class="primary">${i18n(
               "button_save"
             )} ( ${mainKeyText} + s )</button>
@@ -2740,6 +2753,11 @@ function findGroupAndIndex(promptId) {
     document.querySelector("#dialog6-cancel");
   const superPromptSettingsTableForm =
     superPromptSettingsDialog.querySelector("#superTableForm");
+  const superPromptDialogExportBtn = document.querySelector("#dialog6-export");
+  const superPromptDialogImportBtn = document.querySelector("#dialog6-import");
+  const importCategoryFileInput = document.querySelector(
+    "#importCategoryFileInput"
+  );
 
   // superPrompt
   const superPromptDialog = document.getElementById("dialog7");
@@ -3100,21 +3118,19 @@ function findGroupAndIndex(promptId) {
       JSON.parse(localStorage.getItem("Custom.Settings.QuickReply")).length ===
       5
     ) {
-
       let quickReplyMessageListTemp = JSON.parse(
         localStorage.getItem("Custom.Settings.QuickReply")
       );
 
       quickReplyMessageListTemp = [
         ...quickReplyMessageListTemp,
-        ...DefaultEmptyQuickReplyMessageList
+        ...DefaultEmptyQuickReplyMessageList,
       ];
 
       localStorage.setItem(
         "Custom.Settings.QuickReply",
         JSON.stringify(quickReplyMessageListTemp)
       );
-
     }
 
     if (localStorage.getItem("Custom.Settings.Menu.Hidden") === null) {
@@ -4049,6 +4065,127 @@ function findGroupAndIndex(promptId) {
     superPromptSettingsDialog.style.display = "none";
   });
 
+  superPromptDialogExportBtn.addEventListener("click", () => {
+    const superPromptButtonTextElements = document.querySelectorAll(
+      ".superPromptButtonText"
+    );
+    const superPromptTextElements =
+      document.querySelectorAll(".superPromptText");
+    const superPromptSlideElements =
+      document.querySelectorAll(".superPromptSlide");
+
+    let exportData = [];
+    const title =
+      superPromptSettingsDialog.querySelector(".dialog-title").innerHTML;
+
+    Array.from({ length: SuperPromptSettingsListLength }).forEach(
+      (_, index) => {
+        exportData.push({
+          text: superPromptButtonTextElements[index].value,
+          prompt: superPromptTextElements[index].value,
+          isVisible: superPromptSlideElements[index].checked,
+        });
+      }
+    );
+
+    const jsonData = JSON.stringify(
+      {
+        superPrompt: exportData,
+      },
+      null,
+      2
+    );
+
+    downloadFile(jsonData, `${title}.json`, "application/json;charset=utf-8;");
+  });
+
+  superPromptDialogImportBtn.addEventListener("click", () => {
+    importCategoryFileInput.click();
+  });
+
+  importCategoryFileInput.addEventListener("change", () => {
+    const file = importCategoryFileInput.files[0];
+    const reader = new FileReader();
+    reader.onload = handleCategoryFileLoad;
+    reader.readAsText(file);
+  });
+
+  function checkCategoryFileContent(obj) {
+    let isValidated = true;
+
+    try {
+      if (!obj.hasOwnProperty("superPrompt")) {
+        isValidated = false;
+      } else {
+        if (obj.superPrompt.length !== 50) {
+          isValidated = false;
+        }
+
+        obj.superPrompt.forEach((setting) => {
+          if (
+            !setting.hasOwnProperty("isVisible") ||
+            typeof setting.isVisible !== "boolean"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("text") ||
+            typeof setting.text !== "string"
+          ) {
+            isValidated = false;
+          }
+          if (
+            !setting.hasOwnProperty("prompt") ||
+            typeof setting.prompt !== "string"
+          ) {
+            isValidated = false;
+          }
+        });
+      }
+    } catch (error) {
+      isValidated = false;
+      console.log("error", error);
+    }
+
+    return isValidated;
+  }
+
+  function handleCategoryFileLoad(event) {
+    try {
+      const json = JSON.parse(event.target.result);
+
+      if (!checkCategoryFileContent(json)) {
+        importCategoryFileInput.value = "";
+        alert(i18n("alert_import_error"));
+        return;
+      }
+
+      const superPromptButtonTextElements = document.querySelectorAll(
+        ".superPromptButtonText"
+      );
+      const superPromptTextElements =
+        document.querySelectorAll(".superPromptText");
+      const superPromptSlideElements =
+        document.querySelectorAll(".superPromptSlide");
+
+      Array.from({ length: SuperPromptSettingsListLength }).forEach(
+        (_, index) => {
+          superPromptButtonTextElements[index].value =
+            json.superPrompt[index].text;
+          superPromptTextElements[index].value = json.superPrompt[index].prompt;
+          superPromptSlideElements[index].checked =
+            json.superPrompt[index].isVisible;
+        }
+      );
+
+      alert(i18n("alert_import_super_prompt_success"));
+
+      importCategoryFileInput.value = "";
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   // ------------ super 樣板視窗 程式碼 ------------
 
   const PlaceholderPromptInputTips = i18n("placeholder_prompt_input_tips");
@@ -4282,7 +4419,7 @@ function findGroupAndIndex(promptId) {
       shortcutContentElements[index].innerHTML =
         settings.key === "none"
           ? "none"
-          : capitalizeFirstLetter(mainKeyText) + '+' + settings.key;
+          : capitalizeFirstLetter(mainKeyText) + "+" + settings.key;
       quickReplyButtonTextElements[index].value = settings.text;
       quickReplyMessageElements[index].value = settings.quickReplyMessage;
       quickReplySlideElements[index].checked = settings.isVisible;
