@@ -2599,11 +2599,14 @@ function findGroupAndIndex(promptId) {
                 "button_import_super_prompt_category"
               )}</button>
               <input style="display:none" type="file" id="importCategoryFileInput" name="file" accept="application/json">
+              <button tabindex="998" id="dialog6-all-show-or-hide" class="warning">${i18n(
+                "button_show_all_or_hide_all"
+              )}</button>
             </div>
-            <button tabindex="998" id="dialog6-ok" class="primary">${i18n(
+            <button tabindex="999" id="dialog6-ok" class="primary">${i18n(
               "button_save"
             )} ( ${mainKeyText} + s )</button>
-            <button tabindex="999" id="dialog6-cancel" class="secondary">${i18n(
+            <button tabindex="1000" id="dialog6-cancel" class="secondary">${i18n(
               "button_cancel"
             )} ( esc ) </button>
             <div class="buy-me-a-coffee">
@@ -2757,6 +2760,9 @@ function findGroupAndIndex(promptId) {
   const superPromptDialogImportBtn = document.querySelector("#dialog6-import");
   const importCategoryFileInput = document.querySelector(
     "#importCategoryFileInput"
+  );
+  const superPromptDialogAllShowOrHideBtn = document.querySelector(
+    "#dialog6-all-show-or-hide"
   );
 
   // superPrompt
@@ -3965,10 +3971,14 @@ function findGroupAndIndex(promptId) {
   });
 
   // ------------ super 設定視窗相關 程式碼 ------------
+
+  let isAllShow = false;
+
   function showSuperPromptSettingDialog(
     superFormType,
     focusElementIndex = null
   ) {
+
     currentSuperSettingFormType = superFormType;
 
     superPromptSettingsDialog.style.display = "flex";
@@ -4012,6 +4022,9 @@ function findGroupAndIndex(promptId) {
     }
 
     controlSuperPromptSettingsDialogTabindex();
+
+    isAllShow = superPromptSlideElements[0].checked;
+
   }
 
   function saveSuperPromptSittings() {
@@ -4185,6 +4198,20 @@ function findGroupAndIndex(promptId) {
       console.log(error);
     }
   }
+
+  superPromptDialogAllShowOrHideBtn.addEventListener("click", () => {
+
+    isAllShow = !isAllShow;
+
+    const superPromptSlideElements = document.querySelectorAll(".superPromptSlide");
+
+    Array.from({ length: SuperPromptSettingsListLength }).forEach(
+      (_, index) => {
+        superPromptSlideElements[index].checked = isAllShow;
+      }
+    );
+    
+  });
 
   // ------------ super 樣板視窗 程式碼 ------------
 
@@ -5059,7 +5086,11 @@ function findGroupAndIndex(promptId) {
 
     // super 模版
     superPromptList.forEach((settings, index) => {
-      if (!settings.isVisible) {
+      if (
+        !settings.isVisible ||
+        !settings.text ||
+        !settings.prompt
+      ) {
         return;
       }
 

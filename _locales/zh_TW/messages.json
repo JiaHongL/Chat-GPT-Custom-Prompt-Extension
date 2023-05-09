@@ -44,6 +44,9 @@
   "button_reset": {
     "message": "恢復系統預設值"
   },
+  "button_show_all_or_hide_all": {
+    "message": "全部顯示 / 全部隱藏"
+  },
   "title_import_export": {
     "message": "匯入與匯出設定檔"
   },
@@ -140,7 +143,7 @@
     "message":"按下 tab 可移動到下一格，按下 shift + tab 可移動回上一格。"
   },
   "placeholder_supper_prompt_desc": {
-    "message": "使用{{}}可以代表一個欄位，{{}}裡面可以設定欄位名稱和預設值，例如： {{ 角色 || 廚師 }}。"
+    "message": "使用{{}}可以代表一個欄位，{{}}裡面可以設定欄位名稱和預設值，例如： {{ 角色 || 廚師 }}。按鈕名稱或樣板內容未填寫，則不會顯示在右側選單。"
   },
   "placeholder_keyword_input":{
     "message":"分類名稱 或 關鍵字..."

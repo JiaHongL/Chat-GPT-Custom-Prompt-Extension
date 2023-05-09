@@ -44,6 +44,9 @@
   "button_reset": {
     "message": "Restore System Defaults"
   },
+  "button_show_all_or_hide_all": {
+    "message": "Show All / Hide All"
+  },
   "title_import_export": {
     "message": "Import and Export Settings"
   },
@@ -140,7 +143,7 @@
     "message":"Pressing tab can move to the next cell, and pressing shift + tab can move back to the previous cell."
   },
   "placeholder_supper_prompt_desc": {
-    "message": "Using {{}} can represent a field. You can set the field name and default value in {{}}, for example: {{ role || chef }}."
+    "message": "Using {{}} can represent a field. You can set the field name and default value in {{}}, for example: {{ role || chef }}. If button name or template content is not filled, it will not appear in the right menu."
   },
   "placeholder_keyword_input":{
     "message":"Category or Keyword..."

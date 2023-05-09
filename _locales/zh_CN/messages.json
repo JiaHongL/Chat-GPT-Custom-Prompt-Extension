@@ -44,6 +44,9 @@
   "button_reset": {
     "message": "恢复系统预设值"
   },
+  "button_show_all_or_hide_all": {
+    "message": "全部显示 / 全部隐藏"
+  },
   "title_import_export": {
     "message": "导入与导出设定档"
   },
@@ -140,7 +143,7 @@
     "message":"按下 Tab 可以移动到下一个单元格，按下 Shift + Tab 可以移回上一个单元格。"
   },
   "placeholder_supper_prompt_desc": {
-    "message": "使用{{}}可以代表一个字段，{{}}里面可以设置字段名称和默认值，例如：{{ 角色 || 厨师 }}。"
+    "message": "使用{{}}可以代表一个字段，{{}}里面可以设置字段名称和默认值，例如：{{ 角色 || 厨师 }}。按钮名称或样板内容未填写，则不会显示在右侧选单。"
   },
   "placeholder_keyword_input":{
     "message":"分类名称 或 关键字..."
