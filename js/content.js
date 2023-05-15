@@ -4997,6 +4997,7 @@ function findGroupAndIndex(promptId) {
   }
 
   const PlaceholderKeywordInput = i18n("placeholder_keyword_input");
+  const ContinueButtonText = i18n("menu_item_continue");
 
   function generateButtons() {
     const findCustomMenu = document.querySelector(".custom-menu");
@@ -5123,12 +5124,12 @@ function findGroupAndIndex(promptId) {
 
     // 繼續
     const continueButton = createButton(
-      `${i18n("menu_item_continue")}`,
+      ContinueButtonText,
       "info"
     );
 
     continueButton.addEventListener("click", () => {
-      sendMessage(i18n("menu_item_continue"));
+      sendMessage(ContinueButtonText);
     });
 
     quickReplyDiv.appendChild(continueButton);
