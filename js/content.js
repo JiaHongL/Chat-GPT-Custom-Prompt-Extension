@@ -1121,7 +1121,6 @@ function findGroupAndIndex(promptId) {
         position: fixed;
         top:10px;
         right:0;
-        z-index: 1000;
         height:95vh;
         overflow-y: hidden;
         overflow-x: hidden;
