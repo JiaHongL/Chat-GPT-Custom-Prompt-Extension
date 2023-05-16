@@ -2093,7 +2093,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_B")}</div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2172,7 +2172,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_N")}</div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2205,7 +2205,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_M")}</div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2783,10 +2783,6 @@ function findGroupAndIndex(promptId) {
   const superPromptCategoryNameSettingsDialogCancelBtn =
     document.querySelector("#dialog8-cancel");
 
-  // other
-  let intervalID = null;
-  let modeBtn = null;
-
   let isComposing = false;
 
   /** 1:form or 2:form2 .... 6:form6 */
@@ -3173,29 +3169,6 @@ function findGroupAndIndex(promptId) {
     );
   }
 
-  function findModeBtn() {
-    intervalID = setInterval(function () {
-      if (document.querySelector("[data-headlessui-state]")) {
-        modeBtn = document.querySelector("[data-headlessui-state]");
-        clearInterval(intervalID);
-      }
-    }, 200);
-  }
-
-  findModeBtn();
-
-  function findModeOptionAndClick(textContent) {
-    clearInterval(intervalID);
-    intervalID = setInterval(function () {
-      const option = Array.from(
-        document.querySelectorAll('[role="option"]')
-      ).find((element) => element.textContent.includes(textContent));
-      if (option) {
-        option?.click();
-        clearInterval(intervalID);
-      }
-    }, 250);
-  }
 
   function darkModeToggle() {
     if (localStorage.getItem("theme") === "dark") {
@@ -3635,81 +3608,6 @@ function findGroupAndIndex(promptId) {
     if (event[mainKey] && event.key.toLocaleLowerCase() === "a") {
       event.preventDefault();
       collapseToggle();
-      return;
-    }
-
-    // main + b : change to gpt-4 or gpt-3.5 (url)
-    if (event[mainKey] && event.key.toLocaleLowerCase() === "b") {
-      event.preventDefault();
-      const url = new URL(window.location.href);
-      const urlSearchParams = new URLSearchParams(url.search);
-      const model = urlSearchParams.get("model")
-        ? urlSearchParams.get("model")
-        : "text-davinci-002-render-sha";
-      if (model === "text-davinci-002-render-sha") {
-        window.location.href = "https://chat.openai.com/chat?model=gpt-4";
-      } else {
-        window.location.href =
-          "https://chat.openai.com/chat?model=text-davinci-002-render-sha";
-      }
-      return;
-    }
-
-    // mainKey + n： new chat
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "n"
-    ) {
-      event.preventDefault();
-
-      const newChatBtn = document.querySelector("nav").children[0];
-
-      newChatBtn.click();
-      findModeBtn();
-      return;
-    }
-
-    // mainKey + m : change to gpt-4 or gpt-3.5 toggle button
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "m"
-    ) {
-      event.preventDefault();
-
-      const url = new URL(window.location.href);
-
-      const urlSearchParams = new URLSearchParams(url.search);
-
-      const model = urlSearchParams.get("model")
-        ? urlSearchParams.get("model")
-        : "text-davinci-002-render-sha";
-
-      if (!modeBtn) {
-        return;
-      }
-
-      modeBtn.click();
-
-      if (model === "text-davinci-002-render-sha") {
-        findModeOptionAndClick("GPT-4");
-      } else {
-        findModeOptionAndClick("Default (GPT-3.5)");
-      }
-
       return;
     }
 
