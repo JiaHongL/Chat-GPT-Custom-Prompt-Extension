@@ -2174,7 +2174,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">none</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_N")}</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -3611,6 +3611,25 @@ function findGroupAndIndex(promptId) {
       collapseToggle();
       return;
     }
+
+    // mainKey + n： new chat
+    if (
+      questionDialog.style.display === "none" &&
+      settingsDialog.style.display === "none" &&
+      quickReplySettingsDialog.style.display === "none" &&
+      exportAndImportDialog.style.display === "none" &&
+      superPromptSettingsDialog.style.display === "none" &&
+      superPromptDialog.style.display === "none" &&
+      superPromptCategoryNameSettingsDialog.style.display === "none" &&
+      event[mainKey] &&
+      event.key.toLocaleLowerCase() === "n"
+    ) {
+      event.preventDefault();
+      const newChatBtn = document.querySelector("nav").children[0];
+      newChatBtn.click();
+      return;
+    }
+    
 
     // mainKey + 1 ~ 0 number keyboard : open question dialog
     if (
