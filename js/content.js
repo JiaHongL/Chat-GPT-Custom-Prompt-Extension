@@ -48,15 +48,17 @@ function downloadHtml() {
   const buttons = clonedContainer.querySelectorAll("button");
 
   avatarList.forEach((avatar) => {
-    const originalElement = avatar;
-    const newElement = document.createElement("div");
-    newElement.innerHTML =
-      '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>';
-    const parentElement = originalElement.parentNode;
-    while (parentElement.firstChild) {
-      parentElement.removeChild(parentElement.firstChild);
+    if (avatar.alt === "User") {
+      const originalElement = avatar;
+      const newElement = document.createElement("div");
+      newElement.innerHTML =
+        '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>';
+      const parentElement = originalElement.parentNode;
+      while (parentElement.firstChild) {
+        parentElement.removeChild(parentElement.firstChild);
+      }
+      parentElement.appendChild(newElement);
     }
-    parentElement.appendChild(newElement);
   });
 
   buttons.forEach((button) => {
@@ -3169,7 +3171,6 @@ function findGroupAndIndex(promptId) {
     );
   }
 
-
   function darkModeToggle() {
     if (localStorage.getItem("theme") === "dark") {
       localStorage.setItem("theme", "light");
@@ -3680,7 +3681,6 @@ function findGroupAndIndex(promptId) {
 
   // ------------ 提問視窗 相關程式碼 ------------
   function sendMessage(message) {
-
     let isGenerating = false;
 
     // 看看是不是正在對話，若有則先停止
@@ -3873,7 +3873,6 @@ function findGroupAndIndex(promptId) {
     superFormType,
     focusElementIndex = null
   ) {
-
     currentSuperSettingFormType = superFormType;
 
     superPromptSettingsDialog.style.display = "flex";
@@ -3919,7 +3918,6 @@ function findGroupAndIndex(promptId) {
     controlSuperPromptSettingsDialogTabindex();
 
     isAllShow = superPromptSlideElements[0].checked;
-
   }
 
   function saveSuperPromptSittings() {
@@ -4095,17 +4093,16 @@ function findGroupAndIndex(promptId) {
   }
 
   superPromptDialogAllShowOrHideBtn.addEventListener("click", () => {
-
     isAllShow = !isAllShow;
 
-    const superPromptSlideElements = document.querySelectorAll(".superPromptSlide");
+    const superPromptSlideElements =
+      document.querySelectorAll(".superPromptSlide");
 
     Array.from({ length: SuperPromptSettingsListLength }).forEach(
       (_, index) => {
         superPromptSlideElements[index].checked = isAllShow;
       }
     );
-    
   });
 
   // ------------ super 樣板視窗 程式碼 ------------
@@ -4982,11 +4979,7 @@ function findGroupAndIndex(promptId) {
 
     // super 模版
     superPromptList.forEach((settings, index) => {
-      if (
-        !settings.isVisible ||
-        !settings.text ||
-        !settings.prompt
-      ) {
+      if (!settings.isVisible || !settings.text || !settings.prompt) {
         return;
       }
 
@@ -5018,10 +5011,7 @@ function findGroupAndIndex(promptId) {
     });
 
     // 繼續
-    const continueButton = createButton(
-      ContinueButtonText,
-      "info"
-    );
+    const continueButton = createButton(ContinueButtonText, "info");
 
     continueButton.addEventListener("click", () => {
       sendMessage(ContinueButtonText);
@@ -5070,6 +5060,14 @@ function findGroupAndIndex(promptId) {
     otherDiv.appendChild(menuCollapseButton);
 
     menuDiv.addEventListener("transitionend", function (event) {
+      const isMobileChrome = /Chrome.*Mobile/.test(navigator.userAgent);
+      const isMobile =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      if (isMobile && isMobileChrome) {
+        return;
+      }
       if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "N") {
         document.querySelector("#customKeywordInput").focus();
       }
