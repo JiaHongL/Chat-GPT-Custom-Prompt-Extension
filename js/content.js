@@ -1129,7 +1129,7 @@ function findGroupAndIndex(promptId) {
         box-sizing: content-box;
         width:160px;
         padding:5px;
-        background:rgba(0, 0, 0, 0.5);
+        background:rgb(236,236,241);
         border-radius:10px;
         margin-right:5px;
         
@@ -1163,13 +1163,13 @@ function findGroupAndIndex(promptId) {
         bottom: 0px;
         right:0px;
         display:none;
-        padding:10px;
+        padding:12px;
         cursor:pointer;
       }
       .collapse-button svg{
         height:22px;
         width:22px;
-        fill: black;
+        fill: #ccc;
       }
       .dark .collapse-button svg{
         fill: #ccc;
@@ -1187,7 +1187,7 @@ function findGroupAndIndex(promptId) {
         width:100%;
         height: 30px;
         border-radius: 5px;
-        background-color: #f1f1f1;
+        background-color: white;
         box-shadow: 0 0 1px #f1f1f1;
         border: none;
         padding: 0 10px;
