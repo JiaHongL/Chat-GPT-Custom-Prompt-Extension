@@ -5079,12 +5079,11 @@ function findGroupAndIndex(promptId) {
     otherDiv.appendChild(menuCollapseButton);
 
     menuDiv.addEventListener("transitionend", function (event) {
-      const isMobileChrome = /Chrome.*Mobile/.test(navigator.userAgent);
       const isMobile =
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
           navigator.userAgent
         );
-      if (isMobile && isMobileChrome) {
+      if (isMobile) {
         return;
       }
       if (localStorage.getItem("Custom.Settings.Menu.Hidden") === "N") {
