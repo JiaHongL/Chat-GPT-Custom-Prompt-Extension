@@ -3680,7 +3680,7 @@ function findGroupAndIndex(promptId) {
 
   // ------------ 提問視窗 相關程式碼 ------------
   function sendMessage(message) {
-    modeBtn = null;
+
     let isGenerating = false;
 
     // 看看是不是正在對話，若有則先停止
