@@ -1127,7 +1127,7 @@ function findGroupAndIndex(promptId) {
         overflow-y: hidden;
         overflow-x: hidden;
         box-sizing: content-box;
-        width:160px;
+        width:155px;
         padding:5px;
         background:rgb(236,236,241);
         border-radius:10px;
@@ -1154,6 +1154,9 @@ function findGroupAndIndex(promptId) {
       .custom-menu .menu-collapse-button svg{
         width:18px;
         fill:white;
+      }
+      .dark .custom-menu .menu-collapse-button span{
+        color: #ccc;
       }
       .dark .custom-menu .menu-collapse-button svg{
         fill: #ccc;
@@ -4878,7 +4881,7 @@ function findGroupAndIndex(promptId) {
   ) {
     let fontSize = "1rem";
     let width = "100%";
-    let padding = "3px 10px";
+    let padding = "3px 5px 3px 10px";
 
     const button = document.createElement("button");
     button.classList.add(btnColorClass, "custom-template-buttons");
