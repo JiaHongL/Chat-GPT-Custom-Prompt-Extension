@@ -4897,6 +4897,7 @@ function findGroupAndIndex(promptId) {
   }
 
   const PlaceholderKeywordInput = i18n("placeholder_keyword_input");
+  const MENU_ITEM_DOWNLOAD_HTML = i18n("menu_item_download_html");
 
   function generateButtons() {
     const findCustomMenu = document.querySelector(".custom-menu");
@@ -5041,7 +5042,7 @@ function findGroupAndIndex(promptId) {
 
     // 下載
     const downloadHtmlButton = createButton(
-      i18n("menu_item_download_html"),
+      MENU_ITEM_DOWNLOAD_HTML,
       "secondary",
       ""
     );
