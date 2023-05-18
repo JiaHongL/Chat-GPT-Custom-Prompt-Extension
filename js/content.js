@@ -2243,7 +2243,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_C")}</div>
+          <div class="ellipsis"> none </div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -3486,23 +3486,6 @@ function findGroupAndIndex(promptId) {
           button.click();
         }
       });
-      return;
-    }
-
-    // mainKey + c : continue
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "c"
-    ) {
-      event.preventDefault();
-      sendMessage(i18n("menu_item_continue"));
       return;
     }
 
@@ -4914,7 +4897,6 @@ function findGroupAndIndex(promptId) {
   }
 
   const PlaceholderKeywordInput = i18n("placeholder_keyword_input");
-  const ContinueButtonText = i18n("menu_item_continue");
 
   function generateButtons() {
     const findCustomMenu = document.querySelector(".custom-menu");
@@ -5034,15 +5016,6 @@ function findGroupAndIndex(promptId) {
 
       promptListDiv.appendChild(button);
     });
-
-    // 繼續
-    const continueButton = createButton(ContinueButtonText, "info");
-
-    continueButton.addEventListener("click", () => {
-      sendMessage(ContinueButtonText);
-    });
-
-    quickReplyDiv.appendChild(continueButton);
 
     // 快速回覆按鈕
     quickReplyMessageList.forEach((settings) => {
