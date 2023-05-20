@@ -1545,6 +1545,7 @@ function findGroupAndIndex(promptId) {
         max-height:500px;
         overflow:auto;
         font-size: 18px;
+        padding-right:5px;
       }
       .super-prompt-table-wrapper .fieldItem{
         padding-bottom:8px;
@@ -4133,7 +4134,7 @@ function findGroupAndIndex(promptId) {
       `#${superPromptId} ${superPromptName} <br>` + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
-    const matches = superPrompt.match(/{{(.*?)}}/g);
+    const matches = superPrompt.match(/{{\s*([^}]+)\s*}}/g);
 
     if (!matches) {
       return;
@@ -4212,6 +4213,12 @@ function findGroupAndIndex(promptId) {
       });
     }
 
+    // 如果兩個以上，最後一個增加 margin bottom
+    if (table.querySelectorAll(".superPromptText").length > 2) {
+      const textareaElements = table.querySelectorAll(".superPromptText");
+      textareaElements[textareaElements.length-1].style.marginBottom = '20px';
+    }
+
     addCompositionEventListener(".superPromptText");
 
     controlSuperDialogTabindex();
@@ -4223,7 +4230,7 @@ function findGroupAndIndex(promptId) {
     const table = document.querySelector("#superPromptTable");
     const superPromptTextList = table.querySelectorAll(".superPromptText");
 
-    const matches = superPrompt.match(/{{\s*(.*?)\s*}}/g);
+    const matches = superPrompt.match(/{{\s*([^}]+)\s*}}/g);
     let message = superPrompt;
 
     if (!matches) {
