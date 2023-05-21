@@ -3616,7 +3616,6 @@ function findGroupAndIndex(promptId) {
       newChatBtn.click();
       return;
     }
-    
 
     // mainKey + 1 ~ 0 number keyboard : open question dialog
     if (
@@ -4216,7 +4215,7 @@ function findGroupAndIndex(promptId) {
     // 如果兩個以上，最後一個增加 margin bottom
     if (table.querySelectorAll(".superPromptText").length > 2) {
       const textareaElements = table.querySelectorAll(".superPromptText");
-      textareaElements[textareaElements.length-1].style.marginBottom = '20px';
+      textareaElements[textareaElements.length - 1].style.marginBottom = "20px";
     }
 
     addCompositionEventListener(".superPromptText");
@@ -4588,6 +4587,9 @@ function findGroupAndIndex(promptId) {
 
       resetCustomMenuItem();
 
+      document.querySelector("#customKeywordInput").value = "";
+      document.querySelector(".prompt-list-area").scrollTop = 0;
+
       generateButtons();
 
       alert(i18n("alert_reset_success"));
@@ -4842,6 +4844,9 @@ function findGroupAndIndex(promptId) {
           resetCustomMenuItem();
         }
 
+        document.querySelector("#customKeywordInput").value = "";
+        document.querySelector(".prompt-list-area").scrollTop = 0;
+
         generateButtons();
 
         alert(i18n("alert_import_success"));
@@ -4893,9 +4898,10 @@ function findGroupAndIndex(promptId) {
     if (isCollapseButton) {
       button.style.margin = "0 0 0 0";
       button.classList.add("menu-collapse-button");
-      button.innerHTML =
-        `
-        <span style="margin-right:15px">${capitalizeFirstLetter(mainKeyText)} + A </span>
+      button.innerHTML = `
+        <span style="margin-right:15px">${capitalizeFirstLetter(
+          mainKeyText
+        )} + A </span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M32 96l320 0V32c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l96 96c6 6 9.4 14.1 9.4 22.6s-3.4 16.6-9.4 22.6l-96 96c-9.2 9.2-22.9 11.9-34.9 6.9s-19.8-16.6-19.8-29.6V160L32 160c-17.7 0-32-14.3-32-32s14.3-32 32-32zM480 352c17.7 0 32 14.3 32 32s-14.3 32-32 32H160v64c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-96-96c-6-6-9.4-14.1-9.4-22.6s3.4-16.6 9.4-22.6l96-96c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 64H480z"/></svg>
         `;
     }
@@ -4906,8 +4912,32 @@ function findGroupAndIndex(promptId) {
   const PlaceholderKeywordInput = i18n("placeholder_keyword_input");
   const MENU_ITEM_DOWNLOAD_HTML = i18n("menu_item_download_html");
 
+  let keywordInputValueTemp = "";
+  let lastScrollPosition = 0;
+
   function generateButtons() {
     const findCustomMenu = document.querySelector(".custom-menu");
+
+    if (
+      document.querySelector("#customKeywordInput") &&
+      document.querySelector("#customKeywordInput").value
+    ) {
+      keywordInputValueTemp = document.querySelector(
+        "#customKeywordInput"
+      ).value;
+    } else {
+      keywordInputValueTemp = "";
+    }
+
+    if (
+      document.querySelector(".prompt-list-area") &&
+      document.querySelector(".prompt-list-area").scrollTop
+    ) {
+      lastScrollPosition =
+        document.querySelector(".prompt-list-area").scrollTop;
+    } else {
+      lastScrollPosition = 0;
+    }
 
     if (findCustomMenu) {
       findCustomMenu.remove();
@@ -5081,6 +5111,22 @@ function findGroupAndIndex(promptId) {
     document.body.appendChild(menuDiv);
 
     controlCustomMenuTabindex();
+
+    if (keywordInputValueTemp) {
+      document.querySelector("#customKeywordInput").value =
+        keywordInputValueTemp;
+      document
+        .querySelector("#customKeywordInput")
+        .dispatchEvent(new Event("input", { bubbles: true }));
+      keywordInputValueTemp = "";
+    }
+
+    if (lastScrollPosition) {
+      document
+        .querySelector(".prompt-list-area")
+        .scrollTo(0, lastScrollPosition);
+      lastScrollPosition = 0;
+    }
   }
 
   generateButtons();
