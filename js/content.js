@@ -1665,6 +1665,17 @@ function findGroupAndIndex(promptId) {
         margin-bottom:10px;
       }   
       .super-prompt-category-name-list input{ margin:0px;}
+      .expand-edit-prompt{
+        fill: black;
+        width:20px;
+        height:20px;
+        margin-right:-10px;
+        transform: rotate(90deg);
+        cursor:pointer;
+      }
+      .dark .expand-edit-prompt{
+        fill:#d1d5db;
+      }
       `;
 
   // 插入 style
@@ -2573,10 +2584,11 @@ function findGroupAndIndex(promptId) {
                     <td style="width:auto">
                         <div class="center">
                             <textarea style="width:100%;" tabindex="${
-                              index * 2 + 2
-                            }" class="superPromptText" placeholder="${i18n(
-                  "placeholder_supper_prompt_desc"
-                )}"></textarea>
+                                        index * 2 + 2
+                                      }" class="superPromptText" placeholder="${i18n(
+                            "placeholder_supper_prompt_desc"
+                          )}"></textarea>
+                          <svg class="expandEditPrompt expand-edit-prompt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M32 64c17.7 0 32 14.3 32 32l0 320c0 17.7-14.3 32-32 32s-32-14.3-32-32V96C0 78.3 14.3 64 32 64zm214.6 73.4c12.5 12.5 12.5 32.8 0 45.3L205.3 224l229.5 0-41.4-41.4c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l96 96c12.5 12.5 12.5 32.8 0 45.3l-96 96c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L434.7 288l-229.5 0 41.4 41.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0l-96-96c-12.5-12.5-12.5-32.8 0-45.3l96-96c12.5-12.5 32.8-12.5 45.3 0zM640 96V416c0 17.7-14.3 32-32 32s-32-14.3-32-32V96c0-17.7 14.3-32 32-32s32 14.3 32 32z"/></svg>
                         </div>
                     </td>
                     <td style="width:118px">
@@ -3874,6 +3886,8 @@ function findGroupAndIndex(promptId) {
 
   let isAllShow = false;
 
+  let isShowSuperPromptSettingDialogInit = true;
+
   function showSuperPromptSettingDialog(
     superFormType,
     focusElementIndex = null
@@ -3890,6 +3904,8 @@ function findGroupAndIndex(promptId) {
 
     const superPromptSlideElements =
       document.querySelectorAll(".superPromptSlide");
+    
+    const expandEditPromptElements = document.querySelectorAll(".expandEditPrompt");
 
     const superPromptIdElements = document.querySelectorAll(".superPromptId");
 
@@ -3920,9 +3936,23 @@ function findGroupAndIndex(promptId) {
       superPromptButtonTextElements[0].focus();
     }
 
+    if(isShowSuperPromptSettingDialogInit){
+      expandEditPromptElements.forEach((expandEditPromptElement,index)=>{
+        expandEditPromptElement.addEventListener("click", () => {
+          if(superPromptTextElements[index].offsetHeight < 485){
+            superPromptTextElements[index].style.height = "485px"
+          }else{
+            superPromptTextElements[index].style.height = "85px"
+          }
+        });
+      });
+    }
+
     controlSuperPromptSettingsDialogTabindex();
 
     isAllShow = superPromptSlideElements[0].checked;
+
+    isShowSuperPromptSettingDialogInit = false;
   }
 
   function saveSuperPromptSittings() {
