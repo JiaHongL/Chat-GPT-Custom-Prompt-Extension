@@ -3708,10 +3708,8 @@ function findGroupAndIndex(promptId) {
       }
     });
 
-    const chatInput = document.querySelector("form").querySelector("textarea");
-    const sendButton = document
-      .querySelector("form")
-      .querySelector(".absolute.p-1.rounded-md.text-gray-500.right-1");
+    const chatInput = document.querySelector('#prompt-textarea');
+    const sendButton = chatInput.parentElement.querySelector("button:last-child") || chatInput.nextElementSibling;
 
     if (!chatInput) {
       alert(i18n("alert_not_found_input"));
