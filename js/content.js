@@ -2557,7 +2557,7 @@ function findGroupAndIndex(promptId) {
             <thead>
               <tr>
                   <th style="width:50px">#</th>
-                  <th style="width:265px">${i18n(
+                  <th style="width:180px">${i18n(
                     "table_title_button_name"
                   )}</th>
                   <th style="width:auto">${i18n(
@@ -2574,7 +2574,7 @@ function findGroupAndIndex(promptId) {
                     <td style="text-align:center;width:50px">
                       <span class="superPromptId super-prompt-id"></span>
                     </td>
-                    <td style="width:265px">
+                    <td style="width:180px">
                       <input tabindex="${
                         index * 2 + 1
                       }" class="superPromptButtonText" type="text" placeholder="${i18n(
