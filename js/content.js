@@ -2420,7 +2420,7 @@ function findGroupAndIndex(promptId) {
   const quickReplyHTML = `
   <div id="dialog4" class="dialog-wrapper" style="display:none">
 
-    <div class="dialog" style="max-width: 60%;">
+    <div class="dialog" style="max-width: 85%;">
       <div class="table-container">
         <table class="my-table scroll-table-form" style="width:100%">
           <thead>
