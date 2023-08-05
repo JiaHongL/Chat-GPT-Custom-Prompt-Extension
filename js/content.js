@@ -1163,11 +1163,16 @@ function findGroupAndIndex(promptId) {
       }
       .collapse-button {
         position: fixed;
-        bottom: 0px;
-        right:0px;
+        bottom: 220px;
+        right: 10px;
         display:none;
         padding:12px;
         cursor:pointer;
+      }
+      @media only screen and (max-width: 980px) {
+        .collapse-button {
+          right: 0px;
+        }
       }
       .collapse-button svg{
         height:22px;
