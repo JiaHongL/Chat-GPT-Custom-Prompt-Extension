@@ -4169,13 +4169,16 @@ function findGroupAndIndex(promptId) {
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{\s*([^}]+)\s*}}/g);
 
-    if (!matches) {
+    // 移除重複的
+    const uniqueMatches = [...new Set(matches)];
+
+    if (!uniqueMatches) {
       return;
     }
 
     let htmlStr = "";
 
-    matches.forEach((string, i) => {
+    uniqueMatches.forEach((string, i) => {
       let [fieldName, fieldValue] = string
         ?.slice(2, -2)
         ?.split("||")
@@ -4264,21 +4267,30 @@ function findGroupAndIndex(promptId) {
     const superPromptTextList = table.querySelectorAll(".superPromptText");
 
     const matches = superPrompt.match(/{{\s*([^}]+)\s*}}/g);
+    const uniqueMatches = [...new Set(matches)];
+
     let message = superPrompt;
 
     if (!message) {
       return;
     }
 
-    if (!matches) {
+    if (!uniqueMatches) {
       superPromptDialog.style.display = "none";
       sendMessage(message);
       return;
     }
 
-    for (let i = 0; i < superPromptTextList.length; i++) {
-      message = message.replace(matches[i], superPromptTextList[i].value);
+    function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
+
+    for (let i = 0; i < superPromptTextList.length; i++) {
+      const uniqueMatch = escapeRegExp(uniqueMatches[i]);
+      const regex = new RegExp(uniqueMatch, 'g');
+      message = message.replace(regex, superPromptTextList[i].value);
+    }
+    
     superPromptDialog.style.display = "none";
     sendMessage(message);
   }
