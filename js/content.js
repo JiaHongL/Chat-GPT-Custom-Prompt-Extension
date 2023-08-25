@@ -1121,9 +1121,9 @@ function findGroupAndIndex(promptId) {
   const styles = `
       .custom-menu {
         position: fixed;
-        top:10px;
+        top:65px;
         right:0;
-        height:95vh;
+        height:calc(90vh - 65px);
         overflow-y: hidden;
         overflow-x: hidden;
         box-sizing: content-box;
@@ -1131,13 +1131,19 @@ function findGroupAndIndex(promptId) {
         padding:5px;
         background:rgb(236,236,241);
         border-radius:10px;
-        margin-right:5px;
+        margin-right:8px;
         
         display:flex;
         flex-direction:column;
 
         transition: transform 0.3s ease-in-out;
         transform: translateX(0);
+      }
+      @media only screen and (max-width: 980px) {
+        .custom-menu {
+          top:100px;
+          height:calc(85vh - 120px);
+        }
       }
       .dark .custom-menu {
         background:gray;
