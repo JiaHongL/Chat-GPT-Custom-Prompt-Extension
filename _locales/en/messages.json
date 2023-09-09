@@ -143,7 +143,7 @@
     "message":"Pressing tab can move to the next cell, and pressing shift + tab can move back to the previous cell."
   },
   "placeholder_supper_prompt_desc": {
-    "message": "Using {{}} represents a field, and within {{}}, you can set the field name and default value. For example, {{ Role | | Chef }}. You can also input a block of text without field extraction. If the button name or template content is not filled, it will not be displayed in the right menu."
+    "message": "You can use {{}} to represent a field. Inside {{}}, you can set the field name and default value, for example: {{ Role || Chef }}. In addition, you can also use {{}} directly to represent an input box. You can also input a piece of text without creating a field. If the button name or template content is not filled in, it will not be displayed in the right-side menu."
   },
   "placeholder_keyword_input":{
     "message":"Category or Keyword..."

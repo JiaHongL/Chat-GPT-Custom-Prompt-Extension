@@ -29,11 +29,6 @@
 
 <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-
-PS : 也不用亂給沒任何評論的星星，如下XD
-
-![](https://hackmd.io/_uploads/ryzlMWLu2.png)
-
 ## 操作功能一覽
 
 ### Mac 快捷鍵
@@ -268,21 +263,20 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 
 > PS：Prompt 只是更佳的提問技巧，無需過度神話，而 ChatGPT 的正確使用觀念，就是持續對它進行提問，讓 AI 進行自我修正，最後獲得出最佳的答案。
 
-### 使用 [xxx] 替換成 多個欄位 的技巧
+### 支援多個欄位
 
-#### 可以把會重複的欄位使用 [xxx]，並在最後告訴 ChatGPT 說替換成其它文字
-![](https://hackmd.io/_uploads/rJw0iZ2En.png)
+#### 輸入多個要重複的欄位名稱
+![](https://hackmd.io/_uploads/rysugnyR3.png)
 
 #### 產生出來的樣板
-![](https://hackmd.io/_uploads/Hyu5j-nVh.png)
+![](https://hackmd.io/_uploads/BynSl3JR2.png)
 
 #### 示範輸入
-![](https://hackmd.io/_uploads/H1q9sWnVh.png)
+![](https://hackmd.io/_uploads/rJXiyh1Rn.png)
 
-#### ChatGPT 輸出的結果
-![](https://hackmd.io/_uploads/B1e-is-n4n.png)
+#### 結果
+![](https://hackmd.io/_uploads/SkDXg31Rn.png)
 
-> 這只是示範替換的技巧，如果只有一個欄位挖空的話，用原本的 {{欄位}} 方式就可以了。
 
 ### 使用另一種方式，直接產出已加上 {{xxx}} 的新 Prompt
 
@@ -510,6 +504,16 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 - 調整 選單 button 位置
 
 ### 1.0.5 版
-送審日期：2023/8/13
-通過日期：送審中
+送審日期：2023/8/13 
+通過日期：2023/8/15
 - 優化超級樣版產生輸入框方式
+
+### 1.0.6 版
+送審日期：2023/8/26 
+送審日期：2023/8/26 
+- 調整 menu 位置，避免擋住 share link
+
+### 1.0.7 版
+送審日期：2023/9/9
+送審日期：送審中
+- 支援輸入 {{}} 即可代表一個輸入框

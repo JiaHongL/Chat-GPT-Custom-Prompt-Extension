@@ -4173,11 +4173,23 @@ function findGroupAndIndex(promptId) {
       `#${superPromptId} ${superPromptName} <br>` + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
-    const matches = superPrompt.match(/{{\s*([^}]+)\s*}}/g);
+    const matches = superPrompt.match(/{{\s*([^}]*)\s*}}/g) || [];
 
-    // 移除重複的
-    const uniqueMatches = [...new Set(matches)];
-
+    // 移除重複的，但將 {{}} 是為獨立的一個
+    const uniqueMatches = [];
+    const countMap = {};
+    
+    for (const match of matches) {
+      if (match === '{{}}') {
+        uniqueMatches.push(match);
+      } else {
+        if (!countMap[match]) {
+          countMap[match] = true;
+          uniqueMatches.push(match);
+        }
+      }
+    }
+    
     if (!uniqueMatches) {
       return;
     }
@@ -4272,8 +4284,23 @@ function findGroupAndIndex(promptId) {
     const table = document.querySelector("#superPromptTable");
     const superPromptTextList = table.querySelectorAll(".superPromptText");
 
-    const matches = superPrompt.match(/{{\s*([^}]+)\s*}}/g);
-    const uniqueMatches = [...new Set(matches)];
+    // 使用正規表達式搜尋 {{ 和 }} 之間的內容
+    const matches = superPrompt.match(/{{\s*([^}]*)\s*}}/g) || [];
+
+    // 移除重複的，但將 {{}} 是為獨立的一個
+    const uniqueMatches = [];
+    const countMap = {};
+    
+    for (const match of matches) {
+      if (match === '{{}}') {
+        uniqueMatches.push(match);
+      } else {
+        if (!countMap[match]) {
+          countMap[match] = true;
+          uniqueMatches.push(match);
+        }
+      }
+    }
 
     let message = superPrompt;
 
@@ -4293,7 +4320,8 @@ function findGroupAndIndex(promptId) {
 
     for (let i = 0; i < superPromptTextList.length; i++) {
       const uniqueMatch = escapeRegExp(uniqueMatches[i]);
-      const regex = new RegExp(uniqueMatch, 'g');
+      const flag = uniqueMatch == escapeRegExp('{{}}') ? '' : 'g';
+      const regex = new RegExp(uniqueMatch, flag);
       message = message.replace(regex, superPromptTextList[i].value);
     }
     
