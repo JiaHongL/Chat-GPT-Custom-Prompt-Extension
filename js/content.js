@@ -851,7 +851,7 @@ const SuperPromptSettingsListLength = 50;
 let DefaultEmptySuperPromptList = [];
 
 Array.from({ length: SuperPromptSettingsAllItems }).forEach((_, index) => {
-  if (index > 2) {
+  if (index > 3) {
     DefaultEmptySuperPromptList.push({
       key: index + 1,
       text: "SuperPrompt" + (index + 1),
@@ -891,6 +891,18 @@ let defaultSuperPromptListTW = [
     handleClickFn: null,
     isVisible: true,
   },
+  {
+    key: 4,
+    text: "使用範例",
+    prompt:
+      `輸入 {{}} 可產生一個輸入框
+      輸入 {{ 欄位名稱 }} 可產生一個具有欄位名稱的輸入框
+      輸入 {{ 欄位名稱 || 預設值 }} 可產生一個具有欄位名稱的輸入框，且有預設值
+      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 ||s}} 可產生一個具有欄位名稱的下拉選單，且預設值為第一個選項`,
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
 ];
 defaultSuperPromptListTW = [
   ...defaultSuperPromptListTW,
@@ -921,6 +933,18 @@ let defaultSuperPromptListJA = [
     text: "多言語翻訳",
     prompt:
       "翻訳の専門家として、[{{ 翻訳するテキスト }}]を {{ 言語 || 繁体字中国語、簡体字中国語、英語、日本語、韓国語 }} に翻訳して、表のヘッダーが {{ ヘッダー || zh-tw、zh-cn、en、ja、ko }} である表を使用して表示してください。その他の説明や説明は必要ありません。",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 4,
+    text: "使用例",
+    prompt:
+      `{{}} を入力すると、入力ボックスが生成されます。
+      {{フィールド名}} を入力すると、フィールド名を持つ入力ボックスが生成されます。
+      {{フィールド名 || デフォルト値}} を入力すると、フィールド名とデフォルト値を持つ入力ボックスが生成されます。
+      {{フィールド名 || オプション1, オプション2, オプション3 ||s}} を入力すると、フィールド名を持つドロップダウンメニューが生成され、デフォルト値は最初のオプションになります。`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -959,6 +983,18 @@ let defaultSuperPromptListEN = [
     handleClickFn: null,
     isVisible: true,
   },
+  {
+    key: 4,
+    text: "Usage Example",
+    prompt:
+      `Entering {{}} will generate an input box.
+      Entering {{field name}} will generate an input box with the field name.
+      Entering {{field name || default value}} will generate an input box with the field name and a default value.
+      Entering {{field name || option one, option two, option three ||s}} will generate a dropdown menu with the field name, and the default value will be the first option.`,
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
 ];
 defaultSuperPromptListEN = [
   ...defaultSuperPromptListEN,
@@ -993,6 +1029,18 @@ let defaultSuperPromptListCN = [
     handleClickFn: null,
     isVisible: true,
   },
+  {
+    key: 4,
+    text: "使用示例",
+    prompt:
+      `输入 {{}} 将生成一个输入框。
+      输入 {{字段名称}} 将生成一个带有字段名称的输入框。
+      输入 {{字段名称 || 默认值}} 将生成一个带有字段名称和默认值的输入框。
+      输入 {{字段名称 || 选项一, 选项二, 选项三 ||s}} 将生成一个带有字段名称的下拉菜单，默认值为第一个选项。`,
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
 ];
 defaultSuperPromptListCN = [
   ...defaultSuperPromptListCN,
@@ -1023,6 +1071,18 @@ let defaultSuperPromptListKO = [
     text: "다국어 번역",
     prompt:
       "당신은 현재 번역 전문가입니다. [ {{ 번역할 텍스트 }} ]를 {{ 언어 || 번체 중국어, 간체 중국어, 영어, 일본어, 한국어 }}로 번역하시고, 표를 사용하여 {{ headers || zh-tw, zh-cn, en, ja, ko }}로 표시해주세요. 추가 설명이나 지시 사항은 필요하지 않습니다.",
+    buttonElement: null,
+    handleClickFn: null,
+    isVisible: true,
+  },
+  {
+    key: 4,
+    text: "사용 예시",
+    prompt:
+      `{{}}를 입력하면 입력 상자가 생성됩니다.
+      {{필드 이름}}을 입력하면 필드 이름이 있는 입력 상자가 생성됩니다.
+      {{필드 이름 || 기본 값}}을 입력하면 필드 이름과 기본 값이 있는 입력 상자가 생성됩니다.
+      {{필드 이름 || 옵션 하나, 옵션 둘, 옵션 셋 ||s}}를 입력하면 필드 이름이 있는 드롭다운 메뉴가 생성되며, 기본 값은 첫 번째 옵션입니다.`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1443,6 +1503,10 @@ function findGroupAndIndex(promptId) {
           background-color: rgba(32,33,35,1);
           color: #d1d5db !important;
       }
+      .dark .dialog select {
+        background-color: rgba(32,33,35,1);
+        color: #d1d5db !important;
+    }
       .dark .my-table th{
           background-color: rgba(236,236,241,.2);
       }
@@ -3719,8 +3783,10 @@ function findGroupAndIndex(promptId) {
       }
     });
 
-    const chatInput = document.querySelector('#prompt-textarea');
-    const sendButton = chatInput.parentElement.querySelector("button:last-child") || chatInput.nextElementSibling;
+    const chatInput = document.querySelector("#prompt-textarea");
+    const sendButton =
+      chatInput.parentElement.querySelector("button:last-child") ||
+      chatInput.nextElementSibling;
 
     if (!chatInput) {
       alert(i18n("alert_not_found_input"));
@@ -4178,9 +4244,9 @@ function findGroupAndIndex(promptId) {
     // 移除重複的，但將 {{}} 是為獨立的一個
     const uniqueMatches = [];
     const countMap = {};
-    
+
     for (const match of matches) {
-      if (match === '{{}}') {
+      if (match === "{{}}") {
         uniqueMatches.push(match);
       } else {
         if (!countMap[match]) {
@@ -4189,7 +4255,7 @@ function findGroupAndIndex(promptId) {
         }
       }
     }
-    
+
     if (!uniqueMatches) {
       return;
     }
@@ -4197,23 +4263,55 @@ function findGroupAndIndex(promptId) {
     let htmlStr = "";
 
     uniqueMatches.forEach((string, i) => {
-      let [fieldName, fieldValue] = string
+      let [fieldName = "", fieldValue = "", fieldType = "t"] = string
         ?.slice(2, -2)
         ?.split("||")
         ?.map((s) => s?.trim());
+
       if (!fieldValue) {
         fieldValue = "";
       }
-      htmlStr += `
-          <div class="fieldItem">
-            <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${fieldName}</div>
-            <div class="center">
-              <textarea rows="3" style="width:100%" tabindex="${
-                i + 1
-              }" class="super-prompt-text superPromptText" placeholder="${PlaceholderPromptInputTips}">${fieldValue}</textarea>
-            </div>
-          </div>
-        `;
+
+      fieldType = fieldType?.trim()?.toLocaleLowerCase();
+
+      switch (fieldType) {
+        case "s":
+          htmlStr += `
+                <div class="fieldItem">
+                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${fieldName}</div>
+                  <div class="center">
+                    <select style="width:100%" tabindex="${
+                      i + 1
+                    }" class="super-prompt-text superPromptText">
+                      ${fieldValue
+                        .split(",")
+                        .map((option, index) => {
+                          if (index === 0) {
+                            return `<option value="${option}" selected>${option}</option>`;
+                          }
+                          return `<option value="${option}">${option}</option>`;
+                        })
+                        .join("")}
+                    </select>
+                  </div>
+                </div>
+              `;
+          break;
+
+        default:
+        case "t":
+          htmlStr += `
+                <div class="fieldItem">
+                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${fieldName}</div>
+                  <div class="center">
+                    <textarea rows="3" style="width:100%" tabindex="${
+                      i + 1
+                    }" class="super-prompt-text superPromptText" placeholder="${PlaceholderPromptInputTips}">${fieldValue}</textarea>
+                  </div>
+                </div>
+              `;
+          break;
+      }
     });
 
     table.innerHTML += htmlStr;
@@ -4222,8 +4320,10 @@ function findGroupAndIndex(promptId) {
     if (table.querySelectorAll(".superPromptText").length === 1) {
       const textarea = table.querySelectorAll(".superPromptText")[0];
 
-      textarea.style = "width:100%;height:380px;";
-      textarea.placeholder = PlaceholderPromptTextarea;
+      if (table.querySelectorAll("textarea.superPromptText").length === 1) {
+        textarea.style = "width:100%;height:380px;";
+        textarea.placeholder = PlaceholderPromptTextarea;
+      }
 
       textarea.addEventListener("keydown", (event) => {
         // prevent submitting blank on enter
@@ -4260,8 +4360,13 @@ function findGroupAndIndex(promptId) {
     }
 
     // 如果只有兩個，高度再加大一些
-    if (table.querySelectorAll(".superPromptText").length === 2) {
-      const textareaElements = table.querySelectorAll(".superPromptText");
+    if (
+      table.querySelectorAll(".superPromptText").length === 2 &&
+      table.querySelectorAll("textarea.superPromptText").length === 2
+    ) {
+      const textareaElements = table.querySelectorAll(
+        "textarea.superPromptText"
+      );
       textareaElements.forEach((textarea) => {
         textarea.style = "width:100%;height:165px;";
       });
@@ -4269,7 +4374,9 @@ function findGroupAndIndex(promptId) {
 
     // 如果兩個以上，最後一個增加 margin bottom
     if (table.querySelectorAll(".superPromptText").length > 2) {
-      const textareaElements = table.querySelectorAll(".superPromptText");
+      const textareaElements = table.querySelectorAll(
+        ".superPromptText"
+      );
       textareaElements[textareaElements.length - 1].style.marginBottom = "20px";
     }
 
@@ -4290,9 +4397,9 @@ function findGroupAndIndex(promptId) {
     // 移除重複的，但將 {{}} 是為獨立的一個
     const uniqueMatches = [];
     const countMap = {};
-    
+
     for (const match of matches) {
-      if (match === '{{}}') {
+      if (match === "{{}}") {
         uniqueMatches.push(match);
       } else {
         if (!countMap[match]) {
@@ -4315,16 +4422,16 @@ function findGroupAndIndex(promptId) {
     }
 
     function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     }
 
     for (let i = 0; i < superPromptTextList.length; i++) {
       const uniqueMatch = escapeRegExp(uniqueMatches[i]);
-      const flag = uniqueMatch == escapeRegExp('{{}}') ? '' : 'g';
+      const flag = uniqueMatch == escapeRegExp("{{}}") ? "" : "g";
       const regex = new RegExp(uniqueMatch, flag);
       message = message.replace(regex, superPromptTextList[i].value);
     }
-    
+
     superPromptDialog.style.display = "none";
     sendMessage(message);
   }
@@ -5393,7 +5500,7 @@ function findGroupAndIndex(promptId) {
 
   function controlSuperDialogTabindex() {
     let superPromptDialogTabindexElements = superPromptDialog.querySelectorAll(
-      "input, textarea, button"
+      "input, select ,textarea, button"
     );
 
     const allTabindexElements = [...superPromptDialogTabindexElements];
