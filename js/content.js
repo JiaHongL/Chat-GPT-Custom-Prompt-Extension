@@ -4372,6 +4372,20 @@ function findGroupAndIndex(promptId) {
       });
     }
 
+    // 如果只有兩個，一個是 select，一個是 textarea，高度再加兩倍
+    if (
+      table.querySelectorAll(".superPromptText").length === 2 &&
+      table.querySelectorAll("textarea.superPromptText").length === 1 &&
+      table.querySelectorAll("select.superPromptText").length === 1
+    ) {
+      const textareaElements = table.querySelectorAll(
+        "textarea.superPromptText"
+      );
+      textareaElements.forEach((textarea) => {
+        textarea.style = "width:100%;height:380px;";
+      });
+    }
+
     // 如果兩個以上，最後一個增加 margin bottom
     if (table.querySelectorAll(".superPromptText").length > 2) {
       const textareaElements = table.querySelectorAll(
