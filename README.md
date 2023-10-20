@@ -136,6 +136,9 @@
 
 ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的判斷力，才能更好地利用與辨別 ChatGPT 的回答。此外，使用恰當的提示詞，也可以幫助我們更有效使用 ChatGPT 喔！
 
+### 參數範例
+![](https://hackmd.io/_uploads/H1iWnb0C3.png)
+
 ### 解釋英文單字
 
 ![](https://i.imgur.com/h6Aw38o.png)
@@ -515,10 +518,50 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 
 ### 1.0.7 版
 送審日期：2023/9/9
-送審日期：2023/9/11
-- 支援輸入 {{}} 即可代表一個輸入框
+送審日期：2023/9/11 
+- 支援直接使用 {{}} 代表一個輸入框
 
 ### 1.0.8 版
 送審日期：2023/9/12
+送審日期：2023/9/13
+- 支援產生下拉選單，{{ 欄位名稱 || 選項一, 選項二, 選項三 || s }}
+
+![](https://hackmd.io/_uploads/HJFRo-0C3.png)
+
+### 1.0.9 版
+送審日期：2023/9/15
+送審日期：2023/9/15
+- - 當只有一個 select 和 textarea 時，加大 textarea 高度
+
+
+### 1.1.0 版
+送審日期：2023/9/15
 送審日期：送審中
-- 支援輸入 {{下拉選單|| 選項一, 選項二, 選項三 ||s}} 可生成一個下拉選單，且預設第一個選項
+由於收到多位使用者反映，我們的快捷鍵功能與其他插件或系統快捷鍵存在衝突，因此決定移除大多數的快捷鍵功能，僅保留那些具有輔助作用的快捷鍵。
+
+**now**
+* mainKey + Z : display or close shortcut tips
+* esc : close
+* mainKey + S : send message
+* mainKey + A : show / hidden right menu
+* mainKey + B : dark mode toggle
+* mainKey + 1 ~ 5 number keyboard : open question dialog
+
+**remove**
+* mainKey + Y : custom quick reply
+* mainKey + U : custom quick reply 2
+* mainKey + I : custom quick reply 3
+* mainKey + O : custom quick reply 4
+* mainKey + P : custom quick 5
+* mainKey + N： new chat
+* mainKey + W : open settingsDialog
+* mainKey + S : open settingsDialog
+* mainKey + E : open quickReplySettingsDialog
+* mainKey + F : open exportAndImportDialog
+* mainKey + 6 ~ 0 number keyboard : open question dialog
+* mainKey + R : regenerate response
+* mainKey + X : stop
+* mainKey + D : dark mode toggle
+
+**modify**
+* mainKey + B : dark mode toggle
