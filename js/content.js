@@ -2185,7 +2185,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">none</div>
+          <div class="ellipsis">${i18n("shortcut_key_tips_D")}</div>
         </td>
       </tr>
 
@@ -2218,7 +2218,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_G")}</div>
+          <div class="ellipsis"> none </div>
         </td>
       </tr>
 
@@ -2231,7 +2231,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_D")}</div>
+          <div class="ellipsis"> none </div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2241,7 +2241,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_W")}</div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2251,7 +2251,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_S2")}</div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2264,7 +2264,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_N")}</div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2284,7 +2284,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2317,7 +2317,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2350,7 +2350,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2363,7 +2363,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_X")}</div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2383,7 +2383,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2396,7 +2396,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_R")}</div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2416,7 +2416,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2429,7 +2429,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="ellipsis">${i18n("shortcut_key_tips_E")}</div>
+          <div class="ellipsis"> none </div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2439,7 +2439,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2449,7 +2449,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -2462,7 +2462,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2472,7 +2472,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
         <td>
           <div class="shortcut-wrapper">
@@ -2482,7 +2482,7 @@ function findGroupAndIndex(promptId) {
           </div>
         </td>
         <td>
-          <div class="templateButtonText ellipsis"></div>
+          <div class="ellipsis">none</div>
         </td>
       </tr>
 
@@ -3018,13 +3018,13 @@ function findGroupAndIndex(promptId) {
             <div>${i18n("nav_item_settings")}</div>
           </div>
           <div class="chatgpt-dropdown-content">
-            <a class="custom-menu-item">W. ${i18n(
+            <a class="custom-menu-item">${i18n(
               "menu_prompt_template_settings"
             )}</a>
-            <a class="custom-menu-item">E. ${i18n(
+            <a class="custom-menu-item">${i18n(
               "menu_reply_message_settings"
             )}</a>
-            <a class="custom-menu-item">G. ${i18n("menu_import_export")}</a>
+            <a class="custom-menu-item">${i18n("menu_import_export")}</a>
           </div>
         </div>
       `;
@@ -3311,7 +3311,7 @@ function findGroupAndIndex(promptId) {
       );
     }
 
-    // z 或 mainKey : 關閉 快捷鍵視窗
+    // z + mainKey : 關閉 快捷鍵視窗
     if (
       (shortcutKeyHintDialog.style.display === "flex" &&
         event.key.toLocaleLowerCase() === "z") ||
@@ -3398,75 +3398,6 @@ function findGroupAndIndex(promptId) {
       return;
     }
 
-    // mainKey + w : open settingsDialog
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "w"
-    ) {
-      event.preventDefault();
-      showSettingsDialog();
-      return;
-    }
-
-    // mainKey + s : open settingsDialog
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "s"
-    ) {
-      event.preventDefault();
-      showSettingsDialog();
-      return;
-    }
-
-    // mainKey + e : open quickReplySettingsDialog
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "e"
-    ) {
-      event.preventDefault();
-      showQuickReplySettingsDialog();
-      disableMenuItemTabindex();
-      return;
-    }
-
-    // mainKey + g : open exportAndImportDialog
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "g"
-    ) {
-      event.preventDefault();
-      openExportAndImportDialog();
-      return;
-    }
-
     // mainKey + s : send message
     if (
       questionDialogTextarea.value.trim() &&
@@ -3535,150 +3466,6 @@ function findGroupAndIndex(promptId) {
       return;
     }
 
-    // mainKey + r : regenerate response
-    if (
-      settingsDialog.style.display === "none" &&
-      questionDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "r"
-    ) {
-      event.preventDefault();
-      document.querySelectorAll("button").forEach((button) => {
-        if (button.textContent === "Regenerate response") {
-          button.click();
-        }
-      });
-      return;
-    }
-
-    // mainKey + x : stop
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "x"
-    ) {
-      event.preventDefault();
-      document.querySelectorAll("button").forEach((button) => {
-        if (button.textContent === "Stop generating") {
-          button.click();
-        }
-      });
-      return;
-    }
-
-    // mainKey + y : custom quick reply
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "y"
-    ) {
-      event.preventDefault();
-      if (quickReplyMessageList[0].quickReplyMessage) {
-        sendMessage(quickReplyMessageList[0].quickReplyMessage);
-      }
-      return;
-    }
-
-    // mainKey + u : custom quick reply 2
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "u"
-    ) {
-      event.preventDefault();
-      if (quickReplyMessageList[1].quickReplyMessage) {
-        sendMessage(quickReplyMessageList[1].quickReplyMessage);
-      }
-      return;
-    }
-
-    // mainKey + i : custom quick reply 3
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "i"
-    ) {
-      event.preventDefault();
-      if (quickReplyMessageList[2].quickReplyMessage) {
-        sendMessage(quickReplyMessageList[2].quickReplyMessage);
-      }
-      return;
-    }
-
-    // mainKey + o : custom quick reply 4
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "o"
-    ) {
-      event.preventDefault();
-      if (quickReplyMessageList[3].quickReplyMessage) {
-        sendMessage(quickReplyMessageList[3].quickReplyMessage);
-      }
-      return;
-    }
-
-    // mainKey + p : custom quick  5
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "p"
-    ) {
-      event.preventDefault();
-      if (quickReplyMessageList[4].quickReplyMessage) {
-        sendMessage(quickReplyMessageList[4].quickReplyMessage);
-      }
-      return;
-    }
-
-    // mainKey + d : dark mode toggle
-    if (event[mainKey] && event.key.toLocaleLowerCase() === "d") {
-      event.preventDefault();
-      darkModeToggle();
-      return;
-    }
-
     // mainKey + a : show / hidden right buttons
     if (event[mainKey] && event.key.toLocaleLowerCase() === "a") {
       event.preventDefault();
@@ -3686,25 +3473,14 @@ function findGroupAndIndex(promptId) {
       return;
     }
 
-    // mainKey + n： new chat
-    if (
-      questionDialog.style.display === "none" &&
-      settingsDialog.style.display === "none" &&
-      quickReplySettingsDialog.style.display === "none" &&
-      exportAndImportDialog.style.display === "none" &&
-      superPromptSettingsDialog.style.display === "none" &&
-      superPromptDialog.style.display === "none" &&
-      superPromptCategoryNameSettingsDialog.style.display === "none" &&
-      event[mainKey] &&
-      event.key.toLocaleLowerCase() === "n"
-    ) {
+    // mainKey + b  : dark mode toggle
+    if (event[mainKey] && event.key.toLocaleLowerCase() === "b") {
       event.preventDefault();
-      const newChatBtn = document.querySelector("nav").children[0];
-      newChatBtn.click();
+      darkModeToggle();
       return;
     }
 
-    // mainKey + 1 ~ 0 number keyboard : open question dialog
+    // mainKey + 1 ~ 5 number keyboard : open question dialog
     if (
       settingsDialog.style.display === "none" &&
       quickReplySettingsDialog.style.display === "none" &&
@@ -3738,31 +3514,6 @@ function findGroupAndIndex(promptId) {
         case "5":
           event.preventDefault();
           promptList[4].buttonElement.click();
-          break;
-
-        case "6":
-          event.preventDefault();
-          promptList[5].buttonElement.click();
-          break;
-
-        case "7":
-          event.preventDefault();
-          promptList[6].buttonElement.click();
-          break;
-
-        case "8":
-          event.preventDefault();
-          promptList[7].buttonElement.click();
-          break;
-
-        case "9":
-          event.preventDefault();
-          promptList[8].buttonElement.click();
-          break;
-
-        case "0":
-          event.preventDefault();
-          promptList[9].buttonElement.click();
           break;
 
         default:
