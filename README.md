@@ -535,14 +535,14 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 
 
 ### 1.1.0 版
-送審日期：2023/9/15
-送審日期：送審中
+送審日期：2023/10/20
+送審日期：2023/10/22
 由於收到多位使用者反映，我們的快捷鍵功能與其他插件或系統快捷鍵存在衝突，因此決定移除大多數的快捷鍵功能，僅保留那些具有輔助作用的快捷鍵。
 
 **now**
 * mainKey + Z : display or close shortcut tips
 * esc : close
-* mainKey + S : send message
+* mainKey + S : save
 * mainKey + A : show / hidden right menu
 * mainKey + B : dark mode toggle
 * mainKey + 1 ~ 5 number keyboard : open question dialog
