@@ -898,7 +898,8 @@ let defaultSuperPromptListTW = [
       `輸入 {{}} 可產生一個輸入框
       輸入 {{ 欄位名稱 }} 可產生一個具有欄位名稱的輸入框
       輸入 {{ 欄位名稱 || 預設值 }} 可產生一個具有欄位名稱的輸入框，且有預設值
-      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 ||s}} 可產生一個具有欄位名稱的下拉選單，且預設值為第一個選項`,
+      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 || s}} 可產生一個具有欄位名稱的下拉選單，且預設值為第一個選項
+      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 , 選項四 , 選項五, 選項六 || c ||選項三 , 選項五}} 產生一個具有欄位名稱的複選框，且有預設值`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -944,7 +945,8 @@ let defaultSuperPromptListJA = [
       `{{}} を入力すると、入力ボックスが生成されます。
       {{フィールド名}} を入力すると、フィールド名を持つ入力ボックスが生成されます。
       {{フィールド名 || デフォルト値}} を入力すると、フィールド名とデフォルト値を持つ入力ボックスが生成されます。
-      {{フィールド名 || オプション1, オプション2, オプション3 ||s}} を入力すると、フィールド名を持つドロップダウンメニューが生成され、デフォルト値は最初のオプションになります。`,
+      {{フィールド名 || オプション1, オプション2, オプション3 ||s}} を入力すると、フィールド名を持つドロップダウンメニューが生成され、デフォルト値は最初のオプションになります。
+      {{フィールド名 || オプション1、オプション2、オプション3、オプション4、オプション5、オプション6 ||c||オプション3、オプション5}}を入力すると、フィールド名を持つデフォルト値を持つ複数選択ボックスが生成されます。`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -990,7 +992,8 @@ let defaultSuperPromptListEN = [
       `Entering {{}} will generate an input box.
       Entering {{field name}} will generate an input box with the field name.
       Entering {{field name || default value}} will generate an input box with the field name and a default value.
-      Entering {{field name || option one, option two, option three ||s}} will generate a dropdown menu with the field name, and the default value will be the first option.`,
+      Entering {{field name || option one, option two, option three ||s}} will generate a dropdown menu with the field name, and the default value will be the first option.
+      Entering {{field Name || option 1, option 2, option 3, option 4, option 5, option 6 || c || option 3, option 5}} will create a multi-select checkbox with the field name and default values.`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1036,7 +1039,8 @@ let defaultSuperPromptListCN = [
       `输入 {{}} 将生成一个输入框。
       输入 {{字段名称}} 将生成一个带有字段名称的输入框。
       输入 {{字段名称 || 默认值}} 将生成一个带有字段名称和默认值的输入框。
-      输入 {{字段名称 || 选项一, 选项二, 选项三 ||s}} 将生成一个带有字段名称的下拉菜单，默认值为第一个选项。`,
+      输入 {{字段名称 || 选项一, 选项二, 选项三 ||s}} 将生成一个带有字段名称的下拉菜单，默认值为第一个选项。
+      输入 {{字段名称 || 选项一, 选项二, 选项三, 选项四, 选项五, 选项六 ||c||选项三, 选项五}}将生成一个带有字段名称和默认值的复选框`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1082,7 +1086,8 @@ let defaultSuperPromptListKO = [
       `{{}}를 입력하면 입력 상자가 생성됩니다.
       {{필드 이름}}을 입력하면 필드 이름이 있는 입력 상자가 생성됩니다.
       {{필드 이름 || 기본 값}}을 입력하면 필드 이름과 기본 값이 있는 입력 상자가 생성됩니다.
-      {{필드 이름 || 옵션 하나, 옵션 둘, 옵션 셋 ||s}}를 입력하면 필드 이름이 있는 드롭다운 메뉴가 생성되며, 기본 값은 첫 번째 옵션입니다.`,
+      {{필드 이름 || 옵션 하나, 옵션 둘, 옵션 셋 ||s}}를 입력하면 필드 이름이 있는 드롭다운 메뉴가 생성되며, 기본 값은 첫 번째 옵션입니다.
+      {{ 필드 이름 || 옵션 1, 옵션 2, 옵션 3, 옵션 4, 옵션 5, 옵션 6 ||c|| 옵션 3, 옵션 5}} 를 입력하면 필드 이름을 가지고 기본값이 설정된 복수 선택 상자가 생성됩니다.`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -3754,7 +3759,7 @@ function findGroupAndIndex(promptId) {
       superPromptSlideElements[index].checked =
         nowSuperPromptList[index].isVisible;
       superPromptIdElements[index].innerHTML = nowSuperPromptList[index].key;
-      superPromptTextElements[index].style.height = "85px";
+      superPromptTextElements[index].style.height = "110px";
     }
 
     if (focusElementIndex) {
@@ -3769,7 +3774,7 @@ function findGroupAndIndex(promptId) {
           if (superPromptTextElements[index].offsetHeight < 485) {
             superPromptTextElements[index].style.height = "485px";
           } else {
-            superPromptTextElements[index].style.height = "85px";
+            superPromptTextElements[index].style.height = "110px";
           }
         });
       });
@@ -3973,6 +3978,7 @@ function findGroupAndIndex(promptId) {
   const PlaceholderPromptTextarea = i18n("placeholder_prompt_textarea");
 
   function showSuperPromptDialog() {
+
     superPromptDialog.style.display = "flex";
 
     const table = document.querySelector("#superPromptTable");
@@ -4012,9 +4018,11 @@ function findGroupAndIndex(promptId) {
     }
 
     let htmlStr = "";
+    let tabIndex = 1;
 
     uniqueMatches.forEach((string, i) => {
-      let [fieldName = "", fieldValue = "", fieldType = "t"] = string
+
+      let [fieldName = "", fieldValue = "", fieldType = "t" , defaultValue = ""] = string
         ?.slice(2, -2)
         ?.split("||")
         ?.map((s) => s?.trim());
@@ -4023,17 +4031,19 @@ function findGroupAndIndex(promptId) {
         fieldValue = "";
       }
 
+      if(!defaultValue){
+        defaultValue = "";
+      }
+
       fieldType = fieldType?.trim()?.toLocaleLowerCase();
 
       switch (fieldType) {
         case "s":
           htmlStr += `
                 <div class="fieldItem">
-                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${fieldName}</div>
+                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
                   <div class="center">
-                    <select style="width:100%" tabindex="${
-                      i + 1
-                    }" class="super-prompt-text superPromptText">
+                    <select style="width:100%" tabindex="${tabIndex}" class="super-prompt-text superPromptText">
                       ${fieldValue
                         .split(",")
                         .map((option, index) => {
@@ -4047,20 +4057,58 @@ function findGroupAndIndex(promptId) {
                   </div>
                 </div>
               `;
+              tabIndex++;
+          break;
+
+        // 根據預設值產生多個 checkbox
+        case "c":
+          htmlStr += `
+                <div class="fieldItem">
+                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
+                  <div style="display:flex;">  
+                    ${fieldValue
+                      .split(",") 
+                      .map((option, index) => {
+                        let defaultValueList = defaultValue?.split(",") || [];
+                        defaultValueList = defaultValueList.map((s) => s.trim());
+                        const checkboxStr = `
+                          <div style="display: flex;align-items: center;height: 30px;margin-right:10px">
+                            <input 
+                              type="checkbox"
+                              class="super-prompt-text superPromptText" 
+                              id="${fieldName+'___custom___'+i+''+index}" 
+                              name="${fieldName+'___custom___'+i}" 
+                              ${
+                                defaultValueList.includes(option.trim()) ? "checked" : ""
+                              }
+                              value="${option}" 
+                              tabindex="${tabIndex}"
+                              style="width:20px;height:20px;margin:0 4px 0 4px;"
+                            />
+                            <label for="${fieldName+'___custom___'+i+''+index}">${option}</label>
+                          </div>
+                        `;
+                        tabIndex++;
+                        return checkboxStr;
+                      })
+                      .join("")}
+                  </div>
+                </div>
+              `;
+              tabIndex++;
           break;
 
         default:
         case "t":
           htmlStr += `
                 <div class="fieldItem">
-                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">${fieldName}</div>
+                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
                   <div class="center">
-                    <textarea rows="3" style="width:100%" tabindex="${
-                      i + 1
-                    }" class="super-prompt-text superPromptText" placeholder="${PlaceholderPromptInputTips}">${fieldValue}</textarea>
+                    <textarea rows="3" style="width:100%" tabindex="${tabIndex}" class="super-prompt-text superPromptText" placeholder="${PlaceholderPromptInputTips}">${fieldValue}</textarea>
                   </div>
                 </div>
               `;
+              tabIndex++;
           break;
       }
     });
@@ -4137,12 +4185,18 @@ function findGroupAndIndex(promptId) {
       });
     }
 
-    // 如果兩個以上，最後一個增加 margin bottom
-    if (table.querySelectorAll(".superPromptText").length > 2) {
+    // 如果只有兩個，一個是 checkbox，一個是 textarea，高度再加兩倍
+    if (
+      table.querySelectorAll(".superPromptText").length === 2 &&
+      table.querySelectorAll("textarea.superPromptText").length === 1 &&
+      table.querySelectorAll("input[type=checkbox]").length === 1
+    ) {
       const textareaElements = table.querySelectorAll(
-        ".superPromptText"
+        "textarea.superPromptText"
       );
-      textareaElements[textareaElements.length - 1].style.marginBottom = "20px";
+      textareaElements.forEach((textarea) => {
+        textarea.style = "width:100%;height:380px;";
+      });
     }
 
     addCompositionEventListener(".superPromptText");
@@ -4187,14 +4241,39 @@ function findGroupAndIndex(promptId) {
     }
 
     function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      return string?.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     }
 
+    let checkboxSet = new Set();
+    let uniqueMatchesIndex = 0;
+
     for (let i = 0; i < superPromptTextList.length; i++) {
-      const uniqueMatch = escapeRegExp(uniqueMatches[i]);
+      const uniqueMatch = escapeRegExp(uniqueMatches[uniqueMatchesIndex]);
       const flag = uniqueMatch == escapeRegExp("{{}}") ? "" : "g";
       const regex = new RegExp(uniqueMatch, flag);
-      message = message.replace(regex, superPromptTextList[i].value);
+      let checkboxValue = "";
+      // 如果是 checkbox
+      if(superPromptTextList[i].type === "checkbox") {
+        // 如果已經取得過，則跳過
+        if(checkboxSet.has(superPromptTextList[i].name)) {
+          continue;
+        }
+        // 取得所有的 checkbox value
+        document.querySelectorAll(`[name="${superPromptTextList[i].name}"]`).forEach((checkbox,index) => {
+          if(checkbox.checked) {
+            checkboxValue += checkbox.value + ",";
+          }
+        });
+        // 移除最後一個逗號
+        checkboxValue = checkboxValue.slice(0, -1);
+        message = message?.replace(regex, checkboxValue);
+        // 加入已經取得過的 checkbox name
+        checkboxSet.add(superPromptTextList[i].name);
+        uniqueMatchesIndex++;
+      }else{ // 如果是 select 或 textarea，則取得 value
+        message = message.replace(regex, superPromptTextList[i].value);
+        uniqueMatchesIndex++;
+      }
     }
 
     superPromptDialog.style.display = "none";
