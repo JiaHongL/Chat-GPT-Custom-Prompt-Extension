@@ -14,4 +14,4 @@ The main features are:
 If you like this tool, please encourage us through the following link:
 https://www.buymeacoffee.com/Joe.lin
 
-Please note that this tool only provides assistance in conversation and shortcut functions and does not include the use of ChatGPT 4.0. To use ChatGPT 4.0, please visit the official website to subscribe.
+Please note that this tool only provides assistance in conversation and shortcut functions and does not include the use of ChatGPT Plus To use ChatGPT Plus, please visit the official website to subscribe.

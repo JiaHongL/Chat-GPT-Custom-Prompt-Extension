@@ -16,4 +16,4 @@ https://hackmd.io/@inB0rEOBTayAqTzRfZwWLg/B170mJRxn
 
 如果您喜歡這個小工具，歡迎透過以下連結給予我們鼓勵！：https://www.buymeacoffee.com/Joe.lin 
 
-請注意，本工具僅提供輔助對話和快捷鍵功能，不包括 ChatGPT 4.0 的使用。如需使用 ChatGPT 4.0，請前往官方網站訂閱。
+請注意，本工具僅提供輔助對話和快捷鍵功能，不包括 ChatGPT Plus 的使用。如需使用 ChatGPT Plus，請前往官方網站訂閱。

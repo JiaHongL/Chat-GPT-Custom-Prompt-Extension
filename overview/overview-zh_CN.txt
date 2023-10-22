@@ -14,4 +14,4 @@
 如果您喜欢这个小工具，欢迎通过以下链接给予我们鼓励！：
 https://www.buymeacoffee.com/Joe.lin
 
-请注意，本工具仅提供辅助对话和快捷键功能，不包括 ChatGPT 4.0 的使用。如需使用 ChatGPT 4.0，请前往官方网站订阅。
+请注意，本工具仅提供辅助对话和快捷键功能，不包括 ChatGPT Plus 的使用。如需使用 ChatGPT Plus，请前往官方网站订阅。
