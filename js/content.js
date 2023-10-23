@@ -899,7 +899,8 @@ let defaultSuperPromptListTW = [
       輸入 {{ 欄位名稱 }} 可產生一個具有欄位名稱的輸入框
       輸入 {{ 欄位名稱 || 預設值 }} 可產生一個具有欄位名稱的輸入框，且有預設值
       輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 || s}} 可產生一個具有欄位名稱的下拉選單，且預設值為第一個選項
-      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 , 選項四 , 選項五, 選項六 || c ||選項三 , 選項五}} 產生一個具有欄位名稱的複選框，且有預設值`,
+      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 , 選項四 , 選項五, 選項六 || c ||選項三 , 選項五}} 可產生一個具有欄位名稱的複選框，且有預設值
+      輸入 {{ 欄位名稱 || 選項一, 選項二, 選項三 , 選項四 , 選項五, 選項六 || r || 選項六 }} 可產生一個具有欄位名稱的單選框，且有預設值`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -946,7 +947,8 @@ let defaultSuperPromptListJA = [
       {{フィールド名}} を入力すると、フィールド名を持つ入力ボックスが生成されます。
       {{フィールド名 || デフォルト値}} を入力すると、フィールド名とデフォルト値を持つ入力ボックスが生成されます。
       {{フィールド名 || オプション1, オプション2, オプション3 ||s}} を入力すると、フィールド名を持つドロップダウンメニューが生成され、デフォルト値は最初のオプションになります。
-      {{フィールド名 || オプション1、オプション2、オプション3、オプション4、オプション5、オプション6 ||c||オプション3、オプション5}}を入力すると、フィールド名を持つデフォルト値を持つ複数選択ボックスが生成されます。`,
+      {{フィールド名 || オプション1、オプション2、オプション3、オプション4、オプション5、オプション6 ||c||オプション3、オプション5}}を入力すると、フィールド名を持つデフォルト値を持つ複数選択ボックスが生成されます。
+      {{ フィールド名 || オプション一, オプション二, オプション三 , オプション四 , オプション五, オプション六 || r || オプション六 }} とすると、フィールド名を持つラジオボタンが生成され、デフォルト値があります。`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -990,10 +992,11 @@ let defaultSuperPromptListEN = [
     text: "Usage Example",
     prompt:
       `Entering {{}} will generate an input box.
-      Entering {{field name}} will generate an input box with the field name.
-      Entering {{field name || default value}} will generate an input box with the field name and a default value.
-      Entering {{field name || option one, option two, option three ||s}} will generate a dropdown menu with the field name, and the default value will be the first option.
-      Entering {{field Name || option 1, option 2, option 3, option 4, option 5, option 6 || c || option 3, option 5}} will create a multi-select checkbox with the field name and default values.`,
+      Entering {{ field name }} will generate an input box with the field name.
+      Entering {{ field name || default value}} will generate an input box with the field name and a default value.
+      Entering {{ field name || option one, option two, option three ||s}} will generate a dropdown menu with the field name, and the default value will be the first option.
+      Entering {{ field Name || option 1, option 2, option 3, option 4, option 5, option 6 || c || option 3, option 5}} will create a multi-select checkbox with the field name and default values.
+      Entering {{ Field Name || Option 1, Option 2, Option 3 , Option 4 , Option 5, Option 6 || r || Option 6 }} generates a radio button with the field name, and it has a default value.`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1037,10 +1040,11 @@ let defaultSuperPromptListCN = [
     text: "使用示例",
     prompt:
       `输入 {{}} 将生成一个输入框。
-      输入 {{字段名称}} 将生成一个带有字段名称的输入框。
-      输入 {{字段名称 || 默认值}} 将生成一个带有字段名称和默认值的输入框。
-      输入 {{字段名称 || 选项一, 选项二, 选项三 ||s}} 将生成一个带有字段名称的下拉菜单，默认值为第一个选项。
-      输入 {{字段名称 || 选项一, 选项二, 选项三, 选项四, 选项五, 选项六 ||c||选项三, 选项五}}将生成一个带有字段名称和默认值的复选框`,
+      输入 {{ 字段名称 }} 将生成一个带有字段名称的输入框。
+      输入 {{ 字段名称 || 默认值}} 将生成一个带有字段名称和默认值的输入框。
+      输入 {{ 字段名称 || 选项一, 选项二, 选项三 ||s}} 将生成一个带有字段名称的下拉菜单，默认值为第一个选项。
+      输入 {{ 字段名称 || 选项一, 选项二, 选项三, 选项四, 选项五, 选项六 ||c||选项三, 选项五}}将生成一个带有字段名称和默认值的复选框。
+      输入 {{ 字段名称 || 选项一, 选项二, 选项三 , 选项四 , 选项五, 选项六 || r || 选项六 }} 可生成一个具有字段名称的单选框，且有预设值。`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1084,10 +1088,11 @@ let defaultSuperPromptListKO = [
     text: "사용 예시",
     prompt:
       `{{}}를 입력하면 입력 상자가 생성됩니다.
-      {{필드 이름}}을 입력하면 필드 이름이 있는 입력 상자가 생성됩니다.
-      {{필드 이름 || 기본 값}}을 입력하면 필드 이름과 기본 값이 있는 입력 상자가 생성됩니다.
-      {{필드 이름 || 옵션 하나, 옵션 둘, 옵션 셋 ||s}}를 입력하면 필드 이름이 있는 드롭다운 메뉴가 생성되며, 기본 값은 첫 번째 옵션입니다.
-      {{ 필드 이름 || 옵션 1, 옵션 2, 옵션 3, 옵션 4, 옵션 5, 옵션 6 ||c|| 옵션 3, 옵션 5}} 를 입력하면 필드 이름을 가지고 기본값이 설정된 복수 선택 상자가 생성됩니다.`,
+      {{ 필드 이름 }}을 입력하면 필드 이름이 있는 입력 상자가 생성됩니다.
+      {{ 필드 이름 || 기본 값}}을 입력하면 필드 이름과 기본 값이 있는 입력 상자가 생성됩니다.
+      {{ 필드 이름 || 옵션 하나, 옵션 둘, 옵션 셋 ||s}}를 입력하면 필드 이름이 있는 드롭다운 메뉴가 생성되며, 기본 값은 첫 번째 옵션입니다.
+      {{ 필드 이름 || 옵션 1, 옵션 2, 옵션 3, 옵션 4, 옵션 5, 옵션 6 ||c|| 옵션 3, 옵션 5}} 를 입력하면 필드 이름을 가지고 기본값이 설정된 복수 선택 상자가 생성됩니다.
+      {{ 필드이름 || 옵션 하나, 옵션 둘, 옵션 셋 , 옵션 넷 , 옵션 다섯, 옵션 여섯 || r || 옵션 여섯 }} 을(를) 사용하면 필드 이름이 있는 라디오 버튼이 생성되며 기본값이 있습니다.`,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -3759,7 +3764,7 @@ function findGroupAndIndex(promptId) {
       superPromptSlideElements[index].checked =
         nowSuperPromptList[index].isVisible;
       superPromptIdElements[index].innerHTML = nowSuperPromptList[index].key;
-      superPromptTextElements[index].style.height = "110px";
+      superPromptTextElements[index].style.height = "132px";
     }
 
     if (focusElementIndex) {
@@ -3774,7 +3779,7 @@ function findGroupAndIndex(promptId) {
           if (superPromptTextElements[index].offsetHeight < 485) {
             superPromptTextElements[index].style.height = "485px";
           } else {
-            superPromptTextElements[index].style.height = "110px";
+            superPromptTextElements[index].style.height = "132px";
           }
         });
       });
@@ -4076,8 +4081,8 @@ function findGroupAndIndex(promptId) {
                             <input 
                               type="checkbox"
                               class="super-prompt-text superPromptText" 
-                              id="${fieldName+'___custom___'+i+''+index}" 
-                              name="${fieldName+'___custom___'+i}" 
+                              id="${fieldName+'___custom___checkbox___'+i+''+index}" 
+                              name="${fieldName+'___custom___checkbox___'+i}" 
                               ${
                                 defaultValueList.includes(option.trim()) ? "checked" : ""
                               }
@@ -4085,7 +4090,7 @@ function findGroupAndIndex(promptId) {
                               tabindex="${tabIndex}"
                               style="width:20px;height:20px;margin:0 4px 0 4px;"
                             />
-                            <label for="${fieldName+'___custom___'+i+''+index}">${option}</label>
+                            <label for="${fieldName+'___custom___checkbox___'+i+''+index}">${option}</label>
                           </div>
                         `;
                         tabIndex++;
@@ -4095,7 +4100,42 @@ function findGroupAndIndex(promptId) {
                   </div>
                 </div>
               `;
-              tabIndex++;
+          break;
+
+        // 根據預設值產生多個 radio
+        case "r":
+          htmlStr += `
+                <div class="fieldItem">
+                  <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
+                  <div style="display:flex;">
+                    ${fieldValue
+                      .split(",")
+                      .map((option, index) => {
+                        let radioDefaultValue = defaultValue || "";
+                        const radioStr = `
+                          <div style="display: flex;align-items: center;height: 30px;margin-right:10px">
+                            <input
+                              type="radio"
+                              class="super-prompt-text superPromptText"
+                              id="${fieldName+'___custom___radio___'+i+''+index}"
+                              name="${fieldName+'___custom___radio___'+i}"
+                              ${
+                                radioDefaultValue === option.trim() ? "checked" : ""
+                              }
+                              value="${option}"
+                              tabindex="${tabIndex}"
+                              style="width:20px;height:20px;margin:0 4px 0 4px;border-radius: 10px;"
+                            />
+                            <label for="${fieldName+'___custom___radio___'+i+''+index}">${option}</label>
+                          </div>
+                        `;
+                        tabIndex++;
+                        return radioStr;
+                      })
+                      .join("")}
+                  </div>
+                </div>
+              `;
           break;
 
         default:
@@ -4199,6 +4239,20 @@ function findGroupAndIndex(promptId) {
       });
     }
 
+    // 如果只有兩個，一個是 radio，一個是 textarea，高度再加兩倍
+    if (
+      table.querySelectorAll(".superPromptText").length === 2 &&
+      table.querySelectorAll("textarea.superPromptText").length === 1 &&
+      table.querySelectorAll("input[type=radio]").length === 1
+    ) {
+      const textareaElements = table.querySelectorAll(
+        "textarea.superPromptText"
+      );
+      textareaElements.forEach((textarea) => {
+        textarea.style = "width:100%;height:380px;";
+      });
+    }
+
     addCompositionEventListener(".superPromptText");
 
     controlSuperDialogTabindex();
@@ -4245,6 +4299,8 @@ function findGroupAndIndex(promptId) {
     }
 
     let checkboxSet = new Set();
+    let radioSet = new Set();
+
     let uniqueMatchesIndex = 0;
 
     for (let i = 0; i < superPromptTextList.length; i++) {
@@ -4269,6 +4325,22 @@ function findGroupAndIndex(promptId) {
         message = message?.replace(regex, checkboxValue);
         // 加入已經取得過的 checkbox name
         checkboxSet.add(superPromptTextList[i].name);
+        uniqueMatchesIndex++;
+      }else if(superPromptTextList[i].type === "radio") { // 如果是 radio
+        // 如果已經取得過，則跳過
+        if(radioSet.has(superPromptTextList[i].name)) {
+          continue;
+        }
+        // 取得 radio value
+        let radioValue = "";
+        document.querySelectorAll(`[name="${superPromptTextList[i].name}"]`).forEach((radio,index) => {
+          if(radio.checked) {
+            radioValue = radio.value;
+          }
+        });
+        message = message?.replace(regex, radioValue);
+        // 加入已經取得過的 radio name
+        radioSet.add(superPromptTextList[i].name);
         uniqueMatchesIndex++;
       }else{ // 如果是 select 或 textarea，則取得 value
         message = message.replace(regex, superPromptTextList[i].value);

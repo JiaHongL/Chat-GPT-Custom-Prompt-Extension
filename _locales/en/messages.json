@@ -143,7 +143,7 @@
     "message":"Pressing tab can move to the next cell, and pressing shift + tab can move back to the previous cell."
   },
   "placeholder_supper_prompt_desc": {
-    "message": "Input {{ field name }} generates an input field with the field name, or you can simply input {{}}.&#10;Input {{ field name || default value }} generates an input field with the field name and a default value.&#10;Input {{ field name || option one, option two, option three || s }} generates a dropdown menu with the default value as the first option.&#10;Entering {{field Name || option 1, option 2, option 3, option 4, option 5, option 6 || c || option 3, option 5}} will create a multi-select checkbox with the field name and default values"
+    "message": "Input {{ field name }} generates an input field with the field name, or you can simply input {{}}.&#10;Input {{ field name || default value }} generates an input field with the field name and a default value.&#10;Input {{ field name || option one, option two, option three || s }} generates a dropdown menu with the default value as the first option.&#10;Entering {{field Name || option 1, option 2, option 3, option 4, option 5, option 6 || c || option 3, option 5}} will create a multi-select checkbox with the field name and default values.&#10;Entering {{ field Name || Option 1, Option 2, Option 3 , Option 4 , Option 5, Option 6 || r || Option 6 }} generates a radio button with the field name, and it has a default value."
   },
   "placeholder_keyword_input":{
     "message":"Category or Keyword..."
