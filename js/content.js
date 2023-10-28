@@ -39,57 +39,6 @@ function restoreMenuItemTabindex() {
   });
 }
 
-function downloadHtml() {
-  const container = document
-    .querySelector("main")
-    ?.querySelector(".overflow-hidden").children[0].children[0];
-  const clonedContainer = container.cloneNode(true);
-  const avatarList = clonedContainer.querySelectorAll("img.rounded-sm");
-  const buttons = clonedContainer.querySelectorAll("button");
-
-  avatarList.forEach((avatar) => {
-    if (avatar.alt === "User") {
-      const originalElement = avatar;
-      const newElement = document.createElement("div");
-      newElement.innerHTML =
-        '<svg style="height:30px;width:30px;fill: #5A7DAB;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M370.7 96.1C346.1 39.5 289.7 0 224 0S101.9 39.5 77.3 96.1C60.9 97.5 48 111.2 48 128v64c0 16.8 12.9 30.5 29.3 31.9C101.9 280.5 158.3 320 224 320s122.1-39.5 146.7-96.1c16.4-1.4 29.3-15.1 29.3-31.9V128c0-16.8-12.9-30.5-29.3-31.9zM336 144v16c0 53-43 96-96 96H208c-53 0-96-43-96-96V144c0-26.5 21.5-48 48-48H288c26.5 0 48 21.5 48 48zM189.3 162.7l-6-21.2c-.9-3.3-3.9-5.5-7.3-5.5s-6.4 2.2-7.3 5.5l-6 21.2-21.2 6c-3.3 .9-5.5 3.9-5.5 7.3s2.2 6.4 5.5 7.3l21.2 6 6 21.2c.9 3.3 3.9 5.5 7.3 5.5s6.4-2.2 7.3-5.5l6-21.2 21.2-6c3.3-.9 5.5-3.9 5.5-7.3s-2.2-6.4-5.5-7.3l-21.2-6zM112.7 316.5C46.7 342.6 0 407 0 482.3C0 498.7 13.3 512 29.7 512H128V448c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64l98.3 0c16.4 0 29.7-13.3 29.7-29.7c0-75.3-46.7-139.7-112.7-165.8C303.9 338.8 265.5 352 224 352s-79.9-13.2-111.3-35.5zM176 448c-8.8 0-16 7.2-16 16v48h32V464c0-8.8-7.2-16-16-16zm96 32a16 16 0 1 0 0-32 16 16 0 1 0 0 32z"/></svg>';
-      const parentElement = originalElement.parentNode;
-      while (parentElement.firstChild) {
-        parentElement.removeChild(parentElement.firstChild);
-      }
-      parentElement.appendChild(newElement);
-    }
-  });
-
-  buttons.forEach((button) => {
-    button.remove();
-  });
-
-  const html = clonedContainer.outerHTML;
-  const styles = Array.from(document.styleSheets)
-    .filter(
-      (styleSheet) =>
-        !styleSheet.href || styleSheet.href.startsWith(window.location.origin)
-    )
-    .map((styleSheet) =>
-      Array.from(styleSheet.cssRules)
-        .map((rule) => rule.cssText)
-        .join("\n")
-    )
-    .join("\n");
-  const blob = new Blob(
-    [
-      `<!DOCTYPE html>\n<html>\n<head>\n<style>\n${styles}\n</style>\n</head>\n<body>\n${html}\n</body>\n</html>`,
-    ],
-    { type: "text/html" }
-  );
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = document.title + ".html";
-  document.body.appendChild(a);
-  a.click();
-}
-
 // defaultPromptList 多國語系
 const defaultPromptListTW = [
   {
@@ -1306,7 +1255,7 @@ function findGroupAndIndex(promptId) {
       }
       .custom-menu .other-area{
         margin-top:5px;
-        flex:0 0 60px;
+        flex:0 0 30px;
       }
       .custom-menu .quick-reply-area::-webkit-scrollbar {
         width: 0;
@@ -1721,7 +1670,6 @@ function findGroupAndIndex(promptId) {
         width: 100%;
         overflow-y: auto;
         max-height: 552px;
-        margin-bottom:20px;
         border-bottom: 1px solid #ccc;
         padding-right:4px;
       }
@@ -3998,7 +3946,7 @@ function findGroupAndIndex(promptId) {
     const innerHTML = superPrompt.replace(/\n/g, "<br>");
 
     superPromptPreviewAreaDiv.innerHTML =
-      `#${superPromptId} ${superPromptName} <br>` + innerHTML;
+      `<b>#${superPromptId} ${superPromptName}</b> <br>` + innerHTML;
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{\s*([^}]*)\s*}}/g) || [];
@@ -4048,7 +3996,7 @@ function findGroupAndIndex(promptId) {
                 <div class="fieldItem">
                   <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
                   <div class="center">
-                    <select style="width:100%" tabindex="${tabIndex}" class="super-prompt-text superPromptText">
+                    <select style="width:100%;cursor: pointer;" tabindex="${tabIndex}" class="super-prompt-text superPromptText">
                       ${fieldValue
                         .split(",")
                         .map((option, index) => {
@@ -4078,7 +4026,7 @@ function findGroupAndIndex(promptId) {
                         defaultValueList = defaultValueList.map((s) => s.trim());
                         const checkboxStr = `
                           <div style="display: flex;align-items: center;height: 30px;margin-right:10px">
-                            <input 
+                            <input
                               type="checkbox"
                               class="super-prompt-text superPromptText" 
                               id="${fieldName+'___custom___checkbox___'+i+''+index}" 
@@ -4088,9 +4036,12 @@ function findGroupAndIndex(promptId) {
                               }
                               value="${option}" 
                               tabindex="${tabIndex}"
-                              style="width:20px;height:20px;margin:0 4px 0 4px;"
+                              style="width:20px;height:20px;margin:0 4px 0 4px;cursor: pointer;"
                             />
-                            <label for="${fieldName+'___custom___checkbox___'+i+''+index}">${option}</label>
+                            <label
+                              style="cursor: pointer;"
+                              for="${fieldName+'___custom___checkbox___'+i+''+index}"
+                              >${option}</label>
                           </div>
                         `;
                         tabIndex++;
@@ -4124,9 +4075,12 @@ function findGroupAndIndex(promptId) {
                               }
                               value="${option}"
                               tabindex="${tabIndex}"
-                              style="width:20px;height:20px;margin:0 4px 0 4px;border-radius: 10px;"
+                              style="width:20px;height:20px;margin:0 4px 0 4px;border-radius: 10px;cursor: pointer;"
                             />
-                            <label for="${fieldName+'___custom___radio___'+i+''+index}">${option}</label>
+                            <label
+                              style="cursor: pointer;"
+                              for="${fieldName+'___custom___radio___'+i+''+index}"
+                            >${option}</label>
                           </div>
                         `;
                         tabIndex++;
@@ -5185,17 +5139,6 @@ function findGroupAndIndex(promptId) {
 
       quickReplyDiv.appendChild(button);
     });
-
-    // 下載
-    const downloadHtmlButton = createButton(
-      MENU_ITEM_DOWNLOAD_HTML,
-      "secondary",
-      ""
-    );
-    downloadHtmlButton.addEventListener("click", () => {
-      downloadHtml();
-    });
-    otherDiv.appendChild(downloadHtmlButton);
 
     // 收合按鈕
     const menuCollapseButton = createButton("", "light", "", true);
