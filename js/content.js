@@ -1709,6 +1709,20 @@ function findGroupAndIndex(promptId) {
       .dark .expand-edit-prompt{
         fill:#d1d5db;
       }
+      .dark .drag-btn{
+        color:#d1d5db;
+      }
+      .drag-over {
+        border-top: 2px solid blue;
+        padding-top: 10px;
+      }
+      .drag-over-bottom {
+        border-bottom: 2px solid blue;
+        padding-bottom: 10px;
+      }
+      .dragging-row {
+        opacity: 0.5;
+      }
       `;
 
   // 插入 style
@@ -2585,7 +2599,7 @@ function findGroupAndIndex(promptId) {
   <div id="dialog6" class="dialog-wrapper" style="display:none">
     <div class="dialog" style="max-width:95%;">
         <div class="dialog-title"></div>
-        <div class="table-container">
+        <div id="superTableFormContainer" class="table-container">
           <table id="superTableForm" class="my-table scroll-table-form" style="width:100%;margin-top:0px;">
             <thead>
               <tr>
@@ -2597,13 +2611,14 @@ function findGroupAndIndex(promptId) {
                     "table_title_super_prompt_text"
                   )}</th>
                   <th style="width:118px">${i18n("table_title_is_show")}</th>
+                  <th style="width:40px;"></th>
               </tr>
             </thead>
             <tbody>
             ${Array.from({ length: SuperPromptSettingsListLength })
               .map((_, index) => {
                 return `
-                  <tr>
+                  <tr class="customDragItem" draggable="false">
                     <td style="text-align:center;width:50px">
                       <span class="superPromptId super-prompt-id"></span>
                     </td>
@@ -2630,6 +2645,9 @@ function findGroupAndIndex(promptId) {
                                 name="check" />
                             <label for="superSlideCheckbox${index}"><span></span></label>
                         </div>
+                    </td>
+                    <td style="width:40px;">
+                      <button class="drag-btn" style="margin:0px;padding:5px;font-size:1.5rem">☰</button>
                     </td>
                 </tr>
                 `;
@@ -3672,6 +3690,22 @@ function findGroupAndIndex(promptId) {
 
   let isShowSuperPromptSettingDialogInit = true;
 
+  let dragged;
+
+  const handleMouseDown = (e) => {
+    dragged = e.target.closest('tr');
+    dragged.classList.add('dragging');
+    dragged.draggable = true;
+  };
+
+  const handleMouseUp = (e) => {
+    if (dragged) {
+      dragged.classList.remove('dragging');
+      dragged.draggable = false;
+      dragged = null;
+    }
+  };
+
   function showSuperPromptSettingDialog(
     superFormType,
     focusElementIndex = null
@@ -3733,11 +3767,28 @@ function findGroupAndIndex(promptId) {
       });
     }
 
+    const draggingRow = document.querySelector('.dragging-row');
+
+    if(draggingRow){
+      draggingRow.classList.remove('dragging-row');
+    }
+    
+    document.querySelectorAll('.drag-btn').forEach(btn => {
+      btn.removeEventListener('mousedown', handleMouseDown);
+      btn.removeEventListener('mouseup', handleMouseUp);
+    });
+
+    document.querySelectorAll('.drag-btn').forEach(btn => {
+      btn.addEventListener('mousedown', handleMouseDown);
+      btn.addEventListener('mouseup', handleMouseUp);
+    });
+
     controlSuperPromptSettingsDialogTabindex();
 
     isAllShow = superPromptSlideElements[0].checked;
 
     isShowSuperPromptSettingDialogInit = false;
+
   }
 
   function saveSuperPromptSittings() {
@@ -4182,7 +4233,10 @@ function findGroupAndIndex(promptId) {
 
     controlSuperDialogTabindex();
 
-    table.querySelector(".superPromptText").focus();
+    if(table.querySelector(".superPromptText")){
+      table.querySelector(".superPromptText").focus();
+    }
+
   }
 
   function sendSuperPrompt() {
@@ -5420,4 +5474,117 @@ function findGroupAndIndex(promptId) {
       .querySelector(".custom-menu")
       .addEventListener("keydown", controlCustomMenuTabindexHandler);
   }
+
+  let draggedElement = null;
+
+  superPromptSettingsDialog.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'TR' && e.target.classList.contains('dragging')) {
+      draggedElement = e.target;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', '');
+      setTimeout(() => e.target.classList.add('dragging-row'), 0);
+    }
+  });
+
+  superPromptSettingsDialog.addEventListener('dragover', function(e) {
+    e.preventDefault(); 
+    e.dataTransfer.dropEffect = 'move';
+
+    const target = e.target.closest('tr.customDragItem');
+
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const relY = e.clientY - rect.top;
+      if (relY < rect.height / 2) {
+        target.classList.add('drag-over');
+        target.classList.remove('drag-over-bottom');
+      } else {
+        target.classList.add('drag-over-bottom');
+        target.classList.remove('drag-over');
+      }
+    }
+    
+    // 定義滾動速度和閾值
+    const SCROLL_SPEED = 2;
+    const SCROLL_THRESHOLD = 50;
+    
+    // 獲取滾動容器
+    const scrollContainer = document.querySelector('#superTableFormContainer');
+    
+    // 獲取滾動容器的矩形信息
+    const scrollContainerRect = scrollContainer.getBoundingClientRect();
+    // 計算相對於文檔的絕對位置
+    const scrollContainerTop = scrollContainerRect.top + window.scrollY;
+    const scrollContainerBottom = scrollContainerRect.bottom + window.scrollY;
+  
+    // 檢查是否應該向上或向下滾動
+    if (e.clientY < (scrollContainerTop + SCROLL_THRESHOLD)) {
+      // 向上滾動
+      scrollContainer.scrollTop -= SCROLL_SPEED;
+    } else if (e.clientY > (scrollContainerBottom - SCROLL_THRESHOLD)) {
+      // 向下滾動
+      scrollContainer.scrollTop += SCROLL_SPEED;
+    }
+  });
+  
+  superPromptSettingsDialog.addEventListener('dragleave', function(e) {
+    const target = e.target.closest('tr.customDragItem');
+    if (target) {
+      target.classList.remove('drag-over', 'drag-over-bottom');
+    }
+  });
+
+  superPromptSettingsDialog.addEventListener('drop', function(e) {
+    e.preventDefault();
+    if (draggedElement) {
+      const target = e.target.closest('tr.customDragItem');
+      if (target) {
+        target.classList.remove('drag-over', 'drag-over-bottom');
+        const tbody = target.parentNode;
+        const rects = target.getClientRects()[0];
+        const isDropAbove = e.clientY < rects.top + rects.height / 2;
+        if (isDropAbove) {
+          tbody.insertBefore(draggedElement, target);
+        } else {
+          tbody.insertBefore(draggedElement, target.nextSibling);
+        }
+      }
+      draggedElement.classList.remove('dragging-row');
+      draggedElement = null;
+      recalculateSupperSettingIndexes();
+      setTimeout(() => {
+        controlSuperPromptSettingsDialogTabindex();
+      });
+    }
+  });
+
+  function recalculateSupperSettingIndexes(){
+
+    const allCustomDragItem = document.querySelectorAll('.customDragItem');
+
+    const nowSuperPromptList = superPromptList.slice(
+      (currentSuperSettingFormType - 1) * SuperPromptSettingsListLength,
+      currentSuperSettingFormType * SuperPromptSettingsListLength
+    );
+
+    allCustomDragItem.forEach((item, index) => {
+      const superPromptIdElement = item.querySelector('.superPromptId');
+      superPromptIdElement.textContent = nowSuperPromptList[index].key;
+      const inputElement = item.querySelector('.superPromptButtonText');
+      inputElement.tabIndex = index * 2 + 1;
+      const textareaElement = item.querySelector('.superPromptText');
+      textareaElement.tabIndex = index * 2 + 2;
+    });
+
+  }
+
+  superPromptSettingsDialog.addEventListener('dragend', function(e) {
+    const trElements = document.querySelectorAll('.customDragItem');
+    trElements.forEach((tr) => {
+      tr.classList.remove('dragging-row', 'drag-over', 'drag-over-bottom' , 'dragging');
+      tr.draggable = false;
+    });
+    draggedElement = null;
+  });
+
 })();
