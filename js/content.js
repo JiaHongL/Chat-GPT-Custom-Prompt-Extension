@@ -4152,9 +4152,9 @@ function findGroupAndIndex(promptId) {
       });
     }
 
-    // 如果只有兩個，高度再加大一些
+    // 如果只有兩個 class="fieldItem"，而且都是 textarea，高度再加大一些
     if (
-      table.querySelectorAll(".superPromptText").length === 2 &&
+      table.querySelectorAll(".fieldItem").length === 2 &&
       table.querySelectorAll("textarea.superPromptText").length === 2
     ) {
       const textareaElements = table.querySelectorAll(
@@ -4165,39 +4165,10 @@ function findGroupAndIndex(promptId) {
       });
     }
 
-    // 如果只有兩個，一個是 select，一個是 textarea，高度再加兩倍
+    // 如果只有兩個 class="fieldItem"，其中一個是 textarea，高度再加兩倍
     if (
-      table.querySelectorAll(".superPromptText").length === 2 &&
-      table.querySelectorAll("textarea.superPromptText").length === 1 &&
-      table.querySelectorAll("select.superPromptText").length === 1
-    ) {
-      const textareaElements = table.querySelectorAll(
-        "textarea.superPromptText"
-      );
-      textareaElements.forEach((textarea) => {
-        textarea.style = "width:100%;height:380px;";
-      });
-    }
-
-    // 如果只有兩個，一個是 checkbox，一個是 textarea，高度再加兩倍
-    if (
-      table.querySelectorAll(".superPromptText").length === 2 &&
-      table.querySelectorAll("textarea.superPromptText").length === 1 &&
-      table.querySelectorAll("input[type=checkbox]").length === 1
-    ) {
-      const textareaElements = table.querySelectorAll(
-        "textarea.superPromptText"
-      );
-      textareaElements.forEach((textarea) => {
-        textarea.style = "width:100%;height:380px;";
-      });
-    }
-
-    // 如果只有兩個，一個是 radio，一個是 textarea，高度再加兩倍
-    if (
-      table.querySelectorAll(".superPromptText").length === 2 &&
-      table.querySelectorAll("textarea.superPromptText").length === 1 &&
-      table.querySelectorAll("input[type=radio]").length === 1
+      table.querySelectorAll(".fieldItem").length === 2 &&
+      table.querySelectorAll("textarea.superPromptText").length === 1
     ) {
       const textareaElements = table.querySelectorAll(
         "textarea.superPromptText"
