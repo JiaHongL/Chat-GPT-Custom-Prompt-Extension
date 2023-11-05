@@ -88,7 +88,7 @@ const defaultPromptListTW = [
     isVisible: true,
   },
   {
-    key: "6",
+    key: "none",
     text: "整理重點",
     prefix:
       "你現在是個閱讀專家，請幫我整理下面文章的重點，使用條列方式，列出 10 點，最後給出一個總結：\n\n",
@@ -98,7 +98,7 @@ const defaultPromptListTW = [
     isVisible: true,
   },
   {
-    key: "7",
+    key: "none",
     text: "研究報告",
     prefix: "寫一篇有關",
     suffix:
@@ -108,7 +108,7 @@ const defaultPromptListTW = [
     isVisible: true,
   },
   {
-    key: "8",
+    key: "none",
     text: "文字修飾",
     prefix: "請幫我修飾以下敘述，符合台灣用語，且輕鬆活潑。\n\n",
     suffix: "",
@@ -117,7 +117,7 @@ const defaultPromptListTW = [
     isVisible: true,
   },
   {
-    key: "9",
+    key: "none",
     text: "問題建議",
     prefix: "我遇到以下問題：\n",
     suffix: "\n請幫我想出解決方式或替代方案，並使用繁體中文回答。",
@@ -126,7 +126,7 @@ const defaultPromptListTW = [
     isVisible: true,
   },
   {
-    key: "10",
+    key: "none",
     text: "食譜建議",
     prefix: "你現在是一個食譜專家，我想煮",
     suffix:
@@ -186,7 +186,7 @@ const defaultPromptListJA = [
     isVisible: true,
   },
   {
-    key: "6",
+    key: "none",
     text: "ポイント整理",
     prefix:
       "あなたは読書の専門家です。以下の文章のポイントを整理して、リスト形式で10項目を列挙し、最後に総括を行ってください：\n\n",
@@ -196,7 +196,7 @@ const defaultPromptListJA = [
     isVisible: true,
   },
   {
-    key: "7",
+    key: "none",
     text: "研究報告",
     prefix: "300字の、",
     suffix:
@@ -206,7 +206,7 @@ const defaultPromptListJA = [
     isVisible: true,
   },
   {
-    key: "8",
+    key: "none",
     text: "文字修飾",
     prefix: "以下の文章を、軽快で楽しげな日本語に修飾してください。\n\n",
     suffix: "",
@@ -215,7 +215,7 @@ const defaultPromptListJA = [
     isVisible: true,
   },
   {
-    key: "9",
+    key: "none",
     text: "問題建議",
     prefix: "以下の問題が発生しています。\n",
     suffix: "\n解決策または代替案を考えて、回答には日本語を使用してください。",
@@ -224,7 +224,7 @@ const defaultPromptListJA = [
     isVisible: true,
   },
   {
-    key: "10",
+    key: "none",
     text: "食譜建議",
     prefix: "あなたは今、料理の専門家です。私は",
     suffix:
@@ -287,7 +287,7 @@ const defaultPromptListEN = [
     isVisible: true,
   },
   {
-    key: "6",
+    key: "none",
     text: "Summarize",
     prefix:
       "You are a reading expert, please help me summarize the following article in bullet points. Please list 10 points and provide a conclusion:\n\n",
@@ -297,7 +297,7 @@ const defaultPromptListEN = [
     isVisible: true,
   },
   {
-    key: "7",
+    key: "none",
     text: "Research Report",
     prefix: "Write a 300-word research report on ",
     suffix:
@@ -307,7 +307,7 @@ const defaultPromptListEN = [
     isVisible: true,
   },
   {
-    key: "8",
+    key: "none",
     text: "Text Modification",
     prefix:
       "Please help me modify the following statement to make it more lively and in American English:\n\n",
@@ -317,7 +317,7 @@ const defaultPromptListEN = [
     isVisible: true,
   },
   {
-    key: "9",
+    key: "none",
     text: "Problem Suggestion",
     prefix: "I'm having the following problem:\n",
     suffix:
@@ -327,7 +327,7 @@ const defaultPromptListEN = [
     isVisible: true,
   },
   {
-    key: "10",
+    key: "none",
     text: "Recipe Suggestion",
     prefix: "You are a recipe expert and I want to cook ",
     suffix:
@@ -386,7 +386,7 @@ const defaultPromptListCN = [
     isVisible: true,
   },
   {
-    key: "6",
+    key: "none",
     text: "整理重点",
     prefix:
       "你现在是个阅读专家，请帮我整理下面文章的重点，使用条列方式，列出10点，最后给出一个总结：\n\n",
@@ -396,7 +396,7 @@ const defaultPromptListCN = [
     isVisible: true,
   },
   {
-    key: "7",
+    key: "none",
     text: "研究报告",
     prefix: "写一篇有关",
     suffix:
@@ -406,7 +406,7 @@ const defaultPromptListCN = [
     isVisible: true,
   },
   {
-    key: "8",
+    key: "none",
     text: "文字修饰",
     prefix: "请帮我修饰以下叙述，符合中文用语，且轻松活泼。\n\n",
     suffix: "",
@@ -415,7 +415,7 @@ const defaultPromptListCN = [
     isVisible: true,
   },
   {
-    key: "9",
+    key: "none",
     text: "问题建议",
     prefix: "我遇到以下问题：\n",
     suffix: "\n请帮我想出解决方式或替代方案，并使用简体中文回答。",
@@ -424,7 +424,7 @@ const defaultPromptListCN = [
     isVisible: true,
   },
   {
-    key: "10",
+    key: "none",
     text: "食谱建议",
     prefix: "你现在是一个食谱专家，我想煮",
     suffix:
@@ -484,7 +484,7 @@ const defaultPromptListKO = [
     isVisible: true,
   },
   {
-    key: "6",
+    key: "none",
     text: "요약 정리",
     prefix:
       "당신은 지금 독서 전문가입니다. 다음 글의 요점을 정리하여 10개의 항목으로 나열하고 마지막에 요약을 제시해주세요.\n\n",
@@ -494,7 +494,7 @@ const defaultPromptListKO = [
     isVisible: true,
   },
   {
-    key: "7",
+    key: "none",
     text: "연구 보고서",
     prefix: "",
     suffix:
@@ -504,7 +504,7 @@ const defaultPromptListKO = [
     isVisible: true,
   },
   {
-    key: "8",
+    key: "none",
     text: "글 수정",
     prefix:
       "다음 글을 한국식 표현으로 수정하여, 쉽고 재미있게 표현해주세요.\n\n",
@@ -514,7 +514,7 @@ const defaultPromptListKO = [
     isVisible: true,
   },
   {
-    key: "9",
+    key: "none",
     text: "문제 제안",
     prefix: "다음과 같은 문제가 발생했습니다:\n",
     suffix:
@@ -524,7 +524,7 @@ const defaultPromptListKO = [
     isVisible: true,
   },
   {
-    key: "10",
+    key: "none",
     text: "레시피 제안",
     prefix: "당신은 지금 요리 전문가입니다. 저는 ",
     suffix:
@@ -1940,9 +1940,7 @@ function findGroupAndIndex(promptId) {
                 <tr>
                     <td>
                         <div class="shortcut-wrapper">
-                            <span class="shortcut-content"> ${capitalizeFirstLetter(
-                              mainKeyText
-                            )} + 6 </span>
+                            <span class="shortcut-content"> none </span>
                         </div>
                     </td>
                     <td><input tabindex="16" class="btnTextInput" type="text" placeholder="${i18n(
@@ -1973,9 +1971,7 @@ function findGroupAndIndex(promptId) {
                 <tr>
                     <td>
                         <div class="shortcut-wrapper">
-                            <span class="shortcut-content"> ${capitalizeFirstLetter(
-                              mainKeyText
-                            )} + 7 </span>
+                            <span class="shortcut-content"> none </span>
                         </div>
                     </td>
                     <td><input tabindex="19" class="btnTextInput" type="text" placeholder="${i18n(
@@ -2006,9 +2002,7 @@ function findGroupAndIndex(promptId) {
                 <tr>
                     <td>
                         <div class="shortcut-wrapper">
-                            <span class="shortcut-content"> ${capitalizeFirstLetter(
-                              mainKeyText
-                            )} + 8 </span>
+                            <span class="shortcut-content"> none </span>
                         </div>
                     </td>
                     <td><input tabindex="22" class="btnTextInput" type="text" placeholder="${i18n(
@@ -2039,9 +2033,7 @@ function findGroupAndIndex(promptId) {
                 <tr>
                     <td>
                         <div class="shortcut-wrapper">
-                            <span class="shortcut-content"> ${capitalizeFirstLetter(
-                              mainKeyText
-                            )} + 9 </span>
+                            <span class="shortcut-content"> none </span>
                         </div>
                     </td>
                     <td><input tabindex="25" class="btnTextInput" type="text" placeholder="${i18n(
@@ -2072,9 +2064,7 @@ function findGroupAndIndex(promptId) {
                 <tr>
                     <td>
                         <div class="shortcut-wrapper">
-                            <span class="shortcut-content"> ${capitalizeFirstLetter(
-                              mainKeyText
-                            )} + 0 </span>
+                            <span class="shortcut-content"> none </span>
                         </div>
                     </td>
                     <td><input tabindex="28" class="btnTextInput" type="text" placeholder="${i18n(
@@ -2468,26 +2458,21 @@ function findGroupAndIndex(promptId) {
   <div id="dialog4" class="dialog-wrapper" style="display:none">
 
     <div class="dialog" style="max-width: 85%;">
-      <div class="table-container">
+      <div id="quickReplyFormContainer" class="table-container">
         <table class="my-table scroll-table-form" style="width:100%">
           <thead>
             <tr>
-              <th style="width:118px">${i18n("table_title_shortcut")}</th>
               <th style="width:160px">${i18n("table_title_button_name")}</th>
               <th>${i18n("table_title_replay_message")}</th>
               <th style="width:118px">${i18n("table_title_is_show")}</th>
+              <th style="width:40px;"></th>
             </tr>
           </thead>
           <tbody>
             ${Array.from({ length: QuickReplyMessageAllItems })
               .map((_, index) => {
                 return `
-              <tr>
-                <td>
-                  <div class="shortcut-wrapper">
-                    <span class="shortcutContent shortcut-content"></span>
-                  </div>
-                </td>
+              <tr class="customDragItem" draggable="false">
                 <td><input tabindex="${
                   index * 2 + 1
                 }" class="quickReplyButtonText" type="text" placeholder="${i18n(
@@ -2507,6 +2492,9 @@ function findGroupAndIndex(promptId) {
                     <input class="quickReplySlide" type="checkbox" value="true" id="slideCheckboxReplayMessage${index}" name="check"/>
                     <label for="slideCheckboxReplayMessage${index}"><span></span></label>
                   </div>
+                </td>
+                <td style="width:40px;">
+                  <button class="drag-btn" style="margin:0px;padding:5px;font-size:1.5rem">☰</button>
                 </td>
               </tr>
               `;
@@ -3767,18 +3755,18 @@ function findGroupAndIndex(promptId) {
       });
     }
 
-    const draggingRow = document.querySelector('.dragging-row');
+    const draggingRow = superPromptSettingsDialog.querySelector('.dragging-row');
 
     if(draggingRow){
       draggingRow.classList.remove('dragging-row');
     }
     
-    document.querySelectorAll('.drag-btn').forEach(btn => {
+    superPromptSettingsDialog.querySelectorAll('.drag-btn').forEach(btn => {
       btn.removeEventListener('mousedown', handleMouseDown);
       btn.removeEventListener('mouseup', handleMouseUp);
     });
 
-    document.querySelectorAll('.drag-btn').forEach(btn => {
+    superPromptSettingsDialog.querySelectorAll('.drag-btn').forEach(btn => {
       btn.addEventListener('mousedown', handleMouseDown);
       btn.addEventListener('mouseup', handleMouseUp);
     });
@@ -4427,17 +4415,10 @@ function findGroupAndIndex(promptId) {
     const quickReplyMessageElements =
       document.querySelectorAll(".quickReplyMessage");
 
-    const shortcutContentElements =
-      document.querySelectorAll(".shortcutContent");
-
     const quickReplySlideElements =
       document.querySelectorAll(".quickReplySlide");
 
     quickReplyMessageList.forEach((settings, index) => {
-      shortcutContentElements[index].innerHTML =
-        settings.key === "none"
-          ? "none"
-          : capitalizeFirstLetter(mainKeyText) + "+" + settings.key;
       quickReplyButtonTextElements[index].value = settings.text;
       quickReplyMessageElements[index].value = settings.quickReplyMessage;
       quickReplySlideElements[index].checked = settings.isVisible;
@@ -4445,6 +4426,23 @@ function findGroupAndIndex(promptId) {
     });
 
     quickReplyButtonTextElements[0].focus();
+
+    const draggingRow = quickReplySettingsDialog.querySelector('.dragging-row');
+
+    if(draggingRow){
+      draggingRow.classList.remove('dragging-row');
+    }
+    
+    quickReplySettingsDialog.querySelectorAll('.drag-btn').forEach(btn => {
+      btn.removeEventListener('mousedown', handleMouseDown);
+      btn.removeEventListener('mouseup', handleMouseUp);
+    });
+
+    quickReplySettingsDialog.querySelectorAll('.drag-btn').forEach(btn => {
+      btn.addEventListener('mousedown', handleMouseDown);
+      btn.addEventListener('mouseup', handleMouseUp);
+    });
+
   }
 
   function saveQuickReplySettings() {
@@ -4486,6 +4484,7 @@ function findGroupAndIndex(promptId) {
     generateButtons();
 
     quickReplySettingsDialog.style.display = "none";
+    
   }
 
   quickReplySettingsDialogOkBtn.addEventListener("click", () => {
@@ -5475,6 +5474,8 @@ function findGroupAndIndex(promptId) {
       .addEventListener("keydown", controlCustomMenuTabindexHandler);
   }
 
+  // ------- 超級樣板拖拉排序 -------
+
   let draggedElement = null;
 
   superPromptSettingsDialog.addEventListener('dragstart', function(e) {
@@ -5560,7 +5561,7 @@ function findGroupAndIndex(promptId) {
 
   function recalculateSupperSettingIndexes(){
 
-    const allCustomDragItem = document.querySelectorAll('.customDragItem');
+    const allCustomDragItem = superPromptSettingsDialog.querySelectorAll('.customDragItem');
 
     const nowSuperPromptList = superPromptList.slice(
       (currentSuperSettingFormType - 1) * SuperPromptSettingsListLength,
@@ -5579,12 +5580,119 @@ function findGroupAndIndex(promptId) {
   }
 
   superPromptSettingsDialog.addEventListener('dragend', function(e) {
-    const trElements = document.querySelectorAll('.customDragItem');
+    const trElements = superPromptSettingsDialog.querySelectorAll('.customDragItem');
     trElements.forEach((tr) => {
       tr.classList.remove('dragging-row', 'drag-over', 'drag-over-bottom' , 'dragging');
       tr.draggable = false;
     });
     draggedElement = null;
+  });
+
+  // -------- 快速回覆拖拉排序 --------
+
+  let draggedQuickReplyElement = null;
+
+  quickReplySettingsDialog.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'TR' && e.target.classList.contains('dragging')) {
+      draggedQuickReplyElement = e.target;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', '');
+      setTimeout(() => e.target.classList.add('dragging-row'), 0);
+    }
+  });
+
+  quickReplySettingsDialog.addEventListener('dragover', function(e) {
+    e.preventDefault(); 
+    e.dataTransfer.dropEffect = 'move';
+
+    const target = e.target.closest('tr.customDragItem');
+
+    if (target) {
+      const rect = target.getBoundingClientRect();
+      const relY = e.clientY - rect.top;
+      if (relY < rect.height / 2) {
+        target.classList.add('drag-over');
+        target.classList.remove('drag-over-bottom');
+      } else {
+        target.classList.add('drag-over-bottom');
+        target.classList.remove('drag-over');
+      }
+    }
+    
+    // 定義滾動速度和閾值
+    const SCROLL_SPEED = 2;
+    const SCROLL_THRESHOLD = 50;
+    
+    // 獲取滾動容器
+    const scrollContainer = document.querySelector('#quickReplyFormContainer');
+    
+    // 獲取滾動容器的矩形信息
+    const scrollContainerRect = scrollContainer.getBoundingClientRect();
+    // 計算相對於文檔的絕對位置
+    const scrollContainerTop = scrollContainerRect.top + window.scrollY;
+    const scrollContainerBottom = scrollContainerRect.bottom + window.scrollY;
+  
+    // 檢查是否應該向上或向下滾動
+    if (e.clientY < (scrollContainerTop + SCROLL_THRESHOLD)) {
+      // 向上滾動
+      scrollContainer.scrollTop -= SCROLL_SPEED;
+    } else if (e.clientY > (scrollContainerBottom - SCROLL_THRESHOLD)) {
+      // 向下滾動
+      scrollContainer.scrollTop += SCROLL_SPEED;
+    }
+  });
+
+  quickReplySettingsDialog.addEventListener('dragleave', function(e) {
+    const target = e.target.closest('tr.customDragItem');
+    if (target) {
+      target.classList.remove('drag-over', 'drag-over-bottom');
+    }
+  });
+
+  quickReplySettingsDialog.addEventListener('drop', function(e) {
+    e.preventDefault();
+    if (draggedQuickReplyElement) {
+      const target = e.target.closest('tr.customDragItem');
+      if (target) {
+        target.classList.remove('drag-over', 'drag-over-bottom');
+        const tbody = target.parentNode;
+        const rects = target.getClientRects()[0];
+        const isDropAbove = e.clientY < rects.top + rects.height / 2;
+        if (isDropAbove) {
+          tbody.insertBefore(draggedQuickReplyElement, target);
+        } else {
+          tbody.insertBefore(draggedQuickReplyElement, target.nextSibling);
+        }
+      }
+      draggedQuickReplyElement.classList.remove('dragging-row');
+      draggedQuickReplyElement = null;
+      recalculateQuickReplyIndexes();
+      setTimeout(() => {
+        controlQuickReplySettingsDialogTabindex();
+      });
+    }
+  });
+
+  function recalculateQuickReplyIndexes(){
+
+    const allCustomDragItem = quickReplySettingsDialog.querySelectorAll('.customDragItem');
+
+    allCustomDragItem.forEach((item, index) => {
+      const inputElement = item.querySelector('.quickReplyButtonText');
+      inputElement.tabIndex = index * 2 + 1;
+      const textareaElement = item.querySelector('.quickReplyMessage');
+      textareaElement.tabIndex = index * 2 + 2;
+    });
+
+  }
+
+  quickReplySettingsDialog.addEventListener('dragend', function(e) {
+    const trElements = quickReplySettingsDialog.querySelectorAll('.customDragItem');
+    trElements.forEach((tr) => {
+      tr.classList.remove('dragging-row', 'drag-over', 'drag-over-bottom' , 'dragging');
+      tr.draggable = false;
+    });
+    draggedQuickReplyElement = null;
   });
 
 })();

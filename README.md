@@ -592,3 +592,11 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 - 超級樣板設定支援拖拉調整順序
 
 ![拖拉.gif](https://hackmd.io/_uploads/S1Cwuhmm6.gif)
+
+### 1.1.5 版
+送審日期：待送審
+通過日期：待送審
+
+- 快速回覆設定支援拖拉調整順序
+
+![快速拖拉.gif](https://hackmd.io/_uploads/S1jBnYNmT.gif)
