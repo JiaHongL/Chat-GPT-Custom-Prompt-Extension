@@ -4057,7 +4057,7 @@ function findGroupAndIndex(promptId) {
           htmlStr += `
                 <div class="fieldItem">
                   <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
-                  <div style="display:flex;">  
+                  <div style="display:flex;flex-wrap:wrap;">  
                     ${fieldValue
                       .split(",") 
                       .map((option, index) => {
@@ -4097,7 +4097,7 @@ function findGroupAndIndex(promptId) {
           htmlStr += `
                 <div class="fieldItem">
                   <div class="superPromptName" style="width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: bold;">${fieldName}</div>
-                  <div style="display:flex;">
+                  <div style="display:flex;flex-wrap:wrap;">
                     ${fieldValue
                       .split(",")
                       .map((option, index) => {
