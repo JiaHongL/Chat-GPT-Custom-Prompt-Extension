@@ -1636,7 +1636,7 @@ function findGroupAndIndex(promptId) {
         display: none;
         min-width: 160px;
         background-color: rgba(5,5,9,1);
-        border: 1px solid rgba(5,5,9,1);
+        border: 1px solid rgba(64,65,79,1);
         border-radius: 5px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         z-index:999;
@@ -1722,6 +1722,9 @@ function findGroupAndIndex(promptId) {
       }
       .dragging-row {
         opacity: 0.5;
+      }
+      .custom-hover:hover{
+        background-color: rgba(64,65,79,1);
       }
       `;
 
@@ -2906,7 +2909,7 @@ function findGroupAndIndex(promptId) {
         "items-center",
         "gap-3",
         "rounded-md",
-        "hover:bg-gray-500/10",
+        "custom-hover",
         "transition-colors",
         "duration-200",
         "text-white",
@@ -2929,9 +2932,11 @@ function findGroupAndIndex(promptId) {
         </div>
       `;
 
+      const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
+
       customATagEl.appendChild(switchMenuDiv);
       const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[3]);
+      nav.insertBefore(customATagEl, nav.children[navItemCount -1]);
 
       document.getElementById("switchMenu").checked =
         localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
@@ -2965,7 +2970,7 @@ function findGroupAndIndex(promptId) {
         "items-center",
         "gap-3",
         "rounded-md",
-        "hover:bg-gray-500/10",
+        "custom-hover",
         "transition-colors",
         "duration-200",
         "text-white",
@@ -2993,9 +2998,11 @@ function findGroupAndIndex(promptId) {
         </div>
       `;
 
+      const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
+
       customATagEl.appendChild(menuItemDiv);
       const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[4]);
+      nav.insertBefore(customATagEl, nav.children[navItemCount - 1]);
 
       const menuItems = customATagEl.querySelectorAll(".custom-menu-item");
       const chatgptDropdownContentEl = customATagEl.querySelector(
@@ -3041,7 +3048,7 @@ function findGroupAndIndex(promptId) {
         "items-center",
         "gap-3",
         "rounded-md",
-        "hover:bg-gray-500/10",
+        "custom-hover",
         "transition-colors",
         "duration-200",
         "text-white",
@@ -3070,9 +3077,11 @@ function findGroupAndIndex(promptId) {
         </div>
       `;
 
+      const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
+
       customATagEl.appendChild(menuItemDiv);
       const nav = document.querySelector("nav.flex");
-      nav.insertBefore(customATagEl, nav.children[5]);
+      nav.insertBefore(customATagEl, nav.children[navItemCount - 1]);
 
       const menuItems = customATagEl.querySelectorAll(".custom-menu-item");
       const chatgptDropdownContentEl = customATagEl.querySelector(
@@ -3112,9 +3121,10 @@ function findGroupAndIndex(promptId) {
     var observer = new MutationObserver(function (mutations) {
       clearTimeout(mutationTimer);
       mutationTimer = setTimeout(function () {
+
         if (
           document.querySelector("nav.flex") &&
-          document.querySelector("nav.flex").childNodes.length > 3 &&
+          document.querySelector("nav.flex")?.childNodes?.length >= 3 &&
           !document.getElementById("switchMenu")
         ) {
           addCustomLeftMenuItem();
