@@ -235,22 +235,25 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 
 > 適當的提示很有用，可以快速找到答案，但不能期望每次都能一次就找到，有時也需要多次的提問。它是個可以替代 Google 的好助手，但和使用 Google 關鍵字搜尋一樣，還是需要知道如何恰當地利用它。
 
-### 如何使用 "Prompt 產生器" 製作出新的 Prompt
+### 如何使用 "GPTs 產生器" 製作出新的 Prompt
 
-#### 增加以下兩個快速回覆
-![](https://hackmd.io/_uploads/rJFKAaiVn.png)
+#### 點選 "GPTs 產生器"，並送出 Instructions
+![image](https://hackmd.io/_uploads/B1dNRavBT.png)
 
-> **提供提問範例** : 請提供以上的提問範例，提問內容需條列式，內容使用肯定句，不要用問答句，但不需要示範回覆。
+#### 會得到一個互動式 GPT
+![image](https://hackmd.io/_uploads/B1bdApDH6.png)
 
-> **提供其它提問範例** : 請提供不同的提問範例。
+#### 藉由互動式回答，得出一個適合的
 
-#### 輸入想製作的 Prompt 需求
-![](https://hackmd.io/_uploads/BkloC6sNn.png)
+![image](https://hackmd.io/_uploads/B1BZ1APra.png)
 
-#### 會得到一個 Prompt 的說明
-![](https://hackmd.io/_uploads/rkpsRTjVh.png)
+#### 到超級樣板設置這個 Prompt，並且打開
+![image](https://hackmd.io/_uploads/BJCjJRPBa.png)
 
-> 也可以對 chatGPT 下 "提供更詳細的說明"，讓他對這個 Prompt 說明 做更詳細的整理。
+#### 示範這個 GPTs 
+![image](https://hackmd.io/_uploads/Hk-slADra.png)
+
+![image](https://hackmd.io/_uploads/ryDpeRwBT.png)
 
 #### 請 ChatGPT 提供提問示範
 ![](https://hackmd.io/_uploads/rJYGJRsN3.png)
@@ -602,7 +605,17 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 ![快速拖拉.gif](https://hackmd.io/_uploads/S1jBnYNmT.gif)
 
 ### 1.1.6 版
+送審日期：2023/11/7
+通過日期：2023/11/9
+
+- 修正因 ChatGPT Plus UI 改版，造成的跑版問題
+
+### 1.1.7 版
 送審日期：待送審
 通過日期：待送審
 
-- 修正因 ChatGPT Plus UI 改版，造成的跑版問題
+- 調整右側選單 hover 顏色
+- 調整 Prompt 產生器 為 GPTs 產生器
+- 調整 preview 高度的顯示判斷
+
+![image](https://hackmd.io/_uploads/H14IaTvHT.png)

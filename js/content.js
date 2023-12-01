@@ -815,9 +815,24 @@ Array.from({ length: SuperPromptSettingsAllItems }).forEach((_, index) => {
 let defaultSuperPromptListTW = [
   {
     key: 1,
-    text: "Prompt 產生器",
-    prompt:
-      "扮演 GPT-3.5 的提示產生器。 我將陳述我想要的內容，您將設計一個提示，以產生 GPT-3.5 的最佳和最理想的響應。 每個提示都應涉及要求 GPT-3.5 '扮演[角色]'，例如，'扮演律師'。 提示應該詳細而全面，並且應該建立在我要求的基礎上，以便從 GPT-3.5 產生盡可能好的回應。 您必須考慮並應用可以產生良好的上下文回應的良好提示。 不要只是重複我的請求，改進和構建我的請求，以便最終提示將產生 GPT-3.5 中最好、最有用和最有利的回應。 這是我想要的提示：'{{需求}}'",
+    text: "GPTs 產生器",
+    prompt:`
+      可以幫我客製一個專屬的 Instructions，和取名稱嗎？
+  
+      如：
+
+      名稱： 
+      Angular Experts
+
+      Instructions：
+      You are Angular Learning GPT, focusing on providing comprehensive learning resources and examples related to Angular. You are now responding exclusively in Traditional Chinese. Your expertise includes leveraging web browsing to source the most recent and relevant information and examples about Angular. When presenting code examples or referencing articles, you include detailed explanations and cite sources, which may include Angular GDE articles, blogs, Twitter posts, or other authoritative sources. Your goal is to offer an in-depth and current understanding of Angular Signals, empowering users to effectively apply these concepts in their projects. You will respond to all queries in Traditional Chinese to cater to users who prefer or require this language.
+      
+      以上只是例子，並不是要製作的 Instructions。
+
+      接下來我會說明要製作的需求才開始製作，然後再不斷的從對話中修正這個 Instructions。
+
+      如果可以的話，就說，好 開始。
+    `,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -863,9 +878,26 @@ defaultSuperPromptListTW = [
 let defaultSuperPromptListJA = [
   {
     key: 1,
-    text: "プロンプトジェネレーター",
+    text: "GPTs ジェネレーター",
     prompt:
-      "GPT-3.5 ヒントジェネレーターを演じます。 私は要求された内容を述べ、GPT-3.5の最適で理想的な応答を生成するヒントを設計します。各ヒントは、'扮演[役割]'、たとえば'扮演弁護士'のように、GPT-3.5に要求を含める必要があります。ヒントは、詳細かつ包括的で、私の要求に基づいて構築される必要があります。これにより、最良かつ最も有用な上下文応答を生成できます。私の要求を単に繰り返すのではなく、改善し構築することで、最終的なヒントがGPT-3.5で最も優れ、最も有用、最も有利な応答を生成できるようにしてください。これが私が求めるヒントです：'{{要求内容}}'",
+      `
+      私専用のInstructionsをカスタマイズして、名前を付けてもらえますか？
+
+      例えば：
+
+      名前：
+      Angularのエキスパート
+
+      Instructions：
+      You are Angular Learning GPT, focusing on providing comprehensive learning resources and examples related to Angular. You are now responding exclusively in Japanese. Your expertise includes leveraging web browsing to source the most recent and relevant information and examples about Angular. When presenting code examples or referencing articles, you include detailed explanations and cite sources, which may include Angular GDE articles, blogs, Twitter posts, or other authoritative sources. Your goal is to offer an in-depth and current understanding of Angular Signals, empowering users to effectively apply these concepts in their projects. You will respond to all queries in Japanese to cater to users who prefer or require this language.
+
+
+      上記はあくまで例であり、作成する必要のあるInstructionsではありません。
+      次に、作成する必要のある要件を説明し、その後、対話からこのInstructionsを継続的に修正します。
+
+      もし可能であれば、「はい、始めましょう」と言ってください。
+
+      `,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -911,9 +943,23 @@ defaultSuperPromptListJA = [
 let defaultSuperPromptListEN = [
   {
     key: 1,
-    text: "Prompt generator",
+    text: "GPTs Generator",
     prompt:
-      "Act as a prompt generator for GPT-3. I will state what I want and you will engineer a prompt that would yield the best and most desirable response from GPT-3. Each prompt should involve asking GPT-3 to “act as [role]”, for example, “act as a lawyer”. The prompt should be detailed and comprehensive and should build on what I request to generate the best possible response from GPT-3. You must consider and apply what makes a good prompt that generates good, contextual responses. Don’t just repeat what I request, improve and build upon my request so that the final prompt will yield the best, most useful and favourable response out of GPT-3. Here is the prompt I want: '{{describe}}'",
+    `
+    Can you customize a set of Instructions for me and name it?
+
+    For example:
+
+    Name:
+    Angular Experts
+
+    Instructions:
+    You are Angular Learning GPT, focusing on providing comprehensive learning resources and examples related to Angular. You are now responding exclusively in English. Your expertise includes leveraging web browsing to source the most recent and relevant information and examples about Angular. When presenting code examples or referencing articles, you include detailed explanations and cite sources, which may include Angular GDE articles, blogs, Twitter posts, or other authoritative sources. Your goal is to offer an in-depth and current understanding of Angular Signals, empowering users to effectively apply these concepts in their projects. You will respond to all queries in  English to cater to users who prefer or require this language.
+
+    The above is just an example and not the Instructions to be created. I will describe the requirements for the Instructions to be made next, and then continuously refine these Instructions through our conversation.
+
+    If this is possible, please say, 'Okay, let's start.'
+    `,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -959,9 +1005,25 @@ defaultSuperPromptListEN = [
 let defaultSuperPromptListCN = [
   {
     key: 1,
-    text: "提示生成器",
+    text: "GPTs 生成器",
     prompt:
-      "扮演 GPT-3.5 的提示生成器。我将陈述我想要的内容，您将设计一个提示，以产生 GPT-3.5 的最佳和最理想的响应。每个提示都应涉及要求 GPT-3.5 '扮演[角色]'，例如，'扮演律师'。提示应该详细而全面，并且应该建立在我要求的基础上，以便从 GPT-3.5 产生尽可能好的回应。您必须考虑并应用可以产生良好的上下文响应的良好提示。不要只是重复我的请求，改进和构建我的请求，以便最终提示将产生 GPT-3.5 中最好、最有用和最有利的响应。这是我想要的提示：'{{需求}}'",
+    `
+    可以帮我定制一个专属的 Instructions，并取名字吗？
+
+    如：
+
+    名稱：
+    Angular Experts
+
+    Instructions：
+    You are Angular Learning GPT, focusing on providing comprehensive learning resources and examples related to Angular. You are now responding exclusively in Simplified Chinese. Your expertise includes leveraging web browsing to source the most recent and relevant information and examples about Angular. When presenting code examples or referencing articles, you include detailed explanations and cite sources, which may include Angular GDE articles, blogs, Twitter posts, or other authoritative sources. Your goal is to offer an in-depth and current understanding of Angular Signals, empowering users to effectively apply these concepts in their projects. You will respond to all queries in Simplified Chinese to cater to users who prefer or require this language.
+
+    以上只是例子。
+
+    接下来我会说明要制作的需求才开始制作，然后再不断的从对话中修正这个 Instructions。
+
+    如果可以的话，就说，好 开始。
+    `,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1007,9 +1069,23 @@ defaultSuperPromptListCN = [
 let defaultSuperPromptListKO = [
   {
     key: 1,
-    text: "프롬프트 생성기",
+    text: "GPTs 생성기",
     prompt:
-      "GPT-3.5 팁 생성기를 연기하십시오. 내가 원하는 내용을 설명하면, 최상의 GPT-3.5 응답을 생성하기 위해 팁을 디자인합니다. 각 팁은 GPT-3.5이 '[역할]을 연기하도록 요청'하는 것과 관련되어야합니다. 예 : '변호사 역할 연기'. 팁은 자세하고 포괄적이어야하며, 요청 내용을 기반으로 구축되어 GPT-3.5에서 가능한 최상의 응답을 생성하기 위해 적절한 팁을 적용해야합니다. 단순히 요청 내용을 반복하지 말고 요청을 개선하고 구축하여 최종 팁이 GPT-3.5에서 최상의, 가장 유용하고 유익한 응답을 생성하도록합니다. 이것은 내가 원하는 팁입니다 : '{{요구사항}}'",
+    `
+    Can you customize a set of Instructions for me and name it?
+
+    For example:
+
+    이름:
+    Angular Experts
+
+    지침:
+    You are Angular Learning GPT, focusing on providing comprehensive learning resources and examples related to Angular. You are now responding exclusively in Korean. Your expertise includes leveraging web browsing to source the most recent and relevant information and examples about Angular. When presenting code examples or referencing articles, you include detailed explanations and cite sources, which may include Angular GDE articles, blogs, Twitter posts, or other authoritative sources. Your goal is to offer an in-depth and current understanding of Angular Signals, empowering users to effectively apply these concepts in their projects. You will respond to all queries in Korean to cater to users who prefer or require this language.
+
+    The above is just an example and not the Instructions to be created. I will describe the requirements for the Instructions to be made next, and then continuously refine these Instructions through our conversation.
+
+    If this is possible, please say, '알았어 시작해 보자'
+    `,
     buttonElement: null,
     handleClickFn: null,
     isVisible: true,
@@ -1724,7 +1800,7 @@ function findGroupAndIndex(promptId) {
         opacity: 0.5;
       }
       .custom-hover:hover{
-        background-color: rgba(64,65,79,1);
+        background-color: #202123;
       }
       `;
 
@@ -4226,6 +4302,13 @@ function findGroupAndIndex(promptId) {
       textareaElements.forEach((textarea) => {
         textarea.style = "width:100%;height:380px;";
       });
+    }
+
+    // 如果 table 底下沒有任何元素，則將 superPromptPreviewArea max-height 設為 550px
+    if (table.querySelectorAll(".fieldItem").length === 0) {
+      superPromptPreviewArea.style.maxHeight = "570px";
+    }else{ // 如果 table 底下有任何元素，則將 superPromptPreviewArea max-height 設為 165px
+      superPromptPreviewArea.style.maxHeight = "165px"
     }
 
     addCompositionEventListener(".superPromptText");
