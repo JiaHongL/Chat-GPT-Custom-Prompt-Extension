@@ -3233,6 +3233,62 @@ function findGroupAndIndex(promptId) {
     observer.observe(targetNode, config);
   }
 
+  // 定義一個函式來從 localStorage 或 chrome.storage.local 獲取資料
+  function getData(key, defaultValue, callback) {
+    let value = localStorage.getItem(key);
+    if (value === null) {
+      // 如果 localStorage 中沒有資料，則從 chrome.storage.local 中獲取
+      chrome.storage.local.get([key], function(result) {
+        if (result[key] !== undefined) {
+          // 如果 chrome.storage.local 中有資料，則使用該資料
+          value = result[key];
+        } else {
+          // 如果 chrome.storage.local 中也沒有資料，則使用預設值
+          value = JSON.stringify(defaultValue);
+        }
+        // 將資料儲存到 localStorage 和 chrome.storage.local
+        localStorage.setItem(key, value);
+        let obj = {};
+        obj[key] = value;
+        chrome.storage.local.set(obj, function() {
+          if (chrome.runtime.lastError) {
+            console.log('Error while saving data to chrome.storage.local: ' + chrome.runtime.lastError.message);
+          }else{
+            console.log("save to chrome.storage.local success");
+            if(key==="Custom.Settings.Menu.Hidden"){
+              generateButtons();
+            }
+          }
+        });
+        // 使用回調函式返回資料
+        let parsedValue;
+        try {
+          parsedValue = JSON.parse(value);  
+        } catch (error) {
+          parsedValue = value;
+        }
+        callback(parsedValue);
+      });
+    } else {
+      // 如果 localStorage 中有資料，則使用該資料
+      let parsedValue;
+      try {
+        parsedValue = JSON.parse(value);  
+      } catch (error) {
+        parsedValue = value;
+      }
+      callback(parsedValue);
+      // 將資料儲存到 chrome.storage.local
+      let obj = {};
+      obj[key] = value;
+      chrome.storage.local.set(obj, function() {
+        if (chrome.runtime.lastError) {
+          console.log('Error while saving data to chrome.storage.local: ' + chrome.runtime.lastError.message);
+        }
+      });
+    }
+  }
+
   // 初始化
   function init() {
     questionDialog.style.display = "none";
@@ -3242,75 +3298,28 @@ function findGroupAndIndex(promptId) {
     superPromptSettingsDialog.style.display = "none";
     superPromptDialog.style.display = "none";
 
-    if (!localStorage.getItem("Custom.Settings.Prompt")) {
-      localStorage.setItem(
-        "Custom.Settings.Prompt",
-        JSON.stringify(defaultPromptList)
-      );
-    }
+    // 使用 getData 函式來獲取資料
+    getData("Custom.Settings.Prompt", defaultPromptList, function(value) {
+      promptList = value;
+    });
+    getData("Custom.Settings.QuickReply", defaultQuickReplyMessageList, function(value) {
+      quickReplyMessageList = value;
+    });
+    getData("Custom.Settings.SuperPrompt", defaultSuperPromptList, function(value) {
+      superPromptList = value;
+    });
+    getData("Custom.Settings.SuperPromptCategoryList", defaultSuperPromptCategoryList, function(value) {
+      superPromptCategoryList = value;
+    });
 
-    if (!localStorage.getItem("Custom.Settings.QuickReply")) {
-      localStorage.setItem(
-        "Custom.Settings.QuickReply",
-        JSON.stringify(defaultQuickReplyMessageList)
-      );
-    }
-
-    // 0.9.3 版，從原本的5組，增加到100組
-    if (
-      JSON.parse(localStorage.getItem("Custom.Settings.QuickReply")).length ===
-      5
-    ) {
-      let quickReplyMessageListTemp = JSON.parse(
-        localStorage.getItem("Custom.Settings.QuickReply")
-      );
-
-      quickReplyMessageListTemp = [
-        ...quickReplyMessageListTemp,
-        ...DefaultEmptyQuickReplyMessageList,
-      ];
-
-      localStorage.setItem(
-        "Custom.Settings.QuickReply",
-        JSON.stringify(quickReplyMessageListTemp)
-      );
-    }
-
-    if (localStorage.getItem("Custom.Settings.Menu.Hidden") === null) {
-      localStorage.setItem("Custom.Settings.Menu.Hidden", "N");
-    }
-
-    if (!localStorage.getItem("Custom.Settings.SuperPrompt")) {
-      localStorage.setItem(
-        "Custom.Settings.SuperPrompt",
-        JSON.stringify(defaultSuperPromptList)
-      );
-    }
-
-    if (!localStorage.getItem("Custom.Settings.SuperPromptCategoryList")) {
-      localStorage.setItem(
-        "Custom.Settings.SuperPromptCategoryList",
-        JSON.stringify(defaultSuperPromptCategoryList)
-      );
-    }
-
-    localStorage.getItem("Custom.Settings.Menu.Hidden") === "Y"
-      ? document.body.classList.add("hidden-template-buttons")
-      : document.body.classList.remove("hidden-template-buttons");
-
-    promptList = JSON.parse(localStorage.getItem("Custom.Settings.Prompt"));
-
-    superPromptList = JSON.parse(
-      localStorage.getItem("Custom.Settings.SuperPrompt")
-    );
-
-    quickReplyMessageList = JSON.parse(
-      localStorage.getItem("Custom.Settings.QuickReply")
-    );
-
-    superPromptCategoryList = JSON.parse(
-      localStorage.getItem("Custom.Settings.SuperPromptCategoryList")
-    );
+    // 處理 "Custom.Settings.Menu.Hidden"
+    getData("Custom.Settings.Menu.Hidden", "N", function(value) {
+      if (value === "Y") {
+        document.body.classList.add("hidden-template-buttons");
+      } else {
+        document.body.classList.remove("hidden-template-buttons");
+      }
+    });
   }
 
   function darkModeToggle() {
