@@ -1,3 +1,9 @@
+const supportGemini = !window.location.href.includes("chat.openai.com");
+
+if (supportGemini) {
+  document.body.classList.add('supportGemini');
+}
+
 const i18n = (key, params = []) => {
   try {
     return chrome.i18n.getMessage(key, params);
@@ -1215,6 +1221,7 @@ function findGroupAndIndex(promptId) {
   // css style
   const styles = `
       .custom-menu {
+        z-index: 999999;
         position: fixed;
         top:65px;
         right:0;
@@ -1222,14 +1229,14 @@ function findGroupAndIndex(promptId) {
         overflow-y: hidden;
         overflow-x: hidden;
         box-sizing: content-box;
-        width:155px;
+        width:155px !important;
         padding:5px;
         background:rgb(236,236,241);
         border-radius:10px;
         margin-right:8px;
         
         display:flex;
-        flex-direction:column;
+        flex-direction:column !important;
 
         transition: transform 0.3s ease-in-out;
         transform: translateX(0);
@@ -1269,6 +1276,7 @@ function findGroupAndIndex(promptId) {
         display:none;
         padding:12px;
         cursor:pointer;
+        z-index: 999999;
       }
       @media only screen and (max-width: 980px) {
         .collapse-button {
@@ -3320,6 +3328,25 @@ function findGroupAndIndex(promptId) {
         document.body.classList.remove("hidden-template-buttons");
       }
     });
+
+    if(supportGemini){
+      checkGeminiTheme();
+    }
+
+  }
+
+  function checkGeminiTheme(){
+    if(
+      document.body.classList.contains("dark-theme")
+    ){
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    }else{
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+      document.documentElement.style.colorScheme = "light";
+    }
   }
 
   function darkModeToggle() {
@@ -3594,10 +3621,16 @@ function findGroupAndIndex(promptId) {
       }
     });
 
-    const chatInput = document.querySelector("#prompt-textarea");
-    const sendButton =
-      chatInput.parentElement.querySelector("button:last-child") ||
-      chatInput.nextElementSibling;
+    let chatInput = document.querySelector("#prompt-textarea");
+    let sendButton =
+      chatInput?.parentElement?.querySelector("button:last-child") ||
+      chatInput?.nextElementSibling;
+
+
+    if(supportGemini){
+      chatInput = document.body.querySelector('rich-textarea');
+      sendButton = document.querySelector('.send-button-container').querySelector('button');
+    }
 
     if (!chatInput) {
       alert(i18n("alert_not_found_input"));
@@ -3609,9 +3642,13 @@ function findGroupAndIndex(promptId) {
       return;
     }
 
-    chatInput.value = message;
-    chatInput.dispatchEvent(new Event("input", { bubbles: true }));
-    chatInput.focus();
+    if(supportGemini){
+      chatInput.children[0].textContent = message;
+    }else{
+      chatInput.value = message;
+      chatInput.dispatchEvent(new Event("input", { bubbles: true }));
+      chatInput.focus();
+    }
 
     if (isGenerating) {
       setTimeout(() => {
