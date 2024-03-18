@@ -3207,6 +3207,7 @@ function findGroupAndIndex(promptId) {
       mutationTimer = setTimeout(function () {
 
         if (
+          !supportGemini &&
           document.querySelector("nav.flex") &&
           document.querySelector("nav.flex")?.childNodes?.length >= 3 &&
           !document.getElementById("switchMenu")
