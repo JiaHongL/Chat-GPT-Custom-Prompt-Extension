@@ -1221,7 +1221,7 @@ function findGroupAndIndex(promptId) {
   // css style
   const styles = `
       .custom-menu {
-        z-index: 999999;
+        z-index: 9999;
         position: fixed;
         top:65px;
         right:0;
@@ -1238,8 +1238,8 @@ function findGroupAndIndex(promptId) {
         display:flex;
         flex-direction:column !important;
 
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(0);
+        ${ supportGemini ? '':'transition: transform 0.3s ease-in-out;' }
+        ${ supportGemini ? '':'transform: translateX(0);' }
       }
       @media only screen and (max-width: 980px) {
         .custom-menu {
@@ -1311,7 +1311,7 @@ function findGroupAndIndex(promptId) {
         font-size: 16px;
         color: black;
         outline: none;
-        width: 100%;
+        ${ supportGemini ? 'width:135px' : 'width:100%' }
       }
       .dark .custom-menu .search-box .custom-keyword-input {
         background-color: black;
@@ -1826,7 +1826,7 @@ function findGroupAndIndex(promptId) {
                 "placeholder_prompt_textarea"
               )}"></textarea>
               <div class="footer center">
-                  <button id="dialog-edit" class="info" tabindex="2">${i18n(
+                  <button ${supportGemini ? 'hidden' : ''} id="dialog-edit" class="info" tabindex="2">${i18n(
                     "button_edit"
                   )}</button>
                   <button id="dialog-ok" class="primary" tabindex="3">${i18n(
@@ -2771,7 +2771,7 @@ function findGroupAndIndex(promptId) {
         </div>
       </div>
       <div class="footer" class="center">
-        <button tabindex="98" id="dialog7-edit" class="info">${i18n(
+        <button ${supportGemini ? 'hidden' : ''} tabindex="98" id="dialog7-edit" class="info">${i18n(
           "button_edit"
         )}</button>
         <button tabindex="99" id="dialog7-ok" class="primary">${i18n(
@@ -3298,8 +3298,33 @@ function findGroupAndIndex(promptId) {
     }
   }
 
+  function getDataFromChromeStorage(key, defaultValue, callback) {
+    let value;
+    // 從 chrome.storage.local 中獲取
+    chrome.storage.local.get([key], function(result) {
+      if (result[key] !== undefined) {
+        // 如果 chrome.storage.local 中有資料，則使用該資料
+        value = result[key];
+      } else {
+        // 如果 chrome.storage.local 中也沒有資料，則使用預設值
+        value = JSON.stringify(defaultValue);
+      }
+      if(key==="Custom.Settings.Menu.Hidden"){
+        generateButtons();
+      }
+      // 使用回調函式返回資料
+      let parsedValue;
+      try {
+        parsedValue = JSON.parse(value);  
+      } catch (error) {
+        parsedValue = value;
+      }
+      callback(parsedValue);
+    });
+  }
+
   // 初始化
-  function init() {
+  async function init() {
     questionDialog.style.display = "none";
     settingsDialog.style.display = "none";
     shortcutKeyHintDialog.style.display = "none";
@@ -3307,31 +3332,55 @@ function findGroupAndIndex(promptId) {
     superPromptSettingsDialog.style.display = "none";
     superPromptDialog.style.display = "none";
 
-    // 使用 getData 函式來獲取資料
-    getData("Custom.Settings.Prompt", defaultPromptList, function(value) {
-      promptList = value;
-    });
-    getData("Custom.Settings.QuickReply", defaultQuickReplyMessageList, function(value) {
-      quickReplyMessageList = value;
-    });
-    getData("Custom.Settings.SuperPrompt", defaultSuperPromptList, function(value) {
-      superPromptList = value;
-    });
-    getData("Custom.Settings.SuperPromptCategoryList", defaultSuperPromptCategoryList, function(value) {
-      superPromptCategoryList = value;
-    });
-
-    // 處理 "Custom.Settings.Menu.Hidden"
-    getData("Custom.Settings.Menu.Hidden", "N", function(value) {
-      if (value === "Y") {
-        document.body.classList.add("hidden-template-buttons");
-      } else {
-        document.body.classList.remove("hidden-template-buttons");
-      }
-    });
-
     if(supportGemini){
       checkGeminiTheme();
+      // 使用 getData 函式來獲取資料
+      getDataFromChromeStorage("Custom.Settings.Prompt", defaultPromptList, function(value) {
+        promptList = value;
+        console.log("promptList", promptList);
+      });
+      getDataFromChromeStorage("Custom.Settings.QuickReply", defaultQuickReplyMessageList, function(value) {
+        quickReplyMessageList = value;
+      });
+      getDataFromChromeStorage("Custom.Settings.SuperPrompt", defaultSuperPromptList, function(value) {
+        superPromptList = value;
+      });
+      getDataFromChromeStorage("Custom.Settings.SuperPromptCategoryList", defaultSuperPromptCategoryList, function(value) {
+        superPromptCategoryList = value;
+      });
+      document.body.classList.add("hidden-template-buttons");
+      // 處理 "Custom.Settings.Menu.Hidden"
+      getDataFromChromeStorage("Custom.Settings.Menu.Hidden", "N", function(value) {
+        if (value === "Y") {
+          document.body.classList.add("hidden-template-buttons");
+        } else {
+          document.body.classList.remove("hidden-template-buttons");
+        }
+      });
+      console.log("supportGemini");
+    }else{
+      // 使用 getData 函式來獲取資料
+      getData("Custom.Settings.Prompt", defaultPromptList, function(value) {
+        promptList = value;
+      });
+      getData("Custom.Settings.QuickReply", defaultQuickReplyMessageList, function(value) {
+        quickReplyMessageList = value;
+      });
+      getData("Custom.Settings.SuperPrompt", defaultSuperPromptList, function(value) {
+        superPromptList = value;
+      });
+      getData("Custom.Settings.SuperPromptCategoryList", defaultSuperPromptCategoryList, function(value) {
+        superPromptCategoryList = value;
+      });
+
+      // 處理 "Custom.Settings.Menu.Hidden"
+      getData("Custom.Settings.Menu.Hidden", "N", function(value) {
+        if (value === "Y") {
+          document.body.classList.add("hidden-template-buttons");
+        } else {
+          document.body.classList.remove("hidden-template-buttons");
+        }
+      });
     }
 
   }
@@ -3669,6 +3718,7 @@ function findGroupAndIndex(promptId) {
   }
 
   questionDialogEditBtn.addEventListener("click", () => {
+    if(supportGemini){return}
     questionDialog.style.display = "none";
     showSettingsDialog(questionId - 1);
   });
@@ -4469,6 +4519,7 @@ function findGroupAndIndex(promptId) {
   });
 
   editSuperPromptBtn.addEventListener("click", () => {
+    if(supportGemini){return}
     superPromptDialog.style.display = "none";
     const { group, order } = findGroupAndIndex(superPromptId);
     showSuperPromptSettingDialog(group, order - 1);
@@ -5177,7 +5228,7 @@ function findGroupAndIndex(promptId) {
     // search
     const searchBoxDiv = document.createElement("div");
     searchBoxDiv.classList.add("search-box");
-    searchBoxDiv.innerHTML = `<input style="width:100%" tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="${PlaceholderKeywordInput}">`;
+    searchBoxDiv.innerHTML = `<input tabindex="1" type="text" id="customKeywordInput" class="custom-keyword-input" placeholder="${PlaceholderKeywordInput}">`;
 
     let timerId;
     const inputBox = searchBoxDiv.querySelector("#customKeywordInput");
