@@ -611,8 +611,8 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 - 修正因 ChatGPT Plus UI 改版，造成的跑版問題
 
 ### 1.1.7 版
-送審日期：2023/12/1
-通過日期：2023/12/2
+送審日期：12/1
+通過日期：12/2
 
 - 調整右側選單 hover 顏色
 - 調整 Prompt 產生器 為 GPTs 產生器
@@ -620,9 +620,20 @@ ChatGPT 雖然很厲害，但也有它的極限，所以我們要加強自己的
 
 ![image](https://hackmd.io/_uploads/H14IaTvHT.png)
 
-
 ### 1.1.8 版
-送審日期：2023/12/17
-通過日期：送審中
+送審日期：12/17
+通過日期：12/18
 
 - 增加備份機制，若覽器資料清除，可從備份檔案自動還原 (chrome.storage.local)
+
+### 1.1.9 版
+送審日期：2024/03/19
+通過日期：審核中
+
+- 修正部分樣式問題
+- 增加 支援 gemini 使用 ChatGPT 提問助手的樣板
+- 增加 支援 gemini 開關
+
+![image](https://hackmd.io/_uploads/Bk187zP0p.png)
+
+![image](https://hackmd.io/_uploads/B1jD7zw0T.png)
