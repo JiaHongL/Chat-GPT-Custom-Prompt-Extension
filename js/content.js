@@ -1843,7 +1843,10 @@ function findGroupAndIndex(promptId) {
                   <button id="dialog-ok" class="primary" tabindex="3">${i18n(
                     "button_send"
                   )} ( ${mainKeyText} + s )</button>
-                  <button id="dialog-cancel" class="secondary" tabindex="4">${i18n(
+                  <button id="dialog-insert" class="primary" tabindex="4">${i18n(
+                    "button_insert"
+                  )} </button>
+                  <button id="dialog-cancel" class="secondary" tabindex="5">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
               </div>
@@ -2782,12 +2785,15 @@ function findGroupAndIndex(promptId) {
         </div>
       </div>
       <div class="footer" class="center">
-        <button ${supportGemini ? 'hidden' : ''} tabindex="98" id="dialog7-edit" class="info">${i18n(
+        <button ${supportGemini ? 'hidden' : ''} tabindex="97" id="dialog7-edit" class="info">${i18n(
           "button_edit"
         )}</button>
-        <button tabindex="99" id="dialog7-ok" class="primary">${i18n(
+        <button tabindex="98" id="dialog7-ok" class="primary">${i18n(
           "button_send"
         )} ( ${mainKeyText} + s )</button>
+        <button id="dialog7-insert" class="primary" tabindex="99">${i18n(
+          "button_insert"
+        )} </button>
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
@@ -2904,6 +2910,7 @@ function findGroupAndIndex(promptId) {
   const questionPreviewAreaDiv = document.getElementById("questionPreviewArea");
   const questionDialogTextarea = document.querySelector("#dialog-textarea");
   const questionDialogOkBtn = document.querySelector("#dialog-ok");
+  const questionDialogInsertBtn = document.querySelector("#dialog-insert");
   const questionDialogCancelBtn = document.querySelector("#dialog-cancel");
   const questionDialogEditBtn = document.querySelector("#dialog-edit");
 
@@ -2958,6 +2965,7 @@ function findGroupAndIndex(promptId) {
   // superPrompt
   const superPromptDialog = document.getElementById("dialog7");
   const superPromptDialogOkBtn = document.querySelector("#dialog7-ok");
+  const superPromptDialogInsertBtn = document.querySelector("#dialog7-insert");
   const superPromptDialogCancelBtn = document.querySelector("#dialog7-cancel");
   const superPromptPreviewAreaDiv = document.getElementById(
     "superPromptPreviewArea"
@@ -3799,7 +3807,7 @@ function findGroupAndIndex(promptId) {
   });
 
   // ------------ 提問視窗 相關程式碼 ------------
-  function sendMessage(message) {
+  function sendMessage(message, isInsert = false) {
     let isGenerating = false;
 
     // 看看是不是正在對話，若有則先停止
@@ -3833,10 +3841,15 @@ function findGroupAndIndex(promptId) {
 
     if(supportGemini){
       chatInput.children[0].textContent = message;
+      chatInput.children[0].focus();
     }else{
       chatInput.value = message;
       chatInput.dispatchEvent(new Event("input", { bubbles: true }));
       chatInput.focus();
+    }
+
+    if(isInsert){
+      return;
     }
 
     if (isGenerating) {
@@ -3850,10 +3863,10 @@ function findGroupAndIndex(promptId) {
     }
   }
 
-  function sendQuestionForm() {
+  function sendQuestionForm(isInsert = false) {
     const message = `${prefix}${questionDialogTextarea.value}${suffix}`;
     questionDialog.style.display = "none";
-    sendMessage(message);
+    sendMessage(message, isInsert);
   }
 
   questionDialogEditBtn.addEventListener("click", () => {
@@ -3901,6 +3914,14 @@ function findGroupAndIndex(promptId) {
     }
     questionDialog.style.display = "none";
     sendQuestionForm();
+  });
+
+  questionDialogInsertBtn.addEventListener("click", () => {
+    if (questionDialogTextarea.value.trim() === "") {
+      return;
+    }
+    questionDialog.style.display = "none";
+    sendQuestionForm(true);
   });
 
   questionDialogCancelBtn.addEventListener("click", () => {
@@ -4561,7 +4582,7 @@ function findGroupAndIndex(promptId) {
 
   }
 
-  function sendSuperPrompt() {
+  function sendSuperPrompt(isInsert = false) {
     const table = document.querySelector("#superPromptTable");
     const superPromptTextList = table.querySelectorAll(".superPromptText");
 
@@ -4591,7 +4612,7 @@ function findGroupAndIndex(promptId) {
 
     if (!uniqueMatches) {
       superPromptDialog.style.display = "none";
-      sendMessage(message);
+      sendMessage(message, isInsert);
       return;
     }
 
@@ -4650,11 +4671,15 @@ function findGroupAndIndex(promptId) {
     }
 
     superPromptDialog.style.display = "none";
-    sendMessage(message);
+    sendMessage(message, isInsert);
   }
 
   superPromptDialogOkBtn.addEventListener("click", () => {
     sendSuperPrompt();
+  });
+
+  superPromptDialogInsertBtn.addEventListener("click", () => {
+    sendSuperPrompt(true);
   });
 
   superPromptDialogCancelBtn.addEventListener("click", () => {
