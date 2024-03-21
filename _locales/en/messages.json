@@ -47,6 +47,9 @@
   "button_show_all_or_hide_all": {
     "message": "Show All / Hide All"
   },
+  "button_insert": {
+    "message": "Insert Prompt"
+  },
   "title_import_export": {
     "message": "Import and Export Settings"
   },

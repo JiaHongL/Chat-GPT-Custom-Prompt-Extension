@@ -47,6 +47,9 @@
   "button_show_all_or_hide_all": {
     "message": "すべて表示 / すべて非表示"
   },
+  "button_insert": {
+    "message": "Promptを挿入"
+  },
   "title_import_export": {
     "message": "設定ファイルのインポートおよびエクスポート"
   },

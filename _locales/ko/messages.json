@@ -47,6 +47,9 @@
   "button_show_all_or_hide_all": {
     "message": "전체 표시 / 전체 숨김"
   },
+  "button_insert": {
+    "message": "Prompt 삽입"
+  },
   "title_import_export": {
     "message": "설정 파일 가져오기 및 내보내기"
   },

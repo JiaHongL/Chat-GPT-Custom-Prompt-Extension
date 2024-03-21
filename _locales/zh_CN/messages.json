@@ -47,6 +47,9 @@
   "button_show_all_or_hide_all": {
     "message": "全部显示 / 全部隐藏"
   },
+  "button_insert": {
+    "message": "插入 Prompt"
+  },
   "title_import_export": {
     "message": "导入与导出设定档"
   },
