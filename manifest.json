@@ -3,7 +3,7 @@
   "name": "__MSG_extension_name__",
   "description": "__MSG_extension_description__",
   "author": "Joe",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "default_locale": "en",
   "icons": {
     "16": "images/icon/16.png",
@@ -18,7 +18,9 @@
     {
       "matches": [
           "https://chat.openai.com/*",
-          "https://gemini.google.com/app/*"
+          "https://gemini.google.com/app/*",
+          "https://gemini.google.com/share/continue/*",
+          "https://gemini.google.com/u/*"
       ],
       "exclude_matches": ["https://chat.openai.com/auth/login"],
       "js": ["js/content.js"]
