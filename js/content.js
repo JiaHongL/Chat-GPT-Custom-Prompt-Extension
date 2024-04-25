@@ -3327,7 +3327,7 @@ function findGroupAndIndex(promptId) {
         if (
           !supportGemini &&
           document.querySelector("nav.flex") &&
-          document.querySelector("nav.flex")?.childNodes?.length >= 3 &&
+          document.querySelector("nav.flex")?.childNodes?.length >= 2 &&
           !document.getElementById("switchMenu")
         ) {
           addCustomLeftMenuItem();
