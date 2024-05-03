@@ -1,4 +1,4 @@
-const supportGemini = !window.location.href.includes("chat.openai.com");
+const supportGemini = !window.location.href.includes("chatgpt.com");
 
 if (supportGemini) {
   document.body.classList.add('supportGemini');
