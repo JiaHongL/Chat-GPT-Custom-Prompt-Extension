@@ -3009,7 +3009,10 @@ function findGroupAndIndex(promptId) {
 
   setDefaultList();
   init();
-  subscribeMutationObserver();
+
+  setTimeout(() => {
+    subscribeMutationObserver();
+  }, 1000);
 
   // 開關選單的選項加在右側
 
@@ -3821,8 +3824,7 @@ function findGroupAndIndex(promptId) {
     let chatInput = document.querySelector("#prompt-textarea");
     let sendButton =
       chatInput?.parentElement?.querySelector("button:last-child") ||
-      chatInput?.nextElementSibling;
-
+      chatInput?.parentElement?.parentElement?.querySelector("button:last-child") 
 
     if(supportGemini){
       chatInput = document.body.querySelector('rich-textarea');
@@ -3831,11 +3833,6 @@ function findGroupAndIndex(promptId) {
 
     if (!chatInput) {
       alert(i18n("alert_not_found_input"));
-      return;
-    }
-
-    if (!sendButton) {
-      alert(i18n("alert_not_found_send_button"));
       return;
     }
 
@@ -3849,6 +3846,11 @@ function findGroupAndIndex(promptId) {
     }
 
     if(isInsert){
+      return;
+    }
+
+    if (!sendButton) {
+      alert(i18n("alert_not_found_send_button"));
       return;
     }
 
