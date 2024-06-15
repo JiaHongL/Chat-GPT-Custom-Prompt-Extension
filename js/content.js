@@ -1221,7 +1221,7 @@ function findGroupAndIndex(promptId) {
   // css style
   const styles = `
       .custom-menu {
-        z-index: 9999;
+        z-index: 0;
         position: fixed;
         top:65px;
         right:0;
