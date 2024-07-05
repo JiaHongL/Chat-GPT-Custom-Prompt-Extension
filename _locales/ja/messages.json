@@ -255,6 +255,6 @@
     "message": "プロンプト設定 2"
   },
   "nav_menu_enable_gemini_support": {
-    "message": "Gemini を支援する"
+    "message": "Gemini & Claude"
   }
 }
