@@ -1,6 +1,8 @@
 const supportGemini = !window.location.href.includes("chatgpt.com");
 const supportClaude = window.location.href.includes("claude.ai");
 
+const supportChatGPT = !supportGemini && !supportClaude;
+
 if (supportGemini) {
   document.body.classList.add('supportGemini');
 }
@@ -3829,8 +3831,39 @@ function findGroupAndIndex(promptId) {
     }
   });
 
+  
+  function chatInput() {
+    let chatInput = document.querySelector("#prompt-textarea");
+    if(
+      supportGemini &&
+      !supportClaude
+    ){
+      chatInput = document.body.querySelector('rich-textarea');
+    }
+    if(supportClaude){
+      chatInput = document.querySelector('div[contenteditable="true"]');
+    }
+    return chatInput;
+  }
+  
+  function sendButton(){
+    let sendButton = chatInput()?.parentElement?.querySelector("button:last-child") ||
+    chatInput()?.parentElement?.parentElement?.querySelector("button:last-child") 
+    if(
+      supportGemini &&
+      !supportClaude
+    ){
+      sendButton = document.querySelector('.send-button-container')?.querySelector('button');
+    }
+    if(supportClaude){
+      sendButton = document.querySelector('button[aria-label="Send Message"]');
+    }
+    return sendButton;
+  }
+
   // ------------ 提問視窗 相關程式碼 ------------
   function sendMessage(message, isInsert = false) {
+
     let isGenerating = false;
 
     // 看看是不是正在對話，若有則先停止
@@ -3841,25 +3874,7 @@ function findGroupAndIndex(promptId) {
       }
     });
 
-    let chatInput = document.querySelector("#prompt-textarea");
-    let sendButton =
-      chatInput?.parentElement?.querySelector("button:last-child") ||
-      chatInput?.parentElement?.parentElement?.querySelector("button:last-child") 
-
-    if(
-      supportGemini &&
-      !supportClaude
-    ){
-      chatInput = document.body.querySelector('rich-textarea');
-      sendButton = document.querySelector('.send-button-container')?.querySelector('button');
-    }
-
-    if(supportClaude){
-      chatInput = document.querySelector('div[contenteditable="true"]');
-      sendButton = document.querySelector('button[aria-label="Send Message"]');
-    }
-
-    if (!chatInput) {
+    if (!chatInput()) {
       alert(i18n("alert_not_found_input"));
       return;
     }
@@ -3869,15 +3884,15 @@ function findGroupAndIndex(promptId) {
       messageArray?.forEach((msg) => {
         const paragraph = document.createElement('p');
         paragraph.textContent = msg;
-        chatInput.appendChild(paragraph);
+        chatInput().appendChild(paragraph);
       })
     }else if(supportGemini){
-      chatInput.children[0].textContent = message;
-      chatInput.children[0].focus();
+      chatInput().children[0].textContent = message;
+      chatInput().children[0].focus();
     }else{
-      chatInput.value = message;
-      chatInput.dispatchEvent(new Event("input", { bubbles: true }));
-      chatInput.focus();
+      chatInput().value = message;
+      chatInput().dispatchEvent(new Event("input", { bubbles: true }));
+      chatInput().focus();
     }
 
     if(isInsert){
@@ -3885,7 +3900,7 @@ function findGroupAndIndex(promptId) {
     }
 
     if (
-      !sendButton &&
+      !sendButton() &&
       !supportClaude
     ) {
       alert(i18n("alert_not_found_send_button"));
@@ -3894,16 +3909,15 @@ function findGroupAndIndex(promptId) {
 
     if(supportClaude){
       setTimeout(() => {
-        sendButton = document.querySelector('button[aria-label="Send Message"]');
-        sendButton.click();
+        sendButton().click();
       }, 600);
     }else if (isGenerating) {
       setTimeout(() => {
-        sendButton.click();
+        sendButton().click();
       }, 500);
     } else {
       setTimeout(() => {
-        sendButton.click();
+        sendButton().click();
       }, 100);
     }
   }
