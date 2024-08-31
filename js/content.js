@@ -3847,8 +3847,8 @@ function findGroupAndIndex(promptId) {
   }
   
   function sendButton(){
-    let sendButton = chatInput()?.parentElement?.querySelector("button:last-child") ||
-    chatInput()?.parentElement?.parentElement?.querySelector("button:last-child") 
+    let sendButton = document.querySelector('button[data-testid="send-button"]') ||
+    document.querySelector("#prompt-textarea")?.parentElement?.parentElement?.querySelectorAll('button')[document.querySelector("#prompt-textarea")?.parentElement?.parentElement?.querySelectorAll('button')?.length-1] 
     if(
       supportGemini &&
       !supportClaude
