@@ -3901,9 +3901,8 @@ function findGroupAndIndex(promptId) {
       chatInput().children[0].textContent = message;
       chatInput().children[0].focus();
     }else{
-      chatInput().value = message;
-      chatInput().dispatchEvent(new Event("input", { bubbles: true }));
-      chatInput().focus();
+      chatInput().children[0].textContent = message;
+      chatInput().children[0].focus();
     }
 
     if(isInsert){
