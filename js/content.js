@@ -3885,51 +3885,60 @@ function findGroupAndIndex(promptId) {
       }
     });
 
-    if (!chatInput()) {
-      alert(i18n("alert_not_found_input"));
-      return;
-    }
-    
-    if(supportClaude){
-      const messageArray = message.split("\n");
-      messageArray?.forEach((msg) => {
-        const paragraph = document.createElement('p');
-        paragraph.textContent = msg;
-        chatInput().appendChild(paragraph);
-      })
-    }else if(supportGemini){
-      chatInput().children[0].textContent = message;
-      chatInput().children[0].focus();
-    }else{
-      chatInput().children[0].textContent = message;
-      chatInput().children[0].focus();
-    }
-
-    if(isInsert){
-      return;
-    }
-
-    if (
-      !sendButton() &&
+    if(
+      !supportGemini &&
       !supportClaude
-    ) {
-      alert(i18n("alert_not_found_send_button"));
-      return;
+    ){
+      chatInput().textContent = "-";
     }
 
-    if(supportClaude){
-      setTimeout(() => {
-        sendButton().click();
-      }, 600);
-    }else if (isGenerating) {
-      setTimeout(() => {
-        sendButton().click();
-      }, 500);
-    } else {
-      setTimeout(() => {
-        sendButton().click();
-      }, 100);
-    }
+    setTimeout(() => {
+      if (!chatInput()) {
+        alert(i18n("alert_not_found_input"));
+        return;
+      }
+      
+      if(supportClaude){
+        const messageArray = message.split("\n");
+        messageArray?.forEach((msg) => {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = msg;
+          chatInput().appendChild(paragraph);
+        })
+      }else if(supportGemini){
+        chatInput().children[0].textContent = message;
+        chatInput().children[0].focus();
+      }else{
+        chatInput().children[0].textContent = message;
+        chatInput().children[0].focus();
+      }
+  
+      if(isInsert){
+        return;
+      }
+  
+      if (
+        !sendButton() &&
+        !supportClaude
+      ) {
+        alert(i18n("alert_not_found_send_button"));
+        return;
+      }
+  
+      if(supportClaude){
+        setTimeout(() => {
+          sendButton().click();
+        }, 600);
+      }else if (isGenerating) {
+        setTimeout(() => {
+          sendButton().click();
+        }, 500);
+      } else {
+        setTimeout(() => {
+          sendButton().click();
+        }, 100);
+      } 
+    });
   }
 
   function sendQuestionForm(isInsert = false) {
