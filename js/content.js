@@ -1863,6 +1863,12 @@ function findGroupAndIndex(promptId) {
                   <button id="dialog-cancel" class="secondary" tabindex="5">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
+                  <div class="buy-me-a-coffee">
+                    <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+                        <img style="scale: 0.9;"
+                            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+                    </a>
+                </div>
               </div>
           </div>
       </div>
@@ -2811,6 +2817,12 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
+        <div class="buy-me-a-coffee">
+            <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+                <img style="scale: 0.9;"
+                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+            </a>
+        </div>
       </div>
     </div>
   </div>  
