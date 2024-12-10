@@ -1,5 +1,7 @@
 const supportGemini = !window.location.href.includes("chatgpt.com");
 const supportClaude = window.location.href.includes("claude.ai");
+const userLanguage = navigator.language || chrome.i18n.getUILanguage();
+const isTW = userLanguage?.includes("zh-TW");
 
 const supportChatGPT = !supportGemini && !supportClaude;
 
@@ -1412,6 +1414,10 @@ function findGroupAndIndex(promptId) {
         position: absolute;
         right: 0;
       }
+      .footer .friend-links {
+        position: absolute;
+        right: 0;
+      }
       .footer .fixed-left {
         position: absolute;
         left: 0;
@@ -1835,6 +1841,31 @@ function findGroupAndIndex(promptId) {
       .dark .custom-icon{
         fill: white;
       }
+      #pinkoi-button {
+        display: ${ isTW ? 'flex' : 'none' };
+        align-items: center;
+        justify-content: center;
+        background-color: #d8a7b1; /* 柔和的粉色 */
+        color: #3c3c3c; /* 深灰色文字 */
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        gap: 10px;
+        width:150px;
+      }
+      #pinkoi-button:hover {
+        background-color: #c197a3; /* 深一點的粉色 */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+      #pinkoi-button img {
+        width: 20px;
+        height: 20px;
+      }
       `;
 
   // 插入 style
@@ -1863,12 +1894,11 @@ function findGroupAndIndex(promptId) {
                   <button id="dialog-cancel" class="secondary" tabindex="5">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
-                  <div class="buy-me-a-coffee">
-                    <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                        <img style="scale: 0.9;"
-                            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+                  <div class="friend-links">
+                    <a id="pinkoi-button" href="https://www.pinkoi.com/store/dearfine" target="_blank">
+                      緻金工 DearFine
                     </a>
-                </div>
+                  </div>
               </div>
           </div>
       </div>
@@ -2817,11 +2847,10 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="buy-me-a-coffee">
-            <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                <img style="scale: 0.9;"
-                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-            </a>
+        <div class="friend-links">
+          <a id="pinkoi-button" href="https://www.pinkoi.com/store/dearfine" target="_blank">
+            緻金工 DearFine
+          </a>
         </div>
       </div>
     </div>
