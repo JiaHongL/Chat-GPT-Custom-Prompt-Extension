@@ -2,6 +2,7 @@ const supportGemini = !window.location.href.includes("chatgpt.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = userLanguage?.includes("zh-TW");
+const isShowIgButton = Math.random() < 0.5;
 
 const supportChatGPT = !supportGemini && !supportClaude;
 
@@ -1845,8 +1846,8 @@ function findGroupAndIndex(promptId) {
         display: ${ isTW ? 'flex' : 'none' };
         align-items: center;
         justify-content: center;
-        background-color: #d8a7b1; /* 柔和的粉色 */
-        color: #3c3c3c; /* 深灰色文字 */
+        background: linear-gradient(45deg, #f8d7d9, #eec8cc); /* Pinkoi 粉色漸層 */
+        color: #5c5c5c; /* 深灰色文字，與 Pinkoi 配色一致 */
         text-decoration: none;
         padding: 10px 20px;
         border-radius: 50px;
@@ -1855,16 +1856,33 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         gap: 10px;
-        width:150px;
+        width: 150px;
       }
       #pinkoi-button:hover {
-        background-color: #c197a3; /* 深一點的粉色 */
+        background: linear-gradient(45deg, #eec8cc, #d9b6b9); /* 加深粉色漸層，符合 Pinkoi 點擊效果 */
         transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
       }
-      #pinkoi-button img {
-        width: 20px;
-        height: 20px;
+      #ig-button {
+        display: ${isTW ? 'flex' : 'none'};
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045); /* IG 風格漸層 */
+        color: #ffffff; /* 保持白色文字 */
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        gap: 10px;
+        width: 150px;
+      }
+      #ig-button:hover {
+        background: linear-gradient(45deg, #702f91, #e51414, #d89a37); /* 略微降低亮度的漸層 */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
       `;
 
@@ -1895,7 +1913,11 @@ function findGroupAndIndex(promptId) {
                     "button_cancel"
                   )} ( esc )</button>
                   <div class="friend-links">
-                    <a id="pinkoi-button" href="https://www.pinkoi.com/store/dearfine" target="_blank">
+                    <a 
+                      id="${isShowIgButton ? 'ig-button' : 'pinkoi-button'}" 
+                      href="${isShowIgButton ? 'https://www.instagram.com/dearfine_metal' : 'https://www.pinkoi.com/store/dearfine'}" 
+                      target="_blank"
+                    >
                       緻金工 DearFine
                     </a>
                   </div>
@@ -2848,7 +2870,11 @@ function findGroupAndIndex(promptId) {
           "button_cancel"
         )} ( esc ) </button>
         <div class="friend-links">
-          <a id="pinkoi-button" href="https://www.pinkoi.com/store/dearfine" target="_blank">
+          <a 
+            id="${isShowIgButton ? 'ig-button' : 'pinkoi-button'}" 
+            href="${isShowIgButton ? 'https://www.instagram.com/dearfine_metal' : 'https://www.pinkoi.com/store/dearfine'}" 
+            target="_blank"
+          >
             緻金工 DearFine
           </a>
         </div>
