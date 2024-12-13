@@ -1843,7 +1843,7 @@ function findGroupAndIndex(promptId) {
         fill: white;
       }
       #pinkoi-button {
-        display: ${ isTW ? 'flex' : 'none' };
+        display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(45deg, #f8d7d9, #eec8cc); /* Pinkoi 粉色漸層 */
@@ -1856,7 +1856,7 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         gap: 10px;
-        width: 150px;
+        width: ${isTW ? '150px' : '100px'}
       }
       #pinkoi-button:hover {
         background: linear-gradient(45deg, #eec8cc, #d9b6b9); /* 加深粉色漸層，符合 Pinkoi 點擊效果 */
@@ -1864,7 +1864,7 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
       }
       #ig-button {
-        display: ${isTW ? 'flex' : 'none'};
+        display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045); /* IG 風格漸層 */
@@ -1877,7 +1877,7 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         gap: 10px;
-        width: 150px;
+        width: ${isTW ? '150px' : '100px'}
       }
       #ig-button:hover {
         background: linear-gradient(45deg, #702f91, #e51414, #d89a37); /* 略微降低亮度的漸層 */
@@ -1918,7 +1918,7 @@ function findGroupAndIndex(promptId) {
                       href="${isShowIgButton ? 'https://www.instagram.com/dearfine_metal' : 'https://www.pinkoi.com/store/dearfine'}" 
                       target="_blank"
                     >
-                      緻金工 DearFine
+                      ${isTW ? '緻金工 DearFine' : 'DearFine'}
                     </a>
                   </div>
               </div>
@@ -2875,7 +2875,7 @@ function findGroupAndIndex(promptId) {
             href="${isShowIgButton ? 'https://www.instagram.com/dearfine_metal' : 'https://www.pinkoi.com/store/dearfine'}" 
             target="_blank"
           >
-            緻金工 DearFine
+            ${isTW ? '緻金工 DearFine' : 'DearFine'}
           </a>
         </div>
       </div>
