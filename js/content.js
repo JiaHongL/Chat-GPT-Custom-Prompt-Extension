@@ -2,7 +2,37 @@ const supportGemini = !window.location.href.includes("chatgpt.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = userLanguage?.includes("zh-TW");
-const isShowIgButton = Math.random() < 0.5;
+
+const adLinks = [
+`<div class="friend-links">
+    <a 
+      id="ig-button" 
+      href="https://www.instagram.com/dearfine_metal" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 DearFine' : 'DearFine'}
+    </a>
+  </div>`,
+  `<div class="friend-links">
+    <a 
+      id="pinkoi-button" 
+      href="https://www.pinkoi.com/store/dearfine" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 DearFine' : 'DearFine'}
+    </a>
+  </div>`,
+  `<div class="buy-me-a-coffee">
+    <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+        <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+    </a>
+  </div>`
+]
+
+function getRandomAdLink() {
+  const randomIndex = Math.floor(Math.random() * adLinks.length);
+  return adLinks[randomIndex];
+}
 
 const supportChatGPT = !supportGemini && !supportClaude;
 
@@ -1912,15 +1942,7 @@ function findGroupAndIndex(promptId) {
                   <button id="dialog-cancel" class="secondary" tabindex="5">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
-                  <div class="friend-links">
-                    <a 
-                      id="${isShowIgButton ? 'ig-button' : 'pinkoi-button'}" 
-                      href="${isShowIgButton ? 'https://www.instagram.com/dearfine_metal' : 'https://www.pinkoi.com/store/dearfine'}" 
-                      target="_blank"
-                    >
-                      ${isTW ? '緻金工 DearFine' : 'DearFine'}
-                    </a>
-                  </div>
+                  ${getRandomAdLink()}
               </div>
           </div>
       </div>
@@ -2274,12 +2296,7 @@ function findGroupAndIndex(promptId) {
           <button tabindex="100" id="dialog2-cancel" class="secondary">${i18n(
             "button_cancel"
           )} ( esc ) </button>
-          <div class="buy-me-a-coffee">
-              <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                  <img style="scale: 0.9;"
-                      src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-              </a>
-          </div>
+          ${getRandomAdLink()}
       </div>
 
   </div>
@@ -2683,11 +2700,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="1000" id="dialog4-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="buy-me-a-coffee">
-          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-          </a>
-        </div>
+        ${getRandomAdLink()}
       </div>
   </div>
 
@@ -2744,11 +2757,7 @@ function findGroupAndIndex(promptId) {
           <button id="dialog5-cancel" class="secondary">${i18n(
             "button_close"
           )} ( esc ) </button>
-          <div class="buy-me-a-coffee">
-            <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-              <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-            </a>
-          </div>
+          ${getRandomAdLink()}
         </div>
     </div>
 
@@ -2836,12 +2845,7 @@ function findGroupAndIndex(promptId) {
             <button tabindex="1000" id="dialog6-cancel" class="secondary">${i18n(
               "button_cancel"
             )} ( esc ) </button>
-            <div class="buy-me-a-coffee">
-                <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-                    <img style="scale: 0.9;"
-                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-                </a>
-            </div>
+            ${getRandomAdLink()}
         </div>
     </div>
 </div>
@@ -2869,15 +2873,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="friend-links">
-          <a 
-            id="${isShowIgButton ? 'ig-button' : 'pinkoi-button'}" 
-            href="${isShowIgButton ? 'https://www.instagram.com/dearfine_metal' : 'https://www.pinkoi.com/store/dearfine'}" 
-            target="_blank"
-          >
-            ${isTW ? '緻金工 DearFine' : 'DearFine'}
-          </a>
-        </div>
+        ${getRandomAdLink()}
       </div>
     </div>
   </div>  
@@ -2895,11 +2891,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog8-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="buy-me-a-coffee">
-          <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-            <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-          </a>
-        </div>
+        ${getRandomAdLink()}
       </div>
     </div>
   </div>  
