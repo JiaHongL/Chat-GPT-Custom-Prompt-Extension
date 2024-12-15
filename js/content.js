@@ -13,6 +13,20 @@ const adLinks = [
       ${isTW ? '緻金工 DearFine' : 'DearFine'}
     </a>
   </div>`,
+  `<div class="buy-me-a-coffee">
+    <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+        <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+    </a>
+  </div>`,
+  `<div class="friend-links">
+    <a 
+      id="threads-button" 
+      href="https://www.threads.net/@dearfine_metal" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 DearFine' : 'DearFine'}
+    </a>
+  </div>`,
   `<div class="friend-links">
     <a 
       id="pinkoi-button" 
@@ -20,11 +34,6 @@ const adLinks = [
       target="_blank"
     >
       ${isTW ? '緻金工 DearFine' : 'DearFine'}
-    </a>
-  </div>`,
-  `<div class="buy-me-a-coffee">
-    <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-        <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
     </a>
   </div>`
 ]
@@ -1911,6 +1920,27 @@ function findGroupAndIndex(promptId) {
       }
       #ig-button:hover {
         background: linear-gradient(45deg, #702f91, #e51414, #d89a37); /* 略微降低亮度的漸層 */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+      #threads-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000000; /* Threads 主色調黑色 */
+        color: #ffffff; /* 白色文字 */
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        gap: 10px;
+        width: ${isTW ? '150px' : '100px'};
+      }
+      #threads-button:hover {
+        background: #333333; /* 提供更淺的黑色作為 hover 效果 */
         transform: translateY(-2px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
