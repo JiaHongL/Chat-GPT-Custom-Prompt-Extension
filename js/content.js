@@ -4,30 +4,27 @@ const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = userLanguage?.includes("zh-TW");
 
 const adLinks = [
-`<div class="friend-links">
-    <a 
+  `<a 
       id="ig-button" 
       href="https://www.instagram.com/dearfine_metal" 
       target="_blank"
     >
       ${isTW ? '緻金工 DearFine' : 'DearFine'}
     </a>
-  </div>`,
-  `<div class="buy-me-a-coffee">
-    <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+  `,
+  `<a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
         <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
     </a>
-  </div>`,
-  `<div class="friend-links">
-    <a 
+  `,
+  `<a 
       id="threads-button" 
       href="https://www.threads.net/@dearfine_metal" 
       target="_blank"
     >
       ${isTW ? '緻金工 DearFine' : 'DearFine'}
     </a>
-  </div>`,
-  `<div class="friend-links">
+  `,
+  `
     <a 
       id="pinkoi-button" 
       href="https://www.pinkoi.com/store/dearfine" 
@@ -35,49 +32,68 @@ const adLinks = [
     >
       ${isTW ? '緻金工 DearFine' : 'DearFine'}
     </a>
-  </div>`,
-  `<div class="friend-links">
+  `,
+  `
     <a 
       id="pinkoi-button" 
       href="https://www.pinkoi.com/product/yqc8ddKe" 
       target="_blank"
     >
-      ${isTW ? '緻金工 💍🌼' : 'DearFine 💍🌼'}
+      ${isTW ? '緻金工 💍 🌼 🆕' : 'DearFine 💍 🌼 🆕'}
     </a>
-  </div>`,
-  `<div class="friend-links">
+  `,
+  `
     <a 
       id="pinkoi-button" 
       href="https://www.pinkoi.com/product/4CfgRbAm" 
       target="_blank"
     >
-      ${isTW ? '緻金工 🌼✨' : 'DearFine 🌼✨'}
+      ${isTW ? '緻金工 🌼 ✨' : 'DearFine 🌼 ✨'}
     </a>
-  </div>`,
-  `<div class="friend-links">
-    <a 
+  `,
+  `<a 
       id="pinkoi-button" 
       href="https://www.pinkoi.com/product/dqAqgjxF" 
       target="_blank"
     >
-      ${isTW ? '緻金工 🦋✨' : 'DearFine 🦋✨'}
-    </a>
-  </div>`,
-  `<div class="friend-links">
-    <a 
-      id="pinkoi-button" 
-      href="https://www.pinkoi.com/product/g8d7p233" 
-      target="_blank"
-    >
-      ${isTW ? '緻金工 💍✨' : 'DearFine 💍✨'}
-    </a>
-  </div>`,
+      ${isTW ? '緻金工 🦋 ✨' : 'DearFine 🦋 ✨'}
+  </a>`,
+  `<a 
+    id="pinkoi-button" 
+    href="https://www.pinkoi.com/product/g8d7p233" 
+    target="_blank"
+  >
+    ${isTW ? '緻金工 💍 ✨' : 'DearFine 💍 ✨'}
+  </a>
+  `,
+  `<a 
+    id="pinkoi-button" 
+    href="https://www.pinkoi.com/product/zL3M89iq" 
+    target="_blank"
+  >
+    ${isTW ? '緻金工 💍 💍 ✨' : 'DearFine 💍 💍 ✨'}
+  </a>
+  `,
 ]
+
+let preRandomIndex = null;
 
 function getRandomAdLink() {
   const randomIndex = Math.floor(Math.random() * adLinks.length);
-  return adLinks[randomIndex];
+  if (preRandomIndex === randomIndex) {
+    return getRandomAdLink();
+  }
+  document.querySelectorAll('.friend-links-2024-12-19-sun-o-ad').forEach((element) => {
+    element.innerHTML = adLinks[randomIndex];
+  });
 }
+
+setTimeout(() => {
+  getRandomAdLink();
+  setInterval(() => {
+    getRandomAdLink();
+  },7000)
+},200);
 
 const supportChatGPT = !supportGemini && !supportClaude;
 
@@ -1486,11 +1502,7 @@ function findGroupAndIndex(promptId) {
           align-items: center;
           padding:20px 0px;
       }
-      .footer .buy-me-a-coffee {
-        position: absolute;
-        right: 0;
-      }
-      .footer .friend-links {
+      .footer .friend-links-2024-12-19-sun-o-ad {
         position: absolute;
         right: 0;
       }
@@ -2008,7 +2020,7 @@ function findGroupAndIndex(promptId) {
                   <button id="dialog-cancel" class="secondary" tabindex="5">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
-                  ${getRandomAdLink()}
+                  <div class="friend-links-2024-12-19-sun-o-ad"></div>
               </div>
           </div>
       </div>
@@ -2362,7 +2374,7 @@ function findGroupAndIndex(promptId) {
           <button tabindex="100" id="dialog2-cancel" class="secondary">${i18n(
             "button_cancel"
           )} ( esc ) </button>
-          ${getRandomAdLink()}
+          <div class="friend-links-2024-12-19-sun-o-ad"></div>
       </div>
 
   </div>
@@ -2766,7 +2778,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="1000" id="dialog4-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        ${getRandomAdLink()}
+        <div class="friend-links-2024-12-19-sun-o-ad"></div>
       </div>
   </div>
 
@@ -2823,7 +2835,7 @@ function findGroupAndIndex(promptId) {
           <button id="dialog5-cancel" class="secondary">${i18n(
             "button_close"
           )} ( esc ) </button>
-          ${getRandomAdLink()}
+          <div class="friend-links-2024-12-19-sun-o-ad"></div>
         </div>
     </div>
 
@@ -2911,7 +2923,7 @@ function findGroupAndIndex(promptId) {
             <button tabindex="1000" id="dialog6-cancel" class="secondary">${i18n(
               "button_cancel"
             )} ( esc ) </button>
-            ${getRandomAdLink()}
+            <div class="friend-links-2024-12-19-sun-o-ad"></div>
         </div>
     </div>
 </div>
@@ -2939,7 +2951,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        ${getRandomAdLink()}
+        <div class="friend-links-2024-12-19-sun-o-ad"></div>
       </div>
     </div>
   </div>  
@@ -2957,7 +2969,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog8-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        ${getRandomAdLink()}
+        <div class="friend-links-2024-12-19-sun-o-ad"></div>
       </div>
     </div>
   </div>  
