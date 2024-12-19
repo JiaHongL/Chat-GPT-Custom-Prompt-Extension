@@ -35,7 +35,43 @@ const adLinks = [
     >
       ${isTW ? '緻金工 DearFine' : 'DearFine'}
     </a>
-  </div>`
+  </div>`,
+  `<div class="friend-links">
+    <a 
+      id="pinkoi-button" 
+      href="https://www.pinkoi.com/product/yqc8ddKe" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 💍🌼' : 'DearFine 💍🌼'}
+    </a>
+  </div>`,
+  `<div class="friend-links">
+    <a 
+      id="pinkoi-button" 
+      href="https://www.pinkoi.com/product/4CfgRbAm" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 🌼✨' : 'DearFine 🌼✨'}
+    </a>
+  </div>`,
+  `<div class="friend-links">
+    <a 
+      id="pinkoi-button" 
+      href="https://www.pinkoi.com/product/dqAqgjxF" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 🦋✨' : 'DearFine 🦋✨'}
+    </a>
+  </div>`,
+  `<div class="friend-links">
+    <a 
+      id="pinkoi-button" 
+      href="https://www.pinkoi.com/product/g8d7p233" 
+      target="_blank"
+    >
+      ${isTW ? '緻金工 💍✨' : 'DearFine 💍✨'}
+    </a>
+  </div>`,
 ]
 
 function getRandomAdLink() {
