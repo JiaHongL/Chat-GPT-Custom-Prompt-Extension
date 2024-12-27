@@ -1,99 +1,143 @@
+const newPtLists = [
+  {
+    "id": "ig-button",
+    "url": "https://www.instagram.com/dearfine_metal",
+    "labelTW": "緻金工 DearFine",
+    "labelEN": "DearFine"
+  },
+  {
+    "id": "threads-button",
+    "url": "https://www.threads.net/@dearfine_metal",
+    "labelTW": "緻金工 DearFine",
+    "labelEN": "DearFine"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/store/dearfine",
+    "labelTW": "緻金工 DearFine",
+    "labelEN": "DearFine"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/yqc8ddKe",
+    "labelTW": "清新雛菊 💍 🆕",
+    "labelEN": "DearFine 💍 🌼 🆕"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/4CfgRbAm",
+    "labelTW": "花朵純銀無痛耳骨夾",
+    "labelEN": "DearFine 🌼 ✨"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/g8d7p233",
+    "labelTW": "麻花扭轉 💍",
+    "labelEN": "DearFine 💍 ✨"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/zL3M89iq",
+    "labelTW": "霧面莫比烏斯 💍",
+    "labelEN": "DearFine 💍 💍 ✨"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/tJsA9hL3",
+    "labelTW": "木紋純 💍",
+    "labelEN": "DearFine 💍 🌟"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/iQW29LBF",
+    "labelTW": "編織浪花 💍",
+    "labelEN": "DearFine 💍 🌊"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/aHLs8QYt",
+    "labelTW": "波堤朵朵 💍",
+    "labelEN": "DearFine 💍 💭"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/dqAqgjxF",
+    "labelTW": "蝴蝶結無痛耳骨夾",
+    "labelEN": "DearFine 🦋 ✨"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/SKKyAeSb",
+    "labelTW": "V形 💎 💍",
+    "labelEN": "DearFine 💍 💎"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/z5Z2HBs7",
+    "labelTW": "V形麻花 💍",
+    "labelEN": "DearFine 💍 🥨"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/Cg4m4eFU",
+    "labelTW": "煦暖花圈 💍",
+    "labelEN": "DearFine 💍 🌻"
+  },
+  {
+    "id": "pinkoi-button",
+    "url": "https://www.pinkoi.com/product/LAPEgtwd",
+    "labelTW": "莫比烏斯弧面 💍",
+    "labelEN": "DearFine 💍 🔄"
+  }
+]
+
+const defaultPtItem =  `
+  <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
+    <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
+  </a>
+`;
+
 const supportGemini = !window.location.href.includes("chatgpt.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = userLanguage?.includes("zh-TW");
 
-const adLinks = [
-  `<a 
-      id="ig-button" 
-      href="https://www.instagram.com/dearfine_metal" 
-      target="_blank"
-    >
-      ${isTW ? '緻金工 DearFine' : 'DearFine'}
-    </a>
-  `,
-  `<a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
-        <img style="scale: 0.9;" src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=Joe.lin&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff?${new Date().getTime()}" />
-    </a>
-  `,
-  `<a 
-      id="threads-button" 
-      href="https://www.threads.net/@dearfine_metal" 
-      target="_blank"
-    >
-      ${isTW ? '緻金工 DearFine' : 'DearFine'}
-    </a>
-  `,
-  `
+const ptLinks = [
+  defaultPtItem
+];
+
+newPtLists?.forEach((pt) => {
+  ptLinks.push(`
     <a 
-      id="pinkoi-button" 
-      href="https://www.pinkoi.com/store/dearfine" 
+      id="${pt.id}" 
+      href="${pt.url}" 
       target="_blank"
     >
-      ${isTW ? '緻金工 DearFine' : 'DearFine'}
+    ${isTW ? pt.labelTW : pt.labelEN }
     </a>
-  `,
-  `
-    <a 
-      id="pinkoi-button" 
-      href="https://www.pinkoi.com/product/yqc8ddKe" 
-      target="_blank"
-    >
-      ${isTW ? '緻金工 💍 🌼 🆕' : 'DearFine 💍 🌼 🆕'}
-    </a>
-  `,
-  `
-    <a 
-      id="pinkoi-button" 
-      href="https://www.pinkoi.com/product/4CfgRbAm" 
-      target="_blank"
-    >
-      ${isTW ? '緻金工 🌼 ✨' : 'DearFine 🌼 ✨'}
-    </a>
-  `,
-  `<a 
-      id="pinkoi-button" 
-      href="https://www.pinkoi.com/product/dqAqgjxF" 
-      target="_blank"
-    >
-      ${isTW ? '緻金工 🦋 ✨' : 'DearFine 🦋 ✨'}
-  </a>`,
-  `<a 
-    id="pinkoi-button" 
-    href="https://www.pinkoi.com/product/g8d7p233" 
-    target="_blank"
-  >
-    ${isTW ? '緻金工 💍 ✨' : 'DearFine 💍 ✨'}
-  </a>
-  `,
-  `<a 
-    id="pinkoi-button" 
-    href="https://www.pinkoi.com/product/zL3M89iq" 
-    target="_blank"
-  >
-    ${isTW ? '緻金工 💍 💍 ✨' : 'DearFine 💍 💍 ✨'}
-  </a>
-  `,
-]
+  `);
+});
+
+setTimeout(() => {
+  getRandomPTLink();
+  if(ptLinks.length > 1){
+    setInterval(() => {
+      getRandomPTLink();
+    },8000)
+  }
+})
 
 let preRandomIndex = null;
 
-function getRandomAdLink() {
-  const randomIndex = Math.floor(Math.random() * adLinks.length);
+function getRandomPTLink() {
+  const randomIndex = Math.floor(Math.random() * ptLinks.length);
   if (preRandomIndex === randomIndex) {
-    return getRandomAdLink();
+    return getRandomPTLink();
   }
-  document.querySelectorAll('.friend-links-2024-12-19-sun-o-ad').forEach((element) => {
-    element.innerHTML = adLinks[randomIndex];
+  document.querySelectorAll('.super-sun-o-pt').forEach((element) => {
+    element.innerHTML = ptLinks[randomIndex];
   });
 }
-
-setTimeout(() => {
-  getRandomAdLink();
-  setInterval(() => {
-    getRandomAdLink();
-  },7000)
-},200);
 
 const supportChatGPT = !supportGemini && !supportClaude;
 
@@ -1502,7 +1546,7 @@ function findGroupAndIndex(promptId) {
           align-items: center;
           padding:20px 0px;
       }
-      .footer .friend-links-2024-12-19-sun-o-ad {
+      .footer .super-sun-o-pt {
         position: absolute;
         right: 0;
       }
@@ -1936,7 +1980,7 @@ function findGroupAndIndex(promptId) {
         background: linear-gradient(45deg, #f8d7d9, #eec8cc); /* Pinkoi 粉色漸層 */
         color: #5c5c5c; /* 深灰色文字，與 Pinkoi 配色一致 */
         text-decoration: none;
-        padding: 10px 20px;
+        padding: 10px 10px;
         border-radius: 50px;
         font-size: 14px;
         font-weight: bold;
@@ -2020,7 +2064,7 @@ function findGroupAndIndex(promptId) {
                   <button id="dialog-cancel" class="secondary" tabindex="5">${i18n(
                     "button_cancel"
                   )} ( esc )</button>
-                  <div class="friend-links-2024-12-19-sun-o-ad"></div>
+                  <div class="super-sun-o-pt"></div>
               </div>
           </div>
       </div>
@@ -2374,7 +2418,7 @@ function findGroupAndIndex(promptId) {
           <button tabindex="100" id="dialog2-cancel" class="secondary">${i18n(
             "button_cancel"
           )} ( esc ) </button>
-          <div class="friend-links-2024-12-19-sun-o-ad"></div>
+          <div class="super-sun-o-pt"></div>
       </div>
 
   </div>
@@ -2778,7 +2822,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="1000" id="dialog4-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="friend-links-2024-12-19-sun-o-ad"></div>
+        <div class="super-sun-o-pt"></div>
       </div>
   </div>
 
@@ -2835,7 +2879,7 @@ function findGroupAndIndex(promptId) {
           <button id="dialog5-cancel" class="secondary">${i18n(
             "button_close"
           )} ( esc ) </button>
-          <div class="friend-links-2024-12-19-sun-o-ad"></div>
+          <div class="super-sun-o-pt"></div>
         </div>
     </div>
 
@@ -2923,7 +2967,7 @@ function findGroupAndIndex(promptId) {
             <button tabindex="1000" id="dialog6-cancel" class="secondary">${i18n(
               "button_cancel"
             )} ( esc ) </button>
-            <div class="friend-links-2024-12-19-sun-o-ad"></div>
+            <div class="super-sun-o-pt"></div>
         </div>
     </div>
 </div>
@@ -2951,7 +2995,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog7-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="friend-links-2024-12-19-sun-o-ad"></div>
+        <div class="super-sun-o-pt"></div>
       </div>
     </div>
   </div>  
@@ -2969,7 +3013,7 @@ function findGroupAndIndex(promptId) {
         <button tabindex="100" id="dialog8-cancel" class="secondary">${i18n(
           "button_cancel"
         )} ( esc ) </button>
-        <div class="friend-links-2024-12-19-sun-o-ad"></div>
+        <div class="super-sun-o-pt"></div>
       </div>
     </div>
   </div>  
