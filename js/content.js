@@ -2,92 +2,82 @@ const newPtLists = [
   {
     "id": "ig-button",
     "url": "https://www.instagram.com/dearfine_metal",
-    "labelTW": "緻金工 DearFine",
-    "labelEN": "DearFine"
+    "label": "緻金工 DearFine"
   },
   {
     "id": "threads-button",
     "url": "https://www.threads.net/@dearfine_metal",
-    "labelTW": "緻金工 DearFine",
-    "labelEN": "DearFine"
+    "label": "緻金工 DearFine"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/store/dearfine",
-    "labelTW": "緻金工 DearFine",
-    "labelEN": "DearFine"
+    "label": "緻金工 DearFine"
+  },
+  {
+    "id": "fb-button",
+    "url": "https://www.facebook.com/dearfine.metal",
+    "label": "緻金工 DearFine"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/yqc8ddKe",
-    "labelTW": "清新雛菊 💍 🆕",
-    "labelEN": "DearFine 💍 🌼 🆕"
+    "label": "清新雛菊 💍 🌼 🆕"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/4CfgRbAm",
-    "labelTW": "花朵純銀無痛耳骨夾",
-    "labelEN": "DearFine 🌼 ✨"
+    "label": "花朵純銀無痛耳骨夾"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/g8d7p233",
-    "labelTW": "麻花扭轉 💍",
-    "labelEN": "DearFine 💍 ✨"
+    "label": "麻花扭轉 💍 ✨"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/zL3M89iq",
-    "labelTW": "霧面莫比烏斯 💍",
-    "labelEN": "DearFine 💍 💍 ✨"
+    "label": "霧面莫比烏斯 💍 💍"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/tJsA9hL3",
-    "labelTW": "木紋純 💍",
-    "labelEN": "DearFine 💍 🌟"
+    "label": "木紋純 💍 🌟"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/iQW29LBF",
-    "labelTW": "編織浪花 💍",
-    "labelEN": "DearFine 💍 🌊"
+    "label": "編織浪花 💍 🌊"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/aHLs8QYt",
-    "labelTW": "波堤朵朵 💍",
-    "labelEN": "DearFine 💍 💭"
+    "label": "波堤朵朵 💍 💭"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/dqAqgjxF",
-    "labelTW": "蝴蝶結無痛耳骨夾",
-    "labelEN": "DearFine 🦋 ✨"
+    "label": "蝴蝶結無痛耳骨夾"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/SKKyAeSb",
-    "labelTW": "V形 💎 💍",
-    "labelEN": "DearFine 💍 💎"
+    "label": "V形 💎 💍"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/z5Z2HBs7",
-    "labelTW": "V形麻花 💍",
-    "labelEN": "DearFine 💍 🥨"
+    "label": "V形麻花 💍"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/Cg4m4eFU",
-    "labelTW": "煦暖花圈 💍",
-    "labelEN": "DearFine 💍 🌻"
+    "label": "煦暖花圈 💍"
   },
   {
     "id": "pinkoi-button",
     "url": "https://www.pinkoi.com/product/LAPEgtwd",
-    "labelTW": "莫比烏斯弧面 💍",
-    "labelEN": "DearFine 💍 🔄"
+    "label": "莫比烏斯弧面 💍"
   }
 ]
 
@@ -100,30 +90,32 @@ const defaultPtItem =  `
 const supportGemini = !window.location.href.includes("chatgpt.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
-const isTW = userLanguage?.includes("zh-TW");
+const isTW = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Taipei" || userLanguage?.includes("zh-TW");
 
 const ptLinks = [
   defaultPtItem
 ];
 
-newPtLists?.forEach((pt) => {
-  ptLinks.push(`
-    <a 
-      id="${pt.id}" 
-      href="${pt.url}" 
-      target="_blank"
-    >
-    ${isTW ? pt.labelTW : pt.labelEN }
-    </a>
-  `);
-});
+if(isTW){
+  newPtLists?.forEach((pt) => {
+    ptLinks.push(`
+      <a 
+        id="${pt.id}" 
+        href="${pt.url}" 
+        target="_blank"
+      >
+      ${pt.label}
+      </a>
+    `);
+  });
+}
 
 setTimeout(() => {
   getRandomPTLink();
   if(ptLinks.length > 1){
     setInterval(() => {
       getRandomPTLink();
-    },8000)
+    }, 8000)
   }
 })
 
@@ -1987,10 +1979,31 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         gap: 10px;
-        width: ${isTW ? '150px' : '100px'}
+        width: 150px;
       }
       #pinkoi-button:hover {
         background: linear-gradient(45deg, #eec8cc, #d9b6b9); /* 加深粉色漸層，符合 Pinkoi 點擊效果 */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
+      #fb-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #1877f2, #155bc1); /* Facebook 藍色漸層 */
+        color: #ffffff; /* 白色文字，與 Facebook 配色一致 */
+        text-decoration: none;
+        padding: 10px 10px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        gap: 10px;
+        width: 150px;
+      }
+      #fb-button:hover {
+        background: linear-gradient(45deg, #155bc1, #0d3f91); /* 加深藍色漸層，符合 Facebook 點擊效果 */
         transform: translateY(-2px);
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
       }
@@ -2008,7 +2021,7 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         gap: 10px;
-        width: ${isTW ? '150px' : '100px'}
+        width: 150px;
       }
       #ig-button:hover {
         background: linear-gradient(45deg, #702f91, #e51414, #d89a37); /* 略微降低亮度的漸層 */
@@ -2029,7 +2042,7 @@ function findGroupAndIndex(promptId) {
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         gap: 10px;
-        width: ${isTW ? '150px' : '100px'};
+        width: 150px;
       }
       #threads-button:hover {
         background: #333333; /* 提供更淺的黑色作為 hover 效果 */
