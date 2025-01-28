@@ -88,7 +88,7 @@ const defaultPtItem =  `
 `;
 
 const supportGemini = !window.location.href.includes("chatgpt.com");
-const supportClaude = window.location.href.includes("claude.ai");
+const supportDeepSeek = window.location.href.includes("deepseek.com");
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Taipei" || userLanguage?.includes("zh-TW");
 
@@ -131,7 +131,7 @@ function getRandomPTLink() {
   });
 }
 
-const supportChatGPT = !supportGemini && !supportClaude;
+const supportChatGPT = !supportGemini && !supportDeepSeek;
 
 if (supportGemini) {
   document.body.classList.add('supportGemini');
@@ -1353,6 +1353,12 @@ function findGroupAndIndex(promptId) {
 
   // css style
   const styles = `
+      .light .dialog-wrapper{
+        color: black !important;
+      }
+      .dark .dialog-wrapper{
+        color: white !important;
+      }
       .custom-menu {
         ${ supportGemini ? 'z-index: 1;':'z-index: 0;' }
         position: fixed;
@@ -3685,7 +3691,7 @@ function findGroupAndIndex(promptId) {
 
     if(supportGemini){
       checkGeminiTheme();
-      if(supportClaude){
+      if(supportDeepSeek){
         checkClaudeTheme();
       }
       // 使用 getData 函式來獲取資料
@@ -4041,12 +4047,12 @@ function findGroupAndIndex(promptId) {
     let chatInput = document.querySelector("#prompt-textarea");
     if(
       supportGemini &&
-      !supportClaude
+      !supportDeepSeek
     ){
       chatInput = document.body.querySelector('rich-textarea');
     }
-    if(supportClaude){
-      chatInput = document.querySelector('div[contenteditable="true"]');
+    if(supportDeepSeek){
+      chatInput = document.getElementById("chat-input");
     }
     return chatInput;
   }
@@ -4056,12 +4062,12 @@ function findGroupAndIndex(promptId) {
     document.querySelector("#prompt-textarea")?.parentElement?.parentElement?.querySelectorAll('button')[document.querySelector("#prompt-textarea")?.parentElement?.parentElement?.querySelectorAll('button')?.length-1] 
     if(
       supportGemini &&
-      !supportClaude
+      !supportDeepSeek
     ){
       sendButton = document.querySelector('.send-button-container')?.querySelector('button');
     }
-    if(supportClaude){
-      sendButton = document.querySelector('button[aria-label="Send Message"]');
+    if(supportDeepSeek){
+      sendButton = document.querySelector("#chat-input").parentElement.parentElement.lastChild.lastChild.lastChild;
     }
     return sendButton;
   }
@@ -4081,7 +4087,7 @@ function findGroupAndIndex(promptId) {
 
     if(
       !supportGemini &&
-      !supportClaude
+      !supportDeepSeek
     ){
       chatInput().textContent = "-";
     }
@@ -4092,13 +4098,9 @@ function findGroupAndIndex(promptId) {
         return;
       }
       
-      if(supportClaude){
-        const messageArray = message.split("\n");
-        messageArray?.forEach((msg) => {
-          const paragraph = document.createElement('p');
-          paragraph.textContent = msg;
-          chatInput().appendChild(paragraph);
-        })
+      if(supportDeepSeek){
+        chatInput().value = message;
+        chatInput().dispatchEvent(new Event('input', { bubbles: true }));
       }else if(supportGemini){
         chatInput().children[0].textContent = message;
         chatInput().children[0].focus();
@@ -4113,17 +4115,13 @@ function findGroupAndIndex(promptId) {
   
       if (
         !sendButton() &&
-        !supportClaude
+        !supportDeepSeek
       ) {
         alert(i18n("alert_not_found_send_button"));
         return;
       }
   
-      if(supportClaude){
-        setTimeout(() => {
-          sendButton().click();
-        }, 600);
-      }else if (isGenerating) {
+      if (isGenerating) {
         setTimeout(() => {
           sendButton().click();
         }, 500);
