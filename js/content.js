@@ -87,8 +87,10 @@ const defaultPtItem =  `
   </a>
 `;
 
-const supportGemini = !window.location.href.includes("chatgpt.com");
+const supportOtherSite = !window.location.href.includes("chatgpt.com");
+const supportGemini = window.location.href.includes("gemini.google.com");
 const supportDeepSeek = window.location.href.includes("deepseek.com");
+const supportClaude = window.location.href.includes("claude.ai");
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Taipei" || userLanguage?.includes("zh-TW");
 
@@ -131,10 +133,10 @@ function getRandomPTLink() {
   });
 }
 
-const supportChatGPT = !supportGemini && !supportDeepSeek;
+const supportChatGPT = !supportOtherSite && !supportDeepSeek && !supportClaude;
 
-if (supportGemini) {
-  document.body.classList.add('supportGemini');
+if (supportOtherSite) {
+  document.body.classList.add('supportOtherSite');
 }
 
 const i18n = (key, params = []) => {
@@ -1360,7 +1362,7 @@ function findGroupAndIndex(promptId) {
         color: white !important;
       }
       .custom-menu {
-        ${ supportGemini ? 'z-index: 1;':'z-index: 0;' }
+        ${ supportOtherSite ? 'z-index: 1;':'z-index: 0;' }
         position: fixed;
         top:65px;
         right:0;
@@ -1377,8 +1379,8 @@ function findGroupAndIndex(promptId) {
         display:flex;
         flex-direction:column !important;
 
-        ${ supportGemini ? '':'transition: transform 0.3s ease-in-out;' }
-        ${ supportGemini ? '':'transform: translateX(0);' }
+        ${ supportOtherSite ? '':'transition: transform 0.3s ease-in-out;' }
+        ${ supportOtherSite ? '':'transform: translateX(0);' }
       }
       @media only screen and (max-width: 980px) {
         .custom-menu {
@@ -1450,7 +1452,7 @@ function findGroupAndIndex(promptId) {
         font-size: 16px;
         color: black;
         outline: none;
-        ${ supportGemini ? 'width:135px' : 'width:100%' }
+        ${ supportOtherSite ? 'width:135px' : 'width:100%' }
       }
       .dark .custom-menu .search-box .custom-keyword-input {
         background-color: black;
@@ -2071,7 +2073,7 @@ function findGroupAndIndex(promptId) {
                 "placeholder_prompt_textarea"
               )}"></textarea>
               <div class="footer center">
-                  <button ${supportGemini ? 'hidden' : ''} id="dialog-edit" class="info" tabindex="2">${i18n(
+                  <button ${supportOtherSite ? 'hidden' : ''} id="dialog-edit" class="info" tabindex="2">${i18n(
                     "button_edit"
                   )}</button>
                   <button id="dialog-ok" class="primary" tabindex="3">${i18n(
@@ -3002,7 +3004,7 @@ function findGroupAndIndex(promptId) {
         </div>
       </div>
       <div class="footer" class="center">
-        <button ${supportGemini ? 'hidden' : ''} tabindex="97" id="dialog7-edit" class="info">${i18n(
+        <button ${supportOtherSite ? 'hidden' : ''} tabindex="97" id="dialog7-edit" class="info">${i18n(
           "button_edit"
         )}</button>
         <button tabindex="98" id="dialog7-ok" class="primary">${i18n(
@@ -3083,7 +3085,7 @@ function findGroupAndIndex(promptId) {
       collapseToggle();
     });
 
-    if(supportGemini){
+    if(supportOtherSite){
       chrome.storage.local.get(['Custom.EnableGeminiSupport'], res=>{
 
         const enableGeminiSupport = res['Custom.EnableGeminiSupport'];
@@ -3342,33 +3344,33 @@ function findGroupAndIndex(promptId) {
         "text-sm"
       );
 
-      const supportGeminiDiv = document.createElement("div");
-      supportGeminiDiv.style = "width:100%";
-      supportGeminiDiv.innerHTML = `    
+      const supportOtherSiteDiv = document.createElement("div");
+      supportOtherSiteDiv.style = "width:100%";
+      supportOtherSiteDiv.innerHTML = `    
         <div class="flex items-center">
           <svg class="custom-icon" style="height:16px;width:16px;margin-right: 12px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M309 106c11.4-7 19-19.7 19-34c0-22.1-17.9-40-40-40s-40 17.9-40 40c0 14.4 7.6 27 19 34L209.7 220.6c-9.1 18.2-32.7 23.4-48.6 10.7L72 160c5-6.7 8-15 8-24c0-22.1-17.9-40-40-40S0 113.9 0 136s17.9 40 40 40c.2 0 .5 0 .7 0L86.4 427.4c5.5 30.4 32 52.6 63 52.6H426.6c30.9 0 57.4-22.1 63-52.6L535.3 176c.2 0 .5 0 .7 0c22.1 0 40-17.9 40-40s-17.9-40-40-40s-40 17.9-40 40c0 9 3 17.3 8 24l-89.1 71.3c-15.9 12.7-39.5 7.5-48.6-10.7L309 106z"/></svg>
           <div class="flex-1" style="font-size:12px;margin-right:5px">${i18n(
             "nav_menu_enable_gemini_support"
           )}</div>
           <div class="slide-checkbox" style="margin: 0 0 0 0">  
-            <input type="checkbox" value="true" id="supportGeminiCheckbox" name="check"/>
-            <label for="supportGeminiCheckbox"><span></span></label>
+            <input type="checkbox" value="true" id="supportOtherSiteCheckbox" name="check"/>
+            <label for="supportOtherSiteCheckbox"><span></span></label>
           </div>
         </div>
       `;
 
       const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
 
-      customATagEl.appendChild(supportGeminiDiv);
+      customATagEl.appendChild(supportOtherSiteDiv);
       const nav = document.querySelector("nav.flex");
       nav.insertBefore(customATagEl, nav.children[navItemCount -1]);
 
       const enableGeminiSupport = window.localStorage.getItem("Custom.EnableGeminiSupport") === 'true' ? true : false; 
-      document.getElementById("supportGeminiCheckbox").checked = enableGeminiSupport;
+      document.getElementById("supportOtherSiteCheckbox").checked = enableGeminiSupport;
       document
-      .getElementById("supportGeminiCheckbox")
+      .getElementById("supportOtherSiteCheckbox")
       .addEventListener("change", function () {
-        setSupportGeminiFlag(this.checked);
+        setSupportOtherSiteFlag(this.checked);
       });
 
     } catch (error) {
@@ -3542,7 +3544,7 @@ function findGroupAndIndex(promptId) {
       mutationTimer = setTimeout(function () {
 
         if (
-          !supportGemini &&
+          !supportOtherSite &&
           document.querySelector("nav.flex") &&
           document.querySelector("nav.flex")?.childNodes?.length >= 2 &&
           !document.getElementById("switchMenu")
@@ -3674,7 +3676,7 @@ function findGroupAndIndex(promptId) {
     });
   }
 
-  function setSupportGeminiFlag(flag){
+  function setSupportOtherSiteFlag(flag){
     window.localStorage.setItem("Custom.EnableGeminiSupport", flag);
     chrome.storage.local.set({"Custom.EnableGeminiSupport": flag}, function() {});
   }
@@ -3689,10 +3691,13 @@ function findGroupAndIndex(promptId) {
     superPromptSettingsDialog.style.display = "none";
     superPromptDialog.style.display = "none";
 
-    if(supportGemini){
+    if(supportOtherSite){
       checkGeminiTheme();
-      if(supportDeepSeek){
-        checkClaudeTheme();
+      if(
+        supportDeepSeek ||
+        supportClaude
+      ){
+        checkClaudeOrClaudeTheme();
       }
       // 使用 getData 函式來獲取資料
       getDataFromChromeStorage("Custom.Settings.Prompt", defaultPromptList, function(value) {
@@ -3746,7 +3751,7 @@ function findGroupAndIndex(promptId) {
         window.localStorage.getItem("Custom.EnableGeminiSupport")
       ){
         const enableGeminiSupport = window.localStorage.getItem("Custom.EnableGeminiSupport") === 'true' ? true : false; 
-        setSupportGeminiFlag(enableGeminiSupport);
+        setSupportOtherSiteFlag(enableGeminiSupport);
       }
     }
 
@@ -3766,7 +3771,7 @@ function findGroupAndIndex(promptId) {
     }
   }
 
-  function checkClaudeTheme(){
+  function checkClaudeOrClaudeTheme(){
     const isDarkMode = document.documentElement.getAttribute('data-mode') === 'dark';
     if(
       isDarkMode
@@ -4046,10 +4051,14 @@ function findGroupAndIndex(promptId) {
   function chatInput() {
     let chatInput = document.querySelector("#prompt-textarea");
     if(
-      supportGemini &&
-      !supportDeepSeek
+      supportGemini
     ){
       chatInput = document.body.querySelector('rich-textarea');
+    }
+    if(
+      supportClaude
+    ){
+      chatInput = document.querySelector('div[contenteditable="true"]');
     }
     if(supportDeepSeek){
       chatInput = document.getElementById("chat-input");
@@ -4061,10 +4070,14 @@ function findGroupAndIndex(promptId) {
     let sendButton = document.querySelector('button[data-testid="send-button"]') ||
     document.querySelector("#prompt-textarea")?.parentElement?.parentElement?.querySelectorAll('button')[document.querySelector("#prompt-textarea")?.parentElement?.parentElement?.querySelectorAll('button')?.length-1] 
     if(
-      supportGemini &&
-      !supportDeepSeek
+      supportGemini
     ){
       sendButton = document.querySelector('.send-button-container')?.querySelector('button');
+    }
+    if(
+      supportClaude
+    ){
+      sendButton = document.querySelector('button[aria-label="Send Message"]');
     }
     if(supportDeepSeek){
       sendButton = document.querySelector("#chat-input").parentElement.parentElement.lastChild.lastChild.lastChild;
@@ -4086,8 +4099,7 @@ function findGroupAndIndex(promptId) {
     });
 
     if(
-      !supportGemini &&
-      !supportDeepSeek
+      supportChatGPT
     ){
       chatInput().textContent = "-";
     }
@@ -4098,7 +4110,14 @@ function findGroupAndIndex(promptId) {
         return;
       }
       
-      if(supportDeepSeek){
+      if(supportClaude){
+        const messageArray = message.split("\n");
+        messageArray?.forEach((msg) => {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = msg;
+          chatInput().appendChild(paragraph);
+        });
+      }else if(supportDeepSeek){
         chatInput().value = message;
         chatInput().dispatchEvent(new Event('input', { bubbles: true }));
       }else if(supportGemini){
@@ -4115,7 +4134,7 @@ function findGroupAndIndex(promptId) {
   
       if (
         !sendButton() &&
-        !supportDeepSeek
+        !supportClaude
       ) {
         alert(i18n("alert_not_found_send_button"));
         return;
@@ -4140,7 +4159,7 @@ function findGroupAndIndex(promptId) {
   }
 
   questionDialogEditBtn.addEventListener("click", () => {
-    if(supportGemini){return}
+    if(supportOtherSite){return}
     questionDialog.style.display = "none";
     showSettingsDialog(questionId - 1);
   });
@@ -4957,7 +4976,7 @@ function findGroupAndIndex(promptId) {
   });
 
   editSuperPromptBtn.addEventListener("click", () => {
-    if(supportGemini){return}
+    if(supportOtherSite){return}
     superPromptDialog.style.display = "none";
     const { group, order } = findGroupAndIndex(superPromptId);
     showSuperPromptSettingDialog(group, order - 1);
@@ -5816,7 +5835,7 @@ function findGroupAndIndex(promptId) {
       }
     });
 
-    if(supportGemini){
+    if(supportOtherSite){
       menuDiv.style.visibility = "hidden";
     }
 

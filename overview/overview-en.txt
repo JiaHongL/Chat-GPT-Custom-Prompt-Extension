@@ -1,6 +1,7 @@
 The main features are:
 
 - Support Gemini
+- Support Claude
 - Support DeepSeek
 - Provide 10 question templates for users to quickly create questions.
 - Provide customizable settings window for users to freely design the format of questions.
