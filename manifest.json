@@ -3,7 +3,7 @@
   "name": "__MSG_extension_name__",
   "description": "__MSG_extension_description__",
   "author": "Joe",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "default_locale": "en",
   "icons": {
     "16": "images/icon/16.png",
@@ -22,6 +22,7 @@
           "https://gemini.google.com/app/*",
           "https://gemini.google.com/share/continue/*",
           "https://gemini.google.com/u/*",
+          "https://gemini.google.com/app?*",
           "https://chat.deepseek.com/*",
           "https://claude.ai/*",
           "https://grok.com/*"
