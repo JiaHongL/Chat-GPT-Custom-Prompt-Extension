@@ -1540,7 +1540,12 @@ function findGroupAndIndex(promptId) {
           width: 100%;
           border-collapse: collapse;
       }
-      .my-table th, td {
+      .my-table th{
+          border: 1px solid #ccc;
+          padding: 8px 12px;
+          color:black;
+      }
+      .my-table td {
           border: 1px solid #ccc;
           padding: 8px 12px;
           color:black;
@@ -1593,10 +1598,14 @@ function findGroupAndIndex(promptId) {
       #dialog3 .shortcut-content {
           font-size: 18px;
       }
-      #dialog3 .my-table th, td {
-          font-size: 22px;
-          font-weight: 500;
+      #dialog3 .my-table th {
+        font-size: 22px;
+        font-weight: 500;
       }
+      #dialog3 .my-table td {
+        font-size: 22px;
+        font-weight: 500;
+      }    
       .dark .dialog{
           background-color: rgba(68,70,84,1);
       }
