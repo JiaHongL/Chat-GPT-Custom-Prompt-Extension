@@ -1,4 +1,40 @@
-const newPtLists = []
+const newPtLists = [
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30609835/zh-Hant",
+    "label": "柴柴貼圖 - 實用篇"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30599810/zh-Hant",
+    "label": "柴柴貼圖 - 失戀篇"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30598858/zh-Hant",
+    "label": "柴柴貼圖 - 工程師"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30598985/zh-Hant",
+    "label": "柴柴貼圖 - 暈船仔"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30599712/zh-Hant",
+    "label": "柴柴貼圖 - 熱戀篇"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30599606/zh-Hant",
+    "label": "柴柴貼圖 - 日常篇"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/author/5375229/zh-Hant",
+    "label": "非柴柴本人貼圖"
+  }
+]
 
 const defaultPtItem =  `
   <a href="https://www.buymeacoffee.com/Joe.lin" target="_blank">
@@ -1944,6 +1980,27 @@ function findGroupAndIndex(promptId) {
         background: linear-gradient(45deg, #155bc1, #0d3f91); /* 加深藍色漸層，符合 Facebook 點擊效果 */
         transform: translateY(-2px);
         box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
+      #line-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #4caf50, #43a047); /* 深綠到淺綠漸層 */
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        gap: 10px;
+        width: 168px;
+      }
+      #line-button:hover {
+        background: linear-gradient(45deg, #388e3c, #2e7d32); /* hover 時再深一點 */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
       #ig-button {
         display: flex;
