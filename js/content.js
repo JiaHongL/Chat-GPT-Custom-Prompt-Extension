@@ -33,6 +33,11 @@ const newPtLists = [
     "id": "line-button",
     "url": "https://store.line.me/stickershop/author/5375229/zh-Hant",
     "label": "非柴柴本人貼圖"
+  },
+  {
+    "id": "line-button",
+    "url": "https://store.line.me/stickershop/product/30672796/zh-Hant",
+    "label": "柴柴貼圖 - 精選01"
   }
 ]
 

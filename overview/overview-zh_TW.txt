@@ -12,8 +12,6 @@
 - 可使用 tab 與 tab + shift 在欄位之間快速切換。
 - 支援 Windows 和 Mac 平台的快捷鍵功能，讓使用者更加快速地操作。
 - 支援 Dark Mode，讓使用者在低光環境下也能舒適地使用。
-- 可匯出設定檔，和朋友分享你設計的問題樣板和快速回覆文字。
-- 可下載當前對話的網頁，和朋友分享對話。
 
 介紹文件：
 https://hackmd.io/@inB0rEOBTayAqTzRfZwWLg/B170mJRxn

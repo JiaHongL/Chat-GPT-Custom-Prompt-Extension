@@ -13,7 +13,6 @@ The main features are:
 - Support shortcut functions for Windows and Mac platforms to allow users to operate more quickly.
 - Support Dark Mode to make users comfortable to use in low-light environments.
 - Export the configuration file and share your designed question templates and quick reply text with friends.
-- Download the current conversation webpage and share the conversation with friends.
 
 If you like this tool, please encourage us through the following link:
 https://www.buymeacoffee.com/Joe.lin
