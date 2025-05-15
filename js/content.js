@@ -3292,7 +3292,7 @@ function findGroupAndIndex(promptId) {
       const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
 
       customATagEl.appendChild(switchMenuDiv);
-      const nav = document.querySelector("nav.flex");
+      const nav = document.querySelector("nav.flex").lastChild;
       nav.insertBefore(customATagEl, nav.children[navItemCount -1]);
 
       document.getElementById("switchMenu").checked =
@@ -3354,7 +3354,7 @@ function findGroupAndIndex(promptId) {
       const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
 
       customATagEl.appendChild(supportOtherSiteDiv);
-      const nav = document.querySelector("nav.flex");
+      const nav = document.querySelector("nav.flex").lastChild;
       nav.insertBefore(customATagEl, nav.children[navItemCount -1]);
 
       const enableGeminiSupport = window.localStorage.getItem("Custom.EnableGeminiSupport") === 'true' ? true : false; 
@@ -3413,7 +3413,7 @@ function findGroupAndIndex(promptId) {
       const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
 
       customATagEl.appendChild(menuItemDiv);
-      const nav = document.querySelector("nav.flex");
+      const nav = document.querySelector("nav.flex").lastChild;
       nav.insertBefore(customATagEl, nav.children[navItemCount - 1]);
 
       const menuItems = customATagEl.querySelectorAll(".custom-menu-item");
@@ -3493,7 +3493,7 @@ function findGroupAndIndex(promptId) {
       const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
 
       customATagEl.appendChild(menuItemDiv);
-      const nav = document.querySelector("nav.flex");
+      const nav = document.querySelector("nav.flex").lastChild;
       nav.insertBefore(customATagEl, nav.children[navItemCount - 1]);
 
       const menuItems = customATagEl.querySelectorAll(".custom-menu-item");
