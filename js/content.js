@@ -85,8 +85,16 @@ setTimeout(() => {
 
 let preRandomIndex = null;
 
+let currentLoopCount = 0; 
+
 function getRandomPTLink() {
-  const randomIndex = Math.floor(Math.random() * ptLinks.length);
+  currentLoopCount++;
+  let randomIndex = Math.floor(Math.random() * ptLinks.length);
+  if(
+    currentLoopCount % 2 === 1
+  ){
+    randomIndex = 0;
+  }
   if (preRandomIndex === randomIndex) {
     return getRandomPTLink();
   }
