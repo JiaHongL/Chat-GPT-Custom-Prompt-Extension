@@ -52,6 +52,7 @@ const supportGemini = window.location.href.includes("gemini.google.com");
 const supportDeepSeek = window.location.href.includes("deepseek.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const supportGrok = window.location.href.includes("grok.com");
+const supportFelo = window.location.href.includes("felo.ai");
 
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Taipei" || userLanguage?.includes("zh-TW");
@@ -3692,7 +3693,9 @@ function findGroupAndIndex(promptId) {
     superPromptDialog.style.display = "none";
 
     if(supportOtherSite){
-      checkGeminiTheme();
+      if(supportGemini){
+        checkGeminiTheme();
+      }
       if(
         supportDeepSeek ||
         supportClaude
@@ -4066,6 +4069,9 @@ function findGroupAndIndex(promptId) {
     if(supportGrok){
       chatInput = document.querySelector('form').querySelector('textarea');
     }
+    if(supportFelo){
+      chatInput = document.querySelector('form').querySelector('textarea');
+    }
     return chatInput;
   }
   
@@ -4080,13 +4086,18 @@ function findGroupAndIndex(promptId) {
     if(
       supportClaude
     ){
-      sendButton = document.querySelector('button[aria-label="Send Message"]');
+      sendButton = document.querySelector('button[aria-label="Send message"]') || document.querySelector('button[aria-label="Send Message"]');
     }
     if(supportDeepSeek){
       sendButton = document.querySelector("#chat-input").parentElement.parentElement.lastChild.lastChild.lastChild;
     }
     if(supportGrok){
       sendButton = document.querySelector('form').querySelector('button[type="submit"]');
+    }
+    if(supportFelo){
+      sendButton = document.querySelector('form').querySelector('[type=submit]') ||
+      document.querySelector('form').querySelectorAll('button')[document.querySelector('form').querySelectorAll('button').length-1] || 
+      document.querySelector('form').querySelector('button.rounded-3xl') ;
     }
     return sendButton;
   }
@@ -4132,6 +4143,9 @@ function findGroupAndIndex(promptId) {
       }else if(supportGrok){
         chatInput().value = message;
         chatInput().dispatchEvent(new Event('input', { bubbles: true }));
+      }else if(supportFelo){
+        chatInput().value = message;
+        chatInput().dispatchEvent(new Event('input', { bubbles: true }));
       }else{
         chatInput().children[0].textContent = message;
         chatInput().children[0].focus();
@@ -4142,8 +4156,7 @@ function findGroupAndIndex(promptId) {
       }
   
       if (
-        !sendButton() &&
-        !supportClaude
+        !sendButton()
       ) {
         alert(i18n("alert_not_found_send_button"));
         return;
