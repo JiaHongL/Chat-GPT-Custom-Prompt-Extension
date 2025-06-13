@@ -3946,7 +3946,7 @@ function findGroupAndIndex(promptId) {
       event.key.toLocaleLowerCase() === "s"
     ) {
       event.preventDefault();
-      saveSittings();
+      saveSettings();
       return;
     }
 
@@ -3968,7 +3968,7 @@ function findGroupAndIndex(promptId) {
       event.key.toLocaleLowerCase() === "s"
     ) {
       event.preventDefault();
-      saveSuperPromptSittings();
+      saveSuperPromptSettings();
       return;
     }
 
@@ -4283,7 +4283,7 @@ function findGroupAndIndex(promptId) {
     }
   }
 
-  function saveSittings() {
+  function saveSettings() {
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
     const prefixInputElements = document.querySelectorAll(".prefixInput");
     const suffixInputElements = document.querySelectorAll(".suffixInput");
@@ -4322,7 +4322,7 @@ function findGroupAndIndex(promptId) {
   }
 
   settingsDialogOkBtn.addEventListener("click", () => {
-    saveSittings();
+    saveSettings();
   });
 
   settingsDialogCancelBtn.addEventListener("click", () => {
@@ -4436,7 +4436,7 @@ function findGroupAndIndex(promptId) {
 
   }
 
-  function saveSuperPromptSittings() {
+  function saveSuperPromptSettings() {
     const btnTextInputElements = document.querySelectorAll(
       ".superPromptButtonText"
     );
@@ -4482,7 +4482,7 @@ function findGroupAndIndex(promptId) {
   }
 
   superPromptSettingsDialogOkBtn.addEventListener("click", () => {
-    saveSuperPromptSittings();
+    saveSuperPromptSettings();
   });
 
   superPromptSettingsDialogCancelBtn.addEventListener("click", () => {
