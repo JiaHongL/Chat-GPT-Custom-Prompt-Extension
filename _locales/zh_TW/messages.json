@@ -255,6 +255,6 @@
     "message": "開啟設定視窗2"
   },
   "nav_menu_enable_gemini_support": {
-    "message": "Gemini & Claude & DeepSeek & Grok & Felo"
+    "message": "Gemini & Claude & DeepSeek & Grok & Felo & Perplexity"
   }
 }

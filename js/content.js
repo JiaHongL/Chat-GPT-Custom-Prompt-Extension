@@ -53,6 +53,7 @@ const supportDeepSeek = window.location.href.includes("deepseek.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const supportGrok = window.location.href.includes("grok.com");
 const supportFelo = window.location.href.includes("felo.ai");
+const supportPerplexity = window.location.href.includes("perplexity.ai");
 
 const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Taipei" || userLanguage?.includes("zh-TW");
@@ -1272,6 +1273,10 @@ function findGroupAndIndex(promptId) {
   const order = ((promptId - 1) % groupSize) + 1;
   return { group, order };
 }
+
+const time = supportPerplexity ? 500 : 0;
+
+setTimeout(()=>{
 
 (() => {
   "use strict";
@@ -3702,6 +3707,11 @@ function findGroupAndIndex(promptId) {
       ){
         checkClaudeOrClaudeTheme();
       }
+      if(
+        supportPerplexity
+      ){
+        checkPerplexityTheme();
+      }
       // 使用 getData 函式來獲取資料
       getDataFromChromeStorage("Custom.Settings.Prompt", defaultPromptList, function(value) {
         promptList = value;
@@ -3776,6 +3786,21 @@ function findGroupAndIndex(promptId) {
 
   function checkClaudeOrClaudeTheme(){
     const isDarkMode = document.documentElement.getAttribute('data-mode') === 'dark';
+    if(
+      isDarkMode
+    ){
+      document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
+    }else{
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+      document.documentElement.style.colorScheme = "light";
+    }
+  }
+
+  function checkPerplexityTheme(){
+    const isDarkMode = document.documentElement.dataset.colorScheme === 'dark';
     if(
       isDarkMode
     ){
@@ -4072,6 +4097,11 @@ function findGroupAndIndex(promptId) {
     if(supportFelo){
       chatInput = document.querySelector('form').querySelector('textarea');
     }
+    if(
+      supportPerplexity
+    ){
+      chatInput = document.querySelector('#ask-input');
+    }
     return chatInput;
   }
   
@@ -4098,6 +4128,11 @@ function findGroupAndIndex(promptId) {
       sendButton = document.querySelector('form').querySelector('[type=submit]') ||
       document.querySelector('form').querySelectorAll('button')[document.querySelector('form').querySelectorAll('button').length-1] || 
       document.querySelector('form').querySelector('button.rounded-3xl') ;
+    }
+    if(
+      supportPerplexity
+    ){
+      sendButton = document.querySelector('[data-testid="submit-button"]');
     }
     return sendButton;
   }
@@ -4146,6 +4181,25 @@ function findGroupAndIndex(promptId) {
       }else if(supportFelo){
         chatInput().value = message;
         chatInput().dispatchEvent(new Event('input', { bubbles: true }));
+      }else if(supportPerplexity){
+        if(chatInput() instanceof HTMLTextAreaElement){
+          chatInput().value = message;
+          chatInput().dispatchEvent(new Event('input', { bubbles: true }));
+        } else {
+          const editable = chatInput();
+          if (!editable) throw new Error('找不到可編輯區');
+          editable.focus();
+          // **把整個 editable 裡的文字全選起來**
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          const range = document.createRange();
+          range.selectNodeContents(editable);
+          sel.addRange(range);
+          setTimeout(() => {
+            // 這行就會覆蓋掉被選取的內容
+            document.execCommand('insertText', false, message); 
+          });
+        }
       }else{
         chatInput().children[0].textContent = message;
         chatInput().children[0].focus();
@@ -4154,23 +4208,25 @@ function findGroupAndIndex(promptId) {
       if(isInsert){
         return;
       }
-  
-      if (
-        !sendButton()
-      ) {
-        alert(i18n("alert_not_found_send_button"));
-        return;
+
+      if(!supportPerplexity){
+        if (
+          !sendButton()
+        ) {
+          alert(i18n("alert_not_found_send_button"));
+          return;
+        }
       }
   
       if (isGenerating) {
         setTimeout(() => {
-          sendButton().click();
+          sendButton()?.click();
         }, 500);
       } else {
         setTimeout(() => {
-          sendButton().click();
+          sendButton()?.click();
         }, 100);
-      } 
+      }
     });
   }
 
@@ -6375,3 +6431,5 @@ function findGroupAndIndex(promptId) {
   });
 
 })();
+
+},time);
