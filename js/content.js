@@ -4201,8 +4201,17 @@ setTimeout(()=>{
           });
         }
       }else{
-        chatInput().children[0].textContent = message;
-        chatInput().children[0].focus();
+        if(chatInput()?.children?.length){
+          while (chatInput()?.firstChild) {
+            chatInput().removeChild(chatInput()?.firstChild);
+          }
+        }
+        const messageArray = message?.split("\n");
+        messageArray?.forEach((msg) => {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = msg;
+          chatInput().appendChild(paragraph);
+        });
       }
   
       if(isInsert){
