@@ -2,7 +2,6 @@ The main features are:
 
 - Support Gemini
 - Support Claude
-- Support DeepSeek
 - Support Grok
 - Support Felo
 - Support Perplexity

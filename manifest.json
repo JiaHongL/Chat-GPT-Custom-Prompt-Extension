@@ -3,7 +3,7 @@
   "name": "__MSG_extension_name__",
   "description": "__MSG_extension_description__",
   "author": "Joe",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "default_locale": "en",
   "icons": {
     "16": "images/icon/16.png",
@@ -23,7 +23,6 @@
           "https://gemini.google.com/share/continue/*",
           "https://gemini.google.com/u/*",
           "https://gemini.google.com/app?*",
-          "https://chat.deepseek.com/*",
           "https://claude.ai/*",
           "https://grok.com/*",
           "https://felo.ai/*",
@@ -31,7 +30,6 @@
       ],
       "exclude_matches": [
         "https://chat.openai.com/auth/login",
-        "https://chat.deepseek.com/sign_in",
         "https://claude.ai/login"
       ],
       "js": ["js/content.js"]

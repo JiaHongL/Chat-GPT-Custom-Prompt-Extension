@@ -49,7 +49,6 @@ const defaultPtItem =  `
 
 const supportOtherSite = !window.location.href.includes("chatgpt.com");
 const supportGemini = window.location.href.includes("gemini.google.com");
-const supportDeepSeek = window.location.href.includes("deepseek.com");
 const supportClaude = window.location.href.includes("claude.ai");
 const supportGrok = window.location.href.includes("grok.com");
 const supportFelo = window.location.href.includes("felo.ai");
@@ -105,7 +104,7 @@ function getRandomPTLink() {
   });
 }
 
-const supportChatGPT = !supportOtherSite && !supportDeepSeek && !supportClaude && !supportGrok;
+const supportChatGPT = !supportOtherSite && !supportClaude && !supportGrok;
 
 if (supportOtherSite) {
   document.body.classList.add('supportOtherSite');
@@ -3702,7 +3701,6 @@ setTimeout(()=>{
         checkGeminiTheme();
       }
       if(
-        supportDeepSeek ||
         supportClaude
       ){
         checkClaudeOrClaudeTheme();
@@ -4088,9 +4086,6 @@ setTimeout(()=>{
     ){
       chatInput = document.querySelector('div[contenteditable="true"]');
     }
-    if(supportDeepSeek){
-      chatInput = document.getElementById("chat-input");
-    }
     if(supportGrok){
       chatInput = document.querySelector('form').querySelector('textarea');
     }
@@ -4117,9 +4112,6 @@ setTimeout(()=>{
       supportClaude
     ){
       sendButton = document.querySelector('button[aria-label="Send message"]') || document.querySelector('button[aria-label="Send Message"]');
-    }
-    if(supportDeepSeek){
-      sendButton = document.querySelector("#chat-input").parentElement.parentElement.lastChild.lastChild.lastChild;
     }
     if(supportGrok){
       sendButton = document.querySelector('form').querySelector('button[type="submit"]');
@@ -4169,9 +4161,6 @@ setTimeout(()=>{
           paragraph.textContent = msg;
           chatInput().appendChild(paragraph);
         });
-      }else if(supportDeepSeek){
-        chatInput().value = message;
-        chatInput().dispatchEvent(new Event('input', { bubbles: true }));
       }else if(supportGemini){
         chatInput().children[0].textContent = message;
         chatInput().children[0].focus();

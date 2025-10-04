@@ -2,7 +2,6 @@
 
 - Gemini を支援する
 - Claude を支援する
-- DeepSeek を支援する
 - Grok を支援する
 - Felo を支援する
 - Perplexity を支援する

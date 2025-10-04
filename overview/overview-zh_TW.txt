@@ -2,7 +2,6 @@
 
 - 支援 Gemini
 - 支援 Claude
-- 支援 DeepSeek
 - 支持 Grok
 - 支持 Felo
 - 支持 Perplexity

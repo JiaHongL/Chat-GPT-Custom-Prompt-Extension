@@ -2,7 +2,6 @@
 
 - Gemini를 지원하다
 - Claude 지원하다
-- DeepSeek를 지원하다
 - Grok 지원하다
 - Felo 지원하다
 - Perplexity 지원하다
