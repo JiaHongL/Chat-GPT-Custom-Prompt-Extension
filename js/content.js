@@ -47,6 +47,16 @@ const defaultPtItem =  `
   </a>
 `;
 
+const promptPacksItem =  `
+  <a 
+    id="prompt-packs-button" 
+    href="https://jiahongl.github.io/prompt-packs" 
+    target="_blank"
+  >
+    📚 Prompt Packs
+  </a>
+`;
+
 const supportOtherSite = !window.location.href.includes("chatgpt.com");
 const supportGemini = window.location.href.includes("gemini.google.com");
 const supportClaude = window.location.href.includes("claude.ai");
@@ -58,7 +68,8 @@ const userLanguage = navigator.language || chrome.i18n.getUILanguage();
 const isTW = Intl.DateTimeFormat().resolvedOptions().timeZone === "Asia/Taipei" || userLanguage?.includes("zh-TW");
 
 const ptLinks = [
-  defaultPtItem
+  defaultPtItem,
+  promptPacksItem
 ];
 
 if(isTW){
@@ -77,12 +88,10 @@ if(isTW){
 
 setTimeout(() => {
   getRandomPTLink();
-  if(ptLinks.length > 1){
-    setInterval(() => {
-      getRandomPTLink();
-    }, 8000)
-  }
-})
+  setInterval(() => {
+    getRandomPTLink();
+  }, 8000)
+}, 200)
 
 let preRandomIndex = null;
 
@@ -90,10 +99,9 @@ let currentLoopCount = 0;
 
 function getRandomPTLink() {
   currentLoopCount++;
-  let randomIndex = Math.floor(Math.random() * ptLinks.length);
-  if(
-    currentLoopCount % 2 === 1
-  ){
+  const bit = Math.random() < 0.5 ? 0 : 1;
+  let randomIndex = isTW ? Math.floor(Math.random() * ptLinks.length) : bit;
+  if(currentLoopCount ===1){
     randomIndex = 0;
   }
   if (preRandomIndex === randomIndex) {
@@ -2020,23 +2028,23 @@ setTimeout(()=>{
         transform: translateY(-2px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
-      #ig-button {
+      #prompt-packs-button {
         display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045); /* IG 風格漸層 */
         color: #ffffff; /* 保持白色文字 */
         text-decoration: none;
-        padding: 10px 20px;
+        padding: 10px 10px;
         border-radius: 50px;
         font-size: 14px;
         font-weight: bold;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         gap: 10px;
-        width: 150px;
+        width: 165px;
       }
-      #ig-button:hover {
+      #prompt-packs-button:hover {
         background: linear-gradient(45deg, #702f91, #e51414, #d89a37); /* 略微降低亮度的漸層 */
         transform: translateY(-2px);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
@@ -4695,10 +4703,26 @@ setTimeout(()=>{
       tr.parentNode.removeChild(tr);
     }
 
-    const innerHTML = superPrompt.replace(/\n/g, "<br>");
+    // 清空預覽區域
+    superPromptPreviewAreaDiv.textContent = '';
 
-    superPromptPreviewAreaDiv.innerHTML =
-      `<b>#${superPromptId} ${superPromptName}</b> <br>` + innerHTML;
+    // 創建標題元素
+    const titleBold = document.createElement('b');
+    titleBold.textContent = `#${superPromptId} ${superPromptName}`;
+    superPromptPreviewAreaDiv.appendChild(titleBold);
+
+    // 添加換行
+    superPromptPreviewAreaDiv.appendChild(document.createElement('br'));
+
+    // 處理 superPrompt 內容，將換行符轉換為 <br> 元素
+    const lines = superPrompt.split('\n');
+    lines?.forEach((line, index) => {
+      const textNode = document.createTextNode(line);
+      superPromptPreviewAreaDiv.appendChild(textNode);
+      if (index < lines.length - 1) {
+        superPromptPreviewAreaDiv.appendChild(document.createElement('br'));
+      }
+    });
 
     // 使用正規表達式搜尋 {{ 和 }} 之間的內容
     const matches = superPrompt.match(/{{\s*([^}]*)\s*}}/g) || [];
