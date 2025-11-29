@@ -4095,7 +4095,7 @@ setTimeout(()=>{
       chatInput = document.querySelector('div[contenteditable="true"]');
     }
     if(supportGrok){
-      chatInput = document.querySelector('form').querySelector('textarea');
+      chatInput = document.querySelector('form').querySelector('textarea') || document.querySelector('div[contenteditable="true"]');
     }
     if(supportFelo){
       chatInput = document.querySelector('form').querySelector('textarea');
@@ -4173,8 +4173,17 @@ setTimeout(()=>{
         chatInput().children[0].textContent = message;
         chatInput().children[0].focus();
       }else if(supportGrok){
-        chatInput().value = message;
-        chatInput().dispatchEvent(new Event('input', { bubbles: true }));
+        if(chatInput() instanceof HTMLTextAreaElement){
+          chatInput().value = message;
+          chatInput().dispatchEvent(new Event('input', { bubbles: true }));
+        }else{
+          const messageArray = message.split("\n");
+          messageArray?.forEach((msg) => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = msg;
+            chatInput().appendChild(paragraph);
+          });
+        }
       }else if(supportFelo){
         chatInput().value = message;
         chatInput().dispatchEvent(new Event('input', { bubbles: true }));
