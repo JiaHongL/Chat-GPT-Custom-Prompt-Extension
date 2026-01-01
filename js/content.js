@@ -3977,7 +3977,7 @@ setTimeout(()=>{
       event.key.toLocaleLowerCase() === "s"
     ) {
       event.preventDefault();
-      saveSittings();
+      saveSettings();
       return;
     }
 
@@ -3999,7 +3999,7 @@ setTimeout(()=>{
       event.key.toLocaleLowerCase() === "s"
     ) {
       event.preventDefault();
-      saveSuperPromptSittings();
+      saveSuperPromptSettings();
       return;
     }
 
@@ -4354,7 +4354,7 @@ setTimeout(()=>{
     }
   }
 
-  function saveSittings() {
+  function saveSettings() {
     const btnTextInputElements = document.querySelectorAll(".btnTextInput");
     const prefixInputElements = document.querySelectorAll(".prefixInput");
     const suffixInputElements = document.querySelectorAll(".suffixInput");
@@ -4393,7 +4393,7 @@ setTimeout(()=>{
   }
 
   settingsDialogOkBtn.addEventListener("click", () => {
-    saveSittings();
+    saveSettings();
   });
 
   settingsDialogCancelBtn.addEventListener("click", () => {
@@ -4507,7 +4507,7 @@ setTimeout(()=>{
 
   }
 
-  function saveSuperPromptSittings() {
+  function saveSuperPromptSettings() {
     const btnTextInputElements = document.querySelectorAll(
       ".superPromptButtonText"
     );
@@ -4553,7 +4553,7 @@ setTimeout(()=>{
   }
 
   superPromptSettingsDialogOkBtn.addEventListener("click", () => {
-    saveSuperPromptSittings();
+    saveSuperPromptSettings();
   });
 
   superPromptSettingsDialogCancelBtn.addEventListener("click", () => {
