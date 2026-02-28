@@ -3,7 +3,7 @@
   "name": "__MSG_extension_name__",
   "description": "__MSG_extension_description__",
   "author": "Joe",
-  "version": "1.6.3",
+  "version": "2.0.0",
   "default_locale": "en",
   "icons": {
     "16": "images/icon/16.png",
@@ -32,7 +32,32 @@
         "https://chat.openai.com/auth/login",
         "https://claude.ai/login"
       ],
-      "js": ["js/content.js"]
+      "js": ["js/loader.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/content.js",
+        "js/config/*.js",
+        "js/core/*.js",
+        "js/data/*.js",
+        "js/platforms/*.js",
+        "js/ui/*.js",
+        "js/ui/dialogs/*.js",
+        "js/ui/components/*.js",
+        "js/features/*.js",
+        "js/utils/*.js"
+      ],
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://grok.com/*",
+        "https://felo.ai/*",
+        "https://www.perplexity.ai/*"
+      ]
     }
   ]
 }
