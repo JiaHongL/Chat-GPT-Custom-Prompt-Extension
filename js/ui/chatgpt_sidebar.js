@@ -11,6 +11,7 @@ let _showQuickReplySettingsDialog = null;
 let _openExportAndImportDialog = null;
 let _showSuperPromptSettingDialog = null;
 let _showSuperPromptCategoryNameSettingsDialog = null;
+let lastInsertContainer = null;
 
 export function setShowSettingsDialog(fn) {
   _showSettingsDialog = fn;
@@ -39,16 +40,42 @@ export function resetCustomMenuItem() {
 }
 
 /**
- * 共用插入邏輯：確保所有 customMenuItem 依序相鄰
+ * 共用插入邏輯：插入到同一層的前方，保持與原有側邊欄項目同一層級
  */
+function getSidebarInsertContainer() {
+  const stageSidebar = document.getElementById("stage-slideover-sidebar");
+  const newLayoutSurface = stageSidebar?.querySelector('div[class*="sidebar-surface-primary"]');
+
+  // New layout: insert into the same "relative" layer as the account profile row,
+  // not inside nav[aria-label="側邊欄"].
+  const accountProfileBtn = newLayoutSurface?.querySelector('[data-testid="accounts-profile-button"]');
+  const newLayoutContainer = accountProfileBtn?.closest('div.relative');
+  if (newLayoutContainer) return newLayoutContainer;
+
+  // Fallback for older ChatGPT DOM
+  return document.querySelector("nav.flex");
+}
+
 function insertMenuItemToNav(customATagEl) {
-  const nav = document.querySelector("nav.flex").lastChild;
-  if (lastInsertedMenuItem && lastInsertedMenuItem.parentNode === nav) {
-    nav.insertBefore(customATagEl, lastInsertedMenuItem.nextSibling);
-  } else {
-    const navItemCount = document.querySelector("nav.flex")?.childNodes?.length;
-    nav.insertBefore(customATagEl, nav.children[navItemCount - 1]);
+  const container = getSidebarInsertContainer();
+  if (!container) return;
+
+  if (lastInsertContainer !== container) {
+    lastInsertedMenuItem = null;
+    lastInsertContainer = container;
   }
+
+  const sameLevelAnchor = container.firstElementChild;
+
+  if (lastInsertedMenuItem && lastInsertedMenuItem.parentNode === container && lastInsertedMenuItem.nextElementSibling) {
+    container.insertBefore(customATagEl, lastInsertedMenuItem.nextElementSibling);
+  } else if (sameLevelAnchor) {
+    // Insert at the front of the target layer to keep custom items grouped.
+    container.insertBefore(customATagEl, sameLevelAnchor);
+  } else {
+    container.appendChild(customATagEl);
+  }
+
   lastInsertedMenuItem = customATagEl;
 }
 
@@ -326,10 +353,10 @@ export function subscribeMutationObserver() {
   var observer = new MutationObserver(function (mutations) {
     clearTimeout(mutationTimer);
     mutationTimer = setTimeout(function () {
+      const sidebarInsertContainer = getSidebarInsertContainer();
       if (
         !supportOtherSite &&
-        document.querySelector("nav.flex") &&
-        document.querySelector("nav.flex")?.childNodes?.length >= 2 &&
+        sidebarInsertContainer &&
         !document.getElementById("switchMenu")
       ) {
         addCustomLeftMenuItem();

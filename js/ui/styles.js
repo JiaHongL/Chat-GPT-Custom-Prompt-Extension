@@ -9,20 +9,21 @@ export function injectStyles() {
         color: white !important;
       }
       .custom-menu {
-        ${ supportOtherSite ? 'z-index: 1;':'z-index: 0;' }
+        ${ supportOtherSite ? 'z-index: 1;':'z-index: 99998;' }
         position: fixed;
-        top:65px;
-        right:0;
-        height:calc(90vh - 65px);
+        top:72px;
+        right:8px;
+        left:auto;
+        height:calc(90vh - 72px);
         overflow-y: hidden;
         overflow-x: hidden;
-        box-sizing: content-box;
+        box-sizing: border-box;
         width:155px !important;
         padding:5px;
         background:rgb(236,236,241);
         border-radius:10px;
-        margin-right:8px;
-        
+        margin-right:0;
+
         display:flex;
         flex-direction:column !important;
 

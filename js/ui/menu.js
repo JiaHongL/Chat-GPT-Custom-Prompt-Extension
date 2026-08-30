@@ -42,6 +42,11 @@ export function generateButtons() {
 
     const menuDiv = document.createElement("div");
     menuDiv.classList.add("custom-menu");
+    menuDiv.style.position = "fixed";
+    menuDiv.style.top = "72px";
+    menuDiv.style.right = "8px";
+    menuDiv.style.left = "auto";
+    menuDiv.style.zIndex = "99998";
 
     // Search box
     const searchBoxDiv = document.createElement("div");
