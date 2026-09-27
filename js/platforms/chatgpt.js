@@ -6,7 +6,10 @@ import { BasePlatform } from './base.js';
 
 export class ChatGPTPlatform extends BasePlatform {
   getChatInput() {
-    return document.querySelector('#prompt-textarea');
+    return (
+      document.querySelector('#prompt-textarea') ||
+      document.querySelector('div.ProseMirror[contenteditable="true"][role="textbox"]')
+    );
   }
 
   getSendButton() {
