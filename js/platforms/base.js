@@ -54,9 +54,13 @@ export class BasePlatform {
     // 佔位處理
     this.preSend();
 
-    setTimeout(() => {
+    const insertWhenInputIsReady = (attempt = 0) => {
       const input = this.getChatInput();
       if (!input) {
+        if (attempt < 10) {
+          setTimeout(() => insertWhenInputIsReady(attempt + 1), 200);
+          return;
+        }
         alert(i18n('alert_not_found_input'));
         return;
       }
@@ -71,7 +75,9 @@ export class BasePlatform {
 
       // 送出
       this._clickSend(isGenerating);
-    });
+    };
+
+    setTimeout(insertWhenInputIsReady);
   }
 
   /**
@@ -80,7 +86,7 @@ export class BasePlatform {
    * @protected
    */
   _clickSend(isGenerating) {
-    const delay = isGenerating ? 500 : 100;
+    const delay = this._getSendDelay(isGenerating);
     setTimeout(() => {
       const btn = this.getSendButton();
       if (!btn) {
@@ -89,5 +95,14 @@ export class BasePlatform {
       }
       btn.click();
     }, delay);
+  }
+
+  /**
+   * 取得送出延遲時間（ms）
+   * @param {boolean} isGenerating - 是否正在生成中
+   * @protected
+   */
+  _getSendDelay(isGenerating) {
+    return isGenerating ?  300 : 100;
   }
 }

@@ -6,21 +6,34 @@ import { BasePlatform } from './base.js';
 
 export class ChatGPTPlatform extends BasePlatform {
   getChatInput() {
+    const selectors = [
+      '#prompt-textarea',
+      'div.ProseMirror[contenteditable="true"][role="textbox"]',
+      'form [contenteditable="true"][role="textbox"]',
+      '[contenteditable="true"][role="textbox"][data-composer-markdown]',
+    ];
+    const inputs = [...new Set(selectors.flatMap((selector) => [...document.querySelectorAll(selector)]))];
+
     return (
-      document.querySelector('#prompt-textarea') ||
-      document.querySelector('div.ProseMirror[contenteditable="true"][role="textbox"]')
+      inputs.find((input) => input.isConnected && input.getClientRects().length > 0) ||
+      inputs.find((input) => input.isConnected) ||
+      null
     );
   }
 
   getSendButton() {
+    const input = this.getChatInput();
     return (
       document.querySelector('button[data-testid="send-button"]') ||
-      document.querySelector('#prompt-textarea')
-        ?.parentElement?.parentElement?.querySelectorAll('button')[
-          document.querySelector('#prompt-textarea')
-            ?.parentElement?.parentElement?.querySelectorAll('button')?.length - 1
-        ]
+      input?.closest('form')?.querySelector('button[type="submit"]') ||
+      input?.parentElement?.parentElement?.querySelectorAll('button')[
+        input?.parentElement?.parentElement?.querySelectorAll('button')?.length - 1
+      ]
     );
+  }
+
+  _getSendDelay() {
+    return 500;
   }
 
   preSend() {

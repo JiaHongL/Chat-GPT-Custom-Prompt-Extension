@@ -39,20 +39,46 @@ export function resetCustomMenuItem() {
   lastInsertedMenuItem = null;
 }
 
+function getAccountProfileButton() {
+  const sidebar = document.getElementById("app-shell-sidebar") || document.getElementById("stage-slideover-sidebar");
+  return sidebar?.querySelector(
+    '[data-testid="accounts-profile-button"], button[aria-haspopup="menu"].absolute.inset-0'
+  ) || null;
+}
+
+function setCustomMenuItemsVisible(isVisible) {
+  document.querySelectorAll(".customMenuItem").forEach((menuItem) => {
+    menuItem.style.display = isVisible ? "" : "none";
+  });
+}
+
 /**
  * 共用插入邏輯：插入到同一層的前方，保持與原有側邊欄項目同一層級
  */
 function getSidebarInsertContainer() {
+  const appShellFooter = document.querySelector(
+    '#app-shell-sidebar div.relative.shrink-0[class*="container-type:inline-size"].w-full'
+  );
+  if (appShellFooter) return appShellFooter;
+
+  const accountProfileBtn = document.querySelector(
+    '#app-shell-sidebar [data-testid="accounts-profile-button"], #stage-slideover-sidebar [data-testid="accounts-profile-button"]'
+  );
+  const accountProfileRow = accountProfileBtn?.closest("div.relative") || accountProfileBtn?.parentElement;
+  if (accountProfileRow?.parentElement) return accountProfileRow.parentElement;
+
   const stageSidebar = document.getElementById("stage-slideover-sidebar");
   const newLayoutSurface = stageSidebar?.querySelector('div[class*="sidebar-surface-primary"]');
-
-  // New layout: insert into the same "relative" layer as the account profile row,
-  // not inside nav[aria-label="側邊欄"].
-  const accountProfileBtn = newLayoutSurface?.querySelector('[data-testid="accounts-profile-button"]');
-  const newLayoutContainer = accountProfileBtn?.closest('div.relative');
+  const newLayoutContainer = newLayoutSurface?.parentElement?.children?.[1];
   if (newLayoutContainer) return newLayoutContainer;
 
-  // Fallback for older ChatGPT DOM
+  // Current app-shell layout keeps the navigation separate from the bottom toolbar.
+  const appShellNavigation = document.querySelector(
+    '#app-shell-sidebar nav[role="navigation"]'
+  );
+  if (appShellNavigation) return appShellNavigation;
+
+  // Fallback for older ChatGPT DOM.
   return document.querySelector("nav.flex");
 }
 
@@ -65,15 +91,20 @@ function insertMenuItemToNav(customATagEl) {
     lastInsertContainer = container;
   }
 
-  const sameLevelAnchor = container.firstElementChild;
+  const accountProfileBtn = container.querySelector(
+    '[data-testid="accounts-profile-button"], button[aria-haspopup="menu"].absolute.inset-0'
+  );
+  let accountProfileRow = accountProfileBtn?.closest("div.relative") || accountProfileBtn?.parentElement;
+  while (accountProfileRow?.parentElement && accountProfileRow.parentElement !== container) {
+    accountProfileRow = accountProfileRow.parentElement;
+  }
 
   if (lastInsertedMenuItem && lastInsertedMenuItem.parentNode === container && lastInsertedMenuItem.nextElementSibling) {
     container.insertBefore(customATagEl, lastInsertedMenuItem.nextElementSibling);
-  } else if (sameLevelAnchor) {
-    // Insert at the front of the target layer to keep custom items grouped.
-    container.insertBefore(customATagEl, sameLevelAnchor);
+  } else if (accountProfileRow?.parentElement === container) {
+    container.insertBefore(customATagEl, accountProfileRow.nextElementSibling);
   } else {
-    container.appendChild(customATagEl);
+    container.insertBefore(customATagEl, container.firstElementChild);
   }
 
   lastInsertedMenuItem = customATagEl;
@@ -353,9 +384,12 @@ export function subscribeMutationObserver() {
   var observer = new MutationObserver(function (mutations) {
     clearTimeout(mutationTimer);
     mutationTimer = setTimeout(function () {
+      const accountProfileButton = getAccountProfileButton();
+      setCustomMenuItemsVisible(Boolean(accountProfileButton));
       const sidebarInsertContainer = getSidebarInsertContainer();
       if (
         !supportOtherSite &&
+        accountProfileButton &&
         sidebarInsertContainer &&
         !document.getElementById("switchMenu")
       ) {

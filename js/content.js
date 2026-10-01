@@ -85,7 +85,7 @@ import {
 // ====== Features ======
 import { startAdsRotation } from './features/ads_rotator.js';
 import {
-  checkGeminiTheme, checkClaudeOrClaudeTheme, checkPerplexityTheme,
+  checkChatGPTTheme, checkGeminiTheme, checkClaudeOrClaudeTheme, checkPerplexityTheme,
   darkModeToggle,
 } from './features/theme_manager.js';
 import { downloadChatGPTConversationAsHtml } from './features/chat_downloader.js';
@@ -160,6 +160,8 @@ function init(els) {
       generateButtons();
     });
   } else {
+    checkChatGPTTheme();
+
     // ChatGPT 平台：localStorage 優先
     getData(STORAGE_KEYS.PROMPT, defaultPromptList, (value) => {
       setPromptList(value);

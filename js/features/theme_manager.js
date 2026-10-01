@@ -2,6 +2,27 @@
  * features/theme_manager.js — 主題管理
  */
 
+let chatGPTThemeObserver = null;
+
+export function checkChatGPTTheme() {
+  const applyTheme = () => {
+    const isDarkMode = document.documentElement.dataset.theme === 'dark';
+    document.documentElement.classList.toggle('dark', isDarkMode);
+    document.documentElement.classList.toggle('light', !isDarkMode);
+    document.documentElement.style.colorScheme = isDarkMode ? 'dark' : 'light';
+  };
+
+  applyTheme();
+
+  if (!chatGPTThemeObserver) {
+    chatGPTThemeObserver = new MutationObserver(applyTheme);
+    chatGPTThemeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+  }
+}
+
 export function checkGeminiTheme() {
   if (document.body.classList.contains("dark-theme")) {
     document.documentElement.classList.remove("light");

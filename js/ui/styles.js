@@ -480,6 +480,60 @@ export function injectStyles() {
         resize: vertical;
         color:black;
       }
+      .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"],
+      .super-prompt-table-wrapper input.super-prompt-text[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        display: inline-grid;
+        flex: 0 0 20px;
+        place-content: center;
+        padding: 0;
+        border: 2px solid #64748b;
+        background-color: #fff;
+      }
+      .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"] {
+        border-radius: 3px;
+      }
+      .super-prompt-table-wrapper input.super-prompt-text[type="radio"] {
+        border-radius: 50%;
+      }
+      .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"]:checked,
+      .super-prompt-table-wrapper input.super-prompt-text[type="radio"]:checked {
+        border-color: #2563eb;
+        background-color: #2563eb;
+      }
+      .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"]:checked::after {
+        content: "";
+        width: 5px;
+        height: 9px;
+        margin-top: -2px;
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+      .super-prompt-table-wrapper input.super-prompt-text[type="radio"]:checked::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+      .dark .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"],
+      .dark .super-prompt-table-wrapper input.super-prompt-text[type="radio"] {
+        border-color: #cbd5e1;
+        background-color: transparent;
+      }
+      .dark .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"]:checked,
+      .dark .super-prompt-table-wrapper input.super-prompt-text[type="radio"]:checked {
+        border-color: #60a5fa;
+        background-color: #60a5fa;
+      }
+      .super-prompt-table-wrapper input.super-prompt-text[type="checkbox"]:focus-visible,
+      .super-prompt-table-wrapper input.super-prompt-text[type="radio"]:focus-visible {
+        outline: 2px solid #60a5fa;
+        outline-offset: 2px;
+      }
       .super-prompt-text::-webkit-input-placeholder {
         opacity: 0.5;
       }
@@ -649,6 +703,9 @@ export function injectStyles() {
         border: none !important;
         box-shadow: none !important;
         outline: none !important;
+      }
+      .dark .customMenuItem{
+        background-color: transparent;
       }
       .customMenuItem:first-of-type{
         margin-top: -1px;
